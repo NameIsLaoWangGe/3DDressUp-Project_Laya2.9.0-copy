@@ -2,33 +2,18 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":5774,
-    "searchKey":"Scene,Line01",
+    "selecteID":778,
+    "searchKey":"Scene,A",
     "referenceLines":[
         {
-            "value":-166,
+            "value":-67,
             "type":1,
             "id":1
-        },
-        {
-            "value":-87,
-            "type":1,
-            "id":2
-        },
-        {
-            "value":-24,
-            "type":1,
-            "id":3
-        },
-        {
-            "value":-37,
-            "type":1,
-            "id":4
         }],
-    "props":{"width":1280,"sceneColor":"#000000","name":"Line01","height":720},
+    "props":{"width":1280,"sceneColor":"#000000","name":"A","height":720},
     "nodeParent":-1,
-    "maxID":6118,
-    "label":"Line01",
+    "maxID":6733,
+    "label":"A",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -168,13 +153,14 @@
             "props":{"zOrder":150,"y":20,"x":1095,"width":240,"var":"Operation","skewX":0,"name":"Operation","height":682},
             "nodeParent":2,
             "label":"Operation",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":778,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":0,"skin":"Game/UI/Common/di.png"},
@@ -188,6 +174,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":5,"x":8,"skin":"Game/UI/Common/kuang.png"},
@@ -201,6 +188,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,List,List",
                     "props":{"y":11,"x":14,"width":159,"var":"List","spaceY":0,"rotation":0,"repeatY":4,"name":"List","height":628},
@@ -213,6 +201,7 @@
                     "compId":782,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":88,"x":80,"width":160,"renderType":"render","pivotY":88,"pivotX":80,"height":175},
@@ -225,6 +214,7 @@
                             "compId":783,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Board",
                                     "props":{"skin":"Game/UI/Common/xuanzhong.png","sizeGrid":"9,12,14,13","name":"Board","centerY":0,"centerX":0},
@@ -238,9 +228,10 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Icon",
-                                    "props":{"width":172,"skin":"Game/UI/Clothes/Icon/diy_bottom_008_final.png","name":"Icon","height":175,"centerY":0,"centerX":0},
+                                    "props":{"skin":"Game/UI/Clothes/Icon/diy_bottom_008_final.png","scaleY":0.7,"scaleX":0.7,"name":"Icon","centerY":3,"centerX":0},
                                     "nodeParent":783,
                                     "label":"Icon",
                                     "isDirectory":false,
@@ -253,6 +244,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BtnComplete,BtnComplete",
                     "props":{"y":48,"x":-60,"width":80,"var":"BtnComplete","skin":"Game/UI/Common/anniu_lv.png","skewY":1,"skewX":1,"sizeGrid":"16,9,9,15","scaleY":1,"scaleX":1,"pivotY":46,"pivotX":40,"name":"BtnComplete","height":92},
@@ -265,6 +257,7 @@
                     "compId":787,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":22,"x":17.5,"skin":"Game/UI/Common/duihao.png"},

@@ -3151,7 +3151,7 @@ export module lwg {
          * 颜色变化生命周期，在时间内改进行一次颜色渐变，之后回到原来的颜色，RGB颜色为匀速增加,基于帧率
          * @param node 节点
          * @param RGBA  [R,G,B,A],A必须输入
-         * @param time time为时间， time*2为一个周期
+         * @param time time为时间， time*2为一个周期，基于帧
          */
         export function _changeOnce(node, RGBA: Array<number>, time?: number, func?: Function): void {
             if (!node) {

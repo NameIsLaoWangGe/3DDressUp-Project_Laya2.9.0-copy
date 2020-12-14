@@ -366,7 +366,7 @@ export module _MakeTailor {
                 const color2 = _DIYClothes._ins()._getColor()[1];
                 const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                 for (let index = 0; index < num; index++) {
-                    Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 5], [0.1, 0.2], this._Owner.zOrder - 1);
+                    Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
                 }
             }
         }

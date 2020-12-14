@@ -1,5 +1,5 @@
 import ADManager, { TaT } from "../TJ/Admanager";
-import { Admin, EventAdmin, _LwgPreLoad, _SceneName } from "./Lwg";
+import { Admin, Animation2D, Color, Effects, EventAdmin, TimerAdmin, Tools, _LwgPreLoad, _SceneName } from "./Lwg";
 export module _Res {
     export let _list = {
         scene3D: {
@@ -38,7 +38,10 @@ export module _Res {
                 prefab: new Laya.Prefab,
             },
 
-
+            diy_bottom_002_final: {
+                url: 'Prefab/diy_bottom_002_final.json',
+                prefab: new Laya.Prefab,
+            },
             diy_bottom_003_final: {
                 url: 'Prefab/diy_bottom_003_final.json',
                 prefab: new Laya.Prefab,
@@ -72,8 +75,16 @@ export module _Res {
                 url: 'Prefab/diy_dress_004_final.json',
                 prefab: new Laya.Prefab,
             },
+            diy_dress_005_final: {
+                url: 'Prefab/diy_dress_005_final.json',
+                prefab: new Laya.Prefab,
+            },
             diy_dress_006_final: {
                 url: 'Prefab/diy_dress_006_final.json',
+                prefab: new Laya.Prefab,
+            },
+            diy_dress_007_final: {
+                url: 'Prefab/diy_dress_007_final.json',
                 prefab: new Laya.Prefab,
             },
             diy_dress_008_final: {
@@ -81,6 +92,15 @@ export module _Res {
                 prefab: new Laya.Prefab,
             },
 
+
+            diy_top_003_final: {
+                url: 'Prefab/diy_top_003_final.json',
+                prefab: new Laya.Prefab,
+            },
+            diy_top_004_final: {
+                url: 'Prefab/diy_top_004_final.json',
+                prefab: new Laya.Prefab,
+            },
             diy_top_005_final: {
                 url: 'Prefab/diy_top_005_final.json',
                 prefab: new Laya.Prefab,
@@ -93,6 +113,11 @@ export module _Res {
                 url: 'Prefab/diy_top_007_final.json',
                 prefab: new Laya.Prefab,
             },
+            diy_top_008_final: {
+                url: 'Prefab/diy_top_008_final.json',
+                prefab: new Laya.Prefab,
+            },
+
         },
         texture: {
             // glasses: {
@@ -158,19 +183,82 @@ export module _Res {
 
 export module _PreLoad {
     export class PreLoad extends _LwgPreLoad._PreLoadScene {
+
+        count = 0;
         lwgOnStart(): void {
-            this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
-            // ADManager.TAPoint(TaT.PageShow, 'loadpage');
-            // this._AniVar('ani1').play(0, false);
-            // this._AniVar('ani1').on(Laya.Event.LABEL, this, () => {
-            //     EventAdmin._notify(_LwgPreLoad._Event.importList, (_PreloadUrl._list));
-            // })
+            const scale = 1.2;
+            const time = 100;
+            const delay = 100;
+            this._ImgVar('LoGo').scale(0, 0);
+            this._ImgVar('Progress').scale(0, 0);
+            this._ImgVar('Anti').alpha = 0;
+            TimerAdmin._once(delay * 2, () => {
+                this.effect();
+            })
+            TimerAdmin._once(delay * 3, () => {
+                Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
+            })
+
+            TimerAdmin._frameLoop(time / 2 * 2, this, () => {
+                TimerAdmin._once(delay * 6, () => {
+                    Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
+                })
+            })
+
+            // 星星闪烁动画左边
+            TimerAdmin._frameRandomLoop(40, 60, this, () => {
+                Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+            }, true)
+            // 星星闪烁动画右边
+            TimerAdmin._frameRandomLoop(40, 60, this, () => {
+                Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+            }, true)
+            // 星星闪烁动画右边
+            // // 星星闪烁动画右边
+            // TimerAdmin._frameRandomLoop(50, 80, this, () => {
+            //     Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(0, 0), 300, 50, 'Game/UI/UISkinQualified/xingxing.png', 80, 80);
+            // }, true)
+
+            Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
+                Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
+                    TimerAdmin._frameNumLoop(2, 50, this, () => {
+                        this.count++;
+                        this.progressDisplay();
+                    }, () => {
+                        this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
+                    }, true)
+                    Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2)
+                }, delay * 3);
+            }, delay * 2);
+        }
+
+        effect(): void {
+            const count = 80;
+            const time = 30;
+            const dis = Tools._Number.randomOneInt(500, 500);
+            const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
+            for (let index = 0; index < count; index++) {
+                Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
+            }
+            for (let index = 0; index < count * 2; index++) {
+                Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
+            }
+        }
+
+        progressDisplay(): void {
+            this._ImgVar('ProgressBar').mask.x = - this._ImgVar('ProgressBar').width + this._ImgVar('ProgressBar').width / 100 * this.count;
         }
         lwgOpenAni(): number { return 1; }
         lwgStepComplete(): void {
         }
         lwgAllComplete(): number {
-            return 1000;
+            TimerAdmin._frameNumLoop(2, 3, this, () => {
+                this.count += 10;
+                this.progressDisplay();
+            }, () => {
+                this._ImgVar('ProgressBar').mask.x = 0;
+            })
+            return 1500;
         }
         lwgOnDisable(): void {
             // ADManager.TAPoint(TaT.PageLeave, 'loadpage');

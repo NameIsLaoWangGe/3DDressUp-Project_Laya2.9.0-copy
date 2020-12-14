@@ -3,6 +3,126 @@
 [
   {
     "index": 1,
+    "classify": "Bottoms",
+    "name": "diy_bottom_002_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      41,
+      56,
+      87,
+      1
+    ],
+    "color2": [
+      123,
+      148,
+      183,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 1,
+    "classify": "Bottoms",
+    "name": "diy_bottom_003_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      58,
+      42,
+      76,
+      1
+    ],
+    "color2": [
+      37,
+      19,
+      54,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 2,
+    "classify": "Bottoms",
+    "name": "diy_bottom_004_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      34,
+      25,
+      45,
+      1
+    ],
+    "color2": [
+      34,
+      25,
+      45,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 3,
+    "classify": "Bottoms",
+    "name": "diy_bottom_005_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      30,
+      46,
+      88,
+      1
+    ],
+    "color2": [
+      34,
+      25,
+      45,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 4,
+    "classify": "Bottoms",
+    "name": "diy_bottom_006_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      75,
+      74,
+      95,
+      1
+    ],
+    "color2": [
+      75,
+      74,
+      95,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 1,
     "classify": "Dress",
     "name": "diy_dress_001_final",
     "unlockWay": "free",
@@ -26,7 +146,7 @@
     "diffY": 0
   },
   {
-    "index": 0,
+    "index": 2,
     "classify": "Dress",
     "name": "diy_dress_002_final",
     "unlockWay": "free",
@@ -44,13 +164,13 @@
       167,
       1
     ],
-    "pitch": true,
+    "pitch": false,
     "reach": true,
     "completeSkin": "",
     "diffY": 0
   },
   {
-    "index": 2,
+    "index": 3,
     "classify": "Dress",
     "name": "diy_dress_003_final",
     "unlockWay": "free",
@@ -74,7 +194,7 @@
     "diffY": 0
   },
   {
-    "index": 0,
+    "index": 4,
     "classify": "Dress",
     "name": "diy_dress_004_final",
     "unlockWay": "free",
@@ -98,7 +218,31 @@
     "diffY": 0
   },
   {
-    "index": 3,
+    "index": 5,
+    "classify": "Dress",
+    "name": "diy_dress_005_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      31,
+      65,
+      99,
+      1
+    ],
+    "color2": [
+      31,
+      65,
+      99,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 6,
     "classify": "Dress",
     "name": "diy_dress_006_final",
     "unlockWay": "free",
@@ -122,7 +266,31 @@
     "diffY": 0
   },
   {
-    "index": 4,
+    "index": 7,
+    "classify": "Dress",
+    "name": "diy_dress_007_final",
+    "unlockWay": "free",
+    "conditionNum": 10,
+    "degreeNum": 10,
+    "color1": [
+      71,
+      55,
+      126,
+      1
+    ],
+    "color2": [
+      71,
+      55,
+      126,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 8,
     "classify": "Dress",
     "name": "diy_dress_008_final",
     "unlockWay": "free",
@@ -148,6 +316,54 @@
   {
     "index": 1,
     "classify": "Top",
+    "name": "diy_top_003_final",
+    "unlockWay": "free",
+    "conditionNum": 0,
+    "degreeNum": 0,
+    "color1": [
+      18,
+      42,
+      106,
+      1
+    ],
+    "color2": [
+      18,
+      42,
+      106,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 2,
+    "classify": "Top",
+    "name": "diy_top_004_final",
+    "unlockWay": "free",
+    "conditionNum": 0,
+    "degreeNum": 0,
+    "color1": [
+      210,
+      54,
+      98,
+      1
+    ],
+    "color2": [
+      210,
+      54,
+      98,
+      1
+    ],
+    "pitch": false,
+    "reach": true,
+    "completeSkin": "",
+    "diffY": 0
+  },
+  {
+    "index": 3,
+    "classify": "Top",
     "name": "diy_top_005_final",
     "unlockWay": "free",
     "conditionNum": 10,
@@ -170,7 +386,7 @@
     "diffY": 0
   },
   {
-    "index": 2,
+    "index": 4,
     "classify": "Top",
     "name": "diy_top_006_final",
     "unlockWay": "free",
@@ -194,7 +410,7 @@
     "diffY": 0
   },
   {
-    "index": 3,
+    "index": 5,
     "classify": "Top",
     "name": "diy_top_007_final",
     "unlockWay": "free",
@@ -218,94 +434,22 @@
     "diffY": 0
   },
   {
-    "index": 1,
-    "classify": "Bottoms",
-    "name": "diy_bottom_003_final",
+    "index": 6,
+    "classify": "Top",
+    "name": "diy_top_008_final",
     "unlockWay": "free",
-    "conditionNum": 10,
-    "degreeNum": 10,
+    "conditionNum": 0,
+    "degreeNum": 0,
     "color1": [
-      37,
-      19,
-      54,
+      102,
+      57,
+      67,
       1
     ],
     "color2": [
-      37,
-      19,
-      54,
-      1
-    ],
-    "pitch": false,
-    "reach": true,
-    "completeSkin": "",
-    "diffY": 0
-  },
-  {
-    "index": 2,
-    "classify": "Bottoms",
-    "name": "diy_bottom_006_final",
-    "unlockWay": "free",
-    "conditionNum": 10,
-    "degreeNum": 10,
-    "color1": [
-      75,
-      74,
-      95,
-      1
-    ],
-    "color2": [
-      75,
-      74,
-      95,
-      1
-    ],
-    "pitch": false,
-    "reach": true,
-    "completeSkin": "",
-    "diffY": 0
-  },
-  {
-    "index": 3,
-    "classify": "Bottoms",
-    "name": "diy_bottom_004_final",
-    "unlockWay": "free",
-    "conditionNum": 10,
-    "degreeNum": 10,
-    "color1": [
-      34,
-      25,
-      45,
-      1
-    ],
-    "color2": [
-      34,
-      25,
-      45,
-      1
-    ],
-    "pitch": false,
-    "reach": true,
-    "completeSkin": "",
-    "diffY": 0
-  },
-  {
-    "index": 4,
-    "classify": "Bottoms",
-    "name": "diy_bottom_005_final",
-    "unlockWay": "free",
-    "conditionNum": 10,
-    "degreeNum": 10,
-    "color1": [
-      30,
-      46,
-      88,
-      1
-    ],
-    "color2": [
-      34,
-      25,
-      45,
+      102,
+      57,
+      67,
       1
     ],
     "pitch": false,

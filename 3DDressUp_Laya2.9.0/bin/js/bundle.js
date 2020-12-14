@@ -6260,6 +6260,10 @@
                     url: 'Prefab/BtnRollback.json',
                     prefab: new Laya.Prefab,
                 },
+                diy_bottom_002_final: {
+                    url: 'Prefab/diy_bottom_002_final.json',
+                    prefab: new Laya.Prefab,
+                },
                 diy_bottom_003_final: {
                     url: 'Prefab/diy_bottom_003_final.json',
                     prefab: new Laya.Prefab,
@@ -6292,12 +6296,28 @@
                     url: 'Prefab/diy_dress_004_final.json',
                     prefab: new Laya.Prefab,
                 },
+                diy_dress_005_final: {
+                    url: 'Prefab/diy_dress_005_final.json',
+                    prefab: new Laya.Prefab,
+                },
                 diy_dress_006_final: {
                     url: 'Prefab/diy_dress_006_final.json',
                     prefab: new Laya.Prefab,
                 },
+                diy_dress_007_final: {
+                    url: 'Prefab/diy_dress_007_final.json',
+                    prefab: new Laya.Prefab,
+                },
                 diy_dress_008_final: {
                     url: 'Prefab/diy_dress_008_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_003_final: {
+                    url: 'Prefab/diy_top_003_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_004_final: {
+                    url: 'Prefab/diy_top_004_final.json',
                     prefab: new Laya.Prefab,
                 },
                 diy_top_005_final: {
@@ -6310,6 +6330,10 @@
                 },
                 diy_top_007_final: {
                     url: 'Prefab/diy_top_007_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_008_final: {
+                    url: 'Prefab/diy_top_008_final.json',
                     prefab: new Laya.Prefab,
                 },
             },
@@ -6349,14 +6373,72 @@
     var _PreLoad;
     (function (_PreLoad) {
         class PreLoad extends _LwgPreLoad._PreLoadScene {
+            constructor() {
+                super(...arguments);
+                this.count = 0;
+            }
             lwgOnStart() {
-                this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
+                const scale = 1.2;
+                const time = 100;
+                const delay = 100;
+                this._ImgVar('LoGo').scale(0, 0);
+                this._ImgVar('Progress').scale(0, 0);
+                this._ImgVar('Anti').alpha = 0;
+                TimerAdmin._once(delay * 2, () => {
+                    this.effect();
+                });
+                TimerAdmin._once(delay * 3, () => {
+                    Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
+                });
+                TimerAdmin._frameLoop(time / 2 * 2, this, () => {
+                    TimerAdmin._once(delay * 6, () => {
+                        Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
+                    });
+                });
+                TimerAdmin._frameRandomLoop(40, 60, this, () => {
+                    Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true);
+                TimerAdmin._frameRandomLoop(40, 60, this, () => {
+                    Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true);
+                Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
+                    Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
+                        TimerAdmin._frameNumLoop(2, 50, this, () => {
+                            this.count++;
+                            this.progressDisplay();
+                        }, () => {
+                            this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
+                        }, true);
+                        Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
+                    }, delay * 3);
+                }, delay * 2);
+            }
+            effect() {
+                const count = 80;
+                const time = 30;
+                const dis = Tools._Number.randomOneInt(500, 500);
+                const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
+                for (let index = 0; index < count; index++) {
+                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
+                }
+                for (let index = 0; index < count * 2; index++) {
+                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
+                }
+            }
+            progressDisplay() {
+                this._ImgVar('ProgressBar').mask.x = -this._ImgVar('ProgressBar').width + this._ImgVar('ProgressBar').width / 100 * this.count;
             }
             lwgOpenAni() { return 1; }
             lwgStepComplete() {
             }
             lwgAllComplete() {
-                return 1000;
+                TimerAdmin._frameNumLoop(2, 3, this, () => {
+                    this.count += 10;
+                    this.progressDisplay();
+                }, () => {
+                    this._ImgVar('ProgressBar').mask.x = 0;
+                });
+                return 1500;
             }
             lwgOnDisable() {
             }
@@ -6924,7 +7006,7 @@
                         const color2 = _DIYClothes._ins()._getColor()[1];
                         const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                         for (let index = 0; index < num; index++) {
-                            Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 5], [0.1, 0.2], this._Owner.zOrder - 1);
+                            Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
                         }
                     }
                 };
@@ -8290,6 +8372,7 @@
         lwgOnAwake() {
             _LwgInit._pkgInfo = [];
             Platform._Ues.value = Platform._Tpye.Web;
+            Laya.Stat.show();
             SceneAnimation._Use.value = SceneAnimation._Type.shutters.randomshutters;
             SceneAnimation._closeSwitch = true;
             SceneAnimation._openSwitch = false;

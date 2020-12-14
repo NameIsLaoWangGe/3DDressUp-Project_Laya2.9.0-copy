@@ -2,6 +2,7 @@
     "x":0,
     "type":"Box",
     "selectedBox":5774,
+    "selecteID":2986,
     "searchKey":"Box,diy_top_003_final",
     "props":{"y":0,"x":0,"width":720,"scaleY":1,"scaleX":1,"presetID":1,"preset":"laya/pages/Prefab/diy_top_003_final.prefab","name":"diy_top_003_final","isPresetRoot":true,"height":720,"centerY":0,"centerX":0},
     "nodeParent":-1,
