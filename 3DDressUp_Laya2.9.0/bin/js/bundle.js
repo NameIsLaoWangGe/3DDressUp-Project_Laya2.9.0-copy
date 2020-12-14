@@ -2773,9 +2773,9 @@
                         this.alpha = 0;
                         this.zOrder = zOrder ? zOrder : 1000;
                         let RGBA = [];
-                        RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(10, 255);
-                        RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 200);
-                        RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(80, 100);
+                        RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(180, 255);
+                        RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 180);
+                        RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 180);
                         RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
                         Color._colour(this, RGBA);
                     }
@@ -3323,7 +3323,7 @@
             let _Glitter;
             (function (_Glitter) {
                 class _GlitterImage extends Laya.Image {
-                    constructor(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height) {
+                    constructor(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height, zOder) {
                         super();
                         if (!parent.parent) {
                             return;
@@ -3337,17 +3337,18 @@
                         let p = radiusXY ? Tools._Point.randomPointByCenter(centerPos, radiusXY[0], radiusXY[1], 1) : Tools._Point.randomPointByCenter(centerPos, 100, 100, 1);
                         this.pos(p[0].x, p[0].y);
                         let RGBA = [];
-                        RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(0, 255);
-                        RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(0, 255);
-                        RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(0, 255);
-                        RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(0, 255);
+                        RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(10, 255);
+                        RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(200, 255);
+                        RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 255);
+                        RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
                         Color._colour(this, RGBA);
                         this.alpha = 0;
+                        this.zOrder = zOder ? zOder : 1000;
                     }
                 }
                 _Glitter._GlitterImage = _GlitterImage;
-                function _blinkStar(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height, scale, speed, rotateSpeed) {
-                    let Img = new _GlitterImage(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height);
+                function _blinkStar(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height, scale, speed, rotateSpeed, zOder) {
+                    let Img = new _GlitterImage(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height, zOder);
                     Img.scaleX = 0;
                     Img.scaleY = 0;
                     let _scale = scale ? Tools._Number.randomOneBySection(scale[0], scale[1]) : Tools._Number.randomOneBySection(0.8, 1.2);
@@ -6395,11 +6396,11 @@
                         Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
                     });
                 });
-                TimerAdmin._frameRandomLoop(40, 60, this, () => {
-                    Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
                 }, true);
-                TimerAdmin._frameRandomLoop(40, 60, this, () => {
-                    Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
                 }, true);
                 Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
                     Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
@@ -6411,6 +6412,9 @@
                         }, true);
                         Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
                     }, delay * 3);
+                    TimerAdmin._once(delay * 3, () => {
+                        AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
+                    });
                 }, delay * 2);
             }
             effect() {
@@ -7451,7 +7455,7 @@
             lwgOnStart() {
                 _Data._ins()._scrollToLast(10);
                 if (_Ranking._whereFrom === 'MakePattern') {
-                    _Data._ins()._tweenToPitch(1500);
+                    _Data._ins()._tweenToPitch(1000);
                     const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                     const num1 = 150;
                     TimerAdmin._frameNumRandomLoop(1, 3, num1, this, () => {
@@ -8359,9 +8363,23 @@
     var _PersonalInfo;
     (function (_PersonalInfo) {
         class PersonalInfo extends Admin._SceneBase {
+            lwgOnAwake() {
+                const obj = _Ranking._Data._ins()._getPitchObj();
+                this._LabelVar('RankValue').text = obj[_Ranking._Data._ins()._otherPro.rankNum];
+                this._LabelVar('FansValue').text = obj[_Ranking._Data._ins()._otherPro.fansNum];
+            }
+            lwgOpenAni() {
+                this._ImgVar('Background').alpha = 0;
+                this._ImgVar('Content').alpha = 0;
+                Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350);
+                Animation2D.fadeOut(this._ImgVar('Content'), 0, 1, 200);
+                return 200;
+            }
             lwgButton() {
                 this._btnUp(this._ImgVar('BtnClose'), () => {
                     this._closeScene();
+                });
+                this._btnUp(this._ImgVar('BtnWrite'), () => {
                 });
             }
         }
@@ -8372,7 +8390,6 @@
         lwgOnAwake() {
             _LwgInit._pkgInfo = [];
             Platform._Ues.value = Platform._Tpye.Web;
-            Laya.Stat.show();
             SceneAnimation._Use.value = SceneAnimation._Type.shutters.randomshutters;
             SceneAnimation._closeSwitch = true;
             SceneAnimation._openSwitch = false;

@@ -1,5 +1,5 @@
 import ADManager, { TaT } from "../TJ/Admanager";
-import { Admin, Animation2D, Color, Effects, EventAdmin, TimerAdmin, Tools, _LwgPreLoad, _SceneName } from "./Lwg";
+import { Admin, Animation2D, AudioAdmin, Color, Effects, EventAdmin, TimerAdmin, Tools, _LwgPreLoad, _SceneName } from "./Lwg";
 export module _Res {
     export let _list = {
         scene3D: {
@@ -206,19 +206,13 @@ export module _PreLoad {
             })
 
             // 星星闪烁动画左边
-            TimerAdmin._frameRandomLoop(40, 60, this, () => {
-                Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+            TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
             }, true)
             // 星星闪烁动画右边
-            TimerAdmin._frameRandomLoop(40, 60, this, () => {
-                Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2), [80, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+            TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
             }, true)
-            // 星星闪烁动画右边
-            // // 星星闪烁动画右边
-            // TimerAdmin._frameRandomLoop(50, 80, this, () => {
-            //     Effects._Glitter._blinkStar(this._ImgVar('LoGo'), new Laya.Point(0, 0), 300, 50, 'Game/UI/UISkinQualified/xingxing.png', 80, 80);
-            // }, true)
-
             Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
                 Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
                     TimerAdmin._frameNumLoop(2, 50, this, () => {
@@ -229,6 +223,9 @@ export module _PreLoad {
                     }, true)
                     Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2)
                 }, delay * 3);
+                TimerAdmin._once(delay * 3, () => {
+                    AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
+                })
             }, delay * 2);
         }
 

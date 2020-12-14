@@ -6,7 +6,7 @@
     "searchKey":"View",
     "props":{"width":1280,"sceneColor":"#000000","height":720},
     "nodeParent":-1,
-    "maxID":34,
+    "maxID":38,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -43,11 +43,11 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite",
-                    "props":{"y":-2,"x":-4,"width":733,"texture":"Game/UI/Common/dikuang.png","height":558},
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"y":-2,"x":-4,"width":733,"skin":"Game/UI/Common/dikuang.png","height":558},
                     "nodeParent":5,
-                    "label":"Sprite",
+                    "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -72,17 +72,18 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":153,"x":82,"width":376,"height":62},
+                    "searchKey":"Image,Name,Name",
+                    "props":{"y":153,"x":82,"width":376,"var":"Name","name":"Name","height":62},
                     "nodeParent":5,
-                    "label":"Image",
-                    "isOpen":false,
+                    "label":"Name",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":6,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":1,"x":75,"skin":"Game/UI/PersonalInfo/neikuang.png","name":""},
@@ -96,11 +97,12 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":1,"x":312,"skin":"Game/UI/PersonalInfo/bianji.png","name":""},
+                            "searchKey":"Image,BtnWrite,BtnWrite",
+                            "props":{"y":35,"x":344,"width":64,"var":"BtnWrite","skin":"Game/UI/PersonalInfo/bianji.png","pivotY":34,"pivotX":32,"name":"BtnWrite","height":67},
                             "nodeParent":6,
-                            "label":"Image",
+                            "label":"BtnWrite",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -109,6 +111,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":8.5,"x":1,"skin":"Game/UI/PersonalInfo/xingming.png","name":""},
@@ -120,15 +123,29 @@
                             "compId":14,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"TextInput",
+                            "searchKey":"TextInput,NameValue,NameValue",
+                            "props":{"y":13,"x":60,"width":307,"var":"NameValue","valign":"middle","name":"NameValue","height":36,"fontSize":30,"color":"#a56c0a","align":"center"},
+                            "nodeParent":6,
+                            "label":"NameValue",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
                         }]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":243,"x":82,"width":376,"height":62},
+                    "searchKey":"Image,Rank,Rank",
+                    "props":{"y":243,"x":82,"width":376,"var":"Rank","name":"Rank","height":62},
                     "nodeParent":5,
-                    "label":"Image",
+                    "label":"Rank",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -153,7 +170,7 @@
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":9.5,"x":-4,"skin":"Game/UI/PersonalInfo/paihangbang.png","name":""},
+                            "props":{"y":10,"x":-4,"skin":"Game/UI/PersonalInfo/paihangbang.png","name":""},
                             "nodeParent":18,
                             "label":"Image",
                             "isDirectory":false,
@@ -162,15 +179,29 @@
                             "compId":21,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "searchKey":"Label,RankValue,RankValue",
+                            "props":{"y":20,"x":95,"width":239,"var":"RankValue","valign":"middle","text":"5000","name":"RankValue","height":28,"fontSize":30,"color":"#a56c0a","align":"center"},
+                            "nodeParent":18,
+                            "label":"RankValue",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":35,
+                            "child":[
+                                ]
                         }]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":337,"x":82,"width":376,"height":62},
+                    "searchKey":"Image,Fans,Fans",
+                    "props":{"y":337,"x":82,"width":376,"var":"Fans","name":"Fans","height":62},
                     "nodeParent":5,
-                    "label":"Image",
+                    "label":"Fans",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -202,6 +233,20 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "searchKey":"Label,FansValue,FansValue",
+                            "props":{"y":17.5,"x":96.5,"width":239,"var":"FansValue","valign":"middle","text":"5000","name":"FansValue","height":28,"fontSize":30,"color":"#a56c0a","align":"center"},
+                            "nodeParent":22,
+                            "label":"FansValue",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":34,
                             "child":[
                                 ]
                         }]
@@ -251,11 +296,11 @@
                 },
                 {
                     "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite",
-                    "props":{"y":-72,"x":221,"texture":"Game/UI/PersonalInfo/ding.png"},
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"y":-72,"x":221,"skin":"Game/UI/PersonalInfo/ding.png"},
                     "nodeParent":5,
-                    "label":"Sprite",
+                    "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -264,11 +309,11 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"Sprite",
-                            "searchKey":"Sprite",
-                            "props":{"y":38,"x":58,"texture":"Game/UI/PersonalInfo/gerenziliao.png"},
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"y":38,"x":58,"skin":"Game/UI/PersonalInfo/gerenziliao.png"},
                             "nodeParent":30,
-                            "label":"Sprite",
+                            "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,

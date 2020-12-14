@@ -1791,7 +1791,7 @@ export module lwg {
              * @param target 节点
              * @param caller 执行域
              * @param down 按下回调
-             * @param effect 效果类型输入null则没有效果
+             * @param effect 效果类型输入'null'则没有效果
             */
             _btnDown(target: Laya.Node, down?: Function, effect?: string): void {
                 Click._on(effect == undefined ? Click._Use.value : effect, target, this, (e: Laya.Event) => {
@@ -1802,7 +1802,7 @@ export module lwg {
               * 抬起触发点击事件注册,可以用(e)=>{}简写传递的函数参数
               * @param target 节点
               * @param move 移动回调
-              * @param effect 效果类型输入null则没有效果
+              * @param effect 效果类型输入'null'则没有效果
              */
             _btnMove(target: Laya.Node, move: Function, effect?: string): void {
                 Click._on(effect == undefined ? Click._Use.value : effect, target, this, null, (e: Laya.Event) => {
@@ -1814,7 +1814,7 @@ export module lwg {
              * 抬起触发点击事件注册,可以用(e)=>{}简写传递的函数参数
              * @param target 节点
              * @param up 抬起回调
-             * @param effect 效果类型输入null则没有效果
+             * @param effect 效果类型输入'null'则没有效果
            */
             _btnUp(target: Laya.Node, up: Function, effect?: string): void {
                 Click._on(effect == undefined ? Click._Use.value : effect, target, this, null, null, (e: Laya.Event) => {
@@ -1825,7 +1825,7 @@ export module lwg {
               * 抬起触发点击事件注册,可以用(e)=>{}简写传递的函数参数
               * @param target 节点
               * @param out 移出回调
-              * @param effect 效果类型输入null则没有效果
+              * @param effect 效果类型输入'null'则没有效果
              */
             _btnOut(target: Laya.Node, out: Function, effect?: string): void {
                 Click._on(effect == undefined ? Click._Use.value : effect, target, this, null, null, null, (e: Laya.Event) => { Click._switch && out && out(e) });
@@ -3402,9 +3402,9 @@ export module lwg {
                     this.alpha = 0;
                     this.zOrder = zOrder ? zOrder : 1000;
                     let RGBA = [];
-                    RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(10, 255);
-                    RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 200);
-                    RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(80, 100);
+                    RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(180, 255);
+                    RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 180);
+                    RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 180);
                     RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
                     Color._colour(this, RGBA);
                 }
@@ -4111,7 +4111,7 @@ export module lwg {
         /**闪烁*/
         export module _Glitter {
             export class _GlitterImage extends Laya.Image {
-                constructor(parent: Laya.Sprite, centerPos: Laya.Point, radiusXY: Array<number>, urlArr: Array<string>, colorRGBA: Array<Array<number>>, width: Array<number>, height: Array<number>) {
+                constructor(parent: Laya.Sprite, centerPos: Laya.Point, radiusXY: Array<number>, urlArr: Array<string>, colorRGBA: Array<Array<number>>, width: Array<number>, height: Array<number>, zOder: number) {
                     super();
                     if (!parent.parent) {
                         return;
@@ -4125,12 +4125,13 @@ export module lwg {
                     let p = radiusXY ? Tools._Point.randomPointByCenter(centerPos, radiusXY[0], radiusXY[1], 1) : Tools._Point.randomPointByCenter(centerPos, 100, 100, 1);
                     this.pos(p[0].x, p[0].y);
                     let RGBA = [];
-                    RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(0, 255);
-                    RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(0, 255);
-                    RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(0, 255);
-                    RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(0, 255);
+                    RGBA[0] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(10, 255);
+                    RGBA[1] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(200, 255);
+                    RGBA[2] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 255);
+                    RGBA[3] = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
                     Color._colour(this, RGBA);
                     this.alpha = 0;
+                    this.zOrder = zOder ? zOder : 1000;
                 }
             }
 
@@ -4148,8 +4149,8 @@ export module lwg {
              * @param speed  闪烁速度区间[a,b],默认[0.01,0.02]
              * @param rotateSpeed 旋转速率区间[a,b],默认为正负5度
              */
-            export function _blinkStar(parent: Laya.Sprite, centerPos?: Laya.Point, radiusXY?: Array<number>, urlArr?: Array<string>, colorRGBA?: Array<Array<number>>, width?: Array<number>, height?: Array<number>, scale?: Array<number>, speed?: Array<number>, rotateSpeed?: Array<number>): Laya.Image {
-                let Img = new _GlitterImage(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height);
+            export function _blinkStar(parent: Laya.Sprite, centerPos?: Laya.Point, radiusXY?: Array<number>, urlArr?: Array<string>, colorRGBA?: Array<Array<number>>, width?: Array<number>, height?: Array<number>, scale?: Array<number>, speed?: Array<number>, rotateSpeed?: Array<number>, zOder?: number): Laya.Image {
+                let Img = new _GlitterImage(parent, centerPos, radiusXY, urlArr, colorRGBA, width, height, zOder);
                 // 最大放大大小
                 Img.scaleX = 0;
                 Img.scaleY = 0;

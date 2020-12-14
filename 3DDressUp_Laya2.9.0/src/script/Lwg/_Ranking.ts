@@ -82,7 +82,7 @@ export module _Ranking {
         lwgOnStart(): void {
             _Data._ins()._scrollToLast(10);
             if (_whereFrom === 'MakePattern') {
-                _Data._ins()._tweenToPitch(1500);
+                _Data._ins()._tweenToPitch(1000);
 
                 const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                 const num1 = 150;
