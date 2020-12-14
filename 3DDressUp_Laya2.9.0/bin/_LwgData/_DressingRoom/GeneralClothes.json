@@ -1,0 +1,202 @@
+{
+  "RECORDS": [
+    {
+      "index": 1,
+      "classify": "Dress",
+      "name": "dress_001",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": true,
+      "reach": true,
+      "diffY": 0
+    },
+    {
+      "index": 2,
+      "classify": "Dress",
+      "name": "dress_002",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": true,
+      "reach": true,
+      "diffY": 1
+    },
+    {
+      "index": 3,
+      "classify": "Dress",
+      "name": "dress_003",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": true,
+      "reach": true,
+      "diffY": 2
+    },
+    {
+      "index": 4,
+      "classify": "Dress",
+      "name": "dress_004",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": true,
+      "reach": true,
+      "diffY": 3
+    },
+    {
+      "index": 5,
+      "classify": "Dress",
+      "name": "dress_005",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": true,
+      "reach": true,
+      "diffY": 4
+    },
+    {
+      "index": 6,
+      "classify": "Dress",
+      "name": "dress_006",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 0
+    },
+    {
+      "index": 1,
+      "classify": "Top",
+      "name": "top_001",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 0
+    },
+    {
+      "index": 2,
+      "classify": "Top",
+      "name": "top_002",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 1
+    },
+    {
+      "index": 3,
+      "classify": "Top",
+      "name": "top_003",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 2
+    },
+    {
+      "index": 4,
+      "classify": "Top",
+      "name": "top_004",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 3
+    },
+    {
+      "index": 5,
+      "classify": "Top",
+      "name": "top_005",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 4
+    },
+    {
+      "index": 6,
+      "classify": "Top",
+      "name": "top_006",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 5
+    },
+    {
+      "index": 1,
+      "classify": "Bottoms",
+      "name": "bottom_001",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 0
+    },
+    {
+      "index": 2,
+      "classify": "Bottoms",
+      "name": "bottom_002",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 1
+    },
+    {
+      "index": 3,
+      "classify": "Bottoms",
+      "name": "bottom_003",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 2
+    },
+    {
+      "index": 4,
+      "classify": "Bottoms",
+      "name": "bottom_004",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 3
+    },
+    {
+      "index": 5,
+      "classify": "Bottoms",
+      "name": "bottom_005",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 4
+    },
+    {
+      "index": 6,
+      "classify": "Bottoms",
+      "name": "bottom_006",
+      "unlockWay": "free",
+      "conditionNum": 10,
+      "degreeNum": 10,
+      "pitch": false,
+      "reach": true,
+      "diffY": 5
+    }
+  ]
+}

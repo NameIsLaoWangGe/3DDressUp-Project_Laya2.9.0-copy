@@ -1,0 +1,93 @@
+{ 
+"RECORDS": 
+[
+  {
+    "index": 1,
+    "name": "chengse",
+    "color": "#ef8a33",
+    "pitch": true,
+    "serial": 1,
+    "have": false
+  },
+  {
+    "index": 2,
+    "name": "heise",
+    "color": "#323232",
+    "pitch": false,
+    "serial": 2,
+    "have": false
+  },
+  {
+    "index": 3,
+    "name": "hese",
+    "color": "#85552e",
+    "pitch": false,
+    "serial": 3,
+    "have": false
+  },
+  {
+    "index": 4,
+    "name": "hongse",
+    "color": "#e93323",
+    "pitch": false,
+    "serial": 4,
+    "have": false
+  },
+  {
+    "index": 5,
+    "name": "huangse",
+    "color": "#f9df4b",
+    "pitch": false,
+    "serial": 5,
+    "have": false
+  },
+  {
+    "index": 11,
+    "name": "eraser",
+    "color": "#000000",
+    "pitch": false,
+    "serial": 12,
+    "have": true
+  },
+  {
+    "index": 6,
+    "name": "lanse",
+    "color": "#2f6ff6",
+    "pitch": false,
+    "serial": 7,
+    "have": false
+  },
+  {
+    "index": 7,
+    "name": "lvse",
+    "color": "#61d33f",
+    "pitch": false,
+    "serial": 8,
+    "have": false
+  },
+  {
+    "index": 8,
+    "name": "taohong",
+    "color": "#e933a9",
+    "pitch": false,
+    "serial": 9,
+    "have": false
+  },
+  {
+    "index": 9,
+    "name": "tianlan",
+    "color": "#00bbeb",
+    "pitch": false,
+    "serial": 10,
+    "have": false
+  },
+  {
+    "index": 10,
+    "name": "zise",
+    "color": "#b737f6",
+    "pitch": false,
+    "serial": 11,
+    "have": false
+  }
+]
+}

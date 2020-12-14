@@ -1,0 +1,4 @@
+{
+  "code": "var REG = Laya.ClassUtils.regClass;\r\nexport var ui;\r\n(function (ui) {\r\n    var test;\r\n    (function (test) {\r\n        class TestSceneUI extends Laya.Scene {\r\n            constructor() { super(); }\r\n            createChildren() {\r\n                super.createChildren();\r\n                this.loadScene(\"test/TestScene\");\r\n            }\r\n        }\r\n        test.TestSceneUI = TestSceneUI;\r\n        REG(\"ui.test.TestSceneUI\", TestSceneUI);\r\n    })(test = ui.test || (ui.test = {}));\r\n})(ui || (ui = {}));\r\n",
+  "references": []
+}

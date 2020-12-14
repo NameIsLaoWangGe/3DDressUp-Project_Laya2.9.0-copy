@@ -1,0 +1,13 @@
+{
+  "code": "import { Admin } from \"./Lwg\";\r\nexport var _Game;\r\n(function (_Game) {\r\n    let _Event;\r\n    (function (_Event) {\r\n        _Event[\"start\"] = \"_Game_start\";\r\n        _Event[\"showStepBtn\"] = \"_Game_showStepBtn\";\r\n        _Event[\"lastStep\"] = \"_Game_lastStep\";\r\n        _Event[\"nextStep\"] = \"_Game_nextStep\";\r\n        _Event[\"compelet\"] = \"_Game_compelet\";\r\n        _Event[\"playAni1\"] = \"_Game_playAni1\";\r\n        _Event[\"playAni2\"] = \"_Game_playAni2\";\r\n        _Event[\"restoreZOder\"] = \"_Game_restoreZoder\";\r\n        _Event[\"colseScene\"] = \"_Game_colseScene\";\r\n        _Event[\"victory\"] = \"_Game_victory\";\r\n        _Event[\"Photo\"] = \"_Game_Photo\";\r\n        _Event[\"turnRight\"] = \"_Game_turnRight\";\r\n        _Event[\"turnLeft\"] = \"_Game_turnLeft\";\r\n        _Event[\"generalRefresh\"] = \"_Game_generalRefresh\";\r\n    })(_Event = _Game._Event || (_Game._Event = {}));\r\n    let _Animation;\r\n    (function (_Animation) {\r\n        _Animation[\"action1\"] = \"action1\";\r\n        _Animation[\"action2\"] = \"action2\";\r\n    })(_Animation = _Game._Animation || (_Game._Animation = {}));\r\n    function _init() {\r\n    }\r\n    _Game._init = _init;\r\n    class Game extends Admin._SceneBase {\r\n    }\r\n    _Game.Game = Game;\r\n})(_Game || (_Game = {}));\r\nexport default _Game.Game;\r\n",
+  "references": [
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/TJ/Admanager.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/TJ/RecordManager.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_GameItem.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_PreLoad.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_PropTry.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_SelectLevel.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_Share.ts"
+  ]
+}

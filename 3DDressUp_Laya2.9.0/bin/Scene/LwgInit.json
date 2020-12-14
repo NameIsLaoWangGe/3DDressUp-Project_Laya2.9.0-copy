@@ -1,0 +1,1 @@
+{"type":"View","props":{"width":1280,"height":720},"compId":2,"child":[{"type":"Script","props":{"runtime":"script/Lwg/LwgInit.ts"},"compId":3},{"type":"Image","props":{"top":0,"skin":"Lwg/UI/ui_orthogon_grass.png","right":0,"left":0,"bottom":0},"compId":4}],"loadList":["Lwg/UI/ui_orthogon_grass.png"],"loadList3D":[]}

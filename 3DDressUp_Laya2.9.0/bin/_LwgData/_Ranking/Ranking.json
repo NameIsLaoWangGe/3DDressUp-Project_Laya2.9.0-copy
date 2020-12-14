@@ -1,0 +1,405 @@
+{ 
+"RECORDS": 
+[
+  {
+    "index": 1,
+    "name": "肖战后援团",
+    "classify": "other",
+    "rankNum": 1,
+    "fansNum": 5000,
+    "pitch": false
+  },
+  {
+    "index": 2,
+    "name": "小肥虾",
+    "classify": "other",
+    "rankNum": 2,
+    "fansNum": 4833,
+    "pitch": false
+  },
+  {
+    "index": 3,
+    "name": "俊凯最棒",
+    "classify": "other",
+    "rankNum": 3,
+    "fansNum": 4752,
+    "pitch": false
+  },
+  {
+    "index": 4,
+    "name": "高畅酱",
+    "classify": "other",
+    "rankNum": 4,
+    "fansNum": 4658,
+    "pitch": false
+  },
+  {
+    "index": 5,
+    "name": "是你的半松呀",
+    "classify": "other",
+    "rankNum": 5,
+    "fansNum": 4571,
+    "pitch": false
+  },
+  {
+    "index": 6,
+    "name": "赛惜玉",
+    "classify": "other",
+    "rankNum": 6,
+    "fansNum": 4425,
+    "pitch": false
+  },
+  {
+    "index": 7,
+    "name": "Baby_王",
+    "classify": "other",
+    "rankNum": 7,
+    "fansNum": 4410,
+    "pitch": false
+  },
+  {
+    "index": 8,
+    "name": "明志殿下",
+    "classify": "other",
+    "rankNum": 8,
+    "fansNum": 4358,
+    "pitch": false
+  },
+  {
+    "index": 9,
+    "name": "永福少女",
+    "classify": "other",
+    "rankNum": 9,
+    "fansNum": 4311,
+    "pitch": false
+  },
+  {
+    "index": 10,
+    "name": "Mini小包仔",
+    "classify": "other",
+    "rankNum": 10,
+    "fansNum": 4285,
+    "pitch": false
+  },
+  {
+    "index": 11,
+    "name": "一条小沛菱",
+    "classify": "other",
+    "rankNum": 11,
+    "fansNum": 4235,
+    "pitch": false
+  },
+  {
+    "index": 12,
+    "name": "一只鸿卓呀",
+    "classify": "other",
+    "rankNum": 12,
+    "fansNum": 4114,
+    "pitch": false
+  },
+  {
+    "index": 13,
+    "name": "贝采枫",
+    "classify": "other",
+    "rankNum": 13,
+    "fansNum": 4028,
+    "pitch": false
+  },
+  {
+    "index": 14,
+    "name": "晨辰少女",
+    "classify": "other",
+    "rankNum": 14,
+    "fansNum": 3977,
+    "pitch": false
+  },
+  {
+    "index": 15,
+    "name": "枝柔",
+    "classify": "other",
+    "rankNum": 15,
+    "fansNum": 3954,
+    "pitch": false
+  },
+  {
+    "index": 16,
+    "name": "小金爱努力",
+    "classify": "other",
+    "rankNum": 16,
+    "fansNum": 3900,
+    "pitch": false
+  },
+  {
+    "index": 17,
+    "name": "含含Sama",
+    "classify": "other",
+    "rankNum": 17,
+    "fansNum": 3875,
+    "pitch": false
+  },
+  {
+    "index": 18,
+    "name": "漫天心",
+    "classify": "other",
+    "rankNum": 18,
+    "fansNum": 3866,
+    "pitch": false
+  },
+  {
+    "index": 19,
+    "name": "白语雪",
+    "classify": "other",
+    "rankNum": 19,
+    "fansNum": 3742,
+    "pitch": false
+  },
+  {
+    "index": 20,
+    "name": "小诗桃吖",
+    "classify": "other",
+    "rankNum": 20,
+    "fansNum": 3701,
+    "pitch": false
+  },
+  {
+    "index": 21,
+    "name": "往事随风",
+    "classify": "other",
+    "rankNum": 21,
+    "fansNum": 3645,
+    "pitch": false
+  },
+  {
+    "index": 22,
+    "name": "子昂丶小可爱",
+    "classify": "other",
+    "rankNum": 22,
+    "fansNum": 3612,
+    "pitch": false
+  },
+  {
+    "index": 23,
+    "name": "市静晨",
+    "classify": "other",
+    "rankNum": 23,
+    "fansNum": 3549,
+    "pitch": false
+  },
+  {
+    "index": 24,
+    "name": "艺涵酱",
+    "classify": "other",
+    "rankNum": 24,
+    "fansNum": 3459,
+    "pitch": false
+  },
+  {
+    "index": 25,
+    "name": "华藏可爱吗",
+    "classify": "other",
+    "rankNum": 25,
+    "fansNum": 3412,
+    "pitch": false
+  },
+  {
+    "index": 26,
+    "name": "成怀蕾",
+    "classify": "other",
+    "rankNum": 26,
+    "fansNum": 3387,
+    "pitch": false
+  },
+  {
+    "index": 27,
+    "name": "星晖超级甜",
+    "classify": "other",
+    "rankNum": 27,
+    "fansNum": 3348,
+    "pitch": false
+  },
+  {
+    "index": 28,
+    "name": "秀朵小公主",
+    "classify": "other",
+    "rankNum": 28,
+    "fansNum": 3333,
+    "pitch": false
+  },
+  {
+    "index": 29,
+    "name": "邻家志燕",
+    "classify": "other",
+    "rankNum": 29,
+    "fansNum": 3298,
+    "pitch": false
+  },
+  {
+    "index": 30,
+    "name": "碧波秋荣",
+    "classify": "other",
+    "rankNum": 30,
+    "fansNum": 3158,
+    "pitch": false
+  },
+  {
+    "index": 31,
+    "name": "宛竹baby",
+    "classify": "other",
+    "rankNum": 31,
+    "fansNum": 3105,
+    "pitch": false
+  },
+  {
+    "index": 32,
+    "name": "涵蓄酱大魔王",
+    "classify": "other",
+    "rankNum": 32,
+    "fansNum": 3033,
+    "pitch": false
+  },
+  {
+    "index": 33,
+    "name": "玩家",
+    "classify": "self",
+    "rankNum": 33,
+    "fansNum": 3000,
+    "pitch": true
+  },
+  {
+    "index": 34,
+    "name": "正卿三岁啦",
+    "classify": "other",
+    "rankNum": 34,
+    "fansNum": 2983,
+    "pitch": false
+  },
+  {
+    "index": 35,
+    "name": "俊雅小姐姐",
+    "classify": "other",
+    "rankNum": 35,
+    "fansNum": 2975,
+    "pitch": false
+  },
+  {
+    "index": 36,
+    "name": "天际含真",
+    "classify": "other",
+    "rankNum": 36,
+    "fansNum": 2659,
+    "pitch": false
+  },
+  {
+    "index": 37,
+    "name": "冬易少女",
+    "classify": "other",
+    "rankNum": 37,
+    "fansNum": 2518,
+    "pitch": false
+  },
+  {
+    "index": 38,
+    "name": "悦爱mm",
+    "classify": "other",
+    "rankNum": 38,
+    "fansNum": 2459,
+    "pitch": false
+  },
+  {
+    "index": 39,
+    "name": "徭含玉",
+    "classify": "other",
+    "rankNum": 39,
+    "fansNum": 2419,
+    "pitch": false
+  },
+  {
+    "index": 40,
+    "name": "会心白兰",
+    "classify": "other",
+    "rankNum": 40,
+    "fansNum": 2387,
+    "pitch": false
+  },
+  {
+    "index": 41,
+    "name": "党水蓉",
+    "classify": "other",
+    "rankNum": 41,
+    "fansNum": 2352,
+    "pitch": false
+  },
+  {
+    "index": 42,
+    "name": "桂枫小公主",
+    "classify": "other",
+    "rankNum": 42,
+    "fansNum": 2333,
+    "pitch": false
+  },
+  {
+    "index": 43,
+    "name": "努力啊大梦雨",
+    "classify": "other",
+    "rankNum": 43,
+    "fansNum": 2323,
+    "pitch": false
+  },
+  {
+    "index": 44,
+    "name": "陈咬金不咬金",
+    "classify": "other",
+    "rankNum": 44,
+    "fansNum": 2297,
+    "pitch": false
+  },
+  {
+    "index": 45,
+    "name": "采冬子",
+    "classify": "other",
+    "rankNum": 45,
+    "fansNum": 2286,
+    "pitch": false
+  },
+  {
+    "index": 46,
+    "name": "友安mio",
+    "classify": "other",
+    "rankNum": 46,
+    "fansNum": 2271,
+    "pitch": false
+  },
+  {
+    "index": 47,
+    "name": "飞烟姑娘",
+    "classify": "other",
+    "rankNum": 47,
+    "fansNum": 2215,
+    "pitch": false
+  },
+  {
+    "index": 48,
+    "name": "杜玲珑",
+    "classify": "other",
+    "rankNum": 48,
+    "fansNum": 2195,
+    "pitch": false
+  },
+  {
+    "index": 49,
+    "name": "水月修洁",
+    "classify": "other",
+    "rankNum": 49,
+    "fansNum": 2155,
+    "pitch": false
+  },
+  {
+    "index": 50,
+    "name": "一吃就胖小馨香",
+    "classify": "other",
+    "rankNum": 50,
+    "fansNum": 2133,
+    "pitch": false
+  }
+]
+}

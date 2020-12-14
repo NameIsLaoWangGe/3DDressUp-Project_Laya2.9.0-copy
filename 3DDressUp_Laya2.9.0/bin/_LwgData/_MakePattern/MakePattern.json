@@ -1,0 +1,55 @@
+{ 
+"RECORDS": 
+[
+  {
+    "index": 1,
+    "classify": "general",
+    "name": "pattern1",
+    "unlockWay": "free",
+    "conditionNum": 5,
+    "degreeNum": 5,
+    "pitch": true,
+    "reach": true
+  },
+  {
+    "index": 2,
+    "classify": "general",
+    "name": "pattern2",
+    "unlockWay": "free",
+    "conditionNum": 5,
+    "degreeNum": 5,
+    "pitch": false,
+    "reach": true
+  },
+  {
+    "index": 3,
+    "classify": "general",
+    "name": "pattern3",
+    "unlockWay": "free",
+    "conditionNum": 5,
+    "degreeNum": 5,
+    "pitch": false,
+    "reach": true
+  },
+  {
+    "index": 4,
+    "classify": "general",
+    "name": "pattern4",
+    "unlockWay": "free",
+    "conditionNum": 5,
+    "degreeNum": 5,
+    "pitch": false,
+    "reach": true
+  },
+  {
+    "index": 5,
+    "classify": "general",
+    "name": "pattern5",
+    "unlockWay": "free",
+    "conditionNum": 5,
+    "degreeNum": 5,
+    "pitch": false,
+    "reach": true
+  }
+]
+}

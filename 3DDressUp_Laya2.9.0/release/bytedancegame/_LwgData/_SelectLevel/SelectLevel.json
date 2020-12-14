@@ -1,0 +1,113 @@
+{ 
+"RECORDS": 
+[
+  {
+    "name": "dinglaotou",
+    "chName": "丁老头",
+    "classify": "limit",
+    "unlockWay": "ads",
+    "condition": 1,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "dinglaotai",
+    "chName": "丁老太",
+    "classify": "limit",
+    "unlockWay": "gold",
+    "condition": 10000,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "zhangyugege",
+    "chName": "章鱼哥哥",
+    "classify": "limit",
+    "unlockWay": "ads",
+    "condition": 1,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "wugui",
+    "chName": "乌龟",
+    "classify": "animal",
+    "unlockWay": "free",
+    "condition": -1,
+    "resCondition": 0,
+    "unlock": true
+  },
+  {
+    "name": "haitun",
+    "chName": "海豚",
+    "classify": "animal",
+    "unlockWay": "gold",
+    "condition": 200,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "maomaochong",
+    "chName": "毛毛虫",
+    "classify": "animal",
+    "unlockWay": "ads",
+    "condition": 10,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "xiaonainiu",
+    "chName": "小奶牛",
+    "classify": "animal",
+    "unlockWay": "gold",
+    "condition": 200,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "xiaohuamao",
+    "chName": "小花猫",
+    "classify": "animal",
+    "unlockWay": "ads",
+    "condition": 1,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "maotouying",
+    "chName": "猫头鹰",
+    "classify": "animal",
+    "unlockWay": "gold",
+    "condition": 200,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "xiaohonghua",
+    "chName": "小红花",
+    "classify": "botany",
+    "unlockWay": "free",
+    "condition": -1,
+    "resCondition": 0,
+    "unlock": true
+  },
+  {
+    "name": "wanshengnangua",
+    "chName": "万圣南瓜",
+    "classify": "botany",
+    "unlockWay": "gold",
+    "condition": 200,
+    "resCondition": 0,
+    "unlock": false
+  },
+  {
+    "name": "xiaoqiche",
+    "chName": "小汽车",
+    "classify": "other",
+    "unlockWay": "free",
+    "condition": -1,
+    "resCondition": 0,
+    "unlock": true
+  }
+]
+}

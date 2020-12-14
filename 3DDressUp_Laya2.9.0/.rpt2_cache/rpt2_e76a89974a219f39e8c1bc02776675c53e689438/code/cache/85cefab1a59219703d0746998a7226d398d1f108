@@ -1,0 +1,6 @@
+{
+  "code": "import { Admin } from \"./Lwg\";\r\nexport var _DressingRoom;\r\n(function (_DressingRoom) {\r\n    class DressingRoom extends Admin._SceneBase {\r\n        lwgOnAwake() {\r\n            console.log('换装界面');\r\n        }\r\n    }\r\n    _DressingRoom.DressingRoom = DressingRoom;\r\n})(_DressingRoom || (_DressingRoom = {}));\r\nexport default _DressingRoom.DressingRoom;\r\n",
+  "references": [
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
+  ]
+}

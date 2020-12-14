@@ -1,0 +1,145 @@
+{ 
+"RECORDS": 
+[
+  {
+    "index": 1,
+    "name": "caise1",
+    "color1": [
+      135,
+      232,
+      71
+    ],
+    "color2": [
+      100,
+      216,
+      250
+    ],
+    "color3": [
+      75,
+      67,
+      245
+    ],
+    "pitch": true
+  },
+  {
+    "index": 2,
+    "name": "caise2",
+    "color1": [
+      254,
+      79,
+      17
+    ],
+    "color2": [
+      247,
+      210,
+      8
+    ],
+    "color3": [
+      142,
+      250,
+      29
+    ],
+    "pitch": false
+  },
+  {
+    "index": 3,
+    "name": "caise3",
+    "color1": [
+      253,
+      8,
+      69
+    ],
+    "color2": [
+      255,
+      91,
+      2
+    ],
+    "color3": [
+      255,
+      228,
+      1
+    ],
+    "pitch": false
+  },
+  {
+    "index": 4,
+    "name": "caise4",
+    "color1": [
+      163,
+      1,
+      251
+    ],
+    "color2": [
+      255,
+      32,
+      165
+    ],
+    "color3": [
+      255,
+      97,
+      5
+    ],
+    "pitch": false
+  },
+  {
+    "index": 5,
+    "name": "caise5",
+    "color1": [
+      76,
+      47,
+      249
+    ],
+    "color2": [
+      209,
+      25,
+      249
+    ],
+    "color3": [
+      255,
+      24,
+      140
+    ],
+    "pitch": false
+  },
+  {
+    "index": 6,
+    "name": "caise6",
+    "color1": [
+      235,
+      199,
+      23
+    ],
+    "color2": [
+      42,
+      237,
+      11
+    ],
+    "color3": [
+      1,
+      191,
+      255
+    ],
+    "pitch": false
+  },
+  {
+    "index": 7,
+    "name": "caise7",
+    "color1": [
+      17,
+      231,
+      3
+    ],
+    "color2": [
+      118,
+      4,
+      255
+    ],
+    "color3": [
+      72,
+      71,
+      254
+    ],
+    "pitch": false
+  }
+]
+}

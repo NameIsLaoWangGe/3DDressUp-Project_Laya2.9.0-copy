@@ -1,0 +1,7 @@
+<res>
+   <item name="Lwg/UI/ui_orthogon_grass.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="Lwg/UI/ui_orthogon_green.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/MakeClothes/figure_03.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/MakeClothes/figure_02.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/MakeClothes/figure_01.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+</res>

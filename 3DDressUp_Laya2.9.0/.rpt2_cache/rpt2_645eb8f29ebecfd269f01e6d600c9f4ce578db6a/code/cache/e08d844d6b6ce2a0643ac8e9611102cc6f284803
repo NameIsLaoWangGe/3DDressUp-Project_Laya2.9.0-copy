@@ -1,0 +1,7 @@
+{
+  "code": "import { EventAdmin, _LwgPreLoad, _SceneName } from \"./Lwg\";\r\nexport var _Res;\r\n(function (_Res) {\r\n    _Res._list = {\r\n        scene3D: {\r\n            MakeScene: {\r\n                url: `_Lwg3D/_Scene/LayaScene_MakeScene/Conventional/MakeScene.ls`,\r\n                Scene: null,\r\n            },\r\n        },\r\n        prefab2D: {\r\n            BtnCompelet: {\r\n                url: 'Prefab/BtnCompelet.json',\r\n                prefab: new Laya.Prefab,\r\n            },\r\n        },\r\n        scene2D: {\r\n            Start: `Scene/${_SceneName.Start}.json`,\r\n            Guide: `Scene/${_SceneName.Guide}.json`,\r\n            PreLoadStep: `Scene/${_SceneName.PreLoadCutIn}.json`,\r\n        },\r\n    };\r\n})(_Res || (_Res = {}));\r\nexport var _PreLoad;\r\n(function (_PreLoad) {\r\n    class PreLoad extends _LwgPreLoad._PreLoadScene {\r\n        lwgOnStart() {\r\n            EventAdmin._notify(_LwgPreLoad._Event.importList, (_Res._list));\r\n        }\r\n        lwgOpenAni() { return 1; }\r\n        lwgStepComplete() {\r\n        }\r\n        lwgAllComplete() {\r\n            return 1000;\r\n        }\r\n        lwgOnDisable() {\r\n        }\r\n    }\r\n    _PreLoad.PreLoad = PreLoad;\r\n})(_PreLoad || (_PreLoad = {}));\r\nexport default PreLoad;\r\n",
+  "references": [
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/TJ/Admanager.ts",
+    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
+  ]
+}
