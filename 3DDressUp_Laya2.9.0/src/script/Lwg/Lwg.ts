@@ -2504,7 +2504,7 @@ export module lwg {
             }
 
             /**设置存储*/
-            private _refreshAndStorage(): void {
+            _refreshAndStorage(): void {
                 if (this._localStorage) {
                     Laya.LocalStorage.setJSON(this._tableName, JSON.stringify(this._arr));
                 }
@@ -2632,7 +2632,7 @@ export module lwg {
             }
 
             /**
-             *通过名称获取属性值
+             *通过名称设置属性值
              * @param {string} name 名称
              * @param {string} pro 属性名
              * @param {any} value 属性值
@@ -2643,13 +2643,51 @@ export module lwg {
                         const element = this._arr[key];
                         if (element[this._property.name] == name) {
                             element[pro] = value;
+                            this._refreshAndStorage();
                             break;
                         }
                     }
                 }
-                this._refreshAndStorage();
                 return value;
             };
+
+            /**通过名称获取对象*/
+            _getObjByName(name: string): any {
+                let obj = null;
+                for (const key in this._arr) {
+                    if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
+                        const element = this._arr[key];
+                        if (element[this._property.name] == name) {
+                            obj = element;
+                            break;
+                        }
+                    }
+                }
+                return obj;
+            }
+
+            /**
+             *设置当前品类中某个值唯一,这个值必须是boolean
+             * @param {string} name 对象名字
+             * @param {string} pro 属性值
+             * @param {boolean} value 属性值是true或者flase
+             * @memberof _Table
+             */
+            _setProSoleByClassify(name: string, pro: string, value: boolean): void {
+                const obj = this._getObjByName(name);
+                const objArr = this._getArrByClassify(obj[this._property.classify]);
+                for (const key in objArr) {
+                    if (Object.prototype.hasOwnProperty.call(objArr, key)) {
+                        const element = objArr[key];
+                        if (element[this._property.name] == name) {
+                            element[pro] = value;
+                        } else {
+                            element[pro] = !value;
+                        }
+                    }
+                }
+                this._refreshAndStorage();
+            }
 
             /**为所有对象设置一个属性值*/
             _setAllProPerty(pro: string, value: any): void {
@@ -2758,7 +2796,7 @@ export module lwg {
              * @param {*} value 值
              * @memberof _DataTable
              */
-            _getPropertyArr(proName: string, value: any): Array<any> {
+            _getArrByProperty(proName: string, value: any): Array<any> {
                 let arr = [];
                 for (const key in this._arr) {
                     if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
@@ -2777,7 +2815,7 @@ export module lwg {
             * @param {*} value 值
             * @memberof _DataTable
             */
-            _getNoPropertyArr(proName: string, value: any): Array<any> {
+            _getArrByNoProperty(proName: string, value: any): Array<any> {
                 let arr = [];
                 for (const key in this._arr) {
                     if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
@@ -2796,7 +2834,7 @@ export module lwg {
              * @return {*}  {Array<any>}
              * @memberof _DataTable
              */
-            _setPropertyArr(proName: string, value: any): Array<any> {
+            _setArrByProperty(proName: string, value: any): Array<any> {
                 let arr = [];
                 for (const key in this._arr) {
                     if (Object.prototype.hasOwnProperty.call(this._arr, key)) {

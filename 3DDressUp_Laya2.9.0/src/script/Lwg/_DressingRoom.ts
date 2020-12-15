@@ -4,6 +4,9 @@ import { _Res } from "./_PreLoad";
 import { _PropTry } from "./_PropTry";
 
 export module _DressingRoom {
+    export enum _Event {
+        changeCloth = '_DressingRoom_ChangeCloth',
+    }
     export class _Clothes extends DataAdmin._Table {
         private static ins: _Clothes;
         static _ins() {
@@ -11,6 +14,7 @@ export module _DressingRoom {
                 this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
                 this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
                 this.ins._Role = this.ins._Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
+                this.ins._Root = this.ins._Role.getChildByName('Root') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
@@ -34,19 +38,22 @@ export module _DressingRoom {
         }
         _Scene3D: Laya.Scene3D;
         _Role: Laya.MeshSprite3D;
+        _Root: Laya.MeshSprite3D;
+        _DIY: Laya.MeshSprite3D;
+        _General: Laya.MeshSprite3D;
 
         private changeClass(classify: string, partArr: Array<any>): void {
             const Root = this._Role.getChildByName('Root') as Laya.MeshSprite3D;
-            const DIY = Root.getChildByName(classify) as Laya.MeshSprite3D;
-            for (let i = 0; i < DIY.numChildren; i++) {
-                const Sp = DIY.getChildAt(i) as Laya.MeshSprite3D;
-                Sp.active = false;
+            const _classify = Root.getChildByName(classify) as Laya.MeshSprite3D;
+            for (let i = 0; i < _classify.numChildren; i++) {
+                const _classifySp = _classify.getChildAt(i) as Laya.MeshSprite3D;
+                _classifySp.active = false;
                 for (let j = 0; j < partArr.length; j++) {
                     const obj = partArr[j];
-                    if (obj[this._otherPro.part] === Sp.name) {
-                        Sp.active = true;
-                        for (let k = 0; k < Sp.numChildren; k++) {
-                            const cloth = Sp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
+                    if (obj[this._otherPro.part] === _classifySp.name) {
+                        _classifySp.active = true;
+                        for (let k = 0; k < _classifySp.numChildren; k++) {
+                            const cloth = _classifySp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
                             if (cloth.name === obj[this._property.name]) {
                                 cloth.active = true;
                                 if (!cloth.skinnedMeshRenderer.material) {
@@ -64,20 +71,31 @@ export module _DressingRoom {
             }
         }
         /**换装规则*/
-        change(): void {
-            const arr = this._getPropertyArr(this._otherPro.putOn, true);
+        changeAll(): void {
+            const arr = this._getArrByProperty(this._otherPro.putOn, true);
             this.changeClass(this._classify.DIY, arr);
             this.changeClass(this._classify.General, arr);
         }
-        diychange(obj: any): void {
-            obj[this._property.classify];
+        changeDress(obj: any): void {
+            const Root = this._Role.getChildByName('Root') as Laya.MeshSprite3D;
+            const _classify = Root.getChildByName(classify) as Laya.MeshSprite3D;
         }
     }
 
     class _Item extends Admin._ObjectBase {
         lwgButton(): void {
             this._btnUp(this._Owner, (e: Laya.Event) => {
-                _Clothes._ins()._setPitch(this._Owner['_dataSource'][_Clothes._ins()._property.name]);
+                const arr = _Clothes._ins()._getArrByProperty('part', this._Owner['dataSource']['part']);
+                for (let index = 0; index < arr.length; index++) {
+                    const element = arr[index];
+                    if (this._Owner['dataSource']['name'] === element['name']) {
+                        element['putOn'] = true;
+                    } else {
+                        element['putOn'] = false;
+                    }
+                }
+                _Clothes._ins()._refreshAndStorage();
+                _Clothes._ins().changeAll();
             }, null)
         }
     }
@@ -85,15 +103,12 @@ export module _DressingRoom {
     export class DressingRoom extends Admin._SceneBase {
 
         lwgOnAwake(): void {
-            let DIYArr = _MakeTailor._DIYClothes._ins()._getNoPropertyArr(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+            let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
             // 必须复制
             let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
             _Clothes._ins()._addObjectArr(copyDIYArr);
             _Clothes._ins()._List = this._ListVar('List');
             _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY)
-            if (_Clothes._ins()._List.array.length > 0) {
-                _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
-            }
             this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
             const Icon = this._ImgVar('DIY').getChildAt(0) as Laya.Image;
             Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
@@ -101,12 +116,11 @@ export module _DressingRoom {
                 let data = Cell.dataSource;
                 let Icon = Cell.getChildByName('Icon') as Laya.Image;
                 const Board = Cell.getChildByName('Board') as Laya.Image;
-                if (data[_Clothes._ins()._property.pitch]) {
+                if (data[_Clothes._ins()._otherPro.putOn]) {
                     Board.skin = `Game/UI/Common/xuanzhong.png`;
                 } else {
                     Board.skin = null;
                 }
-
                 if (data[_Clothes._ins()._property.classify] === _Clothes._ins()._classify.DIY) {
                     Icon.skin = data[_MakeTailor._DIYClothes._ins()._otherPro.icon];
                 } else {
@@ -121,7 +135,11 @@ export module _DressingRoom {
             // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
             // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
         }
-        lwgAdaptive(): void {
+
+        lwgEvent(): void {
+            this._evReg(_Event.changeCloth, () => {
+
+            })
         }
 
         UI: _MakeTailor._UI;
@@ -157,7 +175,7 @@ export module _DressingRoom {
                                 arr = _Clothes._ins()._getArrByClassify(_element.name);
                             } else {
                                 let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
-                                // 部位
+                                // 非DIY
                                 for (let index = 0; index < _arr.length; index++) {
                                     const obj = _arr[index];
                                     if (obj[_Clothes._ins()._otherPro.part] === _element.name) {

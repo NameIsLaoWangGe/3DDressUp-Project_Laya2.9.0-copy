@@ -339,6 +339,13 @@ P C6640039 dress_003.png
 P 625ABB89 dress_004.png
 P 9811290A dress_005.png
 P 8BA36AF2 dress_006.png
+P CD16E950 shoes_001.png
+P 851517E6 shoes_002.png
+P 5C744E2E shoes_003.png
+P 59CB5B60 shoes_004.png
+P F6ED9E5D shoes_005.png
+P 68F25DBA shoes_006.png
+P C6F521ED shoes_007.png
 P 6D5B4D9C top_001.png
 P 18425899 top_002.png
 P AAF4DE71 top_003.png
@@ -356,8 +363,8 @@ P 7905DDFA Dress.png
 P 355E6DBB Dress_s.png
 P 0A1D0834 FaceMask.png
 P 9E11AED2 FaceMask_s.png
-P BC97B522 Shoe.png
-P 7882721D Shoe_s.png
+P BC97B522 Shoes.png
+P 7882721D Shoes_s.png
 P 4B7FF19A Top.png
 P 3B711D8D Top_s.png
 D Game/UI/MakePattern/basic

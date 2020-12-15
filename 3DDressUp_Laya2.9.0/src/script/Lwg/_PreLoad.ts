@@ -125,13 +125,13 @@ export module _Res {
             //     texture: null as Laya.Texture,
             // },
         },
-        /**图片需要设置成不打包*/ 
+        /**图片需要设置成不打包*/
         texture2D: {
             Figure1: {
                 url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
                 texture2D: null as Laya.Texture2D,
             },
-          
+
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -186,10 +186,10 @@ export module _PreLoad {
             this._ImgVar('LoGo').scale(0, 0);
             this._ImgVar('Progress').scale(0, 0);
             this._ImgVar('Anti').alpha = 0;
-            TimerAdmin._once(delay * 2, () => {
+            TimerAdmin._once(delay * 4, () => {
                 this.effect();
             })
-            TimerAdmin._once(delay * 3, () => {
+            TimerAdmin._once(delay * 4, () => {
                 Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
             })
 
@@ -199,15 +199,17 @@ export module _PreLoad {
                 })
             })
 
-            // 星星闪烁动画左边
-            TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-            }, true)
-            // 星星闪烁动画右边
-            TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-            }, true)
             Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
+
+                // 星星闪烁动画左边
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true)
+                // 星星闪烁动画右边
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true)
+
                 Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
                     TimerAdmin._frameNumLoop(2, 50, this, () => {
                         this.count++;
@@ -216,11 +218,11 @@ export module _PreLoad {
                         this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
                     }, true)
                     Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2)
-                }, delay * 3);
-                TimerAdmin._once(delay * 3, () => {
+                }, delay * 4);
+                TimerAdmin._once(delay * 4, () => {
                     AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
                 })
-            }, delay * 2);
+            }, delay * 4);
         }
 
         effect(): void {

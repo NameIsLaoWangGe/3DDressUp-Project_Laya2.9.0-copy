@@ -2162,14 +2162,43 @@
                             const element = this._arr[key];
                             if (element[this._property.name] == name) {
                                 element[pro] = value;
+                                this._refreshAndStorage();
                                 break;
                             }
                         }
                     }
-                    this._refreshAndStorage();
                     return value;
                 }
                 ;
+                _getObjByName(name) {
+                    let obj = null;
+                    for (const key in this._arr) {
+                        if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
+                            const element = this._arr[key];
+                            if (element[this._property.name] == name) {
+                                obj = element;
+                                break;
+                            }
+                        }
+                    }
+                    return obj;
+                }
+                _setProSoleByClassify(name, pro, value) {
+                    const obj = this._getObjByName(name);
+                    const objArr = this._getArrByClassify(obj[this._property.classify]);
+                    for (const key in objArr) {
+                        if (Object.prototype.hasOwnProperty.call(objArr, key)) {
+                            const element = objArr[key];
+                            if (element[this._property.name] == name) {
+                                element[pro] = value;
+                            }
+                            else {
+                                element[pro] = !value;
+                            }
+                        }
+                    }
+                    this._refreshAndStorage();
+                }
                 _setAllProPerty(pro, value) {
                     for (let index = 0; index < this._arr.length; index++) {
                         const element = this._arr[index];
@@ -2240,7 +2269,7 @@
                     }
                     return arr;
                 }
-                _getPropertyArr(proName, value) {
+                _getArrByProperty(proName, value) {
                     let arr = [];
                     for (const key in this._arr) {
                         if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
@@ -2252,7 +2281,7 @@
                     }
                     return arr;
                 }
-                _getNoPropertyArr(proName, value) {
+                _getArrByNoProperty(proName, value) {
                     let arr = [];
                     for (const key in this._arr) {
                         if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
@@ -2264,7 +2293,7 @@
                     }
                     return arr;
                 }
-                _setPropertyArr(proName, value) {
+                _setArrByProperty(proName, value) {
                     let arr = [];
                     for (const key in this._arr) {
                         if (Object.prototype.hasOwnProperty.call(this._arr, key)) {
@@ -6901,6 +6930,10 @@
 
     var _DressingRoom;
     (function (_DressingRoom) {
+        let _Event;
+        (function (_Event) {
+            _Event["changeCloth"] = "_DressingRoom_ChangeCloth";
+        })(_Event = _DressingRoom._Event || (_DressingRoom._Event = {}));
         class _Clothes extends DataAdmin._Table {
             constructor() {
                 super(...arguments);
@@ -6960,7 +6993,7 @@
                 }
             }
             change() {
-                const arr = this._getPropertyArr(this._otherPro.putOn, true);
+                const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr);
                 this.changeClass(this._classify.General, arr);
             }
@@ -6972,20 +7005,28 @@
         class _Item extends Admin._ObjectBase {
             lwgButton() {
                 this._btnUp(this._Owner, (e) => {
-                    _Clothes._ins()._setPitch(this._Owner['_dataSource'][_Clothes._ins()._property.name]);
+                    const arr = _Clothes._ins()._getArrByProperty('part', this._Owner['dataSource']['part']);
+                    for (let index = 0; index < arr.length; index++) {
+                        const element = arr[index];
+                        if (this._Owner['dataSource']['name'] === element['name']) {
+                            element['putOn'] = true;
+                        }
+                        else {
+                            element['putOn'] = false;
+                        }
+                    }
+                    _Clothes._ins()._refreshAndStorage();
+                    _Clothes._ins().change();
                 }, null);
             }
         }
         class DressingRoom extends Admin._SceneBase {
             lwgOnAwake() {
-                let DIYArr = _MakeTailor._DIYClothes._ins()._getNoPropertyArr(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+                let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
                 let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
                 _Clothes._ins()._addObjectArr(copyDIYArr);
                 _Clothes._ins()._List = this._ListVar('List');
                 _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
-                if (_Clothes._ins()._List.array.length > 0) {
-                    _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
-                }
                 this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
                 const Icon = this._ImgVar('DIY').getChildAt(0);
                 Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
@@ -6993,7 +7034,7 @@
                     let data = Cell.dataSource;
                     let Icon = Cell.getChildByName('Icon');
                     const Board = Cell.getChildByName('Board');
-                    if (data[_Clothes._ins()._property.pitch]) {
+                    if (data[_Clothes._ins()._otherPro.putOn]) {
                         Board.skin = `Game/UI/Common/xuanzhong.png`;
                     }
                     else {
@@ -7010,7 +7051,9 @@
                     }
                 };
             }
-            lwgAdaptive() {
+            lwgEvent() {
+                this._evReg(_Event.changeCloth, () => {
+                });
             }
             lwgOnStart() {
                 this.UI = new _MakeTailor._UI(this._Owner);
@@ -7215,10 +7258,10 @@
                 this._ImgVar('LoGo').scale(0, 0);
                 this._ImgVar('Progress').scale(0, 0);
                 this._ImgVar('Anti').alpha = 0;
-                TimerAdmin._once(delay * 2, () => {
+                TimerAdmin._once(delay * 4, () => {
                     this.effect();
                 });
-                TimerAdmin._once(delay * 3, () => {
+                TimerAdmin._once(delay * 4, () => {
                     Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
                 });
                 TimerAdmin._frameLoop(time / 2 * 2, this, () => {
@@ -7226,13 +7269,13 @@
                         Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
                     });
                 });
-                TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-                }, true);
-                TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-                }, true);
                 Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
+                    TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                        Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                    }, true);
+                    TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                        Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                    }, true);
                     Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
                         TimerAdmin._frameNumLoop(2, 50, this, () => {
                             this.count++;
@@ -7241,11 +7284,11 @@
                             this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
                         }, true);
                         Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
-                    }, delay * 3);
-                    TimerAdmin._once(delay * 3, () => {
+                    }, delay * 4);
+                    TimerAdmin._once(delay * 4, () => {
                         AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
                     });
-                }, delay * 2);
+                }, delay * 4);
             }
             effect() {
                 const count = 80;
