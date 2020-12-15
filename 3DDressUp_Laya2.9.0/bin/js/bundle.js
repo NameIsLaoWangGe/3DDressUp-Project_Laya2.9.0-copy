@@ -1556,11 +1556,17 @@
                 _TextVar(name) {
                     return this.getVar(name, '_TextVar');
                 }
+                _TextInputVar(name) {
+                    return this.getVar(name, '_TextInputVar');
+                }
                 _FontClipVar(name) {
                     return this.getVar(name, '_FontClipVar');
                 }
                 _FontBox(name) {
                     return this.getVar(name, '_FontBox');
+                }
+                _FontTextInput(name) {
+                    return this.getVar(name, '_FontInput');
                 }
                 onAwake() {
                     this._Owner.width = Laya.stage.width;
@@ -2137,6 +2143,12 @@
                 _tweenToPitch(time, func) {
                     const index = this._getPitchIndexByList();
                     index && this._List.tweenTo(index, time, Laya.Handler.create(this, () => {
+                        func && func();
+                    }));
+                }
+                _tweenToPitchByIndex(diffIndex, time, func) {
+                    const index = this._getPitchIndexByList();
+                    index && this._List.tweenTo(index + diffIndex, time, Laya.Handler.create(this, () => {
                         func && func();
                     }));
                 }
@@ -6893,6 +6905,20 @@
             }
             ;
             operationAppear(func, delay) {
+                if (this.Scene.name === 'MakeTailor') {
+                    const BG1 = this.Scene['BG1'];
+                    const BG2 = this.Scene['BG2'];
+                    BG1.pivot(0, Laya.stage.height);
+                    BG1.x = 0;
+                    BG1.y = Laya.stage.height;
+                    BG2.pivot(Laya.stage.width, Laya.stage.height);
+                    BG2.x = Laya.stage.width;
+                    BG2.y = Laya.stage.height;
+                    BG1.rotation = BG2.rotation = 0;
+                    BG1.zOrder = 1;
+                    BG2.zOrder = 0;
+                    Animation2D.move_rotate(BG1, -30, new Laya.Point(0, -Laya.stage.height), this.time * 6);
+                }
                 Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time * 4, () => {
                     Animation2D.move(this.Operation, this.moveTargetX, this.Operation.y, this.time, () => {
                         func && func();
@@ -6901,6 +6927,20 @@
             }
             ;
             operationVinish(func, delay) {
+                if (this.Scene.name === 'MakeTailor') {
+                    const BG1 = this.Scene['BG1'];
+                    const BG2 = this.Scene['BG2'];
+                    BG1.pivot(0, Laya.stage.height);
+                    BG1.x = 0;
+                    BG1.y = Laya.stage.height;
+                    BG2.pivot(Laya.stage.width, Laya.stage.height);
+                    BG2.x = Laya.stage.width;
+                    BG2.y = Laya.stage.height;
+                    BG1.rotation = BG2.rotation = 0;
+                    BG1.zOrder = 0;
+                    BG2.zOrder = 1;
+                    Animation2D.move_rotate(BG2, 30, new Laya.Point(Laya.stage.width, -Laya.stage.height), this.time * 6);
+                }
                 Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
                     Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time, () => {
                         Animation2D.move(this.Operation, Laya.stage.width + 500, this.Operation.y, this.time * 4, () => {
@@ -7316,6 +7356,69 @@
         _MakeTailor.MakeTailor = MakeTailor;
     })(_MakeTailor || (_MakeTailor = {}));
 
+    var _PersonalInfo;
+    (function (_PersonalInfo) {
+        _PersonalInfo._name = {
+            get value() {
+                return StorageAdmin._str('playerName', null, 'You').value;
+            },
+            set value(str) {
+                StorageAdmin._str('playerName').value = str;
+            }
+        };
+        class PersonalInfo extends Admin._SceneBase {
+            lwgOnAwake() {
+                this._TextInputVar('NameValue').text = _PersonalInfo._name.value;
+                const obj = _Ranking._Data._ins()._getPitchObj();
+                this._LabelVar('RankValue').text = obj[_Ranking._Data._ins()._otherPro.rankNum];
+                this._LabelVar('FansValue').text = obj[_Ranking._Data._ins()._otherPro.fansNum];
+            }
+            lwgOpenAni() {
+                this._ImgVar('Background').alpha = 0;
+                this._ImgVar('Content').alpha = 0;
+                Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350);
+                Animation2D.fadeOut(this._ImgVar('Content'), 0, 1, 200);
+                return 200;
+            }
+            lwgButton() {
+                this._btnUp(this._ImgVar('BtnClose'), () => {
+                    this._closeScene();
+                });
+                this._btnFour(this._ImgVar('NameValue'), () => {
+                    this._ImgVar('BtnWrite').scale(0.85, 0.85);
+                }, () => {
+                    this._ImgVar('BtnWrite').scale(0.85, 0.85);
+                }, () => {
+                    this._ImgVar('BtnWrite').scale(1, 1);
+                }, () => {
+                    this._ImgVar('BtnWrite').scale(1, 1);
+                });
+                this._TextInputVar('NameValue').on(Laya.Event.FOCUS, this, () => {
+                });
+                this._TextInputVar('NameValue').on(Laya.Event.INPUT, this, () => {
+                });
+                this._TextInputVar('NameValue').on(Laya.Event.BLUR, this, () => {
+                    if (this._TextInputVar('NameValue').text.length <= 5) {
+                        this._TextInputVar('NameValue').fontSize = 30;
+                    }
+                    else if (this._TextInputVar('NameValue').text.length === 6) {
+                        this._TextInputVar('NameValue').fontSize = 27;
+                    }
+                    else {
+                        this._TextInputVar('NameValue').fontSize = 24;
+                    }
+                    _PersonalInfo._name.value = this._TextInputVar('NameValue').text;
+                });
+            }
+            lwgCloseAni() {
+                Animation2D.fadeOut(this._ImgVar('Background'), 1, 0, 200);
+                Animation2D.fadeOut(this._ImgVar('Content'), 1, 0, 300);
+                return 300;
+            }
+        }
+        _PersonalInfo.PersonalInfo = PersonalInfo;
+    })(_PersonalInfo || (_PersonalInfo = {}));
+
     var _Start;
     (function (_Start) {
         let _Event;
@@ -7420,18 +7523,19 @@
                 _Data._ins()._listRender = (Cell, index) => {
                     const data = Cell.dataSource;
                     const Board = Cell.getChildByName('Board');
+                    const Name = Cell.getChildByName('Name');
                     if (data[_Data._ins()._property.classify] === _Data._ins()._classify.self) {
                         Board.skin = `Game/UI/Ranking/x_di.png`;
+                        Name.text = _PersonalInfo._name.value;
                     }
                     else {
                         Board.skin = `Game/UI/Ranking/w_di.png`;
+                        Name.text = data[_Data._ins()._property.name];
                     }
                     const RankNum = Cell.getChildByName('RankNum');
                     RankNum.text = String(data[_Data._ins()._otherPro.rankNum]);
                     const FansNum = Cell.getChildByName('FansNum');
                     FansNum.text = String(data[_Data._ins()._otherPro.fansNum]);
-                    const Name = Cell.getChildByName('Name');
-                    Name.text = data[_Data._ins()._property.name];
                     const IconPic = Cell.getChildByName('Icon').getChildAt(0);
                     IconPic.skin = data[_Data._ins()._otherPro.iconSkin];
                 };
@@ -7455,7 +7559,7 @@
             lwgOnStart() {
                 _Data._ins()._scrollToLast(10);
                 if (_Ranking._whereFrom === 'MakePattern') {
-                    _Data._ins()._tweenToPitch(1000);
+                    _Data._ins()._tweenToPitchByIndex(-1, 1500);
                     const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                     const num1 = 150;
                     TimerAdmin._frameNumRandomLoop(1, 3, num1, this, () => {
@@ -7478,13 +7582,18 @@
                     _Ranking._whereFrom = 'Start';
                 }
                 else {
-                    _Data._ins()._tweenToPitch(800);
+                    _Data._ins()._tweenToPitchByIndex(-1, 600);
                 }
             }
             lwgButton() {
                 this._btnUp(this._ImgVar('BtnClose'), () => {
                     this._closeScene();
                 });
+            }
+            lwgCloseAni() {
+                Animation2D.fadeOut(this._ImgVar('Background'), 1, 0, 200);
+                Animation2D.fadeOut(this._ImgVar('Content'), 1, 0, 300);
+                return 200;
             }
         }
         _Ranking.Ranking = Ranking;
@@ -8359,32 +8468,6 @@
         _DressingRoom.DressingRoom = DressingRoom;
     })(_DressingRoom || (_DressingRoom = {}));
     var _DressingRoom$1 = _DressingRoom.DressingRoom;
-
-    var _PersonalInfo;
-    (function (_PersonalInfo) {
-        class PersonalInfo extends Admin._SceneBase {
-            lwgOnAwake() {
-                const obj = _Ranking._Data._ins()._getPitchObj();
-                this._LabelVar('RankValue').text = obj[_Ranking._Data._ins()._otherPro.rankNum];
-                this._LabelVar('FansValue').text = obj[_Ranking._Data._ins()._otherPro.fansNum];
-            }
-            lwgOpenAni() {
-                this._ImgVar('Background').alpha = 0;
-                this._ImgVar('Content').alpha = 0;
-                Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350);
-                Animation2D.fadeOut(this._ImgVar('Content'), 0, 1, 200);
-                return 200;
-            }
-            lwgButton() {
-                this._btnUp(this._ImgVar('BtnClose'), () => {
-                    this._closeScene();
-                });
-                this._btnUp(this._ImgVar('BtnWrite'), () => {
-                });
-            }
-        }
-        _PersonalInfo.PersonalInfo = PersonalInfo;
-    })(_PersonalInfo || (_PersonalInfo = {}));
 
     class LwgInit extends _LwgInitScene {
         lwgOnAwake() {

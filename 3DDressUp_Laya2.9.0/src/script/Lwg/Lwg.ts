@@ -1936,11 +1936,17 @@ export module lwg {
             _TextVar(name: string): Laya.Text {
                 return this.getVar(name, '_TextVar');
             }
+            _TextInputVar(name: string): Laya.TextInput {
+                return this.getVar(name, '_TextInputVar');
+            }
             _FontClipVar(name: string): Laya.FontClip {
                 return this.getVar(name, '_FontClipVar');
             }
             _FontBox(name: string): Laya.Box {
                 return this.getVar(name, '_FontBox');
+            }
+            _FontTextInput(name: string): Laya.TextInput {
+                return this.getVar(name, '_FontInput');
             }
             onAwake(): void {
                 // 自适应铺满
@@ -2601,6 +2607,18 @@ export module lwg {
             _tweenToPitch(time: number, func?: Function): void {
                 const index = this._getPitchIndexByList();
                 index && this._List.tweenTo(index, time, Laya.Handler.create(this, () => {
+                    func && func();
+                }));
+            }
+
+            /**
+             * 将选中的对象移动到第几位,本身index的差值
+             * @param time 所需时间
+             * @param func 结束回调
+             * */
+            _tweenToPitchByIndex(diffIndex: number, time: number, func?: Function): void {
+                const index = this._getPitchIndexByList();
+                index && this._List.tweenTo(index + diffIndex, time, Laya.Handler.create(this, () => {
                     func && func();
                 }));
             }
