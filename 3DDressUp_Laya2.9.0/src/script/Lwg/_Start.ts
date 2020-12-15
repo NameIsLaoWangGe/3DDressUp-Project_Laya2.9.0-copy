@@ -17,6 +17,7 @@ export module _Start {
     export class Start extends Admin._SceneBase {
 
         lwgOnAwake(): void {
+
             if (_Ranking._whereFrom === 'MakePattern') {
                 TimerAdmin._frameOnce(60, this, () => {
                     this._openScene('Ranking', false);

@@ -2717,7 +2717,7 @@ export module lwg {
             }
 
             /**
-             * 获取某种品类中所有的对象
+             * 获取某种品类中所有的对象，不可以保存变量，可以在外部保存，因为可能会在此品类中增加对象
              * @param {string} classify
              * @memberof _Table
              */
@@ -2753,7 +2753,7 @@ export module lwg {
             }
 
             /**
-             * 通过某个属性名称和值获取所有复合条件的属性，可以查找出已获得或者未获得
+             * 通过某个属性名称和值获取所有复合条件的对象数组，可以查找出已获得或者未获得
              * @param {string} proName 属性名
              * @param {*} value 值
              * @memberof _DataTable
@@ -6278,7 +6278,7 @@ export module lwg {
              * 切换隐藏或显示子节点，当输入的名称数组是隐藏时，其他子节点则是显示
              * @param node 节点
              * @param childNameArr 子节点名称数组
-             * @param bool 隐藏还是显示，true为显示，flase为隐藏
+             * @param bool 隐藏还是显示，true为显示，flase为隐藏,默认为true
              */
             export function showExcludedChild3D(node: Laya.MeshSprite3D, childNameArr: Array<string>, bool?: boolean): void {
                 for (let i = 0; i < node.numChildren; i++) {

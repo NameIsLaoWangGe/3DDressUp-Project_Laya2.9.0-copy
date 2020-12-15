@@ -6247,441 +6247,6 @@
     })(_Guide || (_Guide = {}));
     var _Guide$1 = _Guide.Guide;
 
-    var _Res;
-    (function (_Res) {
-        _Res._list = {
-            scene3D: {
-                MakeClothes: {
-                    url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/MakeClothes.ls`,
-                    Scene: null,
-                },
-            },
-            pic2D: {
-                Effects: "res/atlas/lwg/Effects.png",
-                MakeClothes: `res/atlas/Game/UI/MakeClothes.png`,
-            },
-            prefab2D: {
-                BtnAgain: {
-                    url: 'Prefab/BtnaGain.json',
-                    prefab: new Laya.Prefab,
-                },
-                BtnBack: {
-                    url: 'Prefab/BtnBack3.json',
-                    prefab: new Laya.Prefab,
-                },
-                BtnRollback: {
-                    url: 'Prefab/BtnRollback.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_bottom_002_final: {
-                    url: 'Prefab/diy_bottom_002_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_bottom_003_final: {
-                    url: 'Prefab/diy_bottom_003_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_bottom_004_final: {
-                    url: 'Prefab/diy_bottom_004_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_bottom_005_final: {
-                    url: 'Prefab/diy_bottom_005_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_bottom_006_final: {
-                    url: 'Prefab/diy_bottom_006_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_001_final: {
-                    url: 'Prefab/diy_dress_001_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_002_final: {
-                    url: 'Prefab/diy_dress_002_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_003_final: {
-                    url: 'Prefab/diy_dress_003_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_004_final: {
-                    url: 'Prefab/diy_dress_004_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_005_final: {
-                    url: 'Prefab/diy_dress_005_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_006_final: {
-                    url: 'Prefab/diy_dress_006_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_007_final: {
-                    url: 'Prefab/diy_dress_007_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_dress_008_final: {
-                    url: 'Prefab/diy_dress_008_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_003_final: {
-                    url: 'Prefab/diy_top_003_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_004_final: {
-                    url: 'Prefab/diy_top_004_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_005_final: {
-                    url: 'Prefab/diy_top_005_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_006_final: {
-                    url: 'Prefab/diy_top_006_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_007_final: {
-                    url: 'Prefab/diy_top_007_final.json',
-                    prefab: new Laya.Prefab,
-                },
-                diy_top_008_final: {
-                    url: 'Prefab/diy_top_008_final.json',
-                    prefab: new Laya.Prefab,
-                },
-            },
-            texture: {},
-            texture2D: {
-                Figure1: {
-                    url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
-                    texture2D: null,
-                },
-            },
-            scene2D: {
-                Start: `Scene/${_SceneName.Start}.json`,
-                Guide: `Scene/${_SceneName.Guide}.json`,
-                PreLoadStep: `Scene/${_SceneName.PreLoadCutIn}.json`,
-                MakePattern: `Scene/${'MakePattern'}.json`,
-            },
-            json: {
-                GeneralClothes: {
-                    url: `_LwgData/_DressingRoom/GeneralClothes.json`,
-                    dataArr: new Array,
-                },
-                DIYClothes: {
-                    url: `_LwgData/_DressingRoom/DIYClothes.json`,
-                    dataArr: new Array,
-                },
-                MakePattern: {
-                    url: `_LwgData/_MakePattern/MakePattern.json`,
-                    dataArr: new Array,
-                },
-                Ranking: {
-                    url: `_LwgData/_Ranking/Ranking.json`,
-                    dataArr: new Array,
-                }
-            },
-        };
-    })(_Res || (_Res = {}));
-    var _PreLoad;
-    (function (_PreLoad) {
-        class PreLoad extends _LwgPreLoad._PreLoadScene {
-            constructor() {
-                super(...arguments);
-                this.count = 0;
-            }
-            lwgOnStart() {
-                const scale = 1.2;
-                const time = 100;
-                const delay = 100;
-                this._ImgVar('LoGo').scale(0, 0);
-                this._ImgVar('Progress').scale(0, 0);
-                this._ImgVar('Anti').alpha = 0;
-                TimerAdmin._once(delay * 2, () => {
-                    this.effect();
-                });
-                TimerAdmin._once(delay * 3, () => {
-                    Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
-                });
-                TimerAdmin._frameLoop(time / 2 * 2, this, () => {
-                    TimerAdmin._once(delay * 6, () => {
-                        Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
-                    });
-                });
-                TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-                }, true);
-                TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
-                }, true);
-                Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
-                    Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
-                        TimerAdmin._frameNumLoop(2, 50, this, () => {
-                            this.count++;
-                            this.progressDisplay();
-                        }, () => {
-                            this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
-                        }, true);
-                        Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
-                    }, delay * 3);
-                    TimerAdmin._once(delay * 3, () => {
-                        AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
-                    });
-                }, delay * 2);
-            }
-            effect() {
-                const count = 80;
-                const time = 30;
-                const dis = Tools._Number.randomOneInt(500, 500);
-                const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
-                for (let index = 0; index < count; index++) {
-                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
-                }
-                for (let index = 0; index < count * 2; index++) {
-                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
-                }
-            }
-            progressDisplay() {
-                this._ImgVar('ProgressBar').mask.x = -this._ImgVar('ProgressBar').width + this._ImgVar('ProgressBar').width / 100 * this.count;
-            }
-            lwgOpenAni() { return 1; }
-            lwgStepComplete() {
-            }
-            lwgAllComplete() {
-                TimerAdmin._frameNumLoop(2, 3, this, () => {
-                    this.count += 10;
-                    this.progressDisplay();
-                }, () => {
-                    this._ImgVar('ProgressBar').mask.x = 0;
-                });
-                return 1500;
-            }
-            lwgOnDisable() {
-            }
-        }
-        _PreLoad.PreLoad = PreLoad;
-    })(_PreLoad || (_PreLoad = {}));
-    var _PreLoad$1 = _PreLoad.PreLoad;
-
-    var lwg3D;
-    (function (lwg3D) {
-        class _Script3DBase extends Laya.Script3D {
-            get _cameraPos() {
-                if (!this['__cameraPos']) {
-                    return this['__cameraPos'] = new Laya.Vector3(this._MainCamera.transform.localPositionX, this._MainCamera.transform.localPositionY, this._MainCamera.transform.localPositionZ);
-                }
-                else {
-                    return this['__cameraPos'];
-                }
-            }
-            get _MainCamera() {
-                if (!this['__MainCamera']) {
-                    if (this.owner.getChildByName('Main Camera')) {
-                        return this['__MainCamera'] = this.owner.getChildByName('Main Camera');
-                    }
-                    for (let index = 0; index < this.owner.numChildren; index++) {
-                        const element = this.owner.getChildAt(index);
-                        if (typeof element == typeof (Laya.Camera)) {
-                            return this['__MainCamera'] = element;
-                        }
-                    }
-                }
-                else {
-                    return this['__MainCamera'];
-                }
-            }
-            set _MainCamera(Camera) {
-                this['__MainCamera'] = Camera;
-            }
-            _Child(name) {
-                if (!this[`_child${name}`]) {
-                    if (this.owner.getChildByName(name)) {
-                        return this[`_child${name}`] = this.owner.getChildByName(name);
-                    }
-                    else {
-                        console.log(`不存在子节点${name}`);
-                    }
-                }
-                else {
-                    return this[`_child${name}`];
-                }
-            }
-            getChildComponent(name, Component) {
-                if (!this[`_child${name}${Component}`]) {
-                    let Child = this.owner.getChildByName(name);
-                    if (Child) {
-                        if (Child[Component]) {
-                            return this[`_child${name}${Component}`] = Child[Component];
-                        }
-                        else {
-                            console.log(`${name}子节点没有${Component}组件`);
-                        }
-                    }
-                    else {
-                        console.log(`不存在子节点${name}`);
-                    }
-                }
-                else {
-                    return this[`_child${name}${Component}`];
-                }
-            }
-            _childTrans(name) {
-                return this.getChildComponent(name, 'transform');
-            }
-            _childMRenderer(name) {
-                return this.getChildComponent(name, 'meshRenderer');
-            }
-            getFindComponent(name, Component) {
-                if (!this[`_child${name}${Component}`]) {
-                    let Node = Tools._Node.findChild3D(this.owner, name);
-                    if (Node) {
-                        if (Node[Component]) {
-                            return this[`_child${name}${Component}`] = Node[Component];
-                        }
-                        else {
-                            console.log(`${name}场景内节点没有${Component}组件`);
-                        }
-                    }
-                    else {
-                        console.log(`场景内不存在子节点${name}`);
-                    }
-                }
-                else {
-                    return this[`_child${name}${Component}`];
-                }
-            }
-            _find(name) {
-                if (!this[`_FindNode${name}`]) {
-                    let Node = Tools._Node.findChild3D(this.owner, name);
-                    if (Node) {
-                        return this[`_FindNode${name}`] = Node;
-                    }
-                    else {
-                        console.log(`不存在节点${name}`);
-                    }
-                }
-                else {
-                    return this[`_FindNode${name}`];
-                }
-            }
-            _findMRenderer(name) {
-                return this.getFindComponent(name, 'meshRenderer');
-            }
-            _findTrans(name) {
-                return this.getFindComponent(name, 'transform');
-            }
-            lwgOnAwake() {
-            }
-            lwgEvent() { }
-            ;
-            _evReg(name, func) {
-                EventAdmin._register(name, this, func);
-            }
-            _evNotify(name, args) {
-                EventAdmin._notify(name, args);
-            }
-            lwgOnEnable() { }
-            lwgOnStart() { }
-            lwgOnUpdate() {
-            }
-            lwgOnDisable() {
-            }
-        }
-        class _Scene3DBase extends _Script3DBase {
-            constructor() {
-                super();
-                this._cameraFp = new Laya.Vector3;
-            }
-            get _Owner() {
-                return this.owner;
-            }
-            onAwake() {
-                this._calssName = this['__proto__']['constructor'].name;
-                if (this._MainCamera) {
-                    this._cameraFp.x = this._MainCamera.transform.localPositionX;
-                    this._cameraFp.y = this._MainCamera.transform.localPositionY;
-                    this._cameraFp.z = this._MainCamera.transform.localPositionZ;
-                }
-                this.lwgOnAwake();
-            }
-            onEnable() {
-                this._Owner[this._calssName] = this;
-                this.lwgEvent();
-                this.lwgOnEnable();
-                this.lwgOpenAni();
-            }
-            onStart() {
-                this.lwgOnStart();
-            }
-            lwgOpenAni() {
-            }
-            lwgVanishAni() {
-            }
-            onUpdate() {
-                this.lwgOnUpdate();
-            }
-            onDisable() {
-                this.lwgOnDisable();
-                Laya.timer.clearAll(this);
-                Laya.Tween.clearAll(this);
-                EventAdmin._offCaller(this);
-            }
-        }
-        lwg3D._Scene3DBase = _Scene3DBase;
-        class _Object3D extends _Script3DBase {
-            constructor() {
-                super();
-            }
-            get _Owner() {
-                return this.owner;
-            }
-            _locScale() {
-                return this._Owner.transform.localScale;
-            }
-            _locPos() {
-                return this._Owner.transform.localPosition;
-            }
-            _pos() {
-                return this._Owner.transform.position;
-            }
-            _locEuler() {
-                return this._Owner.transform.localRotationEuler;
-            }
-            get _Parent() {
-                return this.owner.parent;
-            }
-            get _transform() {
-                return this._Owner.transform;
-            }
-            get _Scene3D() {
-                return this.owner.scene;
-            }
-            get _Rig3D() {
-                if (!this._Owner['__Rigidbody3D']) {
-                    this._Owner['__Rigidbody3D'] = this._Owner.getComponent(Laya.Rigidbody3D);
-                }
-                return this._Owner['__Rigidbody3D'];
-            }
-            onAwake() {
-                this.lwgOnAwake();
-            }
-            onEnable() {
-                this.lwgEvent();
-                this.lwgOnEnable();
-            }
-            onUpdate() {
-                this.lwgOnUpdate();
-            }
-            onDisable() {
-                this.lwgOnDisable();
-                Laya.Tween.clearAll(this);
-                Laya.timer.clearAll(this);
-                EventAdmin._offCaller(this);
-            }
-        }
-        lwg3D._Object3D = _Object3D;
-    })(lwg3D || (lwg3D = {}));
-
     var _MakeTailor;
     (function (_MakeTailor) {
         let _Event;
@@ -6906,18 +6471,7 @@
             ;
             operationAppear(func, delay) {
                 if (this.Scene.name === 'MakeTailor') {
-                    const BG1 = this.Scene['BG1'];
-                    const BG2 = this.Scene['BG2'];
-                    BG1.pivot(0, Laya.stage.height);
-                    BG1.x = 0;
-                    BG1.y = Laya.stage.height;
-                    BG2.pivot(Laya.stage.width, Laya.stage.height);
-                    BG2.x = Laya.stage.width;
-                    BG2.y = Laya.stage.height;
-                    BG1.rotation = BG2.rotation = 0;
-                    BG1.zOrder = 1;
-                    BG2.zOrder = 0;
-                    Animation2D.move_rotate(BG1, -30, new Laya.Point(0, -Laya.stage.height), this.time * 6);
+                    Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
                 }
                 Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time * 4, () => {
                     Animation2D.move(this.Operation, this.moveTargetX, this.Operation.y, this.time, () => {
@@ -6928,18 +6482,7 @@
             ;
             operationVinish(func, delay) {
                 if (this.Scene.name === 'MakeTailor') {
-                    const BG1 = this.Scene['BG1'];
-                    const BG2 = this.Scene['BG2'];
-                    BG1.pivot(0, Laya.stage.height);
-                    BG1.x = 0;
-                    BG1.y = Laya.stage.height;
-                    BG2.pivot(Laya.stage.width, Laya.stage.height);
-                    BG2.x = Laya.stage.width;
-                    BG2.y = Laya.stage.height;
-                    BG1.rotation = BG2.rotation = 0;
-                    BG1.zOrder = 0;
-                    BG2.zOrder = 1;
-                    Animation2D.move_rotate(BG2, 30, new Laya.Point(Laya.stage.width, -Laya.stage.height), this.time * 6);
+                    Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 0, 500);
                 }
                 Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
                     Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time, () => {
@@ -7355,6 +6898,609 @@
         }
         _MakeTailor.MakeTailor = MakeTailor;
     })(_MakeTailor || (_MakeTailor = {}));
+
+    var _DressingRoom;
+    (function (_DressingRoom) {
+        class _Clothes extends DataAdmin._Table {
+            constructor() {
+                super(...arguments);
+                this._classify = {
+                    DIY: 'DIY',
+                    General: 'General',
+                };
+                this._part = {
+                    Dress: 'Dress',
+                    Top: 'Top',
+                    Bottoms: 'Bottoms',
+                    FaceMask: 'FaceMask',
+                    Accessories: 'Accessories',
+                    Shoes: 'Shoes',
+                    Hair: 'Hair',
+                };
+                this._otherPro = {
+                    putOn: 'putOn',
+                    part: 'part'
+                };
+            }
+            static _ins() {
+                if (!this.ins) {
+                    this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
+                    this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
+                    this.ins._Role = this.ins._Scene3D.getChildByName('Role');
+                }
+                return this.ins;
+            }
+            changeClass(classify, partArr) {
+                const Root = this._Role.getChildByName('Root');
+                const DIY = Root.getChildByName(classify);
+                for (let i = 0; i < DIY.numChildren; i++) {
+                    const Sp = DIY.getChildAt(i);
+                    Sp.active = false;
+                    for (let j = 0; j < partArr.length; j++) {
+                        const obj = partArr[j];
+                        if (obj[this._otherPro.part] === Sp.name) {
+                            Sp.active = true;
+                            for (let k = 0; k < Sp.numChildren; k++) {
+                                const cloth = Sp.getChildAt(k);
+                                if (cloth.name === obj[this._property.name]) {
+                                    cloth.active = true;
+                                    if (!cloth.skinnedMeshRenderer.material) {
+                                        cloth.skinnedMeshRenderer.material = new Laya.BlinnPhongMaterial();
+                                    }
+                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
+                                        cloth.skinnedMeshRenderer.material.albedoTexture = tex;
+                                    }));
+                                }
+                                else {
+                                    cloth.active = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            change() {
+                const arr = this._getPropertyArr(this._otherPro.putOn, true);
+                this.changeClass(this._classify.DIY, arr);
+                this.changeClass(this._classify.General, arr);
+            }
+            diychange(obj) {
+                obj[this._property.classify];
+            }
+        }
+        _DressingRoom._Clothes = _Clothes;
+        class _Item extends Admin._ObjectBase {
+            lwgButton() {
+                this._btnUp(this._Owner, (e) => {
+                    _Clothes._ins()._setPitch(this._Owner['_dataSource'][_Clothes._ins()._property.name]);
+                }, null);
+            }
+        }
+        class DressingRoom extends Admin._SceneBase {
+            lwgOnAwake() {
+                let DIYArr = _MakeTailor._DIYClothes._ins()._getNoPropertyArr(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+                let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+                _Clothes._ins()._addObjectArr(copyDIYArr);
+                _Clothes._ins()._List = this._ListVar('List');
+                _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
+                if (_Clothes._ins()._List.array.length > 0) {
+                    _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
+                }
+                this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
+                const Icon = this._ImgVar('DIY').getChildAt(0);
+                Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
+                _Clothes._ins()._listRender = (Cell, index) => {
+                    let data = Cell.dataSource;
+                    let Icon = Cell.getChildByName('Icon');
+                    const Board = Cell.getChildByName('Board');
+                    if (data[_Clothes._ins()._property.pitch]) {
+                        Board.skin = `Game/UI/Common/xuanzhong.png`;
+                    }
+                    else {
+                        Board.skin = null;
+                    }
+                    if (data[_Clothes._ins()._property.classify] === _Clothes._ins()._classify.DIY) {
+                        Icon.skin = data[_MakeTailor._DIYClothes._ins()._otherPro.icon];
+                    }
+                    else {
+                        Icon.skin = `Game/UI/DressingRoom/Icon/${data[_Clothes._ins()._property.name]}.png`;
+                    }
+                    if (!Cell.getComponent(_Item)) {
+                        Cell.addComponent(_Item);
+                    }
+                };
+            }
+            lwgAdaptive() {
+            }
+            lwgOnStart() {
+                this.UI = new _MakeTailor._UI(this._Owner);
+                TimerAdmin._frameOnce(10, this, () => {
+                    this.UI.operationAppear();
+                    this.UI.btnBackAppear(null, 200);
+                    this.UI.btnCompleteAppear(null, 400);
+                });
+                this.UI.btnCompleteClick = () => {
+                    this.UI.operationVinish(() => {
+                        this.UI.btnBackVinish(() => {
+                            this._openScene('Start', true, true);
+                        });
+                    }, 200);
+                };
+            }
+            lwgButton() {
+                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                    const _element = this._ImgVar('Part').getChildAt(index);
+                    this._btnUp(_element, () => {
+                        let arr = [];
+                        for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                            const element = this._ImgVar('Part').getChildAt(index);
+                            const Icon = element.getChildAt(0);
+                            if (_element === element) {
+                                element.skin = `Game/UI/Common/kuang_fen.png`;
+                                Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
+                                if (_element.name === 'DIY') {
+                                    arr = _Clothes._ins()._getArrByClassify(_element.name);
+                                }
+                                else {
+                                    let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
+                                    for (let index = 0; index < _arr.length; index++) {
+                                        const obj = _arr[index];
+                                        if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
+                                            arr.push(obj);
+                                        }
+                                    }
+                                }
+                            }
+                            else {
+                                element.skin = `Game/UI/Common/kuang_bai.png`;
+                                Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
+                            }
+                            _Clothes._ins()._List.array = arr;
+                        }
+                    }, 'no');
+                }
+            }
+        }
+        _DressingRoom.DressingRoom = DressingRoom;
+    })(_DressingRoom || (_DressingRoom = {}));
+    var _DressingRoom$1 = _DressingRoom.DressingRoom;
+
+    var _Res;
+    (function (_Res) {
+        _Res._list = {
+            scene3D: {
+                MakeClothes: {
+                    url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/MakeClothes.ls`,
+                    Scene: null,
+                },
+            },
+            pic2D: {
+                Effects: "res/atlas/lwg/Effects.png",
+                MakeClothes: `res/atlas/Game/UI/MakeClothes.png`,
+            },
+            prefab2D: {
+                BtnAgain: {
+                    url: 'Prefab/BtnaGain.json',
+                    prefab: new Laya.Prefab,
+                },
+                BtnBack: {
+                    url: 'Prefab/BtnBack3.json',
+                    prefab: new Laya.Prefab,
+                },
+                BtnRollback: {
+                    url: 'Prefab/BtnRollback.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_bottom_002_final: {
+                    url: 'Prefab/diy_bottom_002_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_bottom_003_final: {
+                    url: 'Prefab/diy_bottom_003_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_bottom_004_final: {
+                    url: 'Prefab/diy_bottom_004_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_bottom_005_final: {
+                    url: 'Prefab/diy_bottom_005_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_bottom_006_final: {
+                    url: 'Prefab/diy_bottom_006_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_001_final: {
+                    url: 'Prefab/diy_dress_001_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_002_final: {
+                    url: 'Prefab/diy_dress_002_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_003_final: {
+                    url: 'Prefab/diy_dress_003_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_004_final: {
+                    url: 'Prefab/diy_dress_004_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_005_final: {
+                    url: 'Prefab/diy_dress_005_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_006_final: {
+                    url: 'Prefab/diy_dress_006_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_007_final: {
+                    url: 'Prefab/diy_dress_007_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_dress_008_final: {
+                    url: 'Prefab/diy_dress_008_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_003_final: {
+                    url: 'Prefab/diy_top_003_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_004_final: {
+                    url: 'Prefab/diy_top_004_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_005_final: {
+                    url: 'Prefab/diy_top_005_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_006_final: {
+                    url: 'Prefab/diy_top_006_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_007_final: {
+                    url: 'Prefab/diy_top_007_final.json',
+                    prefab: new Laya.Prefab,
+                },
+                diy_top_008_final: {
+                    url: 'Prefab/diy_top_008_final.json',
+                    prefab: new Laya.Prefab,
+                },
+            },
+            texture: {},
+            texture2D: {
+                Figure1: {
+                    url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
+                    texture2D: null,
+                },
+            },
+            scene2D: {
+                Start: `Scene/${_SceneName.Start}.json`,
+                Guide: `Scene/${_SceneName.Guide}.json`,
+                PreLoadStep: `Scene/${_SceneName.PreLoadCutIn}.json`,
+                MakePattern: `Scene/${'MakePattern'}.json`,
+            },
+            json: {
+                GeneralClothes: {
+                    url: `_LwgData/_DressingRoom/GeneralClothes.json`,
+                    dataArr: new Array,
+                },
+                DIYClothes: {
+                    url: `_LwgData/_DressingRoom/DIYClothes.json`,
+                    dataArr: new Array,
+                },
+                MakePattern: {
+                    url: `_LwgData/_MakePattern/MakePattern.json`,
+                    dataArr: new Array,
+                },
+                Ranking: {
+                    url: `_LwgData/_Ranking/Ranking.json`,
+                    dataArr: new Array,
+                }
+            },
+        };
+    })(_Res || (_Res = {}));
+    var _PreLoad;
+    (function (_PreLoad) {
+        class PreLoad extends _LwgPreLoad._PreLoadScene {
+            constructor() {
+                super(...arguments);
+                this.count = 0;
+            }
+            lwgOnStart() {
+                const scale = 1.2;
+                const time = 100;
+                const delay = 100;
+                this._ImgVar('LoGo').scale(0, 0);
+                this._ImgVar('Progress').scale(0, 0);
+                this._ImgVar('Anti').alpha = 0;
+                TimerAdmin._once(delay * 2, () => {
+                    this.effect();
+                });
+                TimerAdmin._once(delay * 3, () => {
+                    Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
+                });
+                TimerAdmin._frameLoop(time / 2 * 2, this, () => {
+                    TimerAdmin._once(delay * 6, () => {
+                        Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
+                    });
+                });
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true);
+                TimerAdmin._frameRandomLoop(30, 50, this, () => {
+                    Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                }, true);
+                Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
+                    Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
+                        TimerAdmin._frameNumLoop(2, 50, this, () => {
+                            this.count++;
+                            this.progressDisplay();
+                        }, () => {
+                            this._evNotify(_LwgPreLoad._Event.importList, [_Res._list]);
+                        }, true);
+                        Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
+                    }, delay * 3);
+                    TimerAdmin._once(delay * 3, () => {
+                        AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
+                    });
+                }, delay * 2);
+            }
+            effect() {
+                const count = 80;
+                const time = 30;
+                const dis = Tools._Number.randomOneInt(500, 500);
+                const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
+                for (let index = 0; index < count; index++) {
+                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
+                }
+                for (let index = 0; index < count * 2; index++) {
+                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
+                }
+            }
+            progressDisplay() {
+                this._ImgVar('ProgressBar').mask.x = -this._ImgVar('ProgressBar').width + this._ImgVar('ProgressBar').width / 100 * this.count;
+            }
+            lwgOpenAni() { return 1; }
+            lwgStepComplete() {
+            }
+            lwgAllComplete() {
+                TimerAdmin._frameNumLoop(2, 3, this, () => {
+                    this.count += 10;
+                    this.progressDisplay();
+                }, () => {
+                    this._ImgVar('ProgressBar').mask.x = 0;
+                });
+                Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
+                _DressingRoom._Clothes._ins().change();
+                return 1500;
+            }
+            lwgOnDisable() {
+            }
+        }
+        _PreLoad.PreLoad = PreLoad;
+    })(_PreLoad || (_PreLoad = {}));
+    var _PreLoad$1 = _PreLoad.PreLoad;
+
+    var lwg3D;
+    (function (lwg3D) {
+        class _Script3DBase extends Laya.Script3D {
+            get _cameraPos() {
+                if (!this['__cameraPos']) {
+                    return this['__cameraPos'] = new Laya.Vector3(this._MainCamera.transform.localPositionX, this._MainCamera.transform.localPositionY, this._MainCamera.transform.localPositionZ);
+                }
+                else {
+                    return this['__cameraPos'];
+                }
+            }
+            get _MainCamera() {
+                if (!this['__MainCamera']) {
+                    if (this.owner.getChildByName('Main Camera')) {
+                        return this['__MainCamera'] = this.owner.getChildByName('Main Camera');
+                    }
+                    for (let index = 0; index < this.owner.numChildren; index++) {
+                        const element = this.owner.getChildAt(index);
+                        if (typeof element == typeof (Laya.Camera)) {
+                            return this['__MainCamera'] = element;
+                        }
+                    }
+                }
+                else {
+                    return this['__MainCamera'];
+                }
+            }
+            set _MainCamera(Camera) {
+                this['__MainCamera'] = Camera;
+            }
+            _Child(name) {
+                if (!this[`_child${name}`]) {
+                    if (this.owner.getChildByName(name)) {
+                        return this[`_child${name}`] = this.owner.getChildByName(name);
+                    }
+                    else {
+                        console.log(`不存在子节点${name}`);
+                    }
+                }
+                else {
+                    return this[`_child${name}`];
+                }
+            }
+            getChildComponent(name, Component) {
+                if (!this[`_child${name}${Component}`]) {
+                    let Child = this.owner.getChildByName(name);
+                    if (Child) {
+                        if (Child[Component]) {
+                            return this[`_child${name}${Component}`] = Child[Component];
+                        }
+                        else {
+                            console.log(`${name}子节点没有${Component}组件`);
+                        }
+                    }
+                    else {
+                        console.log(`不存在子节点${name}`);
+                    }
+                }
+                else {
+                    return this[`_child${name}${Component}`];
+                }
+            }
+            _childTrans(name) {
+                return this.getChildComponent(name, 'transform');
+            }
+            _childMRenderer(name) {
+                return this.getChildComponent(name, 'meshRenderer');
+            }
+            getFindComponent(name, Component) {
+                if (!this[`_child${name}${Component}`]) {
+                    let Node = Tools._Node.findChild3D(this.owner, name);
+                    if (Node) {
+                        if (Node[Component]) {
+                            return this[`_child${name}${Component}`] = Node[Component];
+                        }
+                        else {
+                            console.log(`${name}场景内节点没有${Component}组件`);
+                        }
+                    }
+                    else {
+                        console.log(`场景内不存在子节点${name}`);
+                    }
+                }
+                else {
+                    return this[`_child${name}${Component}`];
+                }
+            }
+            _find(name) {
+                if (!this[`_FindNode${name}`]) {
+                    let Node = Tools._Node.findChild3D(this.owner, name);
+                    if (Node) {
+                        return this[`_FindNode${name}`] = Node;
+                    }
+                    else {
+                        console.log(`不存在节点${name}`);
+                    }
+                }
+                else {
+                    return this[`_FindNode${name}`];
+                }
+            }
+            _findMRenderer(name) {
+                return this.getFindComponent(name, 'meshRenderer');
+            }
+            _findTrans(name) {
+                return this.getFindComponent(name, 'transform');
+            }
+            lwgOnAwake() {
+            }
+            lwgEvent() { }
+            ;
+            _evReg(name, func) {
+                EventAdmin._register(name, this, func);
+            }
+            _evNotify(name, args) {
+                EventAdmin._notify(name, args);
+            }
+            lwgOnEnable() { }
+            lwgOnStart() { }
+            lwgOnUpdate() {
+            }
+            lwgOnDisable() {
+            }
+        }
+        class _Scene3DBase extends _Script3DBase {
+            constructor() {
+                super();
+                this._cameraFp = new Laya.Vector3;
+            }
+            get _Owner() {
+                return this.owner;
+            }
+            onAwake() {
+                this._calssName = this['__proto__']['constructor'].name;
+                if (this._MainCamera) {
+                    this._cameraFp.x = this._MainCamera.transform.localPositionX;
+                    this._cameraFp.y = this._MainCamera.transform.localPositionY;
+                    this._cameraFp.z = this._MainCamera.transform.localPositionZ;
+                }
+                this.lwgOnAwake();
+            }
+            onEnable() {
+                this._Owner[this._calssName] = this;
+                this.lwgEvent();
+                this.lwgOnEnable();
+                this.lwgOpenAni();
+            }
+            onStart() {
+                this.lwgOnStart();
+            }
+            lwgOpenAni() {
+            }
+            lwgVanishAni() {
+            }
+            onUpdate() {
+                this.lwgOnUpdate();
+            }
+            onDisable() {
+                this.lwgOnDisable();
+                Laya.timer.clearAll(this);
+                Laya.Tween.clearAll(this);
+                EventAdmin._offCaller(this);
+            }
+        }
+        lwg3D._Scene3DBase = _Scene3DBase;
+        class _Object3D extends _Script3DBase {
+            constructor() {
+                super();
+            }
+            get _Owner() {
+                return this.owner;
+            }
+            _locScale() {
+                return this._Owner.transform.localScale;
+            }
+            _locPos() {
+                return this._Owner.transform.localPosition;
+            }
+            _pos() {
+                return this._Owner.transform.position;
+            }
+            _locEuler() {
+                return this._Owner.transform.localRotationEuler;
+            }
+            get _Parent() {
+                return this.owner.parent;
+            }
+            get _transform() {
+                return this._Owner.transform;
+            }
+            get _Scene3D() {
+                return this.owner.scene;
+            }
+            get _Rig3D() {
+                if (!this._Owner['__Rigidbody3D']) {
+                    this._Owner['__Rigidbody3D'] = this._Owner.getComponent(Laya.Rigidbody3D);
+                }
+                return this._Owner['__Rigidbody3D'];
+            }
+            onAwake() {
+                this.lwgOnAwake();
+            }
+            onEnable() {
+                this.lwgEvent();
+                this.lwgOnEnable();
+            }
+            onUpdate() {
+                this.lwgOnUpdate();
+            }
+            onDisable() {
+                this.lwgOnDisable();
+                Laya.Tween.clearAll(this);
+                Laya.timer.clearAll(this);
+                EventAdmin._offCaller(this);
+            }
+        }
+        lwg3D._Object3D = _Object3D;
+    })(lwg3D || (lwg3D = {}));
 
     var _PersonalInfo;
     (function (_PersonalInfo) {
@@ -8362,112 +8508,6 @@
         _MakeUp.MakeUp3D = MakeUp3D;
     })(_MakeUp || (_MakeUp = {}));
     var _MakeUp$1 = _MakeUp.MakeUp3D;
-
-    var _DressingRoom;
-    (function (_DressingRoom) {
-        class _Clothes extends DataAdmin._Table {
-            constructor() {
-                super(...arguments);
-                this._classify = {
-                    Dress: 'Dress',
-                    Top: 'Top',
-                    Bottoms: 'Bottoms',
-                    DIY: 'DIY',
-                    FaceMask: 'FaceMask',
-                    Accessories: 'Accessories',
-                    Shoe: 'Shoe',
-                };
-            }
-            static _ins() {
-                if (!this.ins) {
-                    this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
-                }
-                return this.ins;
-            }
-        }
-        _DressingRoom._Clothes = _Clothes;
-        class _Item extends Admin._ObjectBase {
-            lwgButton() {
-                this._btnUp(this._Owner, (e) => {
-                    _Clothes._ins()._setPitch(this._Owner['_dataSource'][_Clothes._ins()._property.name]);
-                }, null);
-            }
-        }
-        class DressingRoom extends Admin._SceneBase {
-            lwgOnAwake() {
-                let DIYArr = _MakeTailor._DIYClothes._ins()._getNoPropertyArr(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-                let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
-                Tools._ObjArray.modifyProValue(copyDIYArr, 'classify', 'DIY');
-                _Clothes._ins()._addObjectArr(copyDIYArr);
-                _Clothes._ins()._List = this._ListVar('List');
-                _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
-                _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
-                this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
-                const Icon = this._ImgVar('DIY').getChildAt(0);
-                Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
-                _Clothes._ins()._listRender = (Cell, index) => {
-                    let data = Cell.dataSource;
-                    let Icon = Cell.getChildByName('Icon');
-                    const Board = Cell.getChildByName('Board');
-                    if (data[_Clothes._ins()._property.pitch]) {
-                        Board.skin = `Game/UI/Common/xuanzhong.png`;
-                    }
-                    else {
-                        Board.skin = null;
-                    }
-                    if (data[_Clothes._ins()._property.classify] === _Clothes._ins()._classify.DIY) {
-                        Icon.skin = data[_MakeTailor._DIYClothes._ins()._otherPro.icon];
-                    }
-                    else {
-                        Icon.skin = `Game/UI/DressingRoom/Icon/${data[_Clothes._ins()._property.name]}.png`;
-                    }
-                    if (!Cell.getComponent(_Item)) {
-                        Cell.addComponent(_Item);
-                    }
-                };
-            }
-            lwgAdaptive() {
-            }
-            lwgOnStart() {
-                this.UI = new _MakeTailor._UI(this._Owner);
-                TimerAdmin._frameOnce(10, this, () => {
-                    this.UI.operationAppear();
-                    this.UI.btnBackAppear(null, 200);
-                    this.UI.btnCompleteAppear(null, 400);
-                });
-                this.UI.btnCompleteClick = () => {
-                    this.UI.operationVinish(() => {
-                        this.UI.btnBackVinish(() => {
-                            this._openScene('Start', true, true);
-                        });
-                    }, 200);
-                };
-            }
-            lwgButton() {
-                for (let index = 0; index < this._ImgVar('Classfiy').numChildren; index++) {
-                    const _element = this._ImgVar('Classfiy').getChildAt(index);
-                    this._btnUp(_element, () => {
-                        for (let index = 0; index < this._ImgVar('Classfiy').numChildren; index++) {
-                            const element = this._ImgVar('Classfiy').getChildAt(index);
-                            const Icon = element.getChildAt(0);
-                            if (_element === element) {
-                                element.skin = `Game/UI/Common/kuang_fen.png`;
-                                Icon.skin = `Game/UI/DressingRoom/ClassIcon/${element.name}_s.png`;
-                                let arr = _Clothes._ins()._getArrByClassify(_element.name);
-                                _Clothes._ins()._List.array = arr;
-                            }
-                            else {
-                                element.skin = `Game/UI/Common/kuang_bai.png`;
-                                Icon.skin = `Game/UI/DressingRoom/ClassIcon/${element.name}.png`;
-                            }
-                        }
-                    }, 'no');
-                }
-            }
-        }
-        _DressingRoom.DressingRoom = DressingRoom;
-    })(_DressingRoom || (_DressingRoom = {}));
-    var _DressingRoom$1 = _DressingRoom.DressingRoom;
 
     class LwgInit extends _LwgInitScene {
         lwgOnAwake() {

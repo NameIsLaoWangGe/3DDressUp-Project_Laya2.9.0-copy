@@ -247,19 +247,19 @@ export module _MakeTailor {
 
         operationAppear(func?: Function, delay?: number): void {
             if (this.Scene.name === 'MakeTailor') {
-                // Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
-                const BG1 = this.Scene['BG1'] as Laya.Image;
-                const BG2 = this.Scene['BG2'] as Laya.Image;
-                BG1.pivot(0, Laya.stage.height);
-                BG1.x = 0;
-                BG1.y = Laya.stage.height;
-                BG2.pivot(Laya.stage.width, Laya.stage.height);
-                BG2.x = Laya.stage.width;
-                BG2.y = Laya.stage.height;
-                BG1.rotation = BG2.rotation = 0;
-                BG1.zOrder = 1;
-                BG2.zOrder = 0;
-                Animation2D.move_rotate(BG1, -30, new Laya.Point(0, -Laya.stage.height), this.time * 6);
+                Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
+                // const BG1 = this.Scene['BG1'] as Laya.Image;
+                // const BG2 = this.Scene['BG2'] as Laya.Image;
+                // BG1.pivot(0, Laya.stage.height);
+                // BG1.x = 0;
+                // BG1.y = Laya.stage.height;
+                // BG2.pivot(Laya.stage.width, Laya.stage.height);
+                // BG2.x = Laya.stage.width;
+                // BG2.y = Laya.stage.height;
+                // BG1.rotation = BG2.rotation = 0;
+                // BG1.zOrder = 1;
+                // BG2.zOrder = 0;
+                // Animation2D.move_rotate(BG1, -30, new Laya.Point(0, -Laya.stage.height), this.time * 6);
             }
             Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time * 4, () => {
                 Animation2D.move(this.Operation, this.moveTargetX, this.Operation.y, this.time, () => {
@@ -269,19 +269,19 @@ export module _MakeTailor {
         };
         operationVinish(func?: Function, delay?: number): void {
             if (this.Scene.name === 'MakeTailor') {
-                // Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 0, 500);
-                const BG1 = this.Scene['BG1'] as Laya.Image;
-                const BG2 = this.Scene['BG2'] as Laya.Image;
-                BG1.pivot(0, Laya.stage.height);
-                BG1.x = 0;
-                BG1.y = Laya.stage.height;
-                BG2.pivot(Laya.stage.width, Laya.stage.height);
-                BG2.x = Laya.stage.width;
-                BG2.y = Laya.stage.height;
-                BG1.rotation = BG2.rotation = 0;
-                BG1.zOrder = 0;
-                BG2.zOrder = 1;
-                Animation2D.move_rotate(BG2, 30, new Laya.Point(Laya.stage.width, -Laya.stage.height), this.time * 6);
+                Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 0, 500);
+                // const BG1 = this.Scene['BG1'] as Laya.Image;
+                // const BG2 = this.Scene['BG2'] as Laya.Image;
+                // BG1.pivot(0, Laya.stage.height);
+                // BG1.x = 0;
+                // BG1.y = Laya.stage.height;
+                // BG2.pivot(Laya.stage.width, Laya.stage.height);
+                // BG2.x = Laya.stage.width;
+                // BG2.y = Laya.stage.height;
+                // BG1.rotation = BG2.rotation = 0;
+                // BG1.zOrder = 0;
+                // BG2.zOrder = 1;
+                // Animation2D.move_rotate(BG2, 30, new Laya.Point(Laya.stage.width, -Laya.stage.height), this.time * 6);
             }
             Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
                 Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time, () => {

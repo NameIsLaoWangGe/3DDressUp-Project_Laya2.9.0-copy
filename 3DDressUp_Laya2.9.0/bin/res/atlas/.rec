@@ -192,7 +192,6 @@ R 52B9AFC7 Draw.png
 R 106FA300 PersonalInfo.png
 R 5285B5BA ranking.png
 R 4CF40459 zhujiem.png
-R 39955A95 选择衣服.png
 D Game/UI/Draw
 P E3FBDD3B w_cheng.png
 P 40B77733 w_fen.png
@@ -326,21 +325,7 @@ P F7C4DDEA diy_top_004_final.png
 P E2351576 diy_top_005_final.png
 P 2299F5DF diy_top_006_final.png
 P 72ABC1D3 diy_top_007_final.png
-D Game/UI/DressingRoom/ClassIcon
-P F6EE425F Accessories.png
-P D951D364 Accessories_s.png
-P 55D7C392 Bottoms.png
-P FFEFF202 Bottoms_s.png
-P 56BC7299 DIY.png
-P A0180AD7 DIY_s.png
-P 7905DDFA Dress.png
-P 355E6DBB Dress_s.png
-P 0A1D0834 FaceMask.png
-P 9E11AED2 FaceMask_s.png
-P BC97B522 Shoe.png
-P 7882721D Shoe_s.png
-P 4B7FF19A Top.png
-P 3B711D8D Top_s.png
+D Game/UI/DressingRoom/ClothTex
 D Game/UI/DressingRoom/Icon
 P 1094274A bottom_001.png
 P 5D36F10B bottom_002.png
@@ -360,6 +345,21 @@ P AAF4DE71 top_003.png
 P 7B3B27C4 top_004.png
 P 07F5143B top_005.png
 P 07686408 top_006.png
+D Game/UI/DressingRoom/PartIcon
+P F6EE425F Accessories.png
+P D951D364 Accessories_s.png
+P 55D7C392 Bottoms.png
+P FFEFF202 Bottoms_s.png
+P 56BC7299 DIY.png
+P A0180AD7 DIY_s.png
+P 7905DDFA Dress.png
+P 355E6DBB Dress_s.png
+P 0A1D0834 FaceMask.png
+P 9E11AED2 FaceMask_s.png
+P BC97B522 Shoe.png
+P 7882721D Shoe_s.png
+P 4B7FF19A Top.png
+P 3B711D8D Top_s.png
 D Game/UI/MakePattern/basic
 P 52EBDA90 diy_bottom_001_basic.png
 P 98CA3111 diy_bottom_002_basic.png

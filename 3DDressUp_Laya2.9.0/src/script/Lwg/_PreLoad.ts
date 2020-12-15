@@ -1,5 +1,6 @@
 import ADManager, { TaT } from "../TJ/Admanager";
 import { Admin, Animation2D, AudioAdmin, Color, Effects, EventAdmin, TimerAdmin, Tools, _LwgPreLoad, _SceneName } from "./Lwg";
+import { _DressingRoom } from "./_DressingRoom";
 export module _Res {
     export let _list = {
         scene3D: {
@@ -92,7 +93,6 @@ export module _Res {
                 prefab: new Laya.Prefab,
             },
 
-
             diy_top_003_final: {
                 url: 'Prefab/diy_top_003_final.json',
                 prefab: new Laya.Prefab,
@@ -125,19 +125,13 @@ export module _Res {
             //     texture: null as Laya.Texture,
             // },
         },
+        /**图片需要设置成不打包*/ 
         texture2D: {
             Figure1: {
                 url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
                 texture2D: null as Laya.Texture2D,
             },
-            // Figure2: {
-            //     url: `_Lwg3D/_Scene/LayaScene_MakeUp/Conventional/Assets/Reference/Sprite/repeat_pattern_04 _9681.jpg`,
-            //     texture2D: null as Laya.Texture2D,
-            // },
-            // Figure3: {
-            //     url: 'Game/UI/MakeClothes/figure_03.png',
-            //     texture2D: null as Laya.Texture2D,
-            // },
+          
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -255,6 +249,8 @@ export module _PreLoad {
             }, () => {
                 this._ImgVar('ProgressBar').mask.x = 0;
             })
+            Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
+            _DressingRoom._Clothes._ins().change();
             return 1500;
         }
         lwgOnDisable(): void {

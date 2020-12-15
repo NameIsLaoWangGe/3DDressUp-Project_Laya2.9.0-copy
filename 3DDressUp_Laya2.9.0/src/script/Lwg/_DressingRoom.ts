@@ -9,17 +9,68 @@ export module _DressingRoom {
         static _ins() {
             if (!this.ins) {
                 this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
+                this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
+                this.ins._Role = this.ins._Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
         _classify = {
+            DIY: 'DIY',
+            General: 'General',
+        };
+        /**部位*/
+        _part = {
             Dress: 'Dress',
             Top: 'Top',
             Bottoms: 'Bottoms',
-            DIY: 'DIY',
             FaceMask: 'FaceMask',
             Accessories: 'Accessories',
-            Shoe: 'Shoe',
+            Shoes: 'Shoes',
+            Hair: 'Hair',
+        }
+        _otherPro = {
+            putOn: 'putOn',
+            part: 'part'
+        }
+        _Scene3D: Laya.Scene3D;
+        _Role: Laya.MeshSprite3D;
+
+        private changeClass(classify: string, partArr: Array<any>): void {
+            const Root = this._Role.getChildByName('Root') as Laya.MeshSprite3D;
+            const DIY = Root.getChildByName(classify) as Laya.MeshSprite3D;
+            for (let i = 0; i < DIY.numChildren; i++) {
+                const Sp = DIY.getChildAt(i) as Laya.MeshSprite3D;
+                Sp.active = false;
+                for (let j = 0; j < partArr.length; j++) {
+                    const obj = partArr[j];
+                    if (obj[this._otherPro.part] === Sp.name) {
+                        Sp.active = true;
+                        for (let k = 0; k < Sp.numChildren; k++) {
+                            const cloth = Sp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
+                            if (cloth.name === obj[this._property.name]) {
+                                cloth.active = true;
+                                if (!cloth.skinnedMeshRenderer.material) {
+                                    cloth.skinnedMeshRenderer.material = new Laya.BlinnPhongMaterial();
+                                }
+                                Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
+                                    (cloth.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial).albedoTexture = tex;
+                                }));
+                            } else {
+                                cloth.active = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /**换装规则*/
+        change(): void {
+            const arr = this._getPropertyArr(this._otherPro.putOn, true);
+            this.changeClass(this._classify.DIY, arr);
+            this.changeClass(this._classify.General, arr);
+        }
+        diychange(obj: any): void {
+            obj[this._property.classify];
         }
     }
 
@@ -37,15 +88,15 @@ export module _DressingRoom {
             let DIYArr = _MakeTailor._DIYClothes._ins()._getNoPropertyArr(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
             // 必须复制
             let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
-            Tools._ObjArray.modifyProValue(copyDIYArr, 'classify', 'DIY');
             _Clothes._ins()._addObjectArr(copyDIYArr);
             _Clothes._ins()._List = this._ListVar('List');
-            _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
-            _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
+            _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY)
+            if (_Clothes._ins()._List.array.length > 0) {
+                _Clothes._ins()._pitchName = _Clothes._ins()._List.array[0]['name'];
+            }
             this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
             const Icon = this._ImgVar('DIY').getChildAt(0) as Laya.Image;
             Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
-
             _Clothes._ins()._listRender = (Cell: Laya.Box, index: number) => {
                 let data = Cell.dataSource;
                 let Icon = Cell.getChildByName('Icon') as Laya.Image;
@@ -91,21 +142,34 @@ export module _DressingRoom {
         }
 
         lwgButton(): void {
-            for (let index = 0; index < this._ImgVar('Classfiy').numChildren; index++) {
-                const _element = this._ImgVar('Classfiy').getChildAt(index) as Laya.Image;
+            for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                const _element = this._ImgVar('Part').getChildAt(index) as Laya.Image;
                 this._btnUp(_element, () => {
-                    for (let index = 0; index < this._ImgVar('Classfiy').numChildren; index++) {
-                        const element = this._ImgVar('Classfiy').getChildAt(index) as Laya.Image;
+                    let arr = [];
+                    for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                        const element = this._ImgVar('Part').getChildAt(index) as Laya.Image;
                         const Icon = element.getChildAt(0) as Laya.Image;
                         if (_element === element) {
                             element.skin = `Game/UI/Common/kuang_fen.png`;
-                            Icon.skin = `Game/UI/DressingRoom/ClassIcon/${element.name}_s.png`;
-                            let arr = _Clothes._ins()._getArrByClassify(_element.name);
-                            _Clothes._ins()._List.array = arr;
+                            Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
+                            // 如果是DIY那么直接是分类
+                            if (_element.name === 'DIY') {
+                                arr = _Clothes._ins()._getArrByClassify(_element.name);
+                            } else {
+                                let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
+                                // 部位
+                                for (let index = 0; index < _arr.length; index++) {
+                                    const obj = _arr[index];
+                                    if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
+                                        arr.push(obj);
+                                    }
+                                }
+                            }
                         } else {
                             element.skin = `Game/UI/Common/kuang_bai.png`;
-                            Icon.skin = `Game/UI/DressingRoom/ClassIcon/${element.name}.png`;
+                            Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
                         }
+                        _Clothes._ins()._List.array = arr;
                     }
                 }, 'no');
             }

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":52,
+    "selecteID":41,
     "searchKey":"View",
     "referenceLines":[
         ],
@@ -20,7 +20,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image",
-            "props":{"top":0,"skin":"Lwg/UI/ui_orthogon_grass.png","sizeGrid":"13,8,16,12","right":0,"left":0,"bottom":0},
+            "props":{"visible":false,"top":0,"skin":"Lwg/UI/ui_orthogon_grass.png","sizeGrid":"13,8,16,12","right":0,"left":0,"bottom":0},
             "nodeParent":2,
             "label":"Image",
             "isDirectory":false,
@@ -28,13 +28,14 @@
             "hasChild":false,
             "compId":7,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite",
-            "props":{"texture":"Game/UI/Design/zhujiem.png","alpha":1},
+            "props":{"visible":false,"texture":"Game/UI/Design/zhujiem.png","alpha":1},
             "nodeParent":2,
             "label":"Sprite",
             "isDirectory":false,
@@ -42,7 +43,8 @@
             "hasChild":false,
             "compId":36,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -129,7 +131,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,BtnDress,BtnDress",
-            "props":{"y":183,"x":755,"width":92,"var":"BtnDress","skin":"Game/UI/Start/qipao_fen.png","pivotY":52,"pivotX":46,"name":"BtnDress","height":104},
+            "props":{"y":183,"width":92,"var":"BtnDress","skin":"Game/UI/Start/qipao_fen.png","right":333,"pivotY":52,"pivotX":46,"name":"BtnDress","height":104},
             "nodeParent":2,
             "label":"BtnDress",
             "isOpen":false,
@@ -156,7 +158,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,BtnTop,BtnTop",
-            "props":{"y":136,"x":968,"width":92,"var":"BtnTop","skin":"Game/UI/Start/qipao_fen.png","pivotY":52,"pivotX":46,"name":"BtnTop","height":104},
+            "props":{"y":123,"width":92,"var":"BtnTop","skin":"Game/UI/Start/qipao_fen.png","right":119,"pivotY":52,"pivotX":46,"name":"BtnTop","height":104},
             "nodeParent":2,
             "label":"BtnTop",
             "isOpen":false,
@@ -183,7 +185,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,BtnBottoms,BtnBottoms",
-            "props":{"y":276,"x":997,"width":92,"var":"BtnBottoms","skin":"Game/UI/Start/qipao_fen.png","pivotY":52,"pivotX":46,"name":"BtnBottoms","height":104},
+            "props":{"y":279,"width":92,"var":"BtnBottoms","skin":"Game/UI/Start/qipao_fen.png","right":191,"pivotY":52,"pivotX":46,"name":"BtnBottoms","height":104},
             "nodeParent":2,
             "label":"BtnBottoms",
             "isOpen":false,
