@@ -6975,8 +6975,20 @@
                     this.ins._GBottoms = this.ins._General.getChildByName('Bottoms');
                     this.ins._GTop = this.ins._General.getChildByName('Top');
                     this.ins._GDress = this.ins._General.getChildByName('Dress');
+                    this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator);
+                    this.ins._SecondCameraTag = this.ins._Scene3D.getChildByName('SecondCameraTag');
+                    this.ins._MainCamara = this.ins._Scene3D.getChildByName('SecondCameraTag');
+                    this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera');
                 }
                 return this.ins;
+            }
+            playDispalyAni() {
+                this._RoleAni.play(_AniName.Stand);
+                this._RoleAni.play(_AniName.DispalyCloth);
+                Laya.timer.clearAll(this._Role);
+                TimerAdmin._once(3200, this._Role, () => {
+                    this._RoleAni.crossFade(_AniName.Stand, 0.3);
+                });
             }
             changeClass(classify, partArr) {
                 const _classify = this._Root.getChildByName(classify);
@@ -6992,7 +7004,7 @@
                                 if (cloth.name === obj[this._property.name]) {
                                     cloth.active = true;
                                     if (!cloth.skinnedMeshRenderer.material) {
-                                        cloth.skinnedMeshRenderer.material = new Laya.BlinnPhongMaterial();
+                                        cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
                                     }
                                     Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
                                         cloth.skinnedMeshRenderer.material.albedoTexture = tex;
@@ -7005,12 +7017,7 @@
                         }
                     }
                 }
-                Tools._3D.animatorPlay(this._Role, _AniName.Stand);
-                Tools._3D.animatorPlay(this._Role, _AniName.DispalyCloth);
-                TimerAdmin._clearAll([this._Role]);
-                TimerAdmin._once(3100, this._Role, () => {
-                    Tools._3D.animatorPlay(this._Role, _AniName.Stand);
-                });
+                this.playDispalyAni();
             }
             changeAll() {
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
@@ -7157,6 +7164,12 @@
                     url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/MakeClothes.ls`,
                     Scene: null,
                 },
+            },
+            prefab3D: {
+                Level1: {
+                    url: `_Lwg3D/_Prefab/LayaScene_MakeClothes/Conventional/MakeClothes.ls`,
+                    Prefab: null,
+                }
             },
             pic2D: {
                 Effects: "res/atlas/lwg/Effects.png",

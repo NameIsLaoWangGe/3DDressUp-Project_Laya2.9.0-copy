@@ -13,12 +13,12 @@ export module _Res {
             //     Scene: null as Laya.Scene3D,
             // }
         },
-        // prefab3D: {
-        //     Level1: {
-        //         url: '_Lwg3D/_Prefab/LayaScene_GameMain/Conventional/CardContainer.lh',
-        //         Prefab: null as Laya.Sprite3D,
-        //     }
-        // },
+        prefab3D: {
+            Level1: {
+                url: `_Lwg3D/_Prefab/LayaScene_MakeClothes/Conventional/MakeClothes.ls`,
+                Prefab: null as Laya.Sprite3D,
+            }
+        },
         pic2D: {
             Effects: "res/atlas/lwg/Effects.png",
             MakeClothes: `res/atlas/Game/UI/MakeClothes.png`,

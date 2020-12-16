@@ -24,20 +24,20 @@
 				"type":"Camera",
 				"instanceID":0,
 				"props":{
-					"name":"Main Camera",
+					"name":"MirrorCamera",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						0,
-						1.209,
-						-0.666
+						0.95,
+						0.496,
+						1.84
 					],
 					"rotation":[
 						0,
-						0.9914449,
-						0.1305262,
-						0
+						0.4846799,
+						0,
+						0.8746916
 					],
 					"scale":[
 						1,
@@ -103,67 +103,8 @@
 				"child":[]
 			},
 			{
-				"type":"MeshSprite3D",
-				"instanceID":2,
-				"props":{
-					"name":"HangerP",
-					"active":true,
-					"isStatic":false,
-					"layer":0,
-					"position":[
-						0,
-						0.597,
-						0
-					],
-					"rotation":[
-						0,
-						0,
-						0,
-						-1
-					],
-					"scale":[
-						0.01,
-						0.01,
-						0.01
-					],
-					"meshPath":"Library/unity default resources-Cube.lm",
-					"enableRender":false,
-					"materials":[
-						{
-							"type":"Laya.BlinnPhongMaterial",
-							"path":"Resources/unity_builtin_extra.lmat"
-						}
-					]
-				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"BoxColliderShape",
-								"center":[
-									0,
-									0,
-									0
-								],
-								"size":[
-									1,
-									1,
-									1
-								]
-							}
-						],
-						"isTrigger":false
-					}
-				],
-				"child":[]
-			},
-			{
 				"type":"Sprite3D",
-				"instanceID":3,
+				"instanceID":2,
 				"props":{
 					"name":"Role",
 					"active":true,
@@ -171,8 +112,8 @@
 					"layer":0,
 					"position":[
 						0,
-						-0.26,
-						1.204
+						-0.28,
+						1.1
 					],
 					"rotation":[
 						0,
@@ -221,7 +162,7 @@
 				"child":[
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":4,
+						"instanceID":3,
 						"props":{
 							"name":"body",
 							"active":true,
@@ -243,7 +184,7 @@
 								1,
 								1
 							],
-							"rootBone":5,
+							"rootBone":4,
 							"boundBox":{
 								"min":[
 									-0.9877443,
@@ -265,6 +206,7 @@
 								"radius":1.078712
 							},
 							"bones":[
+								5,
 								6,
 								7,
 								8,
@@ -274,8 +216,8 @@
 								12,
 								13,
 								14,
+								4,
 								15,
-								5,
 								16,
 								17,
 								18,
@@ -302,12 +244,10 @@
 								39,
 								40,
 								41,
-								42,
-								43
+								42
 							],
 							"materials":[
 								{
-									"type":"Laya.BlinnPhongMaterial",
 									"path":"Assets/Game/Mesh/DIY/Girl/Materials/body.lmat"
 								}
 							],
@@ -318,7 +258,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":44,
+						"instanceID":43,
 						"props":{
 							"name":"eyeball",
 							"active":true,
@@ -340,7 +280,7 @@
 								1,
 								1
 							],
-							"rootBone":13,
+							"rootBone":12,
 							"boundBox":{
 								"min":[
 									0.07039714,
@@ -362,11 +302,10 @@
 								"radius":0.09176219
 							},
 							"bones":[
-								13
+								12
 							],
 							"materials":[
 								{
-									"type":"Laya.BlinnPhongMaterial",
 									"path":"Assets/Game/Mesh/DIY/Girl/eyecolorTex/Materials/eyecolor_002.lmat"
 								}
 							],
@@ -377,7 +316,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":45,
+						"instanceID":44,
 						"props":{
 							"name":"eyebrow",
 							"active":true,
@@ -399,7 +338,7 @@
 								1,
 								1
 							],
-							"rootBone":13,
+							"rootBone":12,
 							"boundBox":{
 								"min":[
 									0.1097609,
@@ -421,9 +360,9 @@
 								"radius":0.103489
 							},
 							"bones":[
-								46,
-								13,
-								47
+								45,
+								12,
+								46
 							],
 							"materials":[
 								{
@@ -437,9 +376,71 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":48,
+						"instanceID":47,
 						"props":{
 							"name":"eyelash",
+							"active":true,
+							"isStatic":false,
+							"layer":0,
+							"position":[
+								0,
+								0,
+								0
+							],
+							"rotation":[
+								0.7071068,
+								0,
+								0,
+								-0.7071068
+							],
+							"scale":[
+								1,
+								1,
+								1
+							],
+							"rootBone":12,
+							"boundBox":{
+								"min":[
+									0.07450731,
+									0.04335174,
+									-0.09003262
+								],
+								"max":[
+									0.1400041,
+									0.1142171,
+									0.09003288
+								]
+							},
+							"boundSphere":{
+								"center":[
+									0.1072557,
+									0.07878443,
+									1.266599E-07
+								],
+								"radius":0.1021461
+							},
+							"bones":[
+								46,
+								48,
+								12,
+								45,
+								49
+							],
+							"materials":[
+								{
+									"path":"Assets/Game/Mesh/DIY/Girl/eyelashTex/Materials/eyelash_002.lmat"
+								}
+							],
+							"meshPath":"Assets/Game/Animation/ALL_Skin-eyelash.lm"
+						},
+						"components":[],
+						"child":[]
+					},
+					{
+						"type":"SkinnedMeshSprite3D",
+						"instanceID":50,
+						"props":{
+							"name":"head",
 							"active":true,
 							"isStatic":false,
 							"layer":0,
@@ -462,68 +463,6 @@
 							"rootBone":13,
 							"boundBox":{
 								"min":[
-									0.07450731,
-									0.04335174,
-									-0.09003262
-								],
-								"max":[
-									0.1400041,
-									0.1142171,
-									0.09003288
-								]
-							},
-							"boundSphere":{
-								"center":[
-									0.1072557,
-									0.07878443,
-									1.266599E-07
-								],
-								"radius":0.1021461
-							},
-							"bones":[
-								47,
-								49,
-								13,
-								46,
-								50
-							],
-							"materials":[
-								{
-									"path":"Assets/Game/Mesh/DIY/Girl/eyelashTex/Materials/eyelash_002.lmat"
-								}
-							],
-							"meshPath":"Assets/Game/Animation/ALL_Skin-eyelash.lm"
-						},
-						"components":[],
-						"child":[]
-					},
-					{
-						"type":"SkinnedMeshSprite3D",
-						"instanceID":51,
-						"props":{
-							"name":"head",
-							"active":true,
-							"isStatic":false,
-							"layer":0,
-							"position":[
-								0,
-								0,
-								0
-							],
-							"rotation":[
-								0.7071068,
-								0,
-								0,
-								-0.7071068
-							],
-							"scale":[
-								1,
-								1,
-								1
-							],
-							"rootBone":14,
-							"boundBox":{
-								"min":[
 									0.06679416,
 									-0.125449,
 									-0.1195156
@@ -543,12 +482,12 @@
 								"radius":0.2203107
 							},
 							"bones":[
-								13,
-								47,
-								49,
+								12,
 								46,
-								50,
-								14
+								48,
+								45,
+								49,
+								13
 							],
 							"materials":[
 								{
@@ -562,7 +501,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":52,
+						"instanceID":51,
 						"props":{
 							"name":"Root",
 							"active":true,
@@ -589,7 +528,7 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":53,
+								"instanceID":52,
 								"props":{
 									"name":"Bip001",
 									"active":true,
@@ -616,7 +555,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":5,
+										"instanceID":4,
 										"props":{
 											"name":"Bip001 Pelvis",
 											"active":true,
@@ -643,7 +582,7 @@
 										"child":[
 											{
 												"type":"Sprite3D",
-												"instanceID":17,
+												"instanceID":16,
 												"props":{
 													"name":"Bip001 L Thigh",
 													"active":true,
@@ -670,7 +609,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":35,
+														"instanceID":34,
 														"props":{
 															"name":"Bip001 L Calf",
 															"active":true,
@@ -697,7 +636,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":36,
+																"instanceID":35,
 																"props":{
 																	"name":"Bip001 L Foot",
 																	"active":true,
@@ -724,7 +663,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":37,
+																		"instanceID":36,
 																		"props":{
 																			"name":"Bip001 L Toe0",
 																			"active":true,
@@ -758,7 +697,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":16,
+												"instanceID":15,
 												"props":{
 													"name":"Bip001 R Thigh",
 													"active":true,
@@ -785,7 +724,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":20,
+														"instanceID":19,
 														"props":{
 															"name":"Bip001 R Calf",
 															"active":true,
@@ -812,7 +751,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":21,
+																"instanceID":20,
 																"props":{
 																	"name":"Bip001 R Foot",
 																	"active":true,
@@ -839,7 +778,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":22,
+																		"instanceID":21,
 																		"props":{
 																			"name":"Bip001 R Toe0",
 																			"active":true,
@@ -873,7 +812,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":15,
+												"instanceID":14,
 												"props":{
 													"name":"Bip001 Spine",
 													"active":true,
@@ -900,7 +839,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":8,
+														"instanceID":7,
 														"props":{
 															"name":"Bip001 Spine1",
 															"active":true,
@@ -927,7 +866,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":18,
+																"instanceID":17,
 																"props":{
 																	"name":"Bip001 L Clavicle",
 																	"active":true,
@@ -954,7 +893,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":29,
+																		"instanceID":28,
 																		"props":{
 																			"name":"Bip001 L UpperArm",
 																			"active":true,
@@ -981,7 +920,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":34,
+																				"instanceID":33,
 																				"props":{
 																					"name":"Bip001 L Forearm",
 																					"active":true,
@@ -1008,7 +947,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":30,
+																						"instanceID":29,
 																						"props":{
 																							"name":"Bip001 L Hand",
 																							"active":true,
@@ -1035,7 +974,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":41,
+																								"instanceID":40,
 																								"props":{
 																									"name":"Bip001 L Finger0",
 																									"active":true,
@@ -1062,7 +1001,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":40,
+																										"instanceID":39,
 																										"props":{
 																											"name":"Bip001 L Finger01",
 																											"active":true,
@@ -1089,7 +1028,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":39,
+																												"instanceID":38,
 																												"props":{
 																													"name":"Bip001 L Finger02",
 																													"active":true,
@@ -1121,7 +1060,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":43,
+																								"instanceID":42,
 																								"props":{
 																									"name":"Bip001 L Finger1",
 																									"active":true,
@@ -1148,7 +1087,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":42,
+																										"instanceID":41,
 																										"props":{
 																											"name":"Bip001 L Finger11",
 																											"active":true,
@@ -1175,7 +1114,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":32,
+																												"instanceID":31,
 																												"props":{
 																													"name":"Bip001 L Finger12",
 																													"active":true,
@@ -1207,7 +1146,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":31,
+																								"instanceID":30,
 																								"props":{
 																									"name":"Bip001 L Finger2",
 																									"active":true,
@@ -1234,7 +1173,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":38,
+																										"instanceID":37,
 																										"props":{
 																											"name":"Bip001 L Finger21",
 																											"active":true,
@@ -1261,7 +1200,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":33,
+																												"instanceID":32,
 																												"props":{
 																													"name":"Bip001 L Finger22",
 																													"active":true,
@@ -1301,7 +1240,7 @@
 															},
 															{
 																"type":"Sprite3D",
-																"instanceID":14,
+																"instanceID":13,
 																"props":{
 																	"name":"Bip001 Neck",
 																	"active":true,
@@ -1328,7 +1267,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":13,
+																		"instanceID":12,
 																		"props":{
 																			"name":"Bip001 Head",
 																			"active":true,
@@ -1355,7 +1294,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":47,
+																				"instanceID":46,
 																				"props":{
 																					"name":"Bone001",
 																					"active":true,
@@ -1383,7 +1322,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":46,
+																				"instanceID":45,
 																				"props":{
 																					"name":"Bone001(mirrored)",
 																					"active":true,
@@ -1411,7 +1350,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":49,
+																				"instanceID":48,
 																				"props":{
 																					"name":"Bone002",
 																					"active":true,
@@ -1439,7 +1378,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":50,
+																				"instanceID":49,
 																				"props":{
 																					"name":"Bone002(mirrored)",
 																					"active":true,
@@ -1467,7 +1406,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":54,
+																				"instanceID":53,
 																				"props":{
 																					"name":"Bone021",
 																					"active":true,
@@ -1494,7 +1433,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":55,
+																						"instanceID":54,
 																						"props":{
 																							"name":"Bone022",
 																							"active":true,
@@ -1521,7 +1460,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":56,
+																								"instanceID":55,
 																								"props":{
 																									"name":"Bone023",
 																									"active":true,
@@ -1548,7 +1487,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":57,
+																										"instanceID":56,
 																										"props":{
 																											"name":"Bone024",
 																											"active":true,
@@ -1582,7 +1521,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":58,
+																				"instanceID":57,
 																				"props":{
 																					"name":"Bone026",
 																					"active":true,
@@ -1609,7 +1548,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":59,
+																						"instanceID":58,
 																						"props":{
 																							"name":"Bone027",
 																							"active":true,
@@ -1636,7 +1575,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":60,
+																								"instanceID":59,
 																								"props":{
 																									"name":"Bone028",
 																									"active":true,
@@ -1668,7 +1607,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":61,
+																				"instanceID":60,
 																				"props":{
 																					"name":"Bone030",
 																					"active":true,
@@ -1695,7 +1634,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":62,
+																						"instanceID":61,
 																						"props":{
 																							"name":"Bone031",
 																							"active":true,
@@ -1722,7 +1661,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":63,
+																								"instanceID":62,
 																								"props":{
 																									"name":"Bone032",
 																									"active":true,
@@ -1749,7 +1688,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":64,
+																										"instanceID":63,
 																										"props":{
 																											"name":"Bone033",
 																											"active":true,
@@ -1783,7 +1722,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":65,
+																				"instanceID":64,
 																				"props":{
 																					"name":"Bone030(mirrored)",
 																					"active":true,
@@ -1810,7 +1749,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":66,
+																						"instanceID":65,
 																						"props":{
 																							"name":"Bone031(mirrored)",
 																							"active":true,
@@ -1837,7 +1776,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":67,
+																								"instanceID":66,
 																								"props":{
 																									"name":"Bone032(mirrored)",
 																									"active":true,
@@ -1864,7 +1803,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":68,
+																										"instanceID":67,
 																										"props":{
 																											"name":"Bone033(mirrored)",
 																											"active":true,
@@ -1902,7 +1841,7 @@
 															},
 															{
 																"type":"Sprite3D",
-																"instanceID":6,
+																"instanceID":5,
 																"props":{
 																	"name":"Bip001 R Clavicle",
 																	"active":true,
@@ -1929,7 +1868,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":7,
+																		"instanceID":6,
 																		"props":{
 																			"name":"Bip001 R UpperArm",
 																			"active":true,
@@ -1956,7 +1895,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":19,
+																				"instanceID":18,
 																				"props":{
 																					"name":"Bip001 R Forearm",
 																					"active":true,
@@ -1983,7 +1922,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":9,
+																						"instanceID":8,
 																						"props":{
 																							"name":"Bip001 R Hand",
 																							"active":true,
@@ -2010,7 +1949,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":26,
+																								"instanceID":25,
 																								"props":{
 																									"name":"Bip001 R Finger0",
 																									"active":true,
@@ -2037,7 +1976,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":25,
+																										"instanceID":24,
 																										"props":{
 																											"name":"Bip001 R Finger01",
 																											"active":true,
@@ -2064,7 +2003,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":24,
+																												"instanceID":23,
 																												"props":{
 																													"name":"Bip001 R Finger02",
 																													"active":true,
@@ -2096,7 +2035,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":28,
+																								"instanceID":27,
 																								"props":{
 																									"name":"Bip001 R Finger1",
 																									"active":true,
@@ -2123,7 +2062,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":27,
+																										"instanceID":26,
 																										"props":{
 																											"name":"Bip001 R Finger11",
 																											"active":true,
@@ -2150,7 +2089,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":11,
+																												"instanceID":10,
 																												"props":{
 																													"name":"Bip001 R Finger12",
 																													"active":true,
@@ -2182,7 +2121,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":10,
+																								"instanceID":9,
 																								"props":{
 																									"name":"Bip001 R Finger2",
 																									"active":true,
@@ -2209,7 +2148,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":23,
+																										"instanceID":22,
 																										"props":{
 																											"name":"Bip001 R Finger21",
 																											"active":true,
@@ -2236,7 +2175,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":12,
+																												"instanceID":11,
 																												"props":{
 																													"name":"Bip001 R Finger22",
 																													"active":true,
@@ -2280,7 +2219,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":69,
+												"instanceID":68,
 												"props":{
 													"name":"Bone003",
 													"active":true,
@@ -2307,7 +2246,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":70,
+														"instanceID":69,
 														"props":{
 															"name":"Bone004",
 															"active":true,
@@ -2334,7 +2273,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":71,
+																"instanceID":70,
 																"props":{
 																	"name":"Bone005",
 																	"active":true,
@@ -2361,7 +2300,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":72,
+																		"instanceID":71,
 																		"props":{
 																			"name":"Bone006",
 																			"active":true,
@@ -2388,7 +2327,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":73,
+																				"instanceID":72,
 																				"props":{
 																					"name":"Bone007",
 																					"active":true,
@@ -2424,7 +2363,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":74,
+												"instanceID":73,
 												"props":{
 													"name":"Bone003(mirrored)",
 													"active":true,
@@ -2451,7 +2390,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":75,
+														"instanceID":74,
 														"props":{
 															"name":"Bone004(mirrored)",
 															"active":true,
@@ -2478,7 +2417,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":76,
+																"instanceID":75,
 																"props":{
 																	"name":"Bone005(mirrored)",
 																	"active":true,
@@ -2505,7 +2444,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":77,
+																		"instanceID":76,
 																		"props":{
 																			"name":"Bone006(mirrored)",
 																			"active":true,
@@ -2532,7 +2471,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":78,
+																				"instanceID":77,
 																				"props":{
 																					"name":"Bone007(mirrored)",
 																					"active":true,
@@ -2568,7 +2507,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":79,
+												"instanceID":78,
 												"props":{
 													"name":"Bone009",
 													"active":true,
@@ -2595,7 +2534,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":80,
+														"instanceID":79,
 														"props":{
 															"name":"Bone010",
 															"active":true,
@@ -2622,7 +2561,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":81,
+																"instanceID":80,
 																"props":{
 																	"name":"Bone011",
 																	"active":true,
@@ -2649,7 +2588,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":82,
+																		"instanceID":81,
 																		"props":{
 																			"name":"Bone012",
 																			"active":true,
@@ -2676,7 +2615,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":83,
+																				"instanceID":82,
 																				"props":{
 																					"name":"Bone013",
 																					"active":true,
@@ -2712,7 +2651,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":84,
+												"instanceID":83,
 												"props":{
 													"name":"Bone015",
 													"active":true,
@@ -2739,7 +2678,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":85,
+														"instanceID":84,
 														"props":{
 															"name":"Bone016",
 															"active":true,
@@ -2766,7 +2705,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":86,
+																"instanceID":85,
 																"props":{
 																	"name":"Bone017",
 																	"active":true,
@@ -2793,7 +2732,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":87,
+																		"instanceID":86,
 																		"props":{
 																			"name":"Bone018",
 																			"active":true,
@@ -2820,7 +2759,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":88,
+																				"instanceID":87,
 																				"props":{
 																					"name":"Bone019",
 																					"active":true,
@@ -2860,7 +2799,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":89,
+								"instanceID":88,
 								"props":{
 									"name":"DIY",
 									"active":true,
@@ -2887,7 +2826,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":90,
+										"instanceID":89,
 										"props":{
 											"name":"Bottoms",
 											"active":true,
@@ -2914,7 +2853,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":91,
+												"instanceID":90,
 												"props":{
 													"name":"diy_bottom_001_final_0",
 													"active":true,
@@ -2936,7 +2875,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2479026,
@@ -2958,22 +2897,22 @@
 														"radius":0.297407
 													},
 													"bones":[
-														17,
-														5,
-														15,
-														84,
+														16,
+														4,
+														14,
+														83,
+														68,
+														78,
 														69,
 														79,
+														84,
 														70,
 														80,
 														85,
-														71,
-														81,
-														86,
-														16,
+														15,
+														73,
 														74,
-														75,
-														76
+														75
 													],
 													"materials":[
 														{
@@ -2988,7 +2927,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":92,
+												"instanceID":91,
 												"props":{
 													"name":"diy_bottom_001_final_1",
 													"active":true,
@@ -3010,7 +2949,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2469465,
@@ -3032,19 +2971,19 @@
 														"radius":0.2931176
 													},
 													"bones":[
-														17,
-														5,
-														15,
-														79,
 														16,
+														4,
+														14,
+														78,
+														15,
+														68,
 														69,
+														79,
 														70,
 														80,
-														71,
-														81,
+														74,
 														75,
-														76,
-														74
+														73
 													],
 													"materials":[
 														{
@@ -3059,7 +2998,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":93,
+												"instanceID":92,
 												"props":{
 													"name":"diy_bottom_002_final_0",
 													"active":true,
@@ -3081,7 +3020,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3228657,
@@ -3103,22 +3042,22 @@
 														"radius":0.3544294
 													},
 													"bones":[
-														70,
-														71,
-														80,
-														81,
-														86,
 														69,
-														85,
-														84,
+														70,
 														79,
-														76,
+														80,
+														85,
+														68,
+														84,
+														83,
+														78,
 														75,
 														74,
-														5,
-														15,
-														17,
-														16
+														73,
+														4,
+														14,
+														16,
+														15
 													],
 													"materials":[
 														{
@@ -3133,7 +3072,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":94,
+												"instanceID":93,
 												"props":{
 													"name":"diy_bottom_002_final_1",
 													"active":true,
@@ -3155,7 +3094,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3187576,
@@ -3177,19 +3116,19 @@
 														"radius":0.3356126
 													},
 													"bones":[
-														15,
-														5,
-														17,
-														69,
+														14,
+														4,
 														16,
-														79,
+														68,
+														15,
+														78,
+														73,
 														74,
+														79,
 														75,
 														80,
-														76,
-														81,
-														70,
-														71
+														69,
+														70
 													],
 													"materials":[
 														{
@@ -3204,7 +3143,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":95,
+												"instanceID":94,
 												"props":{
 													"name":"diy_bottom_003_final_0",
 													"active":true,
@@ -3226,7 +3165,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8255279,
@@ -3248,28 +3187,28 @@
 														"radius":0.5566902
 													},
 													"bones":[
-														5,
-														15,
+														4,
+														14,
+														73,
 														74,
-														75,
-														84,
+														83,
+														78,
 														79,
-														80,
+														84,
+														75,
 														85,
 														76,
-														86,
-														77,
+														68,
 														69,
+														86,
 														70,
-														87,
 														71,
+														80,
 														72,
 														81,
-														73,
+														77,
 														82,
-														78,
-														83,
-														88
+														87
 													],
 													"materials":[
 														{
@@ -3284,7 +3223,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":96,
+												"instanceID":95,
 												"props":{
 													"name":"diy_bottom_003_final_1",
 													"active":true,
@@ -3306,7 +3245,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-1.008067,
@@ -3328,28 +3267,28 @@
 														"radius":0.6472181
 													},
 													"bones":[
-														77,
-														78,
-														83,
-														88,
-														82,
 														76,
-														72,
-														73,
-														75,
-														81,
+														77,
+														82,
 														87,
+														81,
+														75,
 														71,
-														80,
+														72,
 														74,
-														79,
-														70,
-														69,
+														80,
 														86,
+														70,
+														79,
+														73,
+														78,
+														69,
+														68,
 														85,
-														5,
 														84,
-														15
+														4,
+														83,
+														14
 													],
 													"materials":[
 														{
@@ -3364,7 +3303,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":97,
+												"instanceID":96,
 												"props":{
 													"name":"diy_bottom_004_final_0",
 													"active":true,
@@ -3386,7 +3325,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2784209,
@@ -3408,22 +3347,22 @@
 														"radius":0.305373
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
+														14,
+														73,
+														83,
+														78,
 														74,
-														84,
 														79,
+														84,
 														75,
 														80,
 														85,
-														76,
-														81,
-														86,
-														17,
+														16,
+														69,
 														70,
-														71,
-														69
+														68
 													],
 													"materials":[
 														{
@@ -3438,7 +3377,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":98,
+												"instanceID":97,
 												"props":{
 													"name":"diy_bottom_004_final_1",
 													"active":true,
@@ -3460,7 +3399,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2704752,
@@ -3482,19 +3421,19 @@
 														"radius":0.2918445
 													},
 													"bones":[
-														75,
-														76,
-														80,
-														81,
 														74,
+														75,
 														79,
-														5,
-														70,
-														71,
+														80,
+														73,
+														78,
+														4,
 														69,
-														17,
-														15,
-														16
+														70,
+														68,
+														16,
+														14,
+														15
 													],
 													"materials":[
 														{
@@ -3509,7 +3448,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":99,
+												"instanceID":98,
 												"props":{
 													"name":"diy_bottom_005_final_0",
 													"active":true,
@@ -3531,7 +3470,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.09492415,
@@ -3553,10 +3492,10 @@
 														"radius":0.2094283
 													},
 													"bones":[
-														17,
-														5,
 														16,
-														15
+														4,
+														15,
+														14
 													],
 													"materials":[
 														{
@@ -3571,7 +3510,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":100,
+												"instanceID":99,
 												"props":{
 													"name":"diy_bottom_005_final_1",
 													"active":true,
@@ -3593,7 +3532,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1020243,
@@ -3615,10 +3554,10 @@
 														"radius":0.2213352
 													},
 													"bones":[
-														17,
-														5,
 														16,
-														15
+														4,
+														15,
+														14
 													],
 													"materials":[
 														{
@@ -3633,7 +3572,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":101,
+												"instanceID":100,
 												"props":{
 													"name":"diy_bottom_006_final_0",
 													"active":true,
@@ -3655,7 +3594,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1359384,
@@ -3677,10 +3616,10 @@
 														"radius":0.2227164
 													},
 													"bones":[
-														5,
+														4,
+														15,
 														16,
-														17,
-														15
+														14
 													],
 													"materials":[
 														{
@@ -3695,7 +3634,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":102,
+												"instanceID":101,
 												"props":{
 													"name":"diy_bottom_006_final_1",
 													"active":true,
@@ -3717,7 +3656,7 @@
 														110,
 														110
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1421435,
@@ -3739,10 +3678,10 @@
 														"radius":0.228264
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														17
+														14,
+														16
 													],
 													"materials":[
 														{
@@ -3757,7 +3696,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":103,
+												"instanceID":102,
 												"props":{
 													"name":"diy_bottom_007_final_0",
 													"active":true,
@@ -3779,7 +3718,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3009371,
@@ -3801,23 +3740,23 @@
 														"radius":0.3390193
 													},
 													"bones":[
-														71,
-														85,
-														86,
-														5,
-														15,
-														8,
-														17,
+														70,
 														84,
-														69,
+														85,
+														4,
+														14,
+														7,
 														16,
+														83,
+														68,
+														15,
+														73,
+														78,
 														74,
 														79,
 														75,
-														80,
-														76,
-														70,
-														81
+														69,
+														80
 													],
 													"materials":[
 														{
@@ -3832,7 +3771,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":104,
+												"instanceID":103,
 												"props":{
 													"name":"diy_bottom_007_final_1",
 													"active":true,
@@ -3854,7 +3793,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2964091,
@@ -3876,21 +3815,21 @@
 														"radius":0.3266226
 													},
 													"bones":[
+														14,
+														4,
 														15,
-														5,
+														73,
 														16,
-														74,
-														17,
-														79,
+														78,
+														68,
 														69,
+														79,
+														83,
 														70,
-														80,
 														84,
-														71,
-														85,
-														81,
-														75,
-														76
+														80,
+														74,
+														75
 													],
 													"materials":[
 														{
@@ -3905,7 +3844,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":105,
+												"instanceID":104,
 												"props":{
 													"name":"diy_bottom_008_final_0",
 													"active":true,
@@ -3927,7 +3866,7 @@
 														110,
 														110
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8570527,
@@ -3949,14 +3888,14 @@
 														"radius":0.5439926
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														17,
+														14,
+														16,
+														34,
 														35,
-														36,
-														20,
-														21
+														19,
+														20
 													],
 													"materials":[
 														{
@@ -3971,7 +3910,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":106,
+												"instanceID":105,
 												"props":{
 													"name":"diy_bottom_008_final_1",
 													"active":true,
@@ -3993,7 +3932,7 @@
 														110,
 														110
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8534316,
@@ -4015,14 +3954,14 @@
 														"radius":0.5311663
 													},
 													"bones":[
-														35,
-														17,
-														20,
-														21,
+														34,
 														16,
-														5,
+														19,
+														20,
 														15,
-														36
+														4,
+														14,
+														35
 													],
 													"materials":[
 														{
@@ -4039,7 +3978,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":107,
+										"instanceID":106,
 										"props":{
 											"name":"Dress",
 											"active":true,
@@ -4066,7 +4005,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":108,
+												"instanceID":107,
 												"props":{
 													"name":"diy_dress_001_final_0",
 													"active":true,
@@ -4088,7 +4027,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2656497,
@@ -4110,23 +4049,23 @@
 														"radius":0.4446758
 													},
 													"bones":[
-														15,
-														8,
-														6,
-														7,
 														14,
-														18,
-														29,
+														7,
 														5,
-														16,
-														84,
+														6,
+														13,
+														17,
+														28,
+														4,
+														15,
+														83,
+														73,
 														74,
-														75,
+														84,
 														85,
-														86,
-														70,
 														69,
-														17
+														68,
+														16
 													],
 													"materials":[
 														{
@@ -4141,7 +4080,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":109,
+												"instanceID":108,
 												"props":{
 													"name":"diy_dress_001_final_1",
 													"active":true,
@@ -4163,7 +4102,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2618372,
@@ -4185,23 +4124,23 @@
 														"radius":0.4292604
 													},
 													"bones":[
-														5,
+														4,
+														14,
+														78,
 														15,
-														79,
+														73,
 														16,
+														79,
 														74,
-														17,
-														80,
-														75,
+														68,
 														69,
-														70,
-														81,
-														8,
-														6,
+														80,
 														7,
-														18,
-														29,
-														14
+														5,
+														6,
+														17,
+														28,
+														13
 													],
 													"materials":[
 														{
@@ -4216,7 +4155,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":110,
+												"instanceID":109,
 												"props":{
 													"name":"diy_dress_002_final_0",
 													"active":true,
@@ -4238,7 +4177,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1732795,
@@ -4260,27 +4199,27 @@
 														"radius":0.3788067
 													},
 													"bones":[
-														18,
-														29,
-														15,
-														8,
-														6,
+														17,
+														28,
+														14,
 														7,
 														5,
+														6,
+														4,
+														15,
+														73,
 														16,
+														68,
+														83,
 														74,
-														17,
-														69,
 														84,
-														75,
-														85,
+														78,
 														79,
+														75,
 														80,
-														76,
-														81,
-														86,
-														70,
-														71
+														85,
+														69,
+														70
 													],
 													"materials":[
 														{
@@ -4295,7 +4234,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":111,
+												"instanceID":110,
 												"props":{
 													"name":"diy_dress_002_final_1",
 													"active":true,
@@ -4317,7 +4256,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.175395,
@@ -4339,26 +4278,26 @@
 														"radius":0.3600925
 													},
 													"bones":[
+														68,
 														69,
 														70,
-														71,
-														80,
-														81,
-														85,
 														79,
+														80,
 														84,
-														5,
-														17,
-														15,
-														75,
-														76,
-														74,
+														78,
+														83,
+														4,
 														16,
-														8,
-														18,
-														29,
-														6,
-														7
+														14,
+														74,
+														75,
+														73,
+														15,
+														7,
+														17,
+														28,
+														5,
+														6
 													],
 													"materials":[
 														{
@@ -4373,7 +4312,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":112,
+												"instanceID":111,
 												"props":{
 													"name":"diy_dress_003_final_0",
 													"active":true,
@@ -4395,7 +4334,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.148787,
@@ -4417,29 +4356,29 @@
 														"radius":0.4548841
 													},
 													"bones":[
+														68,
 														69,
 														70,
-														71,
-														80,
-														81,
-														85,
-														86,
 														79,
+														80,
 														84,
-														5,
-														17,
-														15,
+														85,
+														78,
+														83,
+														4,
+														16,
+														14,
+														73,
 														74,
 														75,
-														76,
-														8,
-														16,
-														29,
-														18,
-														6,
 														7,
-														34,
-														19
+														15,
+														28,
+														17,
+														5,
+														6,
+														33,
+														18
 													],
 													"materials":[
 														{
@@ -4454,7 +4393,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":113,
+												"instanceID":112,
 												"props":{
 													"name":"diy_dress_003_final_1",
 													"active":true,
@@ -4476,7 +4415,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1567219,
@@ -4498,29 +4437,29 @@
 														"radius":0.447239
 													},
 													"bones":[
-														29,
-														8,
-														18,
-														15,
-														14,
-														6,
+														28,
 														7,
-														19,
+														17,
+														14,
+														13,
 														5,
-														16,
+														6,
+														18,
+														4,
+														15,
+														73,
+														78,
 														74,
 														79,
+														83,
+														84,
 														75,
 														80,
-														84,
-														85,
-														76,
-														81,
-														70,
-														71,
 														69,
-														17,
-														34
+														70,
+														68,
+														16,
+														33
 													],
 													"materials":[
 														{
@@ -4535,7 +4474,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":114,
+												"instanceID":113,
 												"props":{
 													"name":"diy_dress_004_final_0",
 													"active":true,
@@ -4557,7 +4496,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8168823,
@@ -4579,35 +4518,35 @@
 														"radius":0.7340158
 													},
 													"bones":[
+														76,
 														77,
-														78,
-														83,
-														88,
 														82,
 														87,
-														76,
-														73,
+														81,
 														86,
 														75,
-														81,
 														72,
 														85,
 														74,
 														80,
 														71,
-														70,
 														84,
+														73,
 														79,
+														70,
 														69,
-														5,
+														83,
+														78,
+														68,
+														4,
+														14,
 														15,
-														16,
-														8,
-														17,
 														7,
+														16,
 														6,
-														29,
-														18
+														5,
+														28,
+														17
 													],
 													"materials":[
 														{
@@ -4622,7 +4561,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":115,
+												"instanceID":114,
 												"props":{
 													"name":"diy_dress_004_final_1",
 													"active":true,
@@ -4644,7 +4583,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8394861,
@@ -4666,36 +4605,36 @@
 														"radius":0.7322118
 													},
 													"bones":[
-														14,
+														13,
+														5,
 														6,
 														7,
-														8,
+														14,
+														4,
 														15,
-														5,
-														16,
-														18,
-														29,
 														17,
+														28,
+														16,
+														69,
+														74,
 														70,
 														75,
 														71,
 														76,
 														72,
 														77,
-														73,
-														78,
+														79,
 														80,
 														81,
 														82,
-														83,
+														84,
 														85,
 														86,
 														87,
-														88,
-														74,
-														79,
-														84,
-														69
+														73,
+														78,
+														83,
+														68
 													],
 													"materials":[
 														{
@@ -4710,7 +4649,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":116,
+												"instanceID":115,
 												"props":{
 													"name":"diy_dress_005_final_0",
 													"active":true,
@@ -4732,7 +4671,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2887284,
@@ -4754,28 +4693,28 @@
 														"radius":0.4802832
 													},
 													"bones":[
-														70,
-														71,
-														80,
-														81,
-														86,
 														69,
-														85,
+														70,
 														79,
-														5,
+														80,
+														85,
+														68,
 														84,
-														15,
-														17,
-														75,
-														76,
-														74,
-														16,
-														8,
-														18,
-														29,
+														78,
+														4,
+														83,
 														14,
-														6,
-														7
+														16,
+														74,
+														75,
+														73,
+														15,
+														7,
+														17,
+														28,
+														13,
+														5,
+														6
 													],
 													"materials":[
 														{
@@ -4790,7 +4729,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":117,
+												"instanceID":116,
 												"props":{
 													"name":"diy_dress_005_final_1",
 													"active":true,
@@ -4812,7 +4751,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2755157,
@@ -4834,27 +4773,27 @@
 														"radius":0.4592286
 													},
 													"bones":[
-														18,
-														29,
-														8,
-														14,
-														15,
-														6,
 														17,
+														28,
+														7,
+														13,
+														14,
 														5,
+														16,
+														4,
+														68,
+														78,
 														69,
 														79,
 														70,
 														80,
-														71,
-														81,
-														75,
-														76,
 														74,
-														85,
-														16,
+														75,
+														73,
 														84,
-														7
+														15,
+														83,
+														6
 													],
 													"materials":[
 														{
@@ -4869,7 +4808,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":118,
+												"instanceID":117,
 												"props":{
 													"name":"diy_dress_006_final_0",
 													"active":true,
@@ -4891,7 +4830,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.6607045,
@@ -4913,35 +4852,35 @@
 														"radius":0.6549143
 													},
 													"bones":[
+														5,
 														6,
 														7,
-														8,
+														14,
+														4,
 														15,
-														5,
-														16,
+														73,
 														74,
 														75,
-														76,
+														78,
 														79,
-														80,
+														83,
 														84,
+														76,
 														85,
-														77,
-														86,
+														68,
+														80,
 														69,
 														81,
+														86,
 														70,
 														82,
-														87,
+														77,
 														71,
-														83,
-														78,
+														87,
 														72,
-														88,
-														73,
+														16,
 														17,
-														18,
-														29
+														28
 													],
 													"materials":[
 														{
@@ -4956,7 +4895,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":119,
+												"instanceID":118,
 												"props":{
 													"name":"diy_dress_006_final_1",
 													"active":true,
@@ -4978,7 +4917,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.6746008,
@@ -5000,36 +4939,36 @@
 														"radius":0.647871
 													},
 													"bones":[
+														5,
 														6,
 														7,
-														8,
+														13,
 														14,
-														15,
-														18,
-														29,
-														5,
-														16,
 														17,
+														28,
+														4,
+														15,
+														16,
+														73,
 														74,
+														78,
+														83,
 														75,
 														79,
 														84,
 														76,
-														80,
 														85,
-														77,
-														86,
+														68,
+														80,
 														69,
 														81,
+														86,
 														70,
 														82,
-														87,
+														77,
 														71,
-														83,
-														78,
-														72,
-														88,
-														73
+														87,
+														72
 													],
 													"materials":[
 														{
@@ -5044,7 +4983,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":120,
+												"instanceID":119,
 												"props":{
 													"name":"diy_dress_007_final_0",
 													"active":true,
@@ -5066,7 +5005,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2753966,
@@ -5088,27 +5027,27 @@
 														"radius":0.4433154
 													},
 													"bones":[
+														14,
+														7,
+														4,
 														15,
-														8,
-														5,
-														16,
+														73,
+														78,
 														74,
 														79,
+														83,
 														75,
 														80,
-														84,
-														76,
-														81,
+														68,
 														69,
 														70,
-														71,
+														16,
 														17,
-														18,
+														5,
+														28,
 														6,
-														29,
-														7,
-														14,
-														86
+														13,
+														85
 													],
 													"materials":[
 														{
@@ -5123,7 +5062,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":121,
+												"instanceID":120,
 												"props":{
 													"name":"diy_dress_007_final_1",
 													"active":true,
@@ -5145,7 +5084,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2987184,
@@ -5167,28 +5106,28 @@
 														"radius":0.4755291
 													},
 													"bones":[
-														18,
-														29,
-														14,
-														8,
-														6,
-														7,
-														15,
-														5,
 														17,
+														28,
+														13,
+														7,
+														5,
+														6,
+														14,
+														4,
 														16,
-														74,
+														15,
+														73,
+														83,
 														84,
-														85,
-														75,
+														74,
+														78,
 														79,
+														75,
+														69,
+														85,
 														80,
-														76,
 														70,
-														86,
-														81,
-														71,
-														69
+														68
 													],
 													"materials":[
 														{
@@ -5203,7 +5142,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":122,
+												"instanceID":121,
 												"props":{
 													"name":"diy_dress_008_final_0",
 													"active":true,
@@ -5225,7 +5164,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3946646,
@@ -5247,27 +5186,27 @@
 														"radius":0.4983442
 													},
 													"bones":[
-														18,
-														29,
-														8,
-														14,
-														15,
-														6,
-														5,
 														17,
+														28,
 														7,
+														13,
+														14,
+														5,
+														4,
 														16,
-														74,
+														6,
+														15,
+														73,
+														78,
 														79,
-														80,
-														75,
+														74,
+														68,
 														69,
-														70,
+														83,
+														75,
+														80,
 														84,
-														76,
-														81,
-														85,
-														71
+														70
 													],
 													"materials":[
 														{
@@ -5282,7 +5221,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":123,
+												"instanceID":122,
 												"props":{
 													"name":"diy_dress_008_final_1",
 													"active":true,
@@ -5304,7 +5243,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.4122747,
@@ -5326,28 +5265,28 @@
 														"radius":0.5168232
 													},
 													"bones":[
-														18,
-														29,
-														14,
-														8,
-														15,
-														6,
+														17,
+														28,
+														13,
 														7,
+														14,
 														5,
-														16,
+														6,
+														4,
+														15,
+														73,
 														74,
-														75,
+														78,
+														83,
 														79,
 														84,
+														75,
 														80,
 														85,
-														76,
-														81,
-														86,
-														17,
-														71,
+														16,
 														70,
-														69
+														69,
+														68
 													],
 													"materials":[
 														{
@@ -5364,7 +5303,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":124,
+										"instanceID":123,
 										"props":{
 											"name":"Top",
 											"active":true,
@@ -5391,7 +5330,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":125,
+												"instanceID":124,
 												"props":{
 													"name":"diy_top_001_final_0",
 													"active":true,
@@ -5413,7 +5352,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.1470615,
@@ -5435,14 +5374,14 @@
 														"radius":0.2484344
 													},
 													"bones":[
+														5,
 														6,
 														7,
-														8,
+														13,
 														14,
-														15,
-														18,
-														5,
-														29
+														17,
+														4,
+														28
 													],
 													"materials":[
 														{
@@ -5457,7 +5396,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":126,
+												"instanceID":125,
 												"props":{
 													"name":"diy_top_001_final_1",
 													"active":true,
@@ -5479,7 +5418,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.1691364,
@@ -5501,14 +5440,14 @@
 														"radius":0.2179867
 													},
 													"bones":[
-														14,
+														13,
+														5,
 														6,
 														7,
-														8,
-														15,
-														18,
-														5,
-														29
+														14,
+														17,
+														4,
+														28
 													],
 													"materials":[
 														{
@@ -5523,7 +5462,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":127,
+												"instanceID":126,
 												"props":{
 													"name":"diy_top_002_final_0",
 													"active":true,
@@ -5545,7 +5484,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.009404182,
@@ -5567,14 +5506,14 @@
 														"radius":0.3233702
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														17,
-														8,
-														6,
 														14,
-														18
+														16,
+														7,
+														5,
+														13,
+														17
 													],
 													"materials":[
 														{
@@ -5589,7 +5528,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":128,
+												"instanceID":127,
 												"props":{
 													"name":"diy_top_002_final_1",
 													"active":true,
@@ -5611,7 +5550,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.02296174,
@@ -5633,14 +5572,14 @@
 														"radius":0.3067735
 													},
 													"bones":[
-														14,
-														6,
-														8,
-														18,
-														15,
+														13,
 														5,
+														7,
 														17,
-														16
+														14,
+														4,
+														16,
+														15
 													],
 													"materials":[
 														{
@@ -5655,7 +5594,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":129,
+												"instanceID":128,
 												"props":{
 													"name":"diy_top_003_final_0",
 													"active":true,
@@ -5677,7 +5616,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.05225219,
@@ -5699,15 +5638,15 @@
 														"radius":0.4215156
 													},
 													"bones":[
-														18,
-														29,
-														8,
-														6,
-														15,
+														17,
+														28,
 														7,
 														5,
-														16,
-														17
+														14,
+														6,
+														4,
+														15,
+														16
 													],
 													"materials":[
 														{
@@ -5722,7 +5661,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":130,
+												"instanceID":129,
 												"props":{
 													"name":"diy_top_003_final_1",
 													"active":true,
@@ -5744,7 +5683,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.03379422,
@@ -5766,15 +5705,15 @@
 														"radius":0.4029827
 													},
 													"bones":[
-														18,
-														6,
-														8,
-														29,
-														15,
-														5,
 														17,
+														5,
 														7,
-														16
+														28,
+														14,
+														4,
+														16,
+														6,
+														15
 													],
 													"materials":[
 														{
@@ -5789,7 +5728,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":131,
+												"instanceID":130,
 												"props":{
 													"name":"diy_top_004_final_0",
 													"active":true,
@@ -5811,7 +5750,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.05396771,
@@ -5833,16 +5772,16 @@
 														"radius":0.2934995
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														8,
-														17,
-														18,
 														14,
-														29,
-														6,
-														7
+														7,
+														16,
+														17,
+														13,
+														28,
+														5,
+														6
 													],
 													"materials":[
 														{
@@ -5857,7 +5796,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":132,
+												"instanceID":131,
 												"props":{
 													"name":"diy_top_004_final_1",
 													"active":true,
@@ -5879,7 +5818,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.05914098,
@@ -5901,16 +5840,16 @@
 														"radius":0.2761204
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														17,
-														8,
 														14,
-														6,
+														16,
 														7,
-														18,
-														29
+														13,
+														5,
+														6,
+														17,
+														28
 													],
 													"materials":[
 														{
@@ -5925,7 +5864,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":133,
+												"instanceID":132,
 												"props":{
 													"name":"diy_top_005_final_0",
 													"active":true,
@@ -5947,7 +5886,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.08382982,
@@ -5969,16 +5908,16 @@
 														"radius":0.2755615
 													},
 													"bones":[
-														6,
-														15,
-														8,
-														7,
 														5,
+														14,
+														7,
+														6,
+														4,
+														15,
 														16,
 														17,
-														18,
-														29,
-														14
+														28,
+														13
 													],
 													"materials":[
 														{
@@ -5993,7 +5932,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":134,
+												"instanceID":133,
 												"props":{
 													"name":"diy_top_005_final_1",
 													"active":true,
@@ -6015,7 +5954,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.09150843,
@@ -6037,16 +5976,16 @@
 														"radius":0.2467698
 													},
 													"bones":[
-														7,
-														15,
-														8,
 														6,
+														14,
+														7,
 														5,
+														4,
+														15,
 														16,
 														17,
-														18,
-														29,
-														14
+														28,
+														13
 													],
 													"materials":[
 														{
@@ -6061,7 +6000,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":135,
+												"instanceID":134,
 												"props":{
 													"name":"diy_top_006_final_0",
 													"active":true,
@@ -6083,7 +6022,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.1196777,
@@ -6105,13 +6044,13 @@
 														"radius":0.2115697
 													},
 													"bones":[
+														5,
 														6,
 														7,
-														8,
+														13,
 														14,
-														15,
-														18,
-														29
+														17,
+														28
 													],
 													"materials":[
 														{
@@ -6126,7 +6065,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":136,
+												"instanceID":135,
 												"props":{
 													"name":"diy_top_006_final_1",
 													"active":true,
@@ -6148,7 +6087,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.1171351,
@@ -6170,13 +6109,13 @@
 														"radius":0.1955612
 													},
 													"bones":[
-														15,
-														8,
-														6,
-														7,
 														14,
-														18,
-														29
+														7,
+														5,
+														6,
+														13,
+														17,
+														28
 													],
 													"materials":[
 														{
@@ -6191,7 +6130,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":137,
+												"instanceID":136,
 												"props":{
 													"name":"diy_top_007_final_0",
 													"active":true,
@@ -6213,7 +6152,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.04964089,
@@ -6235,15 +6174,15 @@
 														"radius":0.4187842
 													},
 													"bones":[
-														5,
-														16,
+														4,
 														15,
-														8,
-														17,
-														29,
+														14,
 														7,
+														16,
+														28,
 														6,
-														18
+														5,
+														17
 													],
 													"materials":[
 														{
@@ -6258,7 +6197,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":138,
+												"instanceID":137,
 												"props":{
 													"name":"diy_top_007_final_1",
 													"active":true,
@@ -6280,7 +6219,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.04128253,
@@ -6302,15 +6241,15 @@
 														"radius":0.4033315
 													},
 													"bones":[
-														7,
-														8,
 														6,
-														18,
-														29,
-														15,
+														7,
 														5,
-														16,
-														17
+														17,
+														28,
+														14,
+														4,
+														15,
+														16
 													],
 													"materials":[
 														{
@@ -6325,7 +6264,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":139,
+												"instanceID":138,
 												"props":{
 													"name":"diy_top_008_final_0",
 													"active":true,
@@ -6347,7 +6286,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.06394023,
@@ -6369,12 +6308,12 @@
 														"radius":0.3594522
 													},
 													"bones":[
-														7,
-														8,
 														6,
-														15,
-														18,
-														29
+														7,
+														5,
+														14,
+														17,
+														28
 													],
 													"materials":[
 														{
@@ -6389,7 +6328,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":140,
+												"instanceID":139,
 												"props":{
 													"name":"diy_top_008_final_1",
 													"active":true,
@@ -6411,7 +6350,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.07301831,
@@ -6433,12 +6372,12 @@
 														"radius":0.3406107
 													},
 													"bones":[
-														7,
-														8,
 														6,
-														18,
-														15,
-														29
+														7,
+														5,
+														17,
+														14,
+														28
 													],
 													"materials":[
 														{
@@ -6457,7 +6396,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":141,
+								"instanceID":140,
 								"props":{
 									"name":"General",
 									"active":true,
@@ -6484,7 +6423,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":142,
+										"instanceID":141,
 										"props":{
 											"name":"Bottoms",
 											"active":true,
@@ -6511,7 +6450,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":143,
+												"instanceID":142,
 												"props":{
 													"name":"bottom_001",
 													"active":true,
@@ -6533,7 +6472,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8656389,
@@ -6555,19 +6494,18 @@
 														"radius":0.5385206
 													},
 													"bones":[
-														17,
-														5,
 														16,
+														4,
 														15,
+														14,
+														19,
 														20,
-														21,
-														35,
-														36
+														34,
+														35
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_001.lm"
@@ -6577,7 +6515,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":144,
+												"instanceID":143,
 												"props":{
 													"name":"bottom_002",
 													"active":true,
@@ -6599,7 +6537,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8755641,
@@ -6621,19 +6559,18 @@
 														"radius":0.5504222
 													},
 													"bones":[
+														34,
 														35,
-														36,
-														17,
-														5,
-														15,
 														16,
-														20,
-														21
+														4,
+														14,
+														15,
+														19,
+														20
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_002.lm"
@@ -6643,7 +6580,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":145,
+												"instanceID":144,
 												"props":{
 													"name":"bottom_003",
 													"active":true,
@@ -6665,7 +6602,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3475743,
@@ -6687,27 +6624,26 @@
 														"radius":0.3528074
 													},
 													"bones":[
-														81,
-														71,
-														70,
 														80,
-														79,
-														86,
+														70,
 														69,
-														5,
-														17,
+														79,
+														78,
 														85,
+														68,
+														4,
+														16,
 														84,
-														15,
-														76,
+														83,
+														14,
 														75,
 														74,
-														16
+														73,
+														15
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_003.lm"
@@ -6717,7 +6653,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":146,
+												"instanceID":145,
 												"props":{
 													"name":"bottom_004",
 													"active":true,
@@ -6739,7 +6675,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.8704243,
@@ -6761,19 +6697,18 @@
 														"radius":0.5366637
 													},
 													"bones":[
+														34,
 														35,
-														36,
-														17,
-														5,
-														15,
 														16,
-														20,
-														21
+														4,
+														14,
+														15,
+														19,
+														20
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_004.lm"
@@ -6783,7 +6718,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":147,
+												"instanceID":146,
 												"props":{
 													"name":"bottom_005",
 													"active":true,
@@ -6805,7 +6740,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.3138009,
@@ -6827,27 +6762,26 @@
 														"radius":0.3487598
 													},
 													"bones":[
-														5,
+														4,
+														78,
+														14,
 														79,
-														15,
-														80,
-														17,
-														69,
 														16,
+														68,
+														15,
+														69,
+														80,
 														70,
-														81,
-														71,
+														83,
 														84,
 														85,
-														86,
+														73,
 														74,
-														75,
-														76
+														75
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_005.lm"
@@ -6857,7 +6791,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":148,
+												"instanceID":147,
 												"props":{
 													"name":"bottom_006",
 													"active":true,
@@ -6879,7 +6813,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1097656,
@@ -6901,15 +6835,14 @@
 														"radius":0.2419971
 													},
 													"bones":[
-														17,
-														5,
-														15,
-														16
+														16,
+														4,
+														14,
+														15
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-bottom_006.lm"
@@ -6921,7 +6854,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":149,
+										"instanceID":148,
 										"props":{
 											"name":"Dress",
 											"active":true,
@@ -6948,7 +6881,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":150,
+												"instanceID":149,
 												"props":{
 													"name":"dress_001",
 													"active":true,
@@ -6970,7 +6903,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2309225,
@@ -6992,29 +6925,28 @@
 														"radius":0.5392064
 													},
 													"bones":[
-														29,
-														34,
-														7,
-														19,
-														8,
-														15,
-														18,
+														28,
+														33,
 														6,
+														18,
+														7,
 														14,
+														17,
 														5,
-														79,
+														13,
+														4,
+														78,
+														73,
 														74,
-														75,
-														80,
+														79,
+														83,
 														84,
-														85,
-														69,
-														70
+														68,
+														69
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_001.lm"
@@ -7024,7 +6956,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":151,
+												"instanceID":150,
 												"props":{
 													"name":"dress_002",
 													"active":true,
@@ -7046,7 +6978,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2618926,
@@ -7068,32 +7000,31 @@
 														"radius":0.6260151
 													},
 													"bones":[
-														19,
+														18,
+														6,
+														33,
+														28,
 														7,
-														34,
-														29,
-														8,
-														15,
-														5,
+														14,
+														4,
+														73,
 														74,
 														75,
-														76,
-														85,
-														80,
-														79,
-														81,
-														71,
-														6,
-														18,
 														84,
-														86,
+														79,
+														78,
+														80,
 														70,
-														69
+														5,
+														17,
+														83,
+														85,
+														69,
+														68
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_002.lm"
@@ -7103,7 +7034,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":152,
+												"instanceID":151,
 												"props":{
 													"name":"dress_003",
 													"active":true,
@@ -7125,7 +7056,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.1738144,
@@ -7147,24 +7078,23 @@
 														"radius":0.4726799
 													},
 													"bones":[
-														85,
 														84,
-														70,
-														75,
-														74,
-														80,
+														83,
 														69,
-														15,
-														5,
-														8,
+														74,
+														73,
 														79,
-														18,
-														6
+														68,
+														14,
+														4,
+														7,
+														78,
+														17,
+														5
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_003.lm"
@@ -7174,7 +7104,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":153,
+												"instanceID":152,
 												"props":{
 													"name":"dress_004",
 													"active":true,
@@ -7196,7 +7126,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2075934,
@@ -7218,26 +7148,25 @@
 														"radius":0.4833306
 													},
 													"bones":[
-														8,
-														6,
 														7,
-														15,
 														5,
+														6,
+														14,
+														4,
+														83,
+														73,
 														84,
 														74,
-														85,
-														75,
-														70,
-														80,
-														79,
 														69,
-														18,
-														29
+														79,
+														78,
+														68,
+														17,
+														28
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_004.lm"
@@ -7247,7 +7176,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":154,
+												"instanceID":153,
 												"props":{
 													"name":"dress_005",
 													"active":true,
@@ -7269,7 +7198,7 @@
 														0.9999999,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2998691,
@@ -7291,26 +7220,25 @@
 														"radius":0.5293303
 													},
 													"bones":[
-														18,
-														8,
-														29,
+														17,
 														7,
-														15,
-														5,
-														84,
-														85,
-														69,
-														74,
-														70,
-														80,
+														28,
 														6,
+														14,
+														4,
+														83,
+														84,
+														68,
+														73,
+														69,
 														79,
-														75
+														5,
+														78,
+														74
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_005.lm"
@@ -7320,7 +7248,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":155,
+												"instanceID":154,
 												"props":{
 													"name":"dress_006",
 													"active":true,
@@ -7342,7 +7270,7 @@
 														0.9999999,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															-0.2081909,
@@ -7364,24 +7292,23 @@
 														"radius":0.4842501
 													},
 													"bones":[
-														15,
-														8,
+														14,
 														7,
-														5,
+														6,
+														4,
+														68,
+														78,
 														69,
 														79,
-														70,
-														80,
-														75,
 														74,
-														85,
+														73,
 														84,
-														29
+														83,
+														28
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-dress_006.lm"
@@ -7393,7 +7320,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":156,
+										"instanceID":155,
 										"props":{
 											"name":"Hair",
 											"active":true,
@@ -7420,7 +7347,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":157,
+												"instanceID":156,
 												"props":{
 													"name":"hair_000",
 													"active":true,
@@ -7442,7 +7369,7 @@
 														1,
 														1
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.2435297,
@@ -7464,16 +7391,15 @@
 														"radius":0.3495895
 													},
 													"bones":[
-														13,
-														54,
+														12,
+														53,
+														57,
 														58,
-														59,
-														60
+														59
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_000.lm"
@@ -7483,7 +7409,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":158,
+												"instanceID":157,
 												"props":{
 													"name":"hair_001",
 													"active":true,
@@ -7505,7 +7431,7 @@
 														1,
 														1
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.3706709,
@@ -7527,15 +7453,14 @@
 														"radius":0.4085114
 													},
 													"bones":[
-														13,
-														59,
+														12,
 														58,
-														60
+														57,
+														59
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_001.lm"
@@ -7545,7 +7470,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":159,
+												"instanceID":158,
 												"props":{
 													"name":"hair_002",
 													"active":true,
@@ -7567,7 +7492,7 @@
 														110,
 														110
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.2239479,
@@ -7589,23 +7514,22 @@
 														"radius":0.3767756
 													},
 													"bones":[
-														13,
+														12,
+														60,
 														61,
-														62,
-														65,
-														63,
 														64,
+														62,
+														63,
+														57,
 														58,
-														59,
+														65,
 														66,
 														67,
-														68,
-														60
+														59
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_002.lm"
@@ -7615,7 +7539,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":160,
+												"instanceID":159,
 												"props":{
 													"name":"hair_003",
 													"active":true,
@@ -7637,7 +7561,7 @@
 														110,
 														110
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.01988131,
@@ -7659,16 +7583,15 @@
 														"radius":0.2290339
 													},
 													"bones":[
-														13,
+														12,
+														64,
 														65,
-														66,
-														62,
-														61
+														61,
+														60
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_003.lm"
@@ -7678,7 +7601,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":161,
+												"instanceID":160,
 												"props":{
 													"name":"hair_004",
 													"active":true,
@@ -7700,7 +7623,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.3643216,
@@ -7722,23 +7645,22 @@
 														"radius":0.4199973
 													},
 													"bones":[
-														13,
-														61,
-														62,
-														65,
-														58,
-														66,
-														63,
-														64,
-														68,
-														59,
+														12,
 														60,
-														67
+														61,
+														64,
+														57,
+														65,
+														62,
+														63,
+														67,
+														58,
+														59,
+														66
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_004.lm"
@@ -7748,7 +7670,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":162,
+												"instanceID":161,
 												"props":{
 													"name":"hair_005",
 													"active":true,
@@ -7770,7 +7692,7 @@
 														110,
 														110
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.1192029,
@@ -7792,17 +7714,16 @@
 														"radius":0.2810035
 													},
 													"bones":[
-														13,
+														12,
+														64,
 														65,
-														66,
-														58,
-														61,
-														62
+														57,
+														60,
+														61
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_005.lm"
@@ -7812,7 +7733,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":163,
+												"instanceID":162,
 												"props":{
 													"name":"hair_006",
 													"active":true,
@@ -7834,7 +7755,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.2016967,
@@ -7856,17 +7777,16 @@
 														"radius":0.3196749
 													},
 													"bones":[
-														13,
+														12,
+														64,
 														65,
-														66,
-														62,
-														58,
-														61
+														61,
+														57,
+														60
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_006.lm"
@@ -7876,7 +7796,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":164,
+												"instanceID":163,
 												"props":{
 													"name":"hair_007",
 													"active":true,
@@ -7898,7 +7818,7 @@
 														1,
 														1
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.2444871,
@@ -7920,16 +7840,15 @@
 														"radius":0.3469672
 													},
 													"bones":[
-														13,
-														57,
+														12,
 														56,
 														55,
-														54
+														54,
+														53
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_007.lm"
@@ -7939,7 +7858,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":165,
+												"instanceID":164,
 												"props":{
 													"name":"hair_008",
 													"active":true,
@@ -7961,7 +7880,7 @@
 														1,
 														1
 													],
-													"rootBone":13,
+													"rootBone":12,
 													"boundBox":{
 														"min":[
 															-0.2816769,
@@ -7983,19 +7902,18 @@
 														"radius":0.3566478
 													},
 													"bones":[
-														63,
-														64,
 														62,
-														13,
+														63,
 														61,
+														12,
+														60,
+														64,
 														65,
-														66,
-														67
+														66
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-hair_008.lm"
@@ -8007,7 +7925,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":166,
+										"instanceID":165,
 										"props":{
 											"name":"Shoes",
 											"active":true,
@@ -8034,7 +7952,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":167,
+												"instanceID":166,
 												"props":{
 													"name":"shoes_001",
 													"active":true,
@@ -8056,7 +7974,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4386866,
@@ -8078,17 +7996,16 @@
 														"radius":0.1746501
 													},
 													"bones":[
-														21,
 														20,
-														22,
-														36,
+														19,
+														21,
 														35,
-														37
+														34,
+														36
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_001.lm"
@@ -8098,7 +8015,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":168,
+												"instanceID":167,
 												"props":{
 													"name":"shoes_002",
 													"active":true,
@@ -8120,7 +8037,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4607173,
@@ -8142,17 +8059,16 @@
 														"radius":0.1706166
 													},
 													"bones":[
+														19,
 														20,
 														21,
-														22,
+														34,
 														35,
-														36,
-														37
+														36
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_002.lm"
@@ -8162,7 +8078,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":169,
+												"instanceID":168,
 												"props":{
 													"name":"shoes_003",
 													"active":true,
@@ -8184,7 +8100,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4890745,
@@ -8206,17 +8122,16 @@
 														"radius":0.1684656
 													},
 													"bones":[
-														21,
-														22,
 														20,
+														21,
+														19,
+														35,
 														36,
-														37,
-														35
+														34
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_003.lm"
@@ -8226,7 +8141,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":170,
+												"instanceID":169,
 												"props":{
 													"name":"shoes_004",
 													"active":true,
@@ -8248,7 +8163,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4825478,
@@ -8270,17 +8185,16 @@
 														"radius":0.1733176
 													},
 													"bones":[
-														21,
-														22,
 														20,
+														21,
+														19,
+														35,
 														36,
-														37,
-														35
+														34
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_004.lm"
@@ -8290,7 +8204,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":171,
+												"instanceID":170,
 												"props":{
 													"name":"shoes_005",
 													"active":true,
@@ -8312,7 +8226,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4968373,
@@ -8334,17 +8248,16 @@
 														"radius":0.1646754
 													},
 													"bones":[
-														21,
-														22,
 														20,
+														21,
+														19,
+														35,
 														36,
-														37,
-														35
+														34
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_005.lm"
@@ -8354,7 +8267,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":172,
+												"instanceID":171,
 												"props":{
 													"name":"shoes_006",
 													"active":true,
@@ -8376,7 +8289,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4684051,
@@ -8398,17 +8311,16 @@
 														"radius":0.1678323
 													},
 													"bones":[
+														19,
 														20,
 														21,
-														22,
+														34,
 														35,
-														36,
-														37
+														36
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_006.lm"
@@ -8418,7 +8330,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":173,
+												"instanceID":172,
 												"props":{
 													"name":"shoes_007",
 													"active":true,
@@ -8440,7 +8352,7 @@
 														1,
 														1
 													],
-													"rootBone":35,
+													"rootBone":34,
 													"boundBox":{
 														"min":[
 															0.4782621,
@@ -8462,17 +8374,16 @@
 														"radius":0.1670576
 													},
 													"bones":[
-														21,
 														20,
-														22,
-														36,
+														19,
+														21,
 														35,
-														37
+														34,
+														36
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-shoes_007.lm"
@@ -8484,7 +8395,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":174,
+										"instanceID":173,
 										"props":{
 											"name":"Top",
 											"active":true,
@@ -8511,7 +8422,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":175,
+												"instanceID":174,
 												"props":{
 													"name":"top_001",
 													"active":true,
@@ -8533,7 +8444,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.05966884,
@@ -8555,19 +8466,18 @@
 														"radius":0.3228357
 													},
 													"bones":[
-														15,
-														8,
-														18,
-														29,
-														6,
-														7,
 														14,
-														13
+														7,
+														17,
+														28,
+														5,
+														6,
+														13,
+														12
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_001.lm"
@@ -8577,7 +8487,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":176,
+												"instanceID":175,
 												"props":{
 													"name":"top_002",
 													"active":true,
@@ -8599,7 +8509,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.04086143,
@@ -8621,17 +8531,16 @@
 														"radius":0.3221425
 													},
 													"bones":[
-														15,
-														8,
 														14,
-														6,
 														7,
-														5
+														13,
+														5,
+														6,
+														4
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_002.lm"
@@ -8641,7 +8550,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":177,
+												"instanceID":176,
 												"props":{
 													"name":"top_003",
 													"active":true,
@@ -8663,7 +8572,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.04838866,
@@ -8685,17 +8594,16 @@
 														"radius":0.2629111
 													},
 													"bones":[
+														13,
+														5,
+														7,
+														17,
 														14,
-														6,
-														8,
-														18,
-														15,
-														13
+														12
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_003.lm"
@@ -8705,7 +8613,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":178,
+												"instanceID":177,
 												"props":{
 													"name":"top_004",
 													"active":true,
@@ -8727,7 +8635,7 @@
 														1,
 														1
 													],
-													"rootBone":5,
+													"rootBone":4,
 													"boundBox":{
 														"min":[
 															0.1202905,
@@ -8749,23 +8657,22 @@
 														"radius":0.5122239
 													},
 													"bones":[
-														18,
+														17,
+														13,
+														7,
+														5,
 														14,
-														8,
+														28,
+														16,
+														4,
+														33,
 														6,
 														15,
-														29,
-														17,
-														5,
-														34,
-														7,
-														16,
-														19
+														18
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_004.lm"
@@ -8775,7 +8682,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":179,
+												"instanceID":178,
 												"props":{
 													"name":"top_005",
 													"active":true,
@@ -8797,7 +8704,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															0.05690372,
@@ -8819,15 +8726,14 @@
 														"radius":0.2133804
 													},
 													"bones":[
-														15,
-														8,
-														6,
-														18
+														14,
+														7,
+														5,
+														17
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_005.lm"
@@ -8837,7 +8743,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":180,
+												"instanceID":179,
 												"props":{
 													"name":"top_006",
 													"active":true,
@@ -8859,7 +8765,7 @@
 														1,
 														1
 													],
-													"rootBone":15,
+													"rootBone":14,
 													"boundBox":{
 														"min":[
 															-0.009485006,
@@ -8881,22 +8787,21 @@
 														"radius":0.6089377
 													},
 													"bones":[
-														15,
-														8,
+														14,
+														7,
+														28,
+														17,
+														12,
+														5,
+														6,
+														33,
 														29,
 														18,
-														13,
-														6,
-														7,
-														34,
-														30,
-														19,
-														9
+														8
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-top_006.lm"
@@ -8911,6 +8816,161 @@
 						]
 					}
 				]
+			},
+			{
+				"type":"MeshSprite3D",
+				"instanceID":180,
+				"props":{
+					"name":"Plane",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-0.2,
+						0.46,
+						2.17
+					],
+					"rotation":[
+						0,
+						0.789352,
+						-0.6139409,
+						0
+					],
+					"scale":[
+						0.7827399,
+						0.3,
+						0.3539944
+					],
+					"meshPath":"Library/unity default resources-Plane.lm",
+					"enableRender":true,
+					"materials":[
+						{
+							"path":"Assets/Game/Materials/5.lmat"
+						}
+					]
+				},
+				"components":[
+					{
+						"type":"PhysicsCollider",
+						"restitution":0,
+						"friction":0.5,
+						"rollingFriction":0,
+						"shapes":[
+							{
+								"type":"MeshColliderShape",
+								"mesh":"Library/unity default resources-Plane.lm"
+							}
+						],
+						"isTrigger":false
+					}
+				],
+				"child":[]
+			},
+			{
+				"type":"MeshSprite3D",
+				"instanceID":181,
+				"props":{
+					"name":"MirrorTag",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						1.24,
+						0.69,
+						1.25
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"meshPath":"Library/unity default resources-Cube.lm",
+					"enableRender":false,
+					"materials":[
+						{
+							"type":"Laya.BlinnPhongMaterial",
+							"path":"Resources/unity_builtin_extra.lmat"
+						}
+					]
+				},
+				"components":[
+					{
+						"type":"PhysicsCollider",
+						"restitution":0,
+						"friction":0.5,
+						"rollingFriction":0,
+						"shapes":[
+							{
+								"type":"BoxColliderShape",
+								"center":[
+									0,
+									0,
+									0
+								],
+								"size":[
+									1,
+									1,
+									1
+								]
+							}
+						],
+						"isTrigger":false
+					}
+				],
+				"child":[]
+			},
+			{
+				"type":"Camera",
+				"instanceID":182,
+				"props":{
+					"name":"Main Camera",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						0,
+						1.209,
+						-0.666
+					],
+					"rotation":[
+						0,
+						0.9914449,
+						0.1305262,
+						0
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"clearFlag":1,
+					"orthographic":false,
+					"orthographicVerticalSize":10,
+					"fieldOfView":60,
+					"enableHDR":true,
+					"nearPlane":0.3,
+					"farPlane":1000,
+					"viewport":[
+						0,
+						0,
+						1,
+						1
+					],
+					"clearColor":[
+						0.1921569,
+						0.3019608,
+						0.4745098,
+						0
+					]
+				},
+				"components":[],
+				"child":[]
 			}
 		]
 	}

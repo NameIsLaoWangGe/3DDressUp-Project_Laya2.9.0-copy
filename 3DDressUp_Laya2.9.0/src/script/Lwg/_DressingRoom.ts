@@ -31,6 +31,13 @@ export module _DressingRoom {
                 this.ins._GBottoms = this.ins._General.getChildByName('Bottoms') as Laya.MeshSprite3D;
                 this.ins._GTop = this.ins._General.getChildByName('Top') as Laya.MeshSprite3D;
                 this.ins._GDress = this.ins._General.getChildByName('Dress') as Laya.MeshSprite3D;
+
+                this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator) as Laya.Animator;
+
+                this.ins._SecondCameraTag = this.ins._Scene3D.getChildByName('SecondCameraTag') as Laya.MeshSprite3D;
+
+                this.ins._MainCamara = this.ins._Scene3D.getChildByName('SecondCameraTag') as Laya.Camera;
+                this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera') as Laya.Camera;
             }
             return this.ins;
         }
@@ -55,6 +62,7 @@ export module _DressingRoom {
 
         _Scene3D: Laya.Scene3D;
         _Role: Laya.MeshSprite3D;
+        _RoleAni: Laya.Animator;
         _Root: Laya.MeshSprite3D;
         _DIY: Laya.MeshSprite3D;
         _DTop: Laya.MeshSprite3D;
@@ -64,7 +72,19 @@ export module _DressingRoom {
         _GTop: Laya.MeshSprite3D;
         _GDress: Laya.MeshSprite3D;
         _GBottoms: Laya.MeshSprite3D;
+        _SecondCameraTag: Laya.MeshSprite3D;
+        _MirrorCamera: Laya.Camera;
+        _MainCamara: Laya.Camera;
+     
 
+        playDispalyAni(): void {
+            this._RoleAni.play(_AniName.Stand);
+            this._RoleAni.play(_AniName.DispalyCloth);
+            Laya.timer.clearAll(this._Role);
+            TimerAdmin._once(3200, this._Role, () => {
+                this._RoleAni.crossFade(_AniName.Stand, 0.3);
+            })
+        }
         private changeClass(classify: string, partArr: Array<any>): void {
             const _classify = this._Root.getChildByName(classify) as Laya.MeshSprite3D;
             for (let i = 0; i < _classify.numChildren; i++) {
@@ -79,12 +99,11 @@ export module _DressingRoom {
                             if (cloth.name === obj[this._property.name]) {
                                 cloth.active = true;
                                 if (!cloth.skinnedMeshRenderer.material) {
-                                    cloth.skinnedMeshRenderer.material = new Laya.BlinnPhongMaterial();
+                                    cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
                                 }
                                 Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
-                                    (cloth.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial).albedoTexture = tex;
+                                    (cloth.skinnedMeshRenderer.material as Laya.UnlitMaterial).albedoTexture = tex;
                                 }));
-
                             } else {
                                 cloth.active = false;
                             }
@@ -92,12 +111,7 @@ export module _DressingRoom {
                     }
                 }
             }
-            Tools._3D.animatorPlay(this._Role, _AniName.Stand);
-            Tools._3D.animatorPlay(this._Role, _AniName.DispalyCloth);
-            TimerAdmin._clearAll([this._Role]);
-            TimerAdmin._once(3200, this._Role, () => {
-                Tools._3D.animatorPlay(this._Role, _AniName.Stand);
-            })
+            this.playDispalyAni();
         }
         /**换装规则*/
         changeAll(): void {
@@ -185,6 +199,17 @@ export module _DressingRoom {
             // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
             // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
         }
+        // createMirror(): void {
+        //     //选择渲染目标为纹理
+        //     _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
+        //     //渲染顺序
+        //     _Clothes._ins()._MirrorCamera.renderingOrder = -1;
+        //     //清除标记
+        //     _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
+        //     var rtex = new Laya.Texture(((<Laya.Texture2D>(_Clothes._ins()._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
+        //     this._ImgVar('MirrorSurface').graphics.drawTexture(rtex);
+        //     this._SpriteVar('IconPhoto').graphics.drawTexture(rtex);
+        // }
 
         lwgEvent(): void {
             this._evReg(_Event.changeCloth, () => {
@@ -225,7 +250,7 @@ export module _DressingRoom {
                                 arr = _Clothes._ins()._getArrByClassify(_element.name);
                             } else {
                                 let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
-                                // 非DIY
+                                // 非DIY分部位
                                 for (let index = 0; index < _arr.length; index++) {
                                     const obj = _arr[index];
                                     if (obj[_Clothes._ins()._otherPro.part] === _element.name) {

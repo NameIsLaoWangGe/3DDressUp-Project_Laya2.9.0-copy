@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":45,
-    "selecteID":54,
+    "selectedBox":2,
+    "selecteID":92,
     "searchKey":"View",
     "props":{"width":1280,"sceneColor":"#9a7473","height":720},
     "nodeParent":-1,
-    "maxID":86,
+    "maxID":95,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -21,14 +21,13 @@
             "props":{"zOrder":150,"y":20,"x":1095,"width":240,"var":"Operation","name":"Operation","height":682},
             "nodeParent":2,
             "label":"Operation",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":45,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":-60,"width":253,"skin":"Game/UI/Common/di.png","sizeGrid":"0,58,0,145","height":682},
@@ -42,7 +41,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Part,Part",
                     "props":{"y":26,"x":111,"width":95,"var":"Part","name":"Part","height":637},
@@ -55,7 +53,6 @@
                     "compId":54,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,DIY,DIY",
                             "props":{"y":0,"x":0,"var":"DIY","skin":"Game/UI/Common/kuang_bai.png","name":"DIY"},
@@ -82,7 +79,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,Dress,Dress",
                             "props":{"y":83,"x":0,"var":"Dress","skin":"Game/UI/Common/kuang_bai.png","name":"Dress"},
@@ -95,7 +91,6 @@
                             "compId":58,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image",
                                     "props":{"skin":"Game/UI/DressingRoom/PartIcon/Dress.png","centerY":0,"centerX":0},
@@ -110,7 +105,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,Top,Top",
                             "props":{"y":166,"x":0,"var":"Top","skin":"Game/UI/Common/kuang_bai.png","name":"Top"},
@@ -137,7 +131,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,Bottoms,Bottoms",
                             "props":{"y":249,"x":0,"var":"Bottoms","skin":"Game/UI/Common/kuang_bai.png","name":"Bottoms"},
@@ -164,10 +157,9 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,FaceMask,FaceMask",
-                            "props":{"y":332,"x":0,"var":"FaceMask","skin":"Game/UI/Common/kuang_bai.png","name":"FaceMask"},
+                            "props":{"y":329,"x":117,"visible":false,"var":"FaceMask","skin":"Game/UI/Common/kuang_bai.png","name":"FaceMask"},
                             "nodeParent":54,
                             "label":"FaceMask",
                             "isOpen":false,
@@ -191,10 +183,9 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,Shoes,Shoes",
-                            "props":{"y":416,"x":0,"var":"Shoes","skin":"Game/UI/Common/kuang_bai.png","name":"Shoes"},
+                            "props":{"y":332,"x":0,"var":"Shoes","skin":"Game/UI/Common/kuang_bai.png","name":"Shoes"},
                             "nodeParent":54,
                             "label":"Shoes",
                             "isOpen":true,
@@ -204,7 +195,6 @@
                             "compId":66,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image",
                                     "props":{"skin":"Game/UI/DressingRoom/PartIcon/Shoes.png","centerY":0,"centerX":0},
@@ -219,10 +209,9 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,Accessories,Accessories",
-                            "props":{"y":499,"x":0,"var":"Accessories","skin":"Game/UI/Common/kuang_bai.png","name":"Accessories"},
+                            "props":{"y":419,"x":117,"visible":false,"var":"Accessories","skin":"Game/UI/Common/kuang_bai.png","name":"Accessories"},
                             "nodeParent":54,
                             "label":"Accessories",
                             "isOpen":false,
@@ -247,7 +236,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":5,"x":-53,"skin":"Game/UI/Common/kuang.png"},
@@ -261,7 +249,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,List,List",
                     "props":{"y":11,"x":-47,"width":159,"var":"List","spaceY":0,"rotation":0,"repeatY":4,"name":"List","height":628},
@@ -274,7 +261,6 @@
                     "compId":48,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":88,"x":80,"width":160,"renderType":"render","pivotY":88,"pivotX":80,"height":175},
@@ -287,7 +273,6 @@
                             "compId":49,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Board",
                                     "props":{"skin":"Game/UI/Common/xuanzhong.png","sizeGrid":"9,12,14,13","name":"Board","centerY":0,"centerX":0},
@@ -301,7 +286,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Icon",
                                     "props":{"skin":"Game/UI/Clothes/Icon/diy_bottom_008_final.png","name":"Icon","centerY":0,"centerX":0},
@@ -317,7 +301,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BtnComplete,BtnComplete",
                     "props":{"y":48,"x":-108,"width":80,"var":"BtnComplete","skin":"Game/UI/Common/anniu_lv.png","sizeGrid":"16,9,9,15","pivotY":46,"pivotX":40,"name":"BtnComplete","height":92},
@@ -330,7 +313,6 @@
                     "compId":52,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":22,"x":17.5,"skin":"Game/UI/Common/duihao.png"},
@@ -340,6 +322,48 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":53,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,Mirror,Mirror",
+            "props":{"y":107,"x":183,"var":"Mirror","texture":"Game/UI/DressingRoom/落地镜.png","name":"Mirror"},
+            "nodeParent":2,
+            "label":"Mirror",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":92,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,MirrorSurface,MirrorSurface",
+                    "props":{"y":-22,"x":17.5,"width":283,"var":"MirrorSurface","texture":"Lwg/UI/ui_orthogon_cycn.png","skewX":0,"name":"MirrorSurface","height":614},
+                    "nodeParent":92,
+                    "label":"MirrorSurface",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":93,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":42,"x":44,"texture":"Game/UI/DressingRoom/镜子面.png","renderType":"mask"},
+                            "nodeParent":93,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":94,
                             "child":[
                                 ]
                         }]
