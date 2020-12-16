@@ -882,11 +882,10 @@ export module lwg {
         * @param args 回调参数[]
         * @param coverBefore 是否覆盖之前的延迟执行，默认为 true 。
         */
-        export function _once(delay: number, afterMethod: Function, beforeMethod?: Function, args?: any[], coverBefore?: boolean): void {
+        export function _once(delay: number, caller: any, afterMethod: Function, beforeMethod?: Function, args?: any[], coverBefore?: boolean): void {
             if (beforeMethod) {
                 beforeMethod();
             }
-            let caller = {};
             Laya.timer.once(delay, caller, () => {
                 afterMethod();
             }, args, coverBefore)

@@ -1,8 +1,6 @@
 import ADManager, { TaT } from "../TJ/Admanager";
 import RecordManager from "../TJ/RecordManager";
 import { Admin, Animation2D, Click, Color, EventAdmin, TimerAdmin, Tools, Gold, _SceneName } from "./Lwg";
-import { _GameItem } from "./_GameItem";
-import { _Res } from "./_PreLoad";
 import { _PropTry } from "./_PropTry";
 import { _Share } from "./_Share";
 /**游戏场景模块*/

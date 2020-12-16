@@ -64,7 +64,7 @@ export module _PreLoadCutIn {
         }
         backStart(): void {
             if (Admin._PreLoadCutIn.closeName == 'DressingRoom') {
-                _Res._list.scene3D.MakeClothes.Scene.removeSelf();
+                // _Res._list.scene3D.MakeClothes.Scene.removeSelf();
             } else if (Admin._PreLoadCutIn.closeName == 'MakeTailor') {
                 // SceneAnimation._closeSwitch = true;
             }

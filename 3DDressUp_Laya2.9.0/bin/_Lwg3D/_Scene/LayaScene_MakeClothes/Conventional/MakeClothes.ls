@@ -172,7 +172,7 @@
 					"position":[
 						0,
 						-0.26,
-						1.04
+						1.204
 					],
 					"rotation":[
 						0,
@@ -206,6 +206,10 @@
 									{
 										"name":"Poss1",
 										"clipPath":"Assets/Game/Animation/Poss1-Poss1.lani"
+									},
+									{
+										"name":"DispalyCloth",
+										"clipPath":"Assets/Game/Animation/DispalyCloth-DispalyCloth.lani"
 									}
 								]
 							}
@@ -304,7 +308,7 @@
 							"materials":[
 								{
 									"type":"Laya.BlinnPhongMaterial",
-									"path":"Assets/Game/Animation/ALL_Skin.lmat"
+									"path":"Assets/Game/Mesh/DIY/Girl/Materials/body.lmat"
 								}
 							],
 							"meshPath":"Assets/Game/Animation/ALL_Skin-body.lm"
@@ -363,7 +367,7 @@
 							"materials":[
 								{
 									"type":"Laya.BlinnPhongMaterial",
-									"path":"Assets/Game/Animation/ALL_Skin.lmat"
+									"path":"Assets/Game/Mesh/DIY/Girl/eyecolorTex/Materials/eyecolor_002.lmat"
 								}
 							],
 							"meshPath":"Assets/Game/Animation/ALL_Skin-eyeball.lm"
@@ -423,8 +427,7 @@
 							],
 							"materials":[
 								{
-									"type":"Laya.BlinnPhongMaterial",
-									"path":"Assets/Game/Animation/ALL_Skin.lmat"
+									"path":"Assets/Game/Mesh/DIY/Girl/eyebrowTex/Materials/eyebrow_001.lmat"
 								}
 							],
 							"meshPath":"Assets/Game/Animation/ALL_Skin-eyebrow.lm"
@@ -486,8 +489,7 @@
 							],
 							"materials":[
 								{
-									"type":"Laya.BlinnPhongMaterial",
-									"path":"Assets/Game/Animation/ALL_Skin.lmat"
+									"path":"Assets/Game/Mesh/DIY/Girl/eyelashTex/Materials/eyelash_002.lmat"
 								}
 							],
 							"meshPath":"Assets/Game/Animation/ALL_Skin-eyelash.lm"
@@ -550,8 +552,7 @@
 							],
 							"materials":[
 								{
-									"type":"Laya.BlinnPhongMaterial",
-									"path":"Assets/Game/Animation/ALL_Skin.lmat"
+									"path":"Assets/Game/Mesh/DIY/Girl/Materials/head.lmat"
 								}
 							],
 							"meshPath":"Assets/Game/Animation/ALL_Skin-head.lm"
@@ -2977,7 +2978,7 @@
 													"materials":[
 														{
 															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Mesh/DIY/Top/Materials/top_002.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_001_final_0.lm"

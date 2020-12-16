@@ -1,4 +1,4 @@
-import { Admin, Animation2D, DataAdmin, TimerAdmin, Tools } from "./Lwg";
+import { Admin, Animation2D, DataAdmin, StorageAdmin, TimerAdmin, Tools } from "./Lwg";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
 import { _PropTry } from "./_PropTry";
@@ -6,6 +6,12 @@ import { _PropTry } from "./_PropTry";
 export module _DressingRoom {
     export enum _Event {
         changeCloth = '_DressingRoom_ChangeCloth',
+    }
+    export enum _AniName {
+        Stand = 'Stand',
+        Poss1 = 'Poss1',
+        Poss2 = 'Poss2',
+        DispalyCloth = 'DispalyCloth',
     }
     export class _Clothes extends DataAdmin._Table {
         private static ins: _Clothes;
@@ -15,6 +21,16 @@ export module _DressingRoom {
                 this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
                 this.ins._Role = this.ins._Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
                 this.ins._Root = this.ins._Role.getChildByName('Root') as Laya.MeshSprite3D;
+                this.ins._DIY = this.ins._Root.getChildByName('DIY') as Laya.MeshSprite3D;
+                this.ins._General = this.ins._Root.getChildByName('General') as Laya.MeshSprite3D;
+
+                this.ins._DBottoms = this.ins._DIY.getChildByName('Bottoms') as Laya.MeshSprite3D;
+                this.ins._DTop = this.ins._DIY.getChildByName('Top') as Laya.MeshSprite3D;
+                this.ins._DDress = this.ins._DIY.getChildByName('Dress') as Laya.MeshSprite3D;
+
+                this.ins._GBottoms = this.ins._General.getChildByName('Bottoms') as Laya.MeshSprite3D;
+                this.ins._GTop = this.ins._General.getChildByName('Top') as Laya.MeshSprite3D;
+                this.ins._GDress = this.ins._General.getChildByName('Dress') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
@@ -36,15 +52,21 @@ export module _DressingRoom {
             putOn: 'putOn',
             part: 'part'
         }
+
         _Scene3D: Laya.Scene3D;
         _Role: Laya.MeshSprite3D;
         _Root: Laya.MeshSprite3D;
         _DIY: Laya.MeshSprite3D;
+        _DTop: Laya.MeshSprite3D;
+        _DDress: Laya.MeshSprite3D;
+        _DBottoms: Laya.MeshSprite3D;
         _General: Laya.MeshSprite3D;
+        _GTop: Laya.MeshSprite3D;
+        _GDress: Laya.MeshSprite3D;
+        _GBottoms: Laya.MeshSprite3D;
 
         private changeClass(classify: string, partArr: Array<any>): void {
-            const Root = this._Role.getChildByName('Root') as Laya.MeshSprite3D;
-            const _classify = Root.getChildByName(classify) as Laya.MeshSprite3D;
+            const _classify = this._Root.getChildByName(classify) as Laya.MeshSprite3D;
             for (let i = 0; i < _classify.numChildren; i++) {
                 const _classifySp = _classify.getChildAt(i) as Laya.MeshSprite3D;
                 _classifySp.active = false;
@@ -62,6 +84,7 @@ export module _DressingRoom {
                                 Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
                                     (cloth.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial).albedoTexture = tex;
                                 }));
+
                             } else {
                                 cloth.active = false;
                             }
@@ -69,6 +92,12 @@ export module _DressingRoom {
                     }
                 }
             }
+            Tools._3D.animatorPlay(this._Role, _AniName.Stand);
+            Tools._3D.animatorPlay(this._Role, _AniName.DispalyCloth);
+            TimerAdmin._clearAll([this._Role]);
+            TimerAdmin._once(3200, this._Role, () => {
+                Tools._3D.animatorPlay(this._Role, _AniName.Stand);
+            })
         }
         /**换装规则*/
         changeAll(): void {
@@ -76,9 +105,29 @@ export module _DressingRoom {
             this.changeClass(this._classify.DIY, arr);
             this.changeClass(this._classify.General, arr);
         }
-        changeDress(obj: any): void {
-            const Root = this._Role.getChildByName('Root') as Laya.MeshSprite3D;
-            const _classify = Root.getChildByName(classify) as Laya.MeshSprite3D;
+
+        /**进游戏时的特殊设置*/
+        startSpecialSet(): void {
+            if (StorageAdmin._bool('DressState').value) {
+                this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+            } else {
+                this._GDress.active = this._DDress.active = false;
+            }
+        }
+
+        /**特殊设置*/
+        specialSet(part?: string): void {
+            if (part === this._part.Dress) {
+                this['DressState'] = true;
+            } else if (part === this._part.Top || part === this._part.Bottoms) {
+                this['DressState'] = false;
+            }
+            if (this['DressState']) {
+                this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+            } else {
+                this._GDress.active = this._DDress.active = false;
+            }
+            StorageAdmin._bool('DressState').value = this['DressState'];
         }
     }
 
@@ -96,6 +145,7 @@ export module _DressingRoom {
                 }
                 _Clothes._ins()._refreshAndStorage();
                 _Clothes._ins().changeAll();
+                _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
             }, null)
         }
     }

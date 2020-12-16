@@ -5,4 +5,6 @@
    <item name="Game/UI/MakeClothes/figure_02.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="Game/UI/MakeClothes/figure_01.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="Game/UI/DressingRoom/ClothTex" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/DressingRoom/ClothTex/top_005.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/DressingRoom/ClothTex/top_006.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
 </res>

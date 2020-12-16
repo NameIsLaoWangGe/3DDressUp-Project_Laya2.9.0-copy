@@ -186,15 +186,15 @@ export module _PreLoad {
             this._ImgVar('LoGo').scale(0, 0);
             this._ImgVar('Progress').scale(0, 0);
             this._ImgVar('Anti').alpha = 0;
-            TimerAdmin._once(delay * 4, () => {
+            TimerAdmin._once(delay * 4, this, () => {
                 this.effect();
             })
-            TimerAdmin._once(delay * 4, () => {
+            TimerAdmin._once(delay * 4, this, () => {
                 Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
             })
 
             TimerAdmin._frameLoop(time / 2 * 2, this, () => {
-                TimerAdmin._once(delay * 6, () => {
+                TimerAdmin._once(delay * 6, this, () => {
                     Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
                 })
             })
@@ -219,7 +219,7 @@ export module _PreLoad {
                     }, true)
                     Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2)
                 }, delay * 4);
-                TimerAdmin._once(delay * 4, () => {
+                TimerAdmin._once(delay * 4, this, () => {
                     AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
                 })
             }, delay * 4);
@@ -252,7 +252,8 @@ export module _PreLoad {
                 this._ImgVar('ProgressBar').mask.x = 0;
             })
             Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
-            _DressingRoom._Clothes._ins().change();
+            _DressingRoom._Clothes._ins().changeAll();
+            _DressingRoom._Clothes._ins().startSpecialSet();
             return 1500;
         }
         lwgOnDisable(): void {

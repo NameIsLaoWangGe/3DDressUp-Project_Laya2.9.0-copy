@@ -639,11 +639,10 @@
                 Laya.timer.loop(delay, caller, func, args, coverBefore);
             }
             TimerAdmin._numLoop = _numLoop;
-            function _once(delay, afterMethod, beforeMethod, args, coverBefore) {
+            function _once(delay, caller, afterMethod, beforeMethod, args, coverBefore) {
                 if (beforeMethod) {
                     beforeMethod();
                 }
-                let caller = {};
                 Laya.timer.once(delay, caller, () => {
                     afterMethod();
                 }, args, coverBefore);
@@ -6934,6 +6933,13 @@
         (function (_Event) {
             _Event["changeCloth"] = "_DressingRoom_ChangeCloth";
         })(_Event = _DressingRoom._Event || (_DressingRoom._Event = {}));
+        let _AniName;
+        (function (_AniName) {
+            _AniName["Stand"] = "Stand";
+            _AniName["Poss1"] = "Poss1";
+            _AniName["Poss2"] = "Poss2";
+            _AniName["DispalyCloth"] = "DispalyCloth";
+        })(_AniName = _DressingRoom._AniName || (_DressingRoom._AniName = {}));
         class _Clothes extends DataAdmin._Table {
             constructor() {
                 super(...arguments);
@@ -6960,21 +6966,29 @@
                     this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
                     this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
                     this.ins._Role = this.ins._Scene3D.getChildByName('Role');
+                    this.ins._Root = this.ins._Role.getChildByName('Root');
+                    this.ins._DIY = this.ins._Root.getChildByName('DIY');
+                    this.ins._General = this.ins._Root.getChildByName('General');
+                    this.ins._DBottoms = this.ins._DIY.getChildByName('Bottoms');
+                    this.ins._DTop = this.ins._DIY.getChildByName('Top');
+                    this.ins._DDress = this.ins._DIY.getChildByName('Dress');
+                    this.ins._GBottoms = this.ins._General.getChildByName('Bottoms');
+                    this.ins._GTop = this.ins._General.getChildByName('Top');
+                    this.ins._GDress = this.ins._General.getChildByName('Dress');
                 }
                 return this.ins;
             }
             changeClass(classify, partArr) {
-                const Root = this._Role.getChildByName('Root');
-                const DIY = Root.getChildByName(classify);
-                for (let i = 0; i < DIY.numChildren; i++) {
-                    const Sp = DIY.getChildAt(i);
-                    Sp.active = false;
+                const _classify = this._Root.getChildByName(classify);
+                for (let i = 0; i < _classify.numChildren; i++) {
+                    const _classifySp = _classify.getChildAt(i);
+                    _classifySp.active = false;
                     for (let j = 0; j < partArr.length; j++) {
                         const obj = partArr[j];
-                        if (obj[this._otherPro.part] === Sp.name) {
-                            Sp.active = true;
-                            for (let k = 0; k < Sp.numChildren; k++) {
-                                const cloth = Sp.getChildAt(k);
+                        if (obj[this._otherPro.part] === _classifySp.name) {
+                            _classifySp.active = true;
+                            for (let k = 0; k < _classifySp.numChildren; k++) {
+                                const cloth = _classifySp.getChildAt(k);
                                 if (cloth.name === obj[this._property.name]) {
                                     cloth.active = true;
                                     if (!cloth.skinnedMeshRenderer.material) {
@@ -6991,14 +7005,40 @@
                         }
                     }
                 }
+                Tools._3D.animatorPlay(this._Role, _AniName.Stand);
+                Tools._3D.animatorPlay(this._Role, _AniName.DispalyCloth);
+                TimerAdmin._clearAll([this._Role]);
+                TimerAdmin._once(3100, this._Role, () => {
+                    Tools._3D.animatorPlay(this._Role, _AniName.Stand);
+                });
             }
-            change() {
+            changeAll() {
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr);
                 this.changeClass(this._classify.General, arr);
             }
-            diychange(obj) {
-                obj[this._property.classify];
+            startSpecialSet() {
+                if (StorageAdmin._bool('DressState').value) {
+                    this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                }
+                else {
+                    this._GDress.active = this._DDress.active = false;
+                }
+            }
+            specialSet(part) {
+                if (part === this._part.Dress) {
+                    this['DressState'] = true;
+                }
+                else if (part === this._part.Top || part === this._part.Bottoms) {
+                    this['DressState'] = false;
+                }
+                if (this['DressState']) {
+                    this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                }
+                else {
+                    this._GDress.active = this._DDress.active = false;
+                }
+                StorageAdmin._bool('DressState').value = this['DressState'];
             }
         }
         _DressingRoom._Clothes = _Clothes;
@@ -7016,7 +7056,8 @@
                         }
                     }
                     _Clothes._ins()._refreshAndStorage();
-                    _Clothes._ins().change();
+                    _Clothes._ins().changeAll();
+                    _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
                 }, null);
             }
         }
@@ -7258,14 +7299,14 @@
                 this._ImgVar('LoGo').scale(0, 0);
                 this._ImgVar('Progress').scale(0, 0);
                 this._ImgVar('Anti').alpha = 0;
-                TimerAdmin._once(delay * 4, () => {
+                TimerAdmin._once(delay * 4, this, () => {
                     this.effect();
                 });
-                TimerAdmin._once(delay * 4, () => {
+                TimerAdmin._once(delay * 4, this, () => {
                     Color._changeOnce(this._ImgVar('BG'), [100, 50, 0, 1], time / 3);
                 });
                 TimerAdmin._frameLoop(time / 2 * 2, this, () => {
-                    TimerAdmin._once(delay * 6, () => {
+                    TimerAdmin._once(delay * 6, this, () => {
                         Color._changeOnce(this._ImgVar('LoGo'), [5, 40, 10, 1], time / 2);
                     });
                 });
@@ -7285,7 +7326,7 @@
                         }, true);
                         Animation2D.fadeOut(this._ImgVar('Anti'), 0, 1, time * 2);
                     }, delay * 4);
-                    TimerAdmin._once(delay * 4, () => {
+                    TimerAdmin._once(delay * 4, this, () => {
                         AudioAdmin._playSound(AudioAdmin._voiceUrl.btn);
                     });
                 }, delay * 4);
@@ -7316,7 +7357,8 @@
                     this._ImgVar('ProgressBar').mask.x = 0;
                 });
                 Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
-                _DressingRoom._Clothes._ins().change();
+                _DressingRoom._Clothes._ins().changeAll();
+                _DressingRoom._Clothes._ins().startSpecialSet();
                 return 1500;
             }
             lwgOnDisable() {
@@ -8401,7 +8443,6 @@
             }
             backStart() {
                 if (Admin._PreLoadCutIn.closeName == 'DressingRoom') {
-                    _Res._list.scene3D.MakeClothes.Scene.removeSelf();
                 }
                 else if (Admin._PreLoadCutIn.closeName == 'MakeTailor') {
                 }
