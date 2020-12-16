@@ -2,17 +2,17 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":7,
+    "selecteID":4,
     "searchKey":"View",
     "referenceLines":[
         {
-            "value":167,
+            "value":-132,
             "type":1,
             "id":1
         }],
     "props":{"width":1280,"sceneColor":"#909090","height":720},
     "nodeParent":-1,
-    "maxID":9,
+    "maxID":15,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -24,7 +24,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,Background,Background",
-            "props":{"y":0,"x":0,"width":1280,"var":"Background","skin":"Lwg/UI/ui_l_orthogon_magenta.png","sizeGrid":"13,5,11,9","name":"Background","height":720},
+            "props":{"y":0,"x":0,"width":1280,"var":"Background","skin":"Game/UI/PreLoad/BG.png","sizeGrid":"13,5,11,9","name":"Background","height":720},
             "nodeParent":2,
             "label":"Background",
             "isDirectory":false,
@@ -38,7 +38,7 @@
             "x":15,
             "type":"Label",
             "searchKey":"Label",
-            "props":{"y":470,"width":168,"valign":"middle","text":"载入中...","height":61,"fontSize":40,"color":"#ffffff","centerX":0,"align":"center"},
+            "props":{"y":465,"width":168,"valign":"middle","text":"载入中...","height":61,"fontSize":40,"color":"#ffffff","centerX":0,"bold":true,"align":"center"},
             "nodeParent":2,
             "label":"Label",
             "isDirectory":false,
@@ -56,25 +56,12 @@
             "nodeParent":2,
             "label":"Ani",
             "isOpen":true,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":6,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"width":265,"skin":"Lwg/UI/ui_orthogon_orange.png","sizeGrid":"15,6,11,10","pivotY":42,"pivotX":133,"height":84,"centerY":0,"centerX":-1},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
-                    "child":[
-                        ]
-                }]
+                ]
         },
         {
             "x":15,

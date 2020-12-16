@@ -2,7 +2,7 @@
 	"version":"LAYAMATERIAL:02",
 	"props":{
 		"type":"Laya.UnlitMaterial",
-		"name":"5",
+		"name":"bg2",
 		"renderStates":[
 			{
 				"cull":2,
@@ -21,7 +21,7 @@
 		"textures":[
 			{
 				"name":"albedoTexture",
-				"path":"../bg1.jpg",
+				"path":"../bg2.jpg",
 				"constructParams":[
 					2048,
 					512,
@@ -49,9 +49,9 @@
 			{
 				"name":"albedoColor",
 				"value":[
-					1,
-					1,
-					1,
+					0.8270485,
+					0.7180936,
+					0.9339623,
 					0.5
 				]
 			}

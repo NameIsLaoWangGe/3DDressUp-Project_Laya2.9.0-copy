@@ -16,7 +16,12 @@ export module _Start {
     }
     export class Start extends Admin._SceneBase {
 
+        Scene3D: Laya.Scene3D;
+        MainCamera: Laya.Camera;
         lwgOnAwake(): void {
+            this.Scene3D = _Res._list.scene3D.MakeClothes.Scene;
+            this.MainCamera = this.Scene3D.getChildByName('Main Camera') as Laya.Camera;
+            // const btnTopPos = Tools._3D.posToScreen(this.MainCamera, this.Scene3D.getChildByName(''))
 
             if (_Ranking._whereFrom === 'MakePattern') {
                 TimerAdmin._frameOnce(60, this, () => {

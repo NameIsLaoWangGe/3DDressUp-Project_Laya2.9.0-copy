@@ -176,6 +176,7 @@ export module _Res {
 }
 
 export module _PreLoad {
+
     export class PreLoad extends _LwgPreLoad._PreLoadScene {
 
         count = 0;

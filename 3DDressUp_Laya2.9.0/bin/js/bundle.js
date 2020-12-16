@@ -6976,9 +6976,9 @@
                     this.ins._GTop = this.ins._General.getChildByName('Top');
                     this.ins._GDress = this.ins._General.getChildByName('Dress');
                     this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator);
-                    this.ins._SecondCameraTag = this.ins._Scene3D.getChildByName('SecondCameraTag');
-                    this.ins._MainCamara = this.ins._Scene3D.getChildByName('SecondCameraTag');
+                    this.ins._MainCamara = this.ins._Scene3D.getChildByName('Main Camera');
                     this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera');
+                    this.ins._Mirror = this.ins._Scene3D.getChildByName('Mirror');
                 }
                 return this.ins;
             }
@@ -7098,6 +7098,17 @@
                         Cell.addComponent(_Item);
                     }
                 };
+                TimerAdmin._frameLoop(1, this, () => {
+                    this.createMirror();
+                });
+            }
+            createMirror() {
+                _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
+                _Clothes._ins()._MirrorCamera.renderingOrder = -1;
+                _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
+                this.rtex && this.rtex.destroy();
+                this.rtex = new Laya.Texture(_Clothes._ins()._MirrorCamera.renderTarget, Laya.Texture.DEF_UV);
+                this._ImgVar('MirrorSurface').graphics.drawTexture(this.rtex);
             }
             lwgEvent() {
                 this._evReg(_Event.changeCloth, () => {
@@ -8610,6 +8621,7 @@
         lwgOnAwake() {
             _LwgInit._pkgInfo = [];
             Platform._Ues.value = Platform._Tpye.Web;
+            Laya.Stat.show();
             SceneAnimation._Use.value = SceneAnimation._Type.shutters.randomshutters;
             SceneAnimation._closeSwitch = true;
             SceneAnimation._openSwitch = false;

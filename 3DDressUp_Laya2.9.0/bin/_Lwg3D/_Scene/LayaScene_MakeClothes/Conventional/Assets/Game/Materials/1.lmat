@@ -21,11 +21,11 @@
 		"textures":[
 			{
 				"name":"albedoTexture",
-				"path":"../1.jpg",
+				"path":"../../Reference/Sprite/avatar_17.png",
 				"constructParams":[
-					2048,
-					512,
-					0,
+					32,
+					32,
+					1,
 					true
 				],
 				"propertyParams":{
@@ -41,7 +41,7 @@
 				"name":"tilingOffset",
 				"value":[
 					1,
-					1,
+					-1,
 					0,
 					0
 				]

@@ -34,10 +34,9 @@ export module _DressingRoom {
 
                 this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator) as Laya.Animator;
 
-                this.ins._SecondCameraTag = this.ins._Scene3D.getChildByName('SecondCameraTag') as Laya.MeshSprite3D;
-
-                this.ins._MainCamara = this.ins._Scene3D.getChildByName('SecondCameraTag') as Laya.Camera;
+                this.ins._MainCamara = this.ins._Scene3D.getChildByName('Main Camera') as Laya.Camera;
                 this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera') as Laya.Camera;
+                this.ins._Mirror = this.ins._Scene3D.getChildByName('Mirror') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
@@ -75,7 +74,8 @@ export module _DressingRoom {
         _SecondCameraTag: Laya.MeshSprite3D;
         _MirrorCamera: Laya.Camera;
         _MainCamara: Laya.Camera;
-     
+        _Mirror: Laya.MeshSprite3D;
+
 
         playDispalyAni(): void {
             this._RoleAni.play(_AniName.Stand);
@@ -198,18 +198,24 @@ export module _DressingRoom {
             // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
             // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
             // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
+            TimerAdmin._frameLoop(1, this, () => {
+                this.createMirror();
+            })
         }
-        // createMirror(): void {
-        //     //选择渲染目标为纹理
-        //     _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
-        //     //渲染顺序
-        //     _Clothes._ins()._MirrorCamera.renderingOrder = -1;
-        //     //清除标记
-        //     _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
-        //     var rtex = new Laya.Texture(((<Laya.Texture2D>(_Clothes._ins()._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
-        //     this._ImgVar('MirrorSurface').graphics.drawTexture(rtex);
-        //     this._SpriteVar('IconPhoto').graphics.drawTexture(rtex);
-        // }
+        rtex: Laya.Texture;
+        createMirror(): void {
+            //选择渲染目标为纹理
+            _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
+            //渲染顺序
+            _Clothes._ins()._MirrorCamera.renderingOrder = -1;
+            //清除标记
+            _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
+            this.rtex && this.rtex.destroy();
+            this.rtex = new Laya.Texture(((<Laya.Texture2D>(_Clothes._ins()._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
+            //设置网格精灵的纹理
+            // (_Clothes._ins()._Mirror.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Clothes._ins()._MirrorCamera.renderTarget;
+            this._ImgVar('MirrorSurface').graphics.drawTexture(this.rtex);
+        }
 
         lwgEvent(): void {
             this._evReg(_Event.changeCloth, () => {

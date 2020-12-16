@@ -20,7 +20,7 @@ export default class LwgInit extends _LwgInitScene {
         ];
 
         Platform._Ues.value = Platform._Tpye.Web;
-        // Laya.Stat.show();
+        Laya.Stat.show();
         SceneAnimation._Use.value = SceneAnimation._Type.shutters.randomshutters;
         SceneAnimation._closeSwitch = true;
         SceneAnimation._openSwitch = false;
