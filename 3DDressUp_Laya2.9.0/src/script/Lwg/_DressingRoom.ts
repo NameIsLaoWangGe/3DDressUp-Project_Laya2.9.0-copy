@@ -1,4 +1,5 @@
 import { Admin, Animation2D, DataAdmin, StorageAdmin, TimerAdmin, Tools } from "./Lwg";
+import { _3D } from "./_3D";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
 import { _PropTry } from "./_PropTry";
@@ -7,36 +8,11 @@ export module _DressingRoom {
     export enum _Event {
         changeCloth = '_DressingRoom_ChangeCloth',
     }
-    export enum _AniName {
-        Stand = 'Stand',
-        Poss1 = 'Poss1',
-        Poss2 = 'Poss2',
-        DispalyCloth = 'DispalyCloth',
-    }
     export class _Clothes extends DataAdmin._Table {
         private static ins: _Clothes;
         static _ins() {
             if (!this.ins) {
                 this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
-                this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
-                this.ins._Role = this.ins._Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
-                this.ins._Root = this.ins._Role.getChildByName('Root') as Laya.MeshSprite3D;
-                this.ins._DIY = this.ins._Root.getChildByName('DIY') as Laya.MeshSprite3D;
-                this.ins._General = this.ins._Root.getChildByName('General') as Laya.MeshSprite3D;
-
-                this.ins._DBottoms = this.ins._DIY.getChildByName('Bottoms') as Laya.MeshSprite3D;
-                this.ins._DTop = this.ins._DIY.getChildByName('Top') as Laya.MeshSprite3D;
-                this.ins._DDress = this.ins._DIY.getChildByName('Dress') as Laya.MeshSprite3D;
-
-                this.ins._GBottoms = this.ins._General.getChildByName('Bottoms') as Laya.MeshSprite3D;
-                this.ins._GTop = this.ins._General.getChildByName('Top') as Laya.MeshSprite3D;
-                this.ins._GDress = this.ins._General.getChildByName('Dress') as Laya.MeshSprite3D;
-
-                this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator) as Laya.Animator;
-
-                this.ins._MainCamara = this.ins._Scene3D.getChildByName('Main Camera') as Laya.Camera;
-                this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera') as Laya.Camera;
-                this.ins._Mirror = this.ins._Scene3D.getChildByName('Mirror') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
@@ -58,35 +34,8 @@ export module _DressingRoom {
             putOn: 'putOn',
             part: 'part'
         }
-
-        _Scene3D: Laya.Scene3D;
-        _Role: Laya.MeshSprite3D;
-        _RoleAni: Laya.Animator;
-        _Root: Laya.MeshSprite3D;
-        _DIY: Laya.MeshSprite3D;
-        _DTop: Laya.MeshSprite3D;
-        _DDress: Laya.MeshSprite3D;
-        _DBottoms: Laya.MeshSprite3D;
-        _General: Laya.MeshSprite3D;
-        _GTop: Laya.MeshSprite3D;
-        _GDress: Laya.MeshSprite3D;
-        _GBottoms: Laya.MeshSprite3D;
-        _SecondCameraTag: Laya.MeshSprite3D;
-        _MirrorCamera: Laya.Camera;
-        _MainCamara: Laya.Camera;
-        _Mirror: Laya.MeshSprite3D;
-
-
-        playDispalyAni(): void {
-            this._RoleAni.play(_AniName.Stand);
-            this._RoleAni.play(_AniName.DispalyCloth);
-            Laya.timer.clearAll(this._Role);
-            TimerAdmin._once(3200, this._Role, () => {
-                this._RoleAni.crossFade(_AniName.Stand, 0.3);
-            })
-        }
-        private changeClass(classify: string, partArr: Array<any>): void {
-            const _classify = this._Root.getChildByName(classify) as Laya.MeshSprite3D;
+        private changeClass(classify: string, partArr: Array<any>, playAni?: boolean): void {
+            const _classify = _3D._Scene._ins()._Root.getChildByName(classify) as Laya.MeshSprite3D;
             for (let i = 0; i < _classify.numChildren; i++) {
                 const _classifySp = _classify.getChildAt(i) as Laya.MeshSprite3D;
                 _classifySp.active = false;
@@ -111,35 +60,43 @@ export module _DressingRoom {
                     }
                 }
             }
-            this.playDispalyAni();
+
+            playAni && _3D._Scene._ins().playDispalyAni();
         }
-        /**换装规则*/
-        changeAll(): void {
+        changeClothStart(): void {
             const arr = this._getArrByProperty(this._otherPro.putOn, true);
             this.changeClass(this._classify.DIY, arr);
             this.changeClass(this._classify.General, arr);
+            this.startSpecialSet();
+        }
+        /**换装规则*/
+        changeCloth(): void {
+            const arr = this._getArrByProperty(this._otherPro.putOn, true);
+            this.changeClass(this._classify.DIY, arr, true);
+            this.changeClass(this._classify.General, arr, true);
+            this.specialSet();
         }
 
         /**进游戏时的特殊设置*/
-        startSpecialSet(): void {
+        private startSpecialSet(): void {
             if (StorageAdmin._bool('DressState').value) {
-                this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
             } else {
-                this._GDress.active = this._DDress.active = false;
+                _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
             }
         }
 
         /**特殊设置*/
-        specialSet(part?: string): void {
+        private specialSet(part?: string): void {
             if (part === this._part.Dress) {
                 this['DressState'] = true;
             } else if (part === this._part.Top || part === this._part.Bottoms) {
                 this['DressState'] = false;
             }
             if (this['DressState']) {
-                this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
             } else {
-                this._GDress.active = this._DDress.active = false;
+                _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
             }
             StorageAdmin._bool('DressState').value = this['DressState'];
         }
@@ -158,8 +115,7 @@ export module _DressingRoom {
                     }
                 }
                 _Clothes._ins()._refreshAndStorage();
-                _Clothes._ins().changeAll();
-                _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
+                _Clothes._ins().changeCloth();
             }, null)
         }
     }
@@ -198,24 +154,12 @@ export module _DressingRoom {
             // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
             // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
             // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
+            _3D._Scene._ins().changeDressingRoomBg();
             TimerAdmin._frameLoop(1, this, () => {
-                this.createMirror();
-            })
+                _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
+            });
         }
-        rtex: Laya.Texture;
-        createMirror(): void {
-            //选择渲染目标为纹理
-            _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
-            //渲染顺序
-            _Clothes._ins()._MirrorCamera.renderingOrder = -1;
-            //清除标记
-            _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
-            this.rtex && this.rtex.destroy();
-            this.rtex = new Laya.Texture(((<Laya.Texture2D>(_Clothes._ins()._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
-            //设置网格精灵的纹理
-            // (_Clothes._ins()._Mirror.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Clothes._ins()._MirrorCamera.renderTarget;
-            this._ImgVar('MirrorSurface').graphics.drawTexture(this.rtex);
-        }
+
 
         lwgEvent(): void {
             this._evReg(_Event.changeCloth, () => {

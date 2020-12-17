@@ -6275,6 +6275,101 @@
     })(_Guide || (_Guide = {}));
     var _Guide$1 = _Guide.Guide;
 
+    var _3D;
+    (function (_3D) {
+        let _AniName;
+        (function (_AniName) {
+            _AniName["Stand"] = "Stand";
+            _AniName["Poss1"] = "Poss1";
+            _AniName["Poss2"] = "Poss2";
+            _AniName["DispalyCloth"] = "DispalyCloth";
+            _AniName["Walk"] = "Walk";
+        })(_AniName = _3D._AniName || (_3D._AniName = {}));
+        class _Scene {
+            static _ins() {
+                if (!this.ins) {
+                    this.ins = new _Scene();
+                    this.ins._Owner = _Res._list.scene3D.MakeClothes.Scene;
+                    Laya.stage.addChild(this.ins._Owner);
+                    this.ins._Role = this.ins._Owner.getChildByName('Role');
+                    this.ins._RoleFPos = new Laya.Vector3(this.ins._Role.transform.position.x, this.ins._Role.transform.position.y, this.ins._Role.transform.position.z);
+                    this.ins._Root = this.ins._Role.getChildByName('Root');
+                    this.ins._DIY = this.ins._Root.getChildByName('DIY');
+                    this.ins._General = this.ins._Root.getChildByName('General');
+                    this.ins._DBottoms = this.ins._DIY.getChildByName('Bottoms');
+                    this.ins._DTop = this.ins._DIY.getChildByName('Top');
+                    this.ins._DDress = this.ins._DIY.getChildByName('Dress');
+                    this.ins._GBottoms = this.ins._General.getChildByName('Bottoms');
+                    this.ins._GTop = this.ins._General.getChildByName('Top');
+                    this.ins._GDress = this.ins._General.getChildByName('Dress');
+                    this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator);
+                    this.ins._MainCamara = this.ins._Owner.getChildByName('Main Camera');
+                    this.ins._MirrorCamera = this.ins._Owner.getChildByName('MirrorCamera');
+                    this.ins._Mirror = this.ins._Owner.getChildByName('Mirror');
+                    this.ins._Bg1 = this.ins._Owner.getChildByName('Bg1');
+                    this.ins._Bg2 = this.ins._Owner.getChildByName('Bg2');
+                    this.ins._BtnDress = this.ins._Owner.getChildByName('BtnDress');
+                    this.ins._BtnTop = this.ins._Owner.getChildByName('BtnTop');
+                    this.ins._BtnBottoms = this.ins._Owner.getChildByName('BtnBottoms');
+                    this.ins._BtnDressingRoom = this.ins._Owner.getChildByName('BtnDressingRoom');
+                }
+                return this.ins;
+            }
+            playDispalyAni() {
+                this._RoleAni.play(_AniName.Stand);
+                this._RoleAni.play(_AniName.DispalyCloth);
+                Laya.timer.clearAll(this._Role);
+                TimerAdmin._once(3200, this._Role, () => {
+                    this._RoleAni.crossFade(_AniName.Stand, 0.3);
+                });
+            }
+            get btnDressPos() {
+                return Tools._3D.posToScreen(this._BtnDress.transform.position, this._MainCamara);
+            }
+            get btnTopPos() {
+                return Tools._3D.posToScreen(this._BtnTop.transform.position, this._MainCamara);
+            }
+            get btnBottomsPos() {
+                return Tools._3D.posToScreen(this._BtnBottoms.transform.position, this._MainCamara);
+            }
+            get btnDressingRoomPos() {
+                return Tools._3D.posToScreen(this._BtnDressingRoom.transform.position, this._MainCamara);
+            }
+            openStartAni(func) {
+                this._RoleAni.play(_AniName.Walk);
+                const dis = Tools._Number.randomOneHalf() == 0 ? -3 : 3;
+                const time = 180;
+                const rotate = dis == 3 ? 90 : -90;
+                this._Role.transform.position = new Laya.Vector3(this._RoleFPos.x + dis, this._RoleFPos.y, this._RoleFPos.z);
+                this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y + rotate, 0);
+                TimerAdmin._frameNumLoop(1, time, this, () => {
+                    this._Role.transform.position = new Laya.Vector3(this._Role.transform.position.x - dis / time, this._Role.transform.position.y, this._Role.transform.position.z);
+                }, () => {
+                    this._RoleAni.crossFade(_AniName.DispalyCloth, 0.3);
+                    TimerAdmin._frameNumLoop(1, 90, this, () => {
+                        const speed = rotate > 0 ? 1 : -1;
+                        this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y -= speed, 0);
+                    });
+                });
+            }
+            changeStartBg() {
+                this._Bg1.meshRenderer.material.albedoTexture = _Res._list.texture2D.bgStart.texture2D;
+            }
+            changeDressingRoomBg() {
+                this._Bg1.meshRenderer.material.albedoTexture = _Res._list.texture2D.bgDressingRoom.texture2D;
+            }
+            createMirror(_Sp) {
+                this._MirrorCamera.renderTarget = new Laya.RenderTexture(_Sp.width, _Sp.height);
+                this._MirrorCamera.renderingOrder = -1;
+                this._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
+                this.mirrortex && this.mirrortex.destroy();
+                this.mirrortex = new Laya.Texture(this._MirrorCamera.renderTarget, Laya.Texture.DEF_UV);
+                _Sp.graphics.drawTexture(this.mirrortex);
+            }
+        }
+        _3D._Scene = _Scene;
+    })(_3D || (_3D = {}));
+
     var _MakeTailor;
     (function (_MakeTailor) {
         let _Event;
@@ -6933,13 +7028,6 @@
         (function (_Event) {
             _Event["changeCloth"] = "_DressingRoom_ChangeCloth";
         })(_Event = _DressingRoom._Event || (_DressingRoom._Event = {}));
-        let _AniName;
-        (function (_AniName) {
-            _AniName["Stand"] = "Stand";
-            _AniName["Poss1"] = "Poss1";
-            _AniName["Poss2"] = "Poss2";
-            _AniName["DispalyCloth"] = "DispalyCloth";
-        })(_AniName = _DressingRoom._AniName || (_DressingRoom._AniName = {}));
         class _Clothes extends DataAdmin._Table {
             constructor() {
                 super(...arguments);
@@ -6964,34 +7052,11 @@
             static _ins() {
                 if (!this.ins) {
                     this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
-                    this.ins._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
-                    this.ins._Role = this.ins._Scene3D.getChildByName('Role');
-                    this.ins._Root = this.ins._Role.getChildByName('Root');
-                    this.ins._DIY = this.ins._Root.getChildByName('DIY');
-                    this.ins._General = this.ins._Root.getChildByName('General');
-                    this.ins._DBottoms = this.ins._DIY.getChildByName('Bottoms');
-                    this.ins._DTop = this.ins._DIY.getChildByName('Top');
-                    this.ins._DDress = this.ins._DIY.getChildByName('Dress');
-                    this.ins._GBottoms = this.ins._General.getChildByName('Bottoms');
-                    this.ins._GTop = this.ins._General.getChildByName('Top');
-                    this.ins._GDress = this.ins._General.getChildByName('Dress');
-                    this.ins._RoleAni = this.ins._Role.getComponent(Laya.Animator);
-                    this.ins._MainCamara = this.ins._Scene3D.getChildByName('Main Camera');
-                    this.ins._MirrorCamera = this.ins._Scene3D.getChildByName('MirrorCamera');
-                    this.ins._Mirror = this.ins._Scene3D.getChildByName('Mirror');
                 }
                 return this.ins;
             }
-            playDispalyAni() {
-                this._RoleAni.play(_AniName.Stand);
-                this._RoleAni.play(_AniName.DispalyCloth);
-                Laya.timer.clearAll(this._Role);
-                TimerAdmin._once(3200, this._Role, () => {
-                    this._RoleAni.crossFade(_AniName.Stand, 0.3);
-                });
-            }
-            changeClass(classify, partArr) {
-                const _classify = this._Root.getChildByName(classify);
+            changeClass(classify, partArr, playAni) {
+                const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
                 for (let i = 0; i < _classify.numChildren; i++) {
                     const _classifySp = _classify.getChildAt(i);
                     _classifySp.active = false;
@@ -7017,19 +7082,26 @@
                         }
                     }
                 }
-                this.playDispalyAni();
+                playAni && _3D._Scene._ins().playDispalyAni();
             }
-            changeAll() {
+            changeClothStart() {
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr);
                 this.changeClass(this._classify.General, arr);
+                this.startSpecialSet();
+            }
+            changeCloth() {
+                const arr = this._getArrByProperty(this._otherPro.putOn, true);
+                this.changeClass(this._classify.DIY, arr, true);
+                this.changeClass(this._classify.General, arr, true);
+                this.specialSet();
             }
             startSpecialSet() {
                 if (StorageAdmin._bool('DressState').value) {
-                    this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                    _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
                 }
                 else {
-                    this._GDress.active = this._DDress.active = false;
+                    _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
                 }
             }
             specialSet(part) {
@@ -7040,10 +7112,10 @@
                     this['DressState'] = false;
                 }
                 if (this['DressState']) {
-                    this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+                    _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
                 }
                 else {
-                    this._GDress.active = this._DDress.active = false;
+                    _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
                 }
                 StorageAdmin._bool('DressState').value = this['DressState'];
             }
@@ -7063,8 +7135,7 @@
                         }
                     }
                     _Clothes._ins()._refreshAndStorage();
-                    _Clothes._ins().changeAll();
-                    _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
+                    _Clothes._ins().changeCloth();
                 }, null);
             }
         }
@@ -7098,17 +7169,10 @@
                         Cell.addComponent(_Item);
                     }
                 };
+                _3D._Scene._ins().changeDressingRoomBg();
                 TimerAdmin._frameLoop(1, this, () => {
-                    this.createMirror();
+                    _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
                 });
-            }
-            createMirror() {
-                _Clothes._ins()._MirrorCamera.renderTarget = new Laya.RenderTexture(this._ImgVar('MirrorSurface').width, this._ImgVar('MirrorSurface').height);
-                _Clothes._ins()._MirrorCamera.renderingOrder = -1;
-                _Clothes._ins()._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
-                this.rtex && this.rtex.destroy();
-                this.rtex = new Laya.Texture(_Clothes._ins()._MirrorCamera.renderTarget, Laya.Texture.DEF_UV);
-                this._ImgVar('MirrorSurface').graphics.drawTexture(this.rtex);
             }
             lwgEvent() {
                 this._evReg(_Event.changeCloth, () => {
@@ -7278,8 +7342,12 @@
             },
             texture: {},
             texture2D: {
-                Figure1: {
-                    url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
+                bgStart: {
+                    url: `Game/Background/bgStart.jpg`,
+                    texture2D: null,
+                },
+                bgDressingRoom: {
+                    url: `Game/Background/bgDressingRoom.jpg`,
                     texture2D: null,
                 },
             },
@@ -7380,9 +7448,7 @@
                 }, () => {
                     this._ImgVar('ProgressBar').mask.x = 0;
                 });
-                Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
-                _DressingRoom._Clothes._ins().changeAll();
-                _DressingRoom._Clothes._ins().startSpecialSet();
+                _DressingRoom._Clothes._ins().changeClothStart();
                 return 1500;
             }
             lwgOnDisable() {
@@ -7685,6 +7751,13 @@
         _Start._init = _init;
         class Start extends Admin._SceneBase {
             lwgOnAwake() {
+                _3D._Scene._ins().openStartAni(() => {
+                });
+                _3D._Scene._ins().changeStartBg();
+                this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
+                this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
+                this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
+                this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
                 if (_Ranking._whereFrom === 'MakePattern') {
                     TimerAdmin._frameOnce(60, this, () => {
                         this._openScene('Ranking', false);

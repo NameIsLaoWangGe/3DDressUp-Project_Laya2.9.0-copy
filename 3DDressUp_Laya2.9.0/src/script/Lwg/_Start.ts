@@ -1,5 +1,6 @@
 import ADManager, { TaT } from "../TJ/Admanager";
 import lwg, { Admin, Animation2D, Click, Dialogue, TimerAdmin, Gold, _SceneName, SceneAnimation, Tools, Effects } from "./Lwg";
+import { _3D } from "./_3D";
 import { _Game } from "./_Game";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
@@ -16,12 +17,15 @@ export module _Start {
     }
     export class Start extends Admin._SceneBase {
 
-        Scene3D: Laya.Scene3D;
-        MainCamera: Laya.Camera;
         lwgOnAwake(): void {
-            this.Scene3D = _Res._list.scene3D.MakeClothes.Scene;
-            this.MainCamera = this.Scene3D.getChildByName('Main Camera') as Laya.Camera;
-            // const btnTopPos = Tools._3D.posToScreen(this.MainCamera, this.Scene3D.getChildByName(''))
+            _3D._Scene._ins().openStartAni(() => {
+
+            });
+            _3D._Scene._ins().changeStartBg();
+            this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
+            this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
+            this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
+            this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
 
             if (_Ranking._whereFrom === 'MakePattern') {
                 TimerAdmin._frameOnce(60, this, () => {

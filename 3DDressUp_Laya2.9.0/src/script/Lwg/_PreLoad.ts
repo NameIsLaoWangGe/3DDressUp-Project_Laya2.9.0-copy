@@ -127,11 +127,14 @@ export module _Res {
         },
         /**图片需要设置成不打包*/
         texture2D: {
-            Figure1: {
-                url: `_Lwg3D/_Scene/LayaScene_MakeClothes/Conventional/Assets/13213/qunzi1.jpg`,
+            bgStart: {
+                url: `Game/Background/bgStart.jpg`,
                 texture2D: null as Laya.Texture2D,
             },
-
+            bgDressingRoom: {
+                url: `Game/Background/bgDressingRoom.jpg`,
+                texture2D: null as Laya.Texture2D,
+            },
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -252,9 +255,7 @@ export module _PreLoad {
             }, () => {
                 this._ImgVar('ProgressBar').mask.x = 0;
             })
-            Laya.stage.addChild(_Res._list.scene3D.MakeClothes.Scene);
-            _DressingRoom._Clothes._ins().changeAll();
-            _DressingRoom._Clothes._ins().startSpecialSet();
+            _DressingRoom._Clothes._ins().changeClothStart();
             return 1500;
         }
         lwgOnDisable(): void {

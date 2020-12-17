@@ -41,6 +41,8 @@ P 01BAE7F5 vslider.png
 D Game
 D Lwg
 D Game/Background
+R 7A133D74 bgDressingRoom.jpg
+R 7C577E28 bgStart.jpg
 D Game/Role
 D Game/Skeleton
 D Game/UI
@@ -208,8 +210,8 @@ P 1A1AC48A x_meihong.png
 P 2EE0A095 x_qing.png
 P 25109400 x_zi.png
 D Game/UI/DressingRoom
-R 916D5771 落地镜.png
-R B47EBE8D 镜子面.png
+R 3225C291 jingzimian.png
+R 95CDF079 ludijing.png
 D Game/UI/MakePattern
 P A7EE778F close.png
 P 956ED858 lashen.png

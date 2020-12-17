@@ -151,6 +151,10 @@
 									{
 										"name":"DispalyCloth",
 										"clipPath":"Assets/Game/Animation/DispalyCloth-DispalyCloth.lani"
+									},
+									{
+										"name":"Walk",
+										"clipPath":"Assets/Game/Animation/Walk-Walk.lani"
 									}
 								]
 							}
@@ -8821,7 +8825,7 @@
 				"type":"MeshSprite3D",
 				"instanceID":180,
 				"props":{
-					"name":"Plane1",
+					"name":"Bg1",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
@@ -8845,7 +8849,7 @@
 					"enableRender":true,
 					"materials":[
 						{
-							"path":"Assets/Game/Materials/5.lmat"
+							"path":"Assets/Game/Materials/bg1.lmat"
 						}
 					]
 				},
@@ -8976,7 +8980,7 @@
 				"type":"MeshSprite3D",
 				"instanceID":183,
 				"props":{
-					"name":"Plane2",
+					"name":"Bg2",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
@@ -9030,8 +9034,8 @@
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-0.78,
-						1.288,
+						-0.698,
+						1.401,
 						1.705
 					],
 					"rotation":[
@@ -9046,7 +9050,7 @@
 						0.1
 					],
 					"meshPath":"Library/unity default resources-Cube.lm",
-					"enableRender":true,
+					"enableRender":false,
 					"materials":[
 						{
 							"type":"Laya.BlinnPhongMaterial",
@@ -9089,8 +9093,8 @@
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-1.817,
-						1.433,
+						-1.909,
+						1.52,
 						1.788
 					],
 					"rotation":[
@@ -9105,7 +9109,7 @@
 						0.1
 					],
 					"meshPath":"Library/unity default resources-Cube.lm",
-					"enableRender":true,
+					"enableRender":false,
 					"materials":[
 						{
 							"type":"Laya.BlinnPhongMaterial",
@@ -9148,8 +9152,8 @@
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-1.397,
-						0.813,
+						-1.353,
+						1.0258,
 						1.658
 					],
 					"rotation":[
@@ -9164,7 +9168,7 @@
 						0.1
 					],
 					"meshPath":"Library/unity default resources-Cube.lm",
-					"enableRender":true,
+					"enableRender":false,
 					"materials":[
 						{
 							"type":"Laya.BlinnPhongMaterial",
@@ -9202,13 +9206,13 @@
 				"type":"MeshSprite3D",
 				"instanceID":187,
 				"props":{
-					"name":"BtnDress (1)",
+					"name":"BtnDressingRoom",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						1.84,
-						1.288,
+						1.9353,
+						1.042,
 						1.705
 					],
 					"rotation":[
@@ -9223,7 +9227,7 @@
 						0.1
 					],
 					"meshPath":"Library/unity default resources-Cube.lm",
-					"enableRender":true,
+					"enableRender":false,
 					"materials":[
 						{
 							"type":"Laya.BlinnPhongMaterial",

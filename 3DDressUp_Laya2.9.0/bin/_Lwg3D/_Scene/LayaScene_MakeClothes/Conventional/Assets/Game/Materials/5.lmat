@@ -18,24 +18,7 @@
 		"alphaTestValue":0.01,
 		"renderQueue":2000,
 		"albedoIntensity":1,
-		"textures":[
-			{
-				"name":"albedoTexture",
-				"path":"../bg1.jpg",
-				"constructParams":[
-					2048,
-					512,
-					0,
-					true
-				],
-				"propertyParams":{
-					"filterMode":1,
-					"wrapModeU":0,
-					"wrapModeV":0,
-					"anisoLevel":1
-				}
-			}
-		],
+		"textures":[],
 		"vectors":[
 			{
 				"name":"tilingOffset",
