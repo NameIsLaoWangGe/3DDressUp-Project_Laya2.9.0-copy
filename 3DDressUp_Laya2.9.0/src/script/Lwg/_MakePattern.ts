@@ -587,12 +587,14 @@ export module _MakePattern {
             })
 
             this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
-                const bMF = _Front.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
-                bMF.albedoTexture.destroy();
+                let bMF: Laya.UnlitMaterial;
+                bMF = _Front.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                bMF.albedoTexture && bMF.albedoTexture.destroy();
                 bMF.albedoTexture = Text2DF;
 
-                const bMR = _Reverse.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
-                bMR.albedoTexture.destroy();
+                let bMR: Laya.UnlitMaterial;
+                bMR = _Reverse.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                bMR.albedoTexture && bMR.albedoTexture.destroy();
                 bMR.albedoTexture = Text2DR;
             })
 

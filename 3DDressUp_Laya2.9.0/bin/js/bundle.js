@@ -6421,10 +6421,11 @@
                 this._DIYHanger.addChild(_0).active = true;
                 this._DIYHanger.addChild(_1).active = true;
                 this._Role.active = false;
-                _0.transform.localRotationEulerX = -90;
-                _1.transform.localRotationEulerX = -90;
-                _0.transform.localRotationEulerY = 180;
-                _1.transform.localRotationEulerY = 180;
+                _0.transform.localRotationEulerX = _1.transform.localRotationEulerX = -90;
+                _0.transform.localRotationEulerY = _1.transform.localRotationEulerY = 180;
+                _0.transform.position = _1.transform.position = new Laya.Vector3(0, -0.5, 0);
+                this._MainCamara.transform.localRotationEulerX = -10;
+                this._MainCamara.transform.position = new Laya.Vector3(0, 0.967, -0.834);
                 return [_0, _1];
             }
         }
@@ -8540,11 +8541,13 @@
                     _MakePattern._texHeight = point2.y - point1.y;
                 });
                 this._evReg(_Event.addTexture2D, (Text2DF, Text2DR) => {
-                    const bMF = _MakePattern._Front.skinnedMeshRenderer.material;
-                    bMF.albedoTexture.destroy();
+                    let bMF;
+                    bMF = _MakePattern._Front.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                    bMF.albedoTexture && bMF.albedoTexture.destroy();
                     bMF.albedoTexture = Text2DF;
-                    const bMR = _MakePattern._Reverse.skinnedMeshRenderer.material;
-                    bMR.albedoTexture.destroy();
+                    let bMR;
+                    bMR = _MakePattern._Reverse.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                    bMR.albedoTexture && bMR.albedoTexture.destroy();
                     bMR.albedoTexture = Text2DR;
                 });
                 this._evReg(_Event.rotateHanger, (num) => {

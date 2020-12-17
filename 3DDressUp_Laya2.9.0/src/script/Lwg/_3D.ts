@@ -196,13 +196,15 @@ export module _3D {
             const _part = this._DIY.getChildByName(part) as Laya.MeshSprite3D;
             const _0 = (_part.getChildByName(`${name}_0`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
             const _1 = (_part.getChildByName(`${name}_1`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
+
             this._DIYHanger.addChild(_0).active = true;
             this._DIYHanger.addChild(_1).active = true;
             this._Role.active = false;
-            _0.transform.localRotationEulerX = -90;
-            _1.transform.localRotationEulerX = -90;
-            _0.transform.localRotationEulerY = 180;
-            _1.transform.localRotationEulerY = 180;
+            _0.transform.localRotationEulerX = _1.transform.localRotationEulerX = -90;
+            _0.transform.localRotationEulerY = _1.transform.localRotationEulerY = 180;
+            _0.transform.position = _1.transform.position = new Laya.Vector3(0, 0.5, 0);
+            this._MainCamara.transform.localRotationEulerX = -10;
+            this._MainCamara.transform.position = new Laya.Vector3(0, 0.967, -0.834);
             return [_0, _1];
         }
 

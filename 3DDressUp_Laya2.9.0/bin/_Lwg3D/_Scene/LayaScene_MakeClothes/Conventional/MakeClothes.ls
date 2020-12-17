@@ -112,8 +112,8 @@
 					"layer":0,
 					"position":[
 						0,
-						0,
-						0
+						-0.19,
+						-0.05
 					],
 					"rotation":[
 						0,
@@ -2948,8 +2948,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Mesh/DIY/Top/Materials/top_002.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_001_final_0.lm"
@@ -3019,8 +3018,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_001_final_1.lm"
@@ -3093,8 +3091,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_002_final_0.lm"
@@ -3164,8 +3161,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_002_final_1.lm"
@@ -3244,8 +3240,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_003_final_0.lm"
@@ -3324,8 +3319,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_003_final_1.lm"
@@ -3398,8 +3392,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_004_final_0.lm"
@@ -3469,8 +3462,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_004_final_1.lm"
@@ -3531,8 +3523,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_005_final_0.lm"
@@ -3593,8 +3584,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_005_final_1.lm"
@@ -3655,8 +3645,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_006_final_0.lm"
@@ -3717,8 +3706,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_006_final_1.lm"
@@ -3792,8 +3780,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_007_final_0.lm"
@@ -3865,8 +3852,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_007_final_1.lm"
@@ -3931,8 +3917,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_008_final_0.lm"
@@ -3997,8 +3982,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_bottom_008_final_1.lm"
@@ -4101,8 +4085,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_001_final_0.lm"
@@ -4176,8 +4159,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_001_final_1.lm"
@@ -4255,8 +4237,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_002_final_0.lm"
@@ -4333,8 +4314,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_002_final_1.lm"
@@ -4414,8 +4394,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_003_final_0.lm"
@@ -4495,8 +4474,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_003_final_1.lm"
@@ -4582,8 +4560,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_004_final_0.lm"
@@ -4670,8 +4647,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_004_final_1.lm"
@@ -4750,8 +4726,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_005_final_0.lm"
@@ -4829,8 +4804,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_005_final_1.lm"
@@ -4916,8 +4890,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_006_final_0.lm"
@@ -5004,8 +4977,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_006_final_1.lm"
@@ -5083,8 +5055,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_007_final_0.lm"
@@ -5163,8 +5134,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_007_final_1.lm"
@@ -5242,8 +5212,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_008_final_0.lm"
@@ -5322,8 +5291,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_dress_008_final_1.lm"
@@ -5417,8 +5385,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_001_final_0.lm"
@@ -5483,8 +5450,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_001_final_1.lm"
@@ -5549,8 +5515,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_002_final_0.lm"
@@ -5615,8 +5580,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_002_final_1.lm"
@@ -5682,8 +5646,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_003_final_0.lm"
@@ -5749,8 +5712,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_003_final_1.lm"
@@ -5817,8 +5779,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_004_final_0.lm"
@@ -5885,8 +5846,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_004_final_1.lm"
@@ -5953,8 +5913,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_005_final_0.lm"
@@ -6021,8 +5980,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_005_final_1.lm"
@@ -6086,8 +6044,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_006_final_0.lm"
@@ -6151,8 +6108,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_006_final_1.lm"
@@ -6218,8 +6174,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_007_final_0.lm"
@@ -6285,8 +6240,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_007_final_1.lm"
@@ -6349,8 +6303,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_008_final_0.lm"
@@ -6413,8 +6366,7 @@
 													],
 													"materials":[
 														{
-															"type":"Laya.BlinnPhongMaterial",
-															"path":"Assets/Game/Animation/ALL_Skin.lmat"
+															"path":"Assets/Game/Materials/5.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin-diy_top_008_final_1.lm"
