@@ -1,4 +1,4 @@
-import { TimerAdmin, Tools } from "./Lwg";
+import { EventAdmin, TimerAdmin, Tools } from "./Lwg";
 import { _Res } from "./_PreLoad";
 
 export module _3D {
@@ -45,6 +45,7 @@ export module _3D {
                 this.ins._BtnBottoms = this.ins._Owner.getChildByName('BtnBottoms') as Laya.MeshSprite3D;
                 this.ins._BtnDressingRoom = this.ins._Owner.getChildByName('BtnDressingRoom') as Laya.MeshSprite3D;
 
+                this.ins._DIYHanger = this.ins._Owner.getChildByName('DIYHanger') as Laya.MeshSprite3D;
             }
             return this.ins;
         }
@@ -72,6 +73,7 @@ export module _3D {
         _BtnTop: Laya.MeshSprite3D;
         _BtnBottoms: Laya.MeshSprite3D;
         _BtnDressingRoom: Laya.MeshSprite3D;
+        _DIYHanger: Laya.MeshSprite3D;
 
         playDispalyAni(): void {
             this._RoleAni.play(_AniName.Stand);
@@ -79,6 +81,34 @@ export module _3D {
             Laya.timer.clearAll(this._Role);
             TimerAdmin._once(3200, this._Role, () => {
                 this._RoleAni.crossFade(_AniName.Stand, 0.3);
+            })
+        }
+        playPoss1Ani(): void {
+            this._RoleAni.play(_AniName.Stand);
+            this._RoleAni.play(_AniName.Poss1);
+            Laya.timer.clearAll(this._Role);
+            TimerAdmin._once(3200, this._Role, () => {
+                this._RoleAni.crossFade(_AniName.Stand, 0.3);
+            })
+        }
+
+        playPoss2Ani(): void {
+            this._RoleAni.play(_AniName.Stand);
+            this._RoleAni.play(_AniName.Poss2);
+            Laya.timer.clearAll(this._Role);
+            TimerAdmin._once(3200, this._Role, () => {
+                this._RoleAni.crossFade(_AniName.Stand, 0.3);
+            })
+        }
+
+        playStandAni(): void {
+            Laya.timer.clearAll(this._Role);
+            this._RoleAni.crossFade(_AniName.Stand, 0.3);
+        }
+
+        playRandomPoss(): void {
+            TimerAdmin._frameLoop(300, this._Role, () => {
+                Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani()
             })
         }
 
@@ -103,17 +133,31 @@ export module _3D {
             const rotate = dis == 3 ? 90 : -90;
             this._Role.transform.position = new Laya.Vector3(this._RoleFPos.x + dis, this._RoleFPos.y, this._RoleFPos.z);
             this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y + rotate, 0);
+
+            this._Role.transform.localRotationEuler = new Laya.Vector3(-10, this._Role.transform.localRotationEuler.y, 0);
+
+            const CaRotate = Tools._Number.randomOneHalf() == 0 ? - 5 : 5;
+            this._MainCamara.transform.localRotationEuler.x += CaRotate;
             TimerAdmin._frameNumLoop(1, time, this, () => {
+
+                this._MainCamara.transform.localRotationEuler = new Laya.Vector3(this._MainCamara.transform.localRotationEuler.x - CaRotate / time, this._MainCamara.transform.localRotationEuler.y, this._MainCamara.transform.localRotationEuler.z);
+
+                this._Role.transform.localRotationEuler = new Laya.Vector3(this._Role.transform.localRotationEuler.x + 10 / time, this._Role.transform.localRotationEuler.y, 0);
+
                 this._Role.transform.position = new Laya.Vector3(this._Role.transform.position.x - dis / time, this._Role.transform.position.y, this._Role.transform.position.z);
-            }, () => {
-                this._RoleAni.crossFade(_AniName.DispalyCloth, 0.3);
-                // Laya.timer.clearAll(this._Role);
-                // TimerAdmin._frameOnce(time / 3, this._Role, () => {
-                //     this._RoleAni.crossFade(_AniName.Stand, 0.3);
-                // })
-                TimerAdmin._frameNumLoop(1, 90, this, () => {
-                    const speed = rotate > 0 ? 1 : -1;
-                    this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y -= speed, 0);
+            })
+            TimerAdmin._frameOnce(time - 45, this, () => {
+                TimerAdmin._frameNumLoop(1, 45, this, () => {
+                    const speed = rotate > 0 ? 2 : -2;
+                    this._Role.transform.localRotationEuler = new Laya.Vector3(this._Role.transform.localRotationEuler.x, this._Role.transform.localRotationEuler.y -= speed, 0);
+                }, () => {
+                    Tools._Number.randomOneHalf() == 0 ? this._RoleAni.crossFade(_AniName.Poss1, 0.3) :
+                        this._RoleAni.crossFade(_AniName.Poss2, 0.1);
+                    TimerAdmin._once(3000, this, () => {
+                        this._RoleAni.crossFade(_AniName.Stand, 0.1);
+                        func();
+                        this.playRandomPoss();
+                    })
                 })
             })
         }
@@ -138,5 +182,31 @@ export module _3D {
             //设置网格精灵的纹理
             _Sp.graphics.drawTexture(this.mirrortex);
         }
+
+
+        /**
+         * 获取一件DiY衣服模型
+         * @param {string} part 部位
+         * @param {string} name 衣服名称
+         * @return {*}  {[any]}
+         * @memberof _Scene
+         */
+        getCloneDIYClothes(part: string, name: string): any[] {
+            Tools._Node.removeAllChildren(this._DIYHanger);
+            const _part = this._DIY.getChildByName(part) as Laya.MeshSprite3D;
+            const _0 = (_part.getChildByName(`${name}_0`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
+            const _1 = (_part.getChildByName(`${name}_1`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
+            this._DIYHanger.addChild(_0).active = true;
+            this._DIYHanger.addChild(_1).active = true;
+            this._Role.active = false;
+            _0.transform.localRotationEulerX = -90;
+            _1.transform.localRotationEulerX = -90;
+            _0.transform.localRotationEulerY = 180;
+            _1.transform.localRotationEulerY = 180;
+            return [_0, _1];
+        }
+
+
     }
+
 }

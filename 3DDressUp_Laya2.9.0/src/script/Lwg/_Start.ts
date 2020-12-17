@@ -5,6 +5,7 @@ import { _Game } from "./_Game";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
 import { _Ranking } from "./_Ranking";
+import { _UI } from "./_UI";
 
 /**测试模块,每个模块分开，默认导出一个类，这个类是默认挂载的脚本类，如果有多个脚本，
  * 那么在这个默认类中进行添加，或者在其他地方动态添加*/
@@ -18,14 +19,23 @@ export module _Start {
     export class Start extends Admin._SceneBase {
 
         lwgOnAwake(): void {
+            Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
             _3D._Scene._ins().openStartAni(() => {
+                this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
+                this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
+                this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
+                this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
 
+                for (let index = 0; index < this._ImgVar('BtnParent').numChildren; index++) {
+                    const element = this._ImgVar('BtnParent').getChildAt(index) as Laya.Image;
+                    element.visible = true;
+                    const delay = 200 * index;
+                    Animation2D.bombs_Appear(element, 0, 1, 1.2, 0, 200, null, delay);
+                    const UI = new _UI(null);
+                    UI.effect(this._Owner, new Laya.Point(element.x, element.y), delay);
+                }
             });
             _3D._Scene._ins().changeStartBg();
-            this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
-            this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
-            this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
-            this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
 
             if (_Ranking._whereFrom === 'MakePattern') {
                 TimerAdmin._frameOnce(60, this, () => {
@@ -74,6 +84,7 @@ export module _Start {
             })
         }
     }
+
 }
 export default _Start.Start;
 

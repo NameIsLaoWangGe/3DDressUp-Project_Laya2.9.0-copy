@@ -4,7 +4,6 @@ import { _Res } from "./_PreLoad";
 import { _Start } from "./_Start";
 
 export module _Ranking {
-
     export class _Data extends DataAdmin._Table {
         private static ins: _Data;
         static _ins() {

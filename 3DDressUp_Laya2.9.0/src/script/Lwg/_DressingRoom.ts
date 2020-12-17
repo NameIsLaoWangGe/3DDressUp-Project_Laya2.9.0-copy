@@ -3,6 +3,7 @@ import { _3D } from "./_3D";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
 import { _PropTry } from "./_PropTry";
+import { _UI } from "./_UI";
 
 export module _DressingRoom {
     export enum _Event {
@@ -60,7 +61,6 @@ export module _DressingRoom {
                     }
                 }
             }
-
             playAni && _3D._Scene._ins().playDispalyAni();
         }
         changeClothStart(): void {
@@ -74,7 +74,6 @@ export module _DressingRoom {
             const arr = this._getArrByProperty(this._otherPro.putOn, true);
             this.changeClass(this._classify.DIY, arr, true);
             this.changeClass(this._classify.General, arr, true);
-            this.specialSet();
         }
 
         /**进游戏时的特殊设置*/
@@ -87,7 +86,7 @@ export module _DressingRoom {
         }
 
         /**特殊设置*/
-        private specialSet(part?: string): void {
+        specialSet(part?: string): void {
             if (part === this._part.Dress) {
                 this['DressState'] = true;
             } else if (part === this._part.Top || part === this._part.Bottoms) {
@@ -116,6 +115,7 @@ export module _DressingRoom {
                 }
                 _Clothes._ins()._refreshAndStorage();
                 _Clothes._ins().changeCloth();
+                _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
             }, null)
         }
     }
@@ -123,15 +123,23 @@ export module _DressingRoom {
     export class DressingRoom extends Admin._SceneBase {
 
         lwgOnAwake(): void {
+            _3D._Scene._ins().playStandAni();
+
             let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
             // 必须复制
             let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+            // 将类型修改为'DIY'
+            Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
             _Clothes._ins()._addObjectArr(copyDIYArr);
             _Clothes._ins()._List = this._ListVar('List');
-            _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY)
-            this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
-            const Icon = this._ImgVar('DIY').getChildAt(0) as Laya.Image;
-            Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
+            _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
+
+            if (copyDIYArr.length > 0) {
+                this.switchClassify(this._ImgVar('DIY'));
+            } else {
+                this.switchClassify(this._ImgVar('Dress'));
+            }
+
             _Clothes._ins()._listRender = (Cell: Laya.Box, index: number) => {
                 let data = Cell.dataSource;
                 let Icon = Cell.getChildByName('Icon') as Laya.Image;
@@ -167,13 +175,14 @@ export module _DressingRoom {
             })
         }
 
-        UI: _MakeTailor._UI;
+        UI: _UI;
         lwgOnStart(): void {
-            this.UI = new _MakeTailor._UI(this._Owner);
+            this.UI = new _UI(this._Owner);
             TimerAdmin._frameOnce(10, this, () => {
-                this.UI.operationAppear();
+                this.UI.operationAppear(() => {
+                    this.UI.btnCompleteAppear(null, 400);
+                });
                 this.UI.btnBackAppear(null, 200);
-                this.UI.btnCompleteAppear(null, 400);
             })
             this.UI.btnCompleteClick = () => {
                 this.UI.operationVinish(() => {
@@ -184,36 +193,40 @@ export module _DressingRoom {
             }
         }
 
+        switchClassify(_element: Laya.Image): void {
+            let arr = [];
+            for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                const element = this._ImgVar('Part').getChildAt(index) as Laya.Image;
+                const Icon = element.getChildAt(0) as Laya.Image;
+                if (_element === element) {
+                    element.skin = `Game/UI/Common/kuang_fen.png`;
+                    Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
+                    // 如果是DIY那么直接是分类
+                    if (_element.name === 'DIY') {
+                        arr = _Clothes._ins()._getArrByClassify(_element.name);
+                    } else {
+                        let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
+                        // 非DIY分部位
+                        for (let index = 0; index < _arr.length; index++) {
+                            const obj = _arr[index];
+                            if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
+                                arr.push(obj);
+                            }
+                        }
+                    }
+                } else {
+                    element.skin = `Game/UI/Common/kuang_bai.png`;
+                    Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
+                }
+                _Clothes._ins()._List.array = arr;
+            }
+        }
+
         lwgButton(): void {
             for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
                 const _element = this._ImgVar('Part').getChildAt(index) as Laya.Image;
                 this._btnUp(_element, () => {
-                    let arr = [];
-                    for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
-                        const element = this._ImgVar('Part').getChildAt(index) as Laya.Image;
-                        const Icon = element.getChildAt(0) as Laya.Image;
-                        if (_element === element) {
-                            element.skin = `Game/UI/Common/kuang_fen.png`;
-                            Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
-                            // 如果是DIY那么直接是分类
-                            if (_element.name === 'DIY') {
-                                arr = _Clothes._ins()._getArrByClassify(_element.name);
-                            } else {
-                                let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
-                                // 非DIY分部位
-                                for (let index = 0; index < _arr.length; index++) {
-                                    const obj = _arr[index];
-                                    if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
-                                        arr.push(obj);
-                                    }
-                                }
-                            }
-                        } else {
-                            element.skin = `Game/UI/Common/kuang_bai.png`;
-                            Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
-                        }
-                        _Clothes._ins()._List.array = arr;
-                    }
+                    this.switchClassify(_element);
                 }, 'no');
             }
         }

@@ -230,15 +230,15 @@ export module _PreLoad {
         }
 
         effect(): void {
-            const count = 80;
-            const time = 30;
+            const count = 90;
+            const time = 35;
             const dis = Tools._Number.randomOneInt(500, 500);
             const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
             for (let index = 0; index < count; index++) {
                 Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
             }
             for (let index = 0; index < count * 2; index++) {
-                Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
+                Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [100, dis - 20], [time, time], null, null, 5);
             }
         }
 
@@ -247,16 +247,12 @@ export module _PreLoad {
         }
         lwgOpenAni(): number { return 1; }
         lwgStepComplete(): void {
+            this._ImgVar('ProgressBar').mask.x += 5;
         }
         lwgAllComplete(): number {
-            TimerAdmin._frameNumLoop(2, 3, this, () => {
-                this.count += 10;
-                this.progressDisplay();
-            }, () => {
-                this._ImgVar('ProgressBar').mask.x = 0;
-            })
+            this._ImgVar('ProgressBar').mask.x = 0;
             _DressingRoom._Clothes._ins().changeClothStart();
-            return 1500;
+            return 1000;
         }
         lwgOnDisable(): void {
             // ADManager.TAPoint(TaT.PageLeave, 'loadpage');

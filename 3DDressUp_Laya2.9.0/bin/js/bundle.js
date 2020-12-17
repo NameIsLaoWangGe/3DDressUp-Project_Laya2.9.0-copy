@@ -5112,6 +5112,14 @@
                     }
                 }
                 _3D.getMeshSize = getMeshSize;
+                function getSkinMeshSize(MSp3D) {
+                    if (MSp3D.skinnedMeshRenderer) {
+                        let v3;
+                        let extent = MSp3D.skinnedMeshRenderer.bounds.getExtent();
+                        return v3 = new Laya.Vector3(extent.x * 2, extent.y * 2, extent.z * 2);
+                    }
+                }
+                _3D.getSkinMeshSize = getSkinMeshSize;
                 function twoNodeDistance(obj1, obj2) {
                     let obj1V3 = obj1.transform.position;
                     let obj2V3 = obj2.transform.position;
@@ -6312,6 +6320,7 @@
                     this.ins._BtnTop = this.ins._Owner.getChildByName('BtnTop');
                     this.ins._BtnBottoms = this.ins._Owner.getChildByName('BtnBottoms');
                     this.ins._BtnDressingRoom = this.ins._Owner.getChildByName('BtnDressingRoom');
+                    this.ins._DIYHanger = this.ins._Owner.getChildByName('DIYHanger');
                 }
                 return this.ins;
             }
@@ -6321,6 +6330,31 @@
                 Laya.timer.clearAll(this._Role);
                 TimerAdmin._once(3200, this._Role, () => {
                     this._RoleAni.crossFade(_AniName.Stand, 0.3);
+                });
+            }
+            playPoss1Ani() {
+                this._RoleAni.play(_AniName.Stand);
+                this._RoleAni.play(_AniName.Poss1);
+                Laya.timer.clearAll(this._Role);
+                TimerAdmin._once(3200, this._Role, () => {
+                    this._RoleAni.crossFade(_AniName.Stand, 0.3);
+                });
+            }
+            playPoss2Ani() {
+                this._RoleAni.play(_AniName.Stand);
+                this._RoleAni.play(_AniName.Poss2);
+                Laya.timer.clearAll(this._Role);
+                TimerAdmin._once(3200, this._Role, () => {
+                    this._RoleAni.crossFade(_AniName.Stand, 0.3);
+                });
+            }
+            playStandAni() {
+                Laya.timer.clearAll(this._Role);
+                this._RoleAni.crossFade(_AniName.Stand, 0.3);
+            }
+            playRandomPoss() {
+                TimerAdmin._frameLoop(300, this._Role, () => {
+                    Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani();
                 });
             }
             get btnDressPos() {
@@ -6342,13 +6376,26 @@
                 const rotate = dis == 3 ? 90 : -90;
                 this._Role.transform.position = new Laya.Vector3(this._RoleFPos.x + dis, this._RoleFPos.y, this._RoleFPos.z);
                 this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y + rotate, 0);
+                this._Role.transform.localRotationEuler = new Laya.Vector3(-10, this._Role.transform.localRotationEuler.y, 0);
+                const CaRotate = Tools._Number.randomOneHalf() == 0 ? -5 : 5;
+                this._MainCamara.transform.localRotationEuler.x += CaRotate;
                 TimerAdmin._frameNumLoop(1, time, this, () => {
+                    this._MainCamara.transform.localRotationEuler = new Laya.Vector3(this._MainCamara.transform.localRotationEuler.x - CaRotate / time, this._MainCamara.transform.localRotationEuler.y, this._MainCamara.transform.localRotationEuler.z);
+                    this._Role.transform.localRotationEuler = new Laya.Vector3(this._Role.transform.localRotationEuler.x + 10 / time, this._Role.transform.localRotationEuler.y, 0);
                     this._Role.transform.position = new Laya.Vector3(this._Role.transform.position.x - dis / time, this._Role.transform.position.y, this._Role.transform.position.z);
-                }, () => {
-                    this._RoleAni.crossFade(_AniName.DispalyCloth, 0.3);
-                    TimerAdmin._frameNumLoop(1, 90, this, () => {
-                        const speed = rotate > 0 ? 1 : -1;
-                        this._Role.transform.localRotationEuler = new Laya.Vector3(0, this._Role.transform.localRotationEuler.y -= speed, 0);
+                });
+                TimerAdmin._frameOnce(time - 45, this, () => {
+                    TimerAdmin._frameNumLoop(1, 45, this, () => {
+                        const speed = rotate > 0 ? 2 : -2;
+                        this._Role.transform.localRotationEuler = new Laya.Vector3(this._Role.transform.localRotationEuler.x, this._Role.transform.localRotationEuler.y -= speed, 0);
+                    }, () => {
+                        Tools._Number.randomOneHalf() == 0 ? this._RoleAni.crossFade(_AniName.Poss1, 0.3) :
+                            this._RoleAni.crossFade(_AniName.Poss2, 0.1);
+                        TimerAdmin._once(3000, this, () => {
+                            this._RoleAni.crossFade(_AniName.Stand, 0.1);
+                            func();
+                            this.playRandomPoss();
+                        });
                     });
                 });
             }
@@ -6366,9 +6413,141 @@
                 this.mirrortex = new Laya.Texture(this._MirrorCamera.renderTarget, Laya.Texture.DEF_UV);
                 _Sp.graphics.drawTexture(this.mirrortex);
             }
+            getCloneDIYClothes(part, name) {
+                Tools._Node.removeAllChildren(this._DIYHanger);
+                const _part = this._DIY.getChildByName(part);
+                const _0 = _part.getChildByName(`${name}_0`).clone();
+                const _1 = _part.getChildByName(`${name}_1`).clone();
+                this._DIYHanger.addChild(_0).active = true;
+                this._DIYHanger.addChild(_1).active = true;
+                this._Role.active = false;
+                _0.transform.localRotationEulerX = -90;
+                _1.transform.localRotationEulerX = -90;
+                _0.transform.localRotationEulerY = 180;
+                _1.transform.localRotationEulerY = 180;
+                return [_0, _1];
+            }
         }
         _3D._Scene = _Scene;
     })(_3D || (_3D = {}));
+
+    class _UI {
+        constructor(_Scene) {
+            this.time = 100;
+            this.delay = 100;
+            this.scale = 1.4;
+            if (!_Scene) {
+                return;
+            }
+            this.Scene = _Scene;
+            this.Operation = _Scene['Operation'];
+            this.BtnAgain = Tools._Node.createPrefab(_Res._list.prefab2D.BtnAgain.prefab, _Scene, [200, 79]);
+            Click._on(Click._Use.value, this.BtnAgain, this, null, null, () => {
+                this.btnAgainClick && this.btnAgainClick();
+            });
+            this.BtnComplete = _Scene['BtnComplete'];
+            Click._on(Click._Use.value, this.BtnComplete, this, null, null, () => {
+                this.btnCompleteClick && this.btnCompleteClick();
+            });
+            this.BtnBack = Tools._Node.createPrefab(_Res._list.prefab2D.BtnBack.prefab, _Scene, [77, 79]);
+            Click._on(Click._Use.value, this.BtnBack, this, null, null, () => {
+                _Scene[_Scene.name]._openScene('Start', true, true);
+            });
+            this.BtnRollback = Tools._Node.createPrefab(_Res._list.prefab2D.BtnRollback.prefab, _Scene, [200, 79]);
+            Click._on(Click._Use.value, this.BtnRollback, this, null, null, () => {
+                this.btnRollbackClick && this.btnRollbackClick();
+            });
+            this.Operation.pos(Laya.stage.width + 500, 20);
+            this.BtnComplete.scale(0, 0);
+            this.BtnBack.scale(0, 0);
+            this.BtnAgain.scale(0, 0);
+            this.BtnRollback.scale(0, 0);
+            this.BtnRollback.zOrder = this.BtnAgain.zOrder = this.BtnBack.zOrder = this.BtnComplete.zOrder = this.Operation.zOrder = 200;
+            this.moveTargetX = Laya.stage.width - this.Operation.width + 50;
+        }
+        btnRollbackAppear(func, delay) {
+            Animation2D.bombs_Appear(this.BtnRollback, 0, 1, this.scale, 0, this.time * 2, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnRollbackVinish(func, delay) {
+            Animation2D.bombs_Vanish(this.BtnRollback, 0, 0, 0, this.time * 4, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnAgainAppear(func, delay) {
+            Animation2D.bombs_Appear(this.BtnAgain, 0, 1, this.scale, 0, this.time * 2, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnAgainVinish(func, delay) {
+            Animation2D.bombs_Vanish(this.BtnAgain, 0, 0, 0, this.time * 4, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnBackAppear(func, delay) {
+            Animation2D.bombs_Appear(this.BtnBack, 0, 1, this.scale, 0, this.time * 2, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnBackVinish(func, delay) {
+            Animation2D.bombs_Vanish(this.BtnBack, 0, 0, 0, this.time * 4, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        btnCompleteAppear(func, delay) {
+            this.effect(this.Operation, new Laya.Point(this.BtnComplete.x, this.BtnComplete.y), delay);
+            Animation2D.bombs_Appear(this.BtnComplete, 0, 1, this.scale, 0, this.time * 2, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        btnCompleteVinish(func, delay) {
+            Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
+                func && func();
+            }, delay ? delay : 0);
+        }
+        ;
+        operationAppear(func, delay) {
+            if (this.Scene.name === 'MakeTailor') {
+                Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
+            }
+            Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time * 4, () => {
+                Animation2D.move(this.Operation, this.moveTargetX, this.Operation.y, this.time, () => {
+                    func && func();
+                });
+            }, delay ? delay : 0);
+        }
+        ;
+        operationVinish(func, delay) {
+            if (this.Scene.name === 'MakeTailor') {
+                Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 0, 500);
+            }
+            Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
+                Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time, () => {
+                    Animation2D.move(this.Operation, Laya.stage.width + 500, this.Operation.y, this.time * 4, () => {
+                        func && func();
+                    });
+                });
+            }, delay ? delay : 0);
+        }
+        effect(Parent, p, delay) {
+            TimerAdmin._once(delay ? delay : 0, this, () => {
+                const count = 40;
+                const time = 5;
+                const dis = Tools._Number.randomOneInt(30, 30);
+                for (let index = 0; index < count; index++) {
+                    Effects._Particle._sprayRound(Parent, p, null, [20, 40], null, [Effects._SkinUrl.星星8], null, [dis, dis], [time, time], null, null, 5);
+                }
+                AudioAdmin._playSound();
+            });
+        }
+    }
 
     var _MakeTailor;
     (function (_MakeTailor) {
@@ -6514,109 +6693,6 @@
             }
         }
         _MakeTailor._TaskClothes = _TaskClothes;
-        class _UI {
-            constructor(_Scene) {
-                this.time = 100;
-                this.delay = 100;
-                this.scale = 1.4;
-                this.Scene = _Scene;
-                this.Operation = _Scene['Operation'];
-                this.BtnAgain = Tools._Node.createPrefab(_Res._list.prefab2D.BtnAgain.prefab, _Scene, [200, 79]);
-                Click._on(Click._Use.value, this.BtnAgain, this, null, null, () => {
-                    this.btnAgainClick && this.btnAgainClick();
-                });
-                this.BtnComplete = _Scene['BtnComplete'];
-                Click._on(Click._Use.value, this.BtnComplete, this, null, null, () => {
-                    this.btnCompleteClick && this.btnCompleteClick();
-                });
-                this.BtnBack = Tools._Node.createPrefab(_Res._list.prefab2D.BtnBack.prefab, _Scene, [77, 79]);
-                Click._on(Click._Use.value, this.BtnBack, this, null, null, () => {
-                    _Scene[_Scene.name]._openScene('Start', true, true);
-                });
-                this.BtnRollback = Tools._Node.createPrefab(_Res._list.prefab2D.BtnRollback.prefab, _Scene, [200, 79]);
-                Click._on(Click._Use.value, this.BtnRollback, this, null, null, () => {
-                    this.btnRollbackClick && this.btnRollbackClick();
-                });
-                this.Operation.pos(Laya.stage.width + 500, 20);
-                this.BtnComplete.scale(0, 0);
-                this.BtnBack.scale(0, 0);
-                this.BtnAgain.scale(0, 0);
-                this.BtnRollback.scale(0, 0);
-                this.BtnRollback.zOrder = this.BtnAgain.zOrder = this.BtnBack.zOrder = this.BtnComplete.zOrder = this.Operation.zOrder = 200;
-                this.moveTargetX = Laya.stage.width - this.Operation.width + 50;
-            }
-            btnRollbackAppear(func, delay) {
-                Animation2D.bombs_Appear(this.BtnRollback, 0, 1, this.scale, 0, this.time * 2, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnRollbackVinish(func, delay) {
-                Animation2D.bombs_Vanish(this.BtnRollback, 0, 0, 0, this.time * 4, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnAgainAppear(func, delay) {
-                Animation2D.bombs_Appear(this.BtnAgain, 0, 1, this.scale, 0, this.time * 2, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnAgainVinish(func, delay) {
-                Animation2D.bombs_Vanish(this.BtnAgain, 0, 0, 0, this.time * 4, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnBackAppear(func, delay) {
-                Animation2D.bombs_Appear(this.BtnBack, 0, 1, this.scale, 0, this.time * 2, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnBackVinish(func, delay) {
-                Animation2D.bombs_Vanish(this.BtnBack, 0, 0, 0, this.time * 4, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            btnCompleteAppear(func, delay) {
-                Animation2D.bombs_Appear(this.BtnComplete, 0, 1, this.scale, 0, this.time * 2, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            btnCompleteVinish(func, delay) {
-                Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
-                    func && func();
-                }, delay ? delay : 0);
-            }
-            ;
-            operationAppear(func, delay) {
-                if (this.Scene.name === 'MakeTailor') {
-                    Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
-                }
-                Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time * 4, () => {
-                    Animation2D.move(this.Operation, this.moveTargetX, this.Operation.y, this.time, () => {
-                        func && func();
-                    });
-                }, delay ? delay : 0);
-            }
-            ;
-            operationVinish(func, delay) {
-                if (this.Scene.name === 'MakeTailor') {
-                    Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 0, 500);
-                }
-                Animation2D.bombs_Vanish(this.BtnComplete, 0, 0, 0, this.time * 4, () => {
-                    Animation2D.move(this.Operation, this.moveTargetX - 40, this.Operation.y, this.time, () => {
-                        Animation2D.move(this.Operation, Laya.stage.width + 500, this.Operation.y, this.time * 4, () => {
-                            func && func();
-                        });
-                    });
-                }, delay ? delay : 0);
-            }
-        }
-        _MakeTailor._UI = _UI;
         class _Scissor extends Admin._ObjectBase {
             constructor() {
                 super(...arguments);
@@ -6889,7 +6965,7 @@
                 TimerAdmin._frameOnce(40, this, () => {
                     this.UI.operationAppear(() => {
                         this.UI.btnAgainVinish(null, 200);
-                        this.UI.btnCompleteAppear();
+                        this.UI.btnCompleteAppear(null, 400);
                     });
                     this.UI.btnBackAppear();
                 });
@@ -6990,6 +7066,7 @@
                             });
                             TimerAdmin._frameOnce(280, this, () => {
                                 this._openScene('MakePattern', true, true);
+                                _3D._Scene._ins().getCloneDIYClothes(_DIYClothes._ins()._pitchClassify, _DIYClothes._ins()._pitchName);
                             });
                         }
                     }
@@ -7094,7 +7171,6 @@
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr, true);
                 this.changeClass(this._classify.General, arr, true);
-                this.specialSet();
             }
             startSpecialSet() {
                 if (StorageAdmin._bool('DressState').value) {
@@ -7136,19 +7212,25 @@
                     }
                     _Clothes._ins()._refreshAndStorage();
                     _Clothes._ins().changeCloth();
+                    _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
                 }, null);
             }
         }
         class DressingRoom extends Admin._SceneBase {
             lwgOnAwake() {
+                _3D._Scene._ins().playStandAni();
                 let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
                 let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+                Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
                 _Clothes._ins()._addObjectArr(copyDIYArr);
                 _Clothes._ins()._List = this._ListVar('List');
                 _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
-                this._ImgVar('DIY').skin = `Game/UI/Common/kuang_fen.png`;
-                const Icon = this._ImgVar('DIY').getChildAt(0);
-                Icon.skin = `Game/UI/DressingRoom/ClassIcon/${this._ImgVar('DIY').name}_s.png`;
+                if (copyDIYArr.length > 0) {
+                    this.switchClassify(this._ImgVar('DIY'));
+                }
+                else {
+                    this.switchClassify(this._ImgVar('Dress'));
+                }
                 _Clothes._ins()._listRender = (Cell, index) => {
                     let data = Cell.dataSource;
                     let Icon = Cell.getChildByName('Icon');
@@ -7179,11 +7261,12 @@
                 });
             }
             lwgOnStart() {
-                this.UI = new _MakeTailor._UI(this._Owner);
+                this.UI = new _UI(this._Owner);
                 TimerAdmin._frameOnce(10, this, () => {
-                    this.UI.operationAppear();
+                    this.UI.operationAppear(() => {
+                        this.UI.btnCompleteAppear(null, 400);
+                    });
                     this.UI.btnBackAppear(null, 200);
-                    this.UI.btnCompleteAppear(null, 400);
                 });
                 this.UI.btnCompleteClick = () => {
                     this.UI.operationVinish(() => {
@@ -7193,36 +7276,39 @@
                     }, 200);
                 };
             }
+            switchClassify(_element) {
+                let arr = [];
+                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                    const element = this._ImgVar('Part').getChildAt(index);
+                    const Icon = element.getChildAt(0);
+                    if (_element === element) {
+                        element.skin = `Game/UI/Common/kuang_fen.png`;
+                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
+                        if (_element.name === 'DIY') {
+                            arr = _Clothes._ins()._getArrByClassify(_element.name);
+                        }
+                        else {
+                            let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
+                            for (let index = 0; index < _arr.length; index++) {
+                                const obj = _arr[index];
+                                if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
+                                    arr.push(obj);
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        element.skin = `Game/UI/Common/kuang_bai.png`;
+                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
+                    }
+                    _Clothes._ins()._List.array = arr;
+                }
+            }
             lwgButton() {
                 for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
                     const _element = this._ImgVar('Part').getChildAt(index);
                     this._btnUp(_element, () => {
-                        let arr = [];
-                        for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
-                            const element = this._ImgVar('Part').getChildAt(index);
-                            const Icon = element.getChildAt(0);
-                            if (_element === element) {
-                                element.skin = `Game/UI/Common/kuang_fen.png`;
-                                Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
-                                if (_element.name === 'DIY') {
-                                    arr = _Clothes._ins()._getArrByClassify(_element.name);
-                                }
-                                else {
-                                    let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
-                                    for (let index = 0; index < _arr.length; index++) {
-                                        const obj = _arr[index];
-                                        if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
-                                            arr.push(obj);
-                                        }
-                                    }
-                                }
-                            }
-                            else {
-                                element.skin = `Game/UI/Common/kuang_bai.png`;
-                                Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
-                            }
-                            _Clothes._ins()._List.array = arr;
-                        }
+                        this.switchClassify(_element);
                     }, 'no');
                 }
             }
@@ -7424,15 +7510,15 @@
                 }, delay * 4);
             }
             effect() {
-                const count = 80;
-                const time = 30;
+                const count = 90;
+                const time = 35;
                 const dis = Tools._Number.randomOneInt(500, 500);
                 const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
                 for (let index = 0; index < count; index++) {
                     Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
                 }
                 for (let index = 0; index < count * 2; index++) {
-                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time], null, null, 5);
+                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [100, dis - 20], [time, time], null, null, 5);
                 }
             }
             progressDisplay() {
@@ -7440,16 +7526,12 @@
             }
             lwgOpenAni() { return 1; }
             lwgStepComplete() {
+                this._ImgVar('ProgressBar').mask.x += 5;
             }
             lwgAllComplete() {
-                TimerAdmin._frameNumLoop(2, 3, this, () => {
-                    this.count += 10;
-                    this.progressDisplay();
-                }, () => {
-                    this._ImgVar('ProgressBar').mask.x = 0;
-                });
+                this._ImgVar('ProgressBar').mask.x = 0;
                 _DressingRoom._Clothes._ins().changeClothStart();
-                return 1500;
+                return 1000;
             }
             lwgOnDisable() {
             }
@@ -7751,13 +7833,22 @@
         _Start._init = _init;
         class Start extends Admin._SceneBase {
             lwgOnAwake() {
+                Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
                 _3D._Scene._ins().openStartAni(() => {
+                    this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
+                    this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
+                    this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
+                    this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
+                    for (let index = 0; index < this._ImgVar('BtnParent').numChildren; index++) {
+                        const element = this._ImgVar('BtnParent').getChildAt(index);
+                        element.visible = true;
+                        const delay = 200 * index;
+                        Animation2D.bombs_Appear(element, 0, 1, 1.2, 0, 200, null, delay);
+                        const UI = new _UI(null);
+                        UI.effect(this._Owner, new Laya.Point(element.x, element.y), delay);
+                    }
                 });
                 _3D._Scene._ins().changeStartBg();
-                this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);
-                this._ImgVar('BtnDress').pos(_3D._Scene._ins().btnDressPos.x, _3D._Scene._ins().btnDressPos.y);
-                this._ImgVar('BtnBottoms').pos(_3D._Scene._ins().btnBottomsPos.x, _3D._Scene._ins().btnBottomsPos.y);
-                this._ImgVar('BtnDressingRoom').pos(_3D._Scene._ins().btnDressingRoomPos.x, _3D._Scene._ins().btnDressingRoomPos.y);
                 if (_Ranking._whereFrom === 'MakePattern') {
                     TimerAdmin._frameOnce(60, this, () => {
                         this._openScene('Ranking', false);
@@ -8091,7 +8182,7 @@
                             Tools._Node.changePivot(this.Tex.Img, indexArr[indexArr.length - 1].x, indexArr[indexArr.length - 1].y);
                             let _width = this._ImgVar(this.Tex.dir).width;
                             let _height = this._ImgVar(this.Tex.dir).height;
-                            let angleXZ = Tools._Point.pointByAngle(_MakePattern._HangerP.transform.position.x - out.point.x, _MakePattern._HangerP.transform.position.z - out.point.z);
+                            let angleXZ = Tools._Point.pointByAngle(_MakePattern._Hanger.transform.position.x - out.point.x, _MakePattern._Hanger.transform.position.z - out.point.z);
                             let _angleY;
                             if (this.Tex.dir == this.Tex.dirType.Front) {
                                 _angleY = angleXZ + _MakePattern._HangerSimRY;
@@ -8101,8 +8192,8 @@
                                 _angleY = angleXZ + _MakePattern._HangerSimRY - 180;
                                 this.Tex.Img.x = -_width / 180 * (_angleY);
                             }
-                            let pH = out.point.y - _MakePattern._HangerP.transform.position.y;
-                            let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _MakePattern._Front : _MakePattern._Reverse).y;
+                            let pH = out.point.y - _MakePattern._Hanger.transform.position.y;
+                            let _DirHeight = Tools._3D.getSkinMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _MakePattern._Front : _MakePattern._Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
                             this.Tex.Img.y = ratio * _height + this._ImgVar('Wireframe').height / 2 * ratio;
                             return true;
@@ -8307,12 +8398,12 @@
                 }));
                 Animation2D.fadeOut(this._ImgVar('BtnL'), 0, 1, 200, 200);
                 Animation2D.fadeOut(this._ImgVar('BtnR'), 0, 1, 200, 200);
-                this.UI = new _MakeTailor._UI(this._Owner);
+                this.UI = new _UI(this._Owner);
                 this.UI.BtnAgain.pos(86, 630);
                 TimerAdmin._frameOnce(10, this, () => {
-                    this.UI.operationAppear();
+                    this.UI.operationAppear(() => {
+                    });
                     this.UI.btnBackAppear(null, 200);
-                    this.UI.btnCompleteAppear(null, 400);
                     this.UI.btnRollbackAppear(null, 600);
                     this.UI.btnAgainAppear(null, 800);
                 });
@@ -8437,17 +8528,11 @@
             }
             lwgEvent() {
                 this._evReg(_Event.remake, () => {
-                    _MakePattern._HangerP = this._Child('HangerP');
-                    _MakePattern._Role = _MakePattern._Scene3D.getChildByName('Role');
-                    const Classify = _MakePattern._Role.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify);
-                    Tools._Node.showExcludedChild3D(_MakePattern._Role, [Classify.name]);
-                    _MakePattern._Hanger = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName);
-                    Tools._Node.showExcludedChild3D(Classify, [_MakePattern._Hanger.name]);
-                    _MakePattern._Hanger.transform.localRotationEulerY = 180;
-                    _MakePattern._Front = _MakePattern._Hanger.getChildByName(`${_MakePattern._Hanger.name}_0`);
-                    _MakePattern._Reverse = _MakePattern._Hanger.getChildByName(`${_MakePattern._Hanger.name}_1`);
-                    let center = _MakePattern._Front.meshRenderer.bounds.getCenter();
-                    let extent = _MakePattern._Front.meshRenderer.bounds.getExtent();
+                    _MakePattern._Hanger = _3D._Scene._ins()._DIYHanger;
+                    _MakePattern._Front = _MakePattern._Hanger.getChildAt(0);
+                    _MakePattern._Reverse = _MakePattern._Hanger.getChildAt(1);
+                    let center = _MakePattern._Front.skinnedMeshRenderer.bounds.getCenter();
+                    let extent = _MakePattern._Front.skinnedMeshRenderer.bounds.getExtent();
                     let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
                     let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
                     let point1 = Tools._3D.posToScreen(p1, _MakePattern._MainCamara);
@@ -8455,10 +8540,10 @@
                     _MakePattern._texHeight = point2.y - point1.y;
                 });
                 this._evReg(_Event.addTexture2D, (Text2DF, Text2DR) => {
-                    const bMF = _MakePattern._Front.meshRenderer.material;
+                    const bMF = _MakePattern._Front.skinnedMeshRenderer.material;
                     bMF.albedoTexture.destroy();
                     bMF.albedoTexture = Text2DF;
-                    const bMR = _MakePattern._Reverse.meshRenderer.material;
+                    const bMR = _MakePattern._Reverse.skinnedMeshRenderer.material;
                     bMR.albedoTexture.destroy();
                     bMR.albedoTexture = Text2DR;
                 });

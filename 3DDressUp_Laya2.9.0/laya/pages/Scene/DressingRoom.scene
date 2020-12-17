@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":92,
+    "selecteID":45,
     "searchKey":"View",
     "props":{"width":1280,"sceneColor":"#9a7473","height":720},
     "nodeParent":-1,
@@ -21,13 +21,14 @@
             "props":{"zOrder":150,"y":20,"x":1095,"width":240,"var":"Operation","name":"Operation","height":682},
             "nodeParent":2,
             "label":"Operation",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":45,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":-60,"width":253,"skin":"Game/UI/Common/di.png","sizeGrid":"0,58,0,145","height":682},
@@ -41,12 +42,13 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Part,Part",
                     "props":{"y":26,"x":111,"width":95,"var":"Part","name":"Part","height":637},
                     "nodeParent":45,
                     "label":"Part",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -236,6 +238,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":5,"x":-53,"skin":"Game/UI/Common/kuang.png"},
@@ -249,12 +252,13 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,List,List",
                     "props":{"y":11,"x":-47,"width":159,"var":"List","spaceY":0,"rotation":0,"repeatY":4,"name":"List","height":628},
                     "nodeParent":45,
                     "label":"List",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -301,6 +305,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BtnComplete,BtnComplete",
                     "props":{"y":48,"x":-108,"width":80,"var":"BtnComplete","skin":"Game/UI/Common/anniu_lv.png","sizeGrid":"16,9,9,15","pivotY":46,"pivotX":40,"name":"BtnComplete","height":92},
@@ -313,6 +318,7 @@
                     "compId":52,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":22,"x":17.5,"skin":"Game/UI/Common/duihao.png"},

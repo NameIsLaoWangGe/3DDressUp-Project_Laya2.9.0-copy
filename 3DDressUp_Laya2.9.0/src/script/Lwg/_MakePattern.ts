@@ -1,10 +1,11 @@
 import { TaT } from "../TJ/Admanager";
 import { Admin, Animation2D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
 import { lwg3D } from "./Lwg3D";
+import { _3D } from "./_3D";
 import { _MakeTailor } from "./_MakeTailor";
-import { _MakeUp } from "./_MakeUp";
 import { _Res } from "./_PreLoad";
 import { _Ranking } from "./_Ranking";
+import { _UI } from "./_UI";
 export module _MakePattern {
     export enum _Event {
         addTexture2D = '_MakePattern_addTexture2D',
@@ -87,7 +88,7 @@ export module _MakePattern {
             this._adaWidth([this._ImgVar('BtnR'), this._ImgVar('BtnL')]);
         }
 
-        UI: _MakeTailor._UI;
+        UI: _UI;
         lwgOnStart(): void {
             for (let index = 0; index < _Pattern._ins()._List.cells.length; index++) {
                 let Cell = _Pattern._ins()._List.cells[index];
@@ -108,12 +109,13 @@ export module _MakePattern {
             Animation2D.fadeOut(this._ImgVar('BtnL'), 0, 1, 200, 200);
             Animation2D.fadeOut(this._ImgVar('BtnR'), 0, 1, 200, 200);
 
-            this.UI = new _MakeTailor._UI(this._Owner);
+            this.UI = new _UI(this._Owner);
             this.UI.BtnAgain.pos(86, 630);
             TimerAdmin._frameOnce(10, this, () => {
-                this.UI.operationAppear();
+                this.UI.operationAppear(() => {
+
+                });
                 this.UI.btnBackAppear(null, 200);
-                this.UI.btnCompleteAppear(null, 400);
                 this.UI.btnRollbackAppear(null, 600);
                 this.UI.btnAgainAppear(null, 800);
             })
@@ -266,7 +268,7 @@ export module _MakePattern {
                     let _width = this._ImgVar(this.Tex.dir).width;
                     let _height = this._ImgVar(this.Tex.dir).height;
                     //通过xz的角度计算x的比例，俯视
-                    let angleXZ = Tools._Point.pointByAngle(_HangerP.transform.position.x - out.point.x, _HangerP.transform.position.z - out.point.z);
+                    let angleXZ = Tools._Point.pointByAngle(_Hanger.transform.position.x - out.point.x, _Hanger.transform.position.z - out.point.z);
                     let _angleY: number;
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         _angleY = angleXZ + _HangerSimRY;
@@ -278,8 +280,8 @@ export module _MakePattern {
                     // console.log(this.Tex.Img.x);
 
                     // 通过xy计算y
-                    let pH = out.point.y - _HangerP.transform.position.y;//扫描点位置
-                    let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _Front : _Reverse).y;
+                    let pH = out.point.y - _Hanger.transform.position.y;//扫描点位置
+                    let _DirHeight = Tools._3D.getSkinMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _Front : _Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
                     this.Tex.Img.y = ratio * _height + this._ImgVar('Wireframe').height / 2 * ratio;
 
@@ -548,9 +550,9 @@ export module _MakePattern {
     export let _Role: Laya.MeshSprite3D;
     export let _MainCamara: Laya.Camera;
     export let _Hanger: Laya.MeshSprite3D;
-    export let _Front: Laya.MeshSprite3D;
-    export let _Reverse: Laya.MeshSprite3D;
-    export let _HangerP: Laya.MeshSprite3D;
+    export let _Front: Laya.SkinnedMeshSprite3D;
+    export let _Reverse: Laya.SkinnedMeshSprite3D;
+    // export let _HangerP: Laya.MeshSprite3D;
     export let _texHeight = 0;
     /**模型的角度*/
     export let _HangerSimRY = 90;
@@ -560,21 +562,20 @@ export module _MakePattern {
         }
         lwgEvent(): void {
             this._evReg(_Event.remake, () => {
-                _HangerP = this._Child('HangerP');
-                _Role = _Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
-                const Classify = _Role.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
-                Tools._Node.showExcludedChild3D(_Role, [Classify.name]);
+                // _HangerP = this._Child('HangerP');
+                // _Role = _Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
+                // const Classify = _Role.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
+                // Tools._Node.showExcludedChild3D(_Role, [Classify.name]);
+                _Hanger = _3D._Scene._ins()._DIYHanger;
+                // Tools._Node.showExcludedChild3D(Classify, [_Hanger.name]);
 
-                _Hanger = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName) as Laya.MeshSprite3D;
-                Tools._Node.showExcludedChild3D(Classify, [_Hanger.name]);
+                // _Hanger.transform.localRotationEulerY = 180;
 
-                _Hanger.transform.localRotationEulerY = 180;
+                _Front = _Hanger.getChildAt(0) as Laya.SkinnedMeshSprite3D;
+                _Reverse = _Hanger.getChildAt(1) as Laya.SkinnedMeshSprite3D;
 
-                _Front = _Hanger.getChildByName(`${_Hanger.name}_0`) as Laya.MeshSprite3D;
-                _Reverse = _Hanger.getChildByName(`${_Hanger.name}_1`) as Laya.MeshSprite3D;
-
-                let center = _Front.meshRenderer.bounds.getCenter();
-                let extent = _Front.meshRenderer.bounds.getExtent();
+                let center = _Front.skinnedMeshRenderer.bounds.getCenter();
+                let extent = _Front.skinnedMeshRenderer.bounds.getExtent();
 
                 //映射图片宽度 
                 let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
@@ -586,11 +587,11 @@ export module _MakePattern {
             })
 
             this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
-                const bMF = _Front.meshRenderer.material as Laya.BlinnPhongMaterial;
+                const bMF = _Front.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
                 bMF.albedoTexture.destroy();
                 bMF.albedoTexture = Text2DF;
 
-                const bMR = _Reverse.meshRenderer.material as Laya.BlinnPhongMaterial;
+                const bMR = _Reverse.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
                 bMR.albedoTexture.destroy();
                 bMR.albedoTexture = Text2DR;
             })

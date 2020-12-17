@@ -3,7 +3,7 @@
 [
   {
     "index": 1,
-    "classify": "DIY",
+    "classify": "Bottoms",
     "part": "Bottoms",
     "name": "diy_bottom_002_final",
     "unlockWay": "free",
@@ -28,7 +28,7 @@
   },
   {
     "index": 1,
-    "classify": "DIY",
+    "classify": "Bottoms",
     "part": "Bottoms",
     "name": "diy_bottom_003_final",
     "unlockWay": "free",
@@ -53,7 +53,7 @@
   },
   {
     "index": 2,
-    "classify": "DIY",
+    "classify": "Bottoms",
     "part": "Bottoms",
     "name": "diy_bottom_004_final",
     "unlockWay": "free",
@@ -78,7 +78,7 @@
   },
   {
     "index": 3,
-    "classify": "DIY",
+    "classify": "Bottoms",
     "part": "Bottoms",
     "name": "diy_bottom_005_final",
     "unlockWay": "free",
@@ -103,7 +103,7 @@
   },
   {
     "index": 4,
-    "classify": "DIY",
+    "classify": "Bottoms",
     "part": "Bottoms",
     "name": "diy_bottom_006_final",
     "unlockWay": "free",
@@ -128,7 +128,7 @@
   },
   {
     "index": 1,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_001_final",
     "unlockWay": "free",
@@ -153,7 +153,7 @@
   },
   {
     "index": 2,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_002_final",
     "unlockWay": "free",
@@ -178,7 +178,7 @@
   },
   {
     "index": 3,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_003_final",
     "unlockWay": "free",
@@ -203,7 +203,7 @@
   },
   {
     "index": 4,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_004_final",
     "unlockWay": "free",
@@ -228,7 +228,7 @@
   },
   {
     "index": 5,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_005_final",
     "unlockWay": "free",
@@ -253,7 +253,7 @@
   },
   {
     "index": 6,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_006_final",
     "unlockWay": "free",
@@ -278,7 +278,7 @@
   },
   {
     "index": 7,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_007_final",
     "unlockWay": "free",
@@ -303,7 +303,7 @@
   },
   {
     "index": 8,
-    "classify": "DIY",
+    "classify": "Dress",
     "part": "Dress",
     "name": "diy_dress_008_final",
     "unlockWay": "free",
@@ -328,7 +328,7 @@
   },
   {
     "index": 1,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_003_final",
     "unlockWay": "free",
@@ -353,7 +353,7 @@
   },
   {
     "index": 2,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_004_final",
     "unlockWay": "free",
@@ -376,7 +376,7 @@
   },
   {
     "index": 3,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_005_final",
     "unlockWay": "free",
@@ -401,7 +401,7 @@
   },
   {
     "index": 4,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_006_final",
     "unlockWay": "free",
@@ -426,7 +426,7 @@
   },
   {
     "index": 5,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_007_final",
     "unlockWay": "free",
@@ -451,7 +451,7 @@
   },
   {
     "index": 6,
-    "classify": "DIY",
+    "classify": "Top",
     "part": "Top",
     "name": "diy_top_008_final",
     "unlockWay": "free",

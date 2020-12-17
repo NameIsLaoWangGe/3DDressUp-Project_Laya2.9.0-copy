@@ -878,6 +878,7 @@ export module lwg {
         * 执行一次的计时器，基于时间
         * @param delay 延时
         * @param afterMethod 结束回调函数
+        * @param caller 执行域
         * @param beforeMethod 开始之前的函数
         * @param args 回调参数[]
         * @param coverBefore 是否覆盖之前的延迟执行，默认为 true 。
@@ -4541,6 +4542,7 @@ export module lwg {
             down(event: Laya.Event): void {
                 event.currentTarget.scale(0.9, 0.9);
                 AudioAdmin._playSound(Click._audioUrl);
+
             }
             move(): void { }
             up(event: Laya.Event): void {
@@ -6709,6 +6711,19 @@ export module lwg {
                 if (MSp3D.meshRenderer) {
                     let v3: Laya.Vector3;
                     let extent = MSp3D.meshRenderer.bounds.getExtent();
+                    return v3 = new Laya.Vector3(extent.x * 2, extent.y * 2, extent.z * 2)
+                }
+            }
+
+            /**
+             * @export 获取模型的大小
+             * @param {Laya.MeshSprite3D} MSp3D
+             * @return {*}  {Laya.Vector3}
+             */
+            export function getSkinMeshSize(MSp3D: Laya.SkinnedMeshSprite3D): Laya.Vector3 {
+                if (MSp3D.skinnedMeshRenderer) {
+                    let v3: Laya.Vector3;
+                    let extent = MSp3D.skinnedMeshRenderer.bounds.getExtent();
                     return v3 = new Laya.Vector3(extent.x * 2, extent.y * 2, extent.z * 2)
                 }
             }
