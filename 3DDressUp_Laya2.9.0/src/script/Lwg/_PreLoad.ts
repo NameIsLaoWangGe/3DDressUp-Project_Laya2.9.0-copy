@@ -1,5 +1,6 @@
 import ADManager, { TaT } from "../TJ/Admanager";
 import { Admin, Animation2D, AudioAdmin, Color, Effects, EventAdmin, TimerAdmin, Tools, _LwgPreLoad, _SceneName } from "./Lwg";
+import { _3D } from "./_3D";
 import { _DressingRoom } from "./_DressingRoom";
 export module _Res {
     export let _list = {
@@ -135,6 +136,10 @@ export module _Res {
                 url: `Game/Background/bgDressingRoom.jpg`,
                 texture2D: null as Laya.Texture2D,
             },
+            bgMakePattern: {
+                url: `Game/Background/bgMakePattern.jpg`,
+                texture2D: null as Laya.Texture2D,
+            }
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -252,6 +257,7 @@ export module _PreLoad {
         lwgAllComplete(): number {
             this._ImgVar('ProgressBar').mask.x = 0;
             _DressingRoom._Clothes._ins().changeClothStart();
+            _3D._Scene._ins().intoStart();
             return 1000;
         }
         lwgOnDisable(): void {

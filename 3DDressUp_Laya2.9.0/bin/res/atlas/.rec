@@ -42,6 +42,7 @@ D Game
 D Lwg
 D Game/Background
 R 7A133D74 bgDressingRoom.jpg
+R 3960501B bgMakePattern.jpg
 R 7C577E28 bgStart.jpg
 D Game/Role
 D Game/Skeleton
@@ -213,9 +214,13 @@ D Game/UI/DressingRoom
 R 3225C291 jingzimian.png
 R 95CDF079 ludijing.png
 D Game/UI/MakePattern
+P 63297098 A.png
+P 4DD3F85E B.png
 P A7EE778F close.png
+P 2AD33C00 fan.png
 P 956ED858 lashen.png
 P E996F255 you.png
+P 7D44E975 zheng.png
 P 91745C3A zuo.png
 D Game/UI/MakeTailor
 P 7B7F03ED diy_bottom_001_cut.png

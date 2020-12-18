@@ -123,7 +123,10 @@ export module _DressingRoom {
     export class DressingRoom extends Admin._SceneBase {
 
         lwgOnAwake(): void {
-            _3D._Scene._ins().playStandAni();
+    
+            TimerAdmin._frameLoop(1, this, () => {
+                _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
+            });
 
             let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
             // 必须复制
@@ -162,17 +165,7 @@ export module _DressingRoom {
             // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
             // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
             // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
-            _3D._Scene._ins().changeDressingRoomBg();
-            TimerAdmin._frameLoop(1, this, () => {
-                _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
-            });
-        }
-
-
-        lwgEvent(): void {
-            this._evReg(_Event.changeCloth, () => {
-
-            })
+         
         }
 
         UI: _UI;

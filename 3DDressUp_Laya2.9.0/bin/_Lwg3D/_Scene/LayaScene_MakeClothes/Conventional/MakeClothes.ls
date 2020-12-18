@@ -112,8 +112,8 @@
 					"layer":0,
 					"position":[
 						0,
-						0.058,
-						0.111
+						0.06,
+						0
 					],
 					"rotation":[
 						0,
@@ -139,8 +139,8 @@
 							"layer":0,
 							"position":[
 								0,
-								0,
-								0
+								0.03,
+								-0.21
 							],
 							"rotation":[
 								0,
@@ -166,8 +166,8 @@
 									"layer":0,
 									"position":[
 										0,
-										-0.079,
-										0.031
+										-0.364,
+										0.052
 									],
 									"rotation":[
 										0,
@@ -215,21 +215,7 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_001_final-diy_dress_001_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
 										"child":[]
 									},
 									{
@@ -264,164 +250,117 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_001_final-diy_dress_001_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
-								"instanceID":7,
-								"props":{
-									"name":"diy_dress_008_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										-0.019,
-										-0.047,
-										0.102
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":8,
-										"props":{
-											"name":"diy_dress_008_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
 										"child":[]
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":9,
+										"instanceID":7,
 										"props":{
-											"name":"diy_dress_008_final_1",
+											"name":"ModelTap",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
 											"position":[
 												0,
-												0,
+												0.731,
 												0
 											],
 											"rotation":[
-												0.7071068,
 												0,
 												0,
-												-0.7071068
+												0,
+												-1
 											],
 											"scale":[
-												1,
-												1,
-												1
+												0.35,
+												0.01,
+												0.09999999
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_1.lm",
+											"meshPath":"Library/unity default resources-Cube.lm",
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"type":"Laya.BlinnPhongMaterial",
+													"path":"Resources/unity_builtin_extra.lmat"
 												}
 											]
 										},
-										"components":[
+										"components":[],
+										"child":[
 											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
+												"type":"MeshSprite3D",
+												"instanceID":8,
+												"props":{
+													"name":"model",
+													"active":true,
+													"isStatic":false,
+													"layer":0,
+													"position":[
+														0,
+														36.9,
+														0
+													],
+													"rotation":[
+														0,
+														0,
+														0,
+														-1
+													],
+													"scale":[
+														0.8571429,
+														36,
+														2
+													],
+													"meshPath":"Library/unity default resources-Cylinder.lm",
+													"enableRender":false,
+													"materials":[
+														{
+															"type":"Laya.BlinnPhongMaterial",
+															"path":"Resources/unity_builtin_extra.lmat"
+														}
+													]
+												},
+												"components":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_1.lm"
+														"type":"PhysicsCollider",
+														"restitution":0,
+														"friction":0.5,
+														"rollingFriction":0,
+														"shapes":[
+															{
+																"type":"CapsuleColliderShape",
+																"center":[
+																	5.960464E-08,
+																	0,
+																	-8.940697E-08
+																],
+																"radius":0.5000001,
+																"height":2,
+																"orientation":1
+															}
+														],
+														"isTrigger":false
 													}
 												],
-												"isTrigger":false
+												"child":[]
 											}
-										],
-										"child":[]
+										]
 									}
 								]
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":10,
+								"instanceID":9,
 								"props":{
-									"name":"diy_dress_007_final",
+									"name":"diy_dress_002_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.031,
-										0.062
+										-0.395,
+										-0.023
 									],
 									"rotation":[
 										0,
@@ -439,9 +378,9 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":11,
+										"instanceID":10,
 										"props":{
-											"name":"diy_dress_007_final_0",
+											"name":"diy_dress_002_final_0",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -461,7 +400,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_0.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -469,86 +408,152 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":11,
+										"props":{
+											"name":"diy_dress_002_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[],
 										"child":[]
 									},
 									{
 										"type":"MeshSprite3D",
 										"instanceID":12,
 										"props":{
-											"name":"diy_dress_007_final_1",
+											"name":"ModelTap",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
 											"position":[
 												0,
-												0,
-												0
+												0.851,
+												-0.075
 											],
 											"rotation":[
-												0.7071068,
 												0,
 												0,
-												-0.7071068
+												0,
+												-1
 											],
 											"scale":[
-												1,
-												1,
-												1
+												0.38,
+												0.01,
+												0.09999999
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_1.lm",
+											"meshPath":"Library/unity default resources-Cube.lm",
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"type":"Laya.BlinnPhongMaterial",
+													"path":"Resources/unity_builtin_extra.lmat"
 												}
 											]
 										},
-										"components":[
+										"components":[],
+										"child":[
 											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
+												"type":"MeshSprite3D",
+												"instanceID":13,
+												"props":{
+													"name":"model",
+													"active":true,
+													"isStatic":false,
+													"layer":0,
+													"position":[
+														0.03157895,
+														25.49999,
+														0.7500001
+													],
+													"rotation":[
+														0,
+														0,
+														0,
+														-1
+													],
+													"scale":[
+														0.7894738,
+														30,
+														3
+													],
+													"meshPath":"Library/unity default resources-Cylinder.lm",
+													"enableRender":false,
+													"materials":[
+														{
+															"type":"Laya.BlinnPhongMaterial",
+															"path":"Resources/unity_builtin_extra.lmat"
+														}
+													]
+												},
+												"components":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_1.lm"
+														"type":"PhysicsCollider",
+														"restitution":0,
+														"friction":0.5,
+														"rollingFriction":0,
+														"shapes":[
+															{
+																"type":"CapsuleColliderShape",
+																"center":[
+																	5.960464E-08,
+																	0,
+																	-8.940697E-08
+																],
+																"radius":0.5000001,
+																"height":2,
+																"orientation":1
+															}
+														],
+														"isTrigger":false
 													}
 												],
-												"isTrigger":false
+												"child":[]
 											}
-										],
-										"child":[]
+										]
 									}
 								]
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":13,
+								"instanceID":14,
 								"props":{
-									"name":"diy_dress_006_final",
+									"name":"diy_dress_003_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.111,
-										0.347
+										-0.43,
+										0.066
 									],
 									"rotation":[
 										0,
@@ -564,60 +569,11 @@
 								},
 								"components":[],
 								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":14,
-										"props":{
-											"name":"diy_dress_006_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
 									{
 										"type":"MeshSprite3D",
 										"instanceID":15,
 										"props":{
-											"name":"diy_dress_006_final_1",
+											"name":"diy_dress_003_final_0",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -637,7 +593,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -645,106 +601,14 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
-								"instanceID":16,
-								"props":{
-									"name":"diy_dress_005_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										0,
-										0.039,
-										0.032
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":17,
-										"props":{
-											"name":"diy_dress_005_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
 										"child":[]
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":18,
+										"instanceID":16,
 										"props":{
-											"name":"diy_dress_005_final_1",
+											"name":"diy_dress_003_final_1",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -764,7 +628,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_1.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -772,22 +636,102 @@
 												}
 											]
 										},
-										"components":[
+										"components":[],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":17,
+										"props":{
+											"name":"ModelTap",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0.855,
+												0.014
+											],
+											"rotation":[
+												0,
+												0,
+												0,
+												-1
+											],
+											"scale":[
+												0.4,
+												0.01,
+												0.09999999
+											],
+											"meshPath":"Library/unity default resources-Cube.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"type":"Laya.BlinnPhongMaterial",
+													"path":"Resources/unity_builtin_extra.lmat"
+												}
+											]
+										},
+										"components":[],
+										"child":[
 											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
+												"type":"MeshSprite3D",
+												"instanceID":18,
+												"props":{
+													"name":"model",
+													"active":true,
+													"isStatic":false,
+													"layer":0,
+													"position":[
+														0,
+														30.2,
+														0
+													],
+													"rotation":[
+														0,
+														0,
+														0,
+														-1
+													],
+													"scale":[
+														1,
+														60,
+														1
+													],
+													"meshPath":"Library/unity default resources-Cube.lm",
+													"enableRender":false,
+													"materials":[
+														{
+															"type":"Laya.BlinnPhongMaterial",
+															"path":"Resources/unity_builtin_extra.lmat"
+														}
+													]
+												},
+												"components":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_1.lm"
+														"type":"PhysicsCollider",
+														"restitution":0,
+														"friction":0.5,
+														"rollingFriction":0,
+														"shapes":[
+															{
+																"type":"CapsuleColliderShape",
+																"center":[
+																	0,
+																	0,
+																	0
+																],
+																"radius":0.5,
+																"height":1,
+																"orientation":1
+															}
+														],
+														"isTrigger":false
 													}
 												],
-												"isTrigger":false
+												"child":[]
 											}
-										],
-										"child":[]
+										]
 									}
 								]
 							},
@@ -795,14 +739,14 @@
 								"type":"Sprite3D",
 								"instanceID":19,
 								"props":{
-									"name":"diy_dress_004_final",
+									"name":"diy_dress_004_fina",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.876,
-										0.444
+										-0.175,
+										0.437
 									],
 									"rotation":[
 										0,
@@ -842,7 +786,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_final-diy_dress_004_final_0.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_fina-diy_dress_004_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -850,21 +794,7 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_final-diy_dress_004_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
 										"child":[]
 									},
 									{
@@ -891,7 +821,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_final-diy_dress_004_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_fina-diy_dress_004_final_1.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -899,21 +829,7 @@
 												}
 											]
 										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_004_final-diy_dress_004_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
+										"components":[],
 										"child":[]
 									}
 								]
@@ -922,14 +838,14 @@
 								"type":"Sprite3D",
 								"instanceID":22,
 								"props":{
-									"name":"diy_dress_003_final",
+									"name":"diy_dress_005_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										-0.019,
-										0
+										-0.329,
+										0.12
 									],
 									"rotation":[
 										0,
@@ -949,7 +865,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":23,
 										"props":{
-											"name":"diy_dress_003_final_0",
+											"name":"diy_dress_005_final_0",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -969,7 +885,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_0.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -985,8 +901,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.07795671,
+															1.106014
+														],
+														"size":[
+															0.4727224,
+															0.2047289,
+															0.7412616
+														]
 													}
 												],
 												"isTrigger":false
@@ -998,7 +923,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":24,
 										"props":{
-											"name":"diy_dress_003_final_1",
+											"name":"diy_dress_005_final_1",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1018,7 +943,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_005_final-diy_dress_005_final_1.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -1034,8 +959,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_003_final-diy_dress_003_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.06503238,
+															1.106529
+														],
+														"size":[
+															0.4727224,
+															0.1675091,
+															0.7402322
+														]
 													}
 												],
 												"isTrigger":false
@@ -1049,14 +983,14 @@
 								"type":"Sprite3D",
 								"instanceID":25,
 								"props":{
-									"name":"diy_dress_002_final",
+									"name":"diy_dress_006_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										-0.009,
-										-0.029
+										-0.178,
+										0.385
 									],
 									"rotation":[
 										0,
@@ -1076,7 +1010,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":26,
 										"props":{
-											"name":"diy_dress_002_final_0",
+											"name":"diy_dress_006_final_0",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1096,7 +1030,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_0.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -1112,12 +1046,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_0.lm"
-													},
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0.01200254,
+															-0.05490156,
+															0.9042889
+														],
+														"size":[
+															0.4865769,
+															0.2606075,
+															1.130867
+														]
 													}
 												],
 												"isTrigger":false
@@ -1129,7 +1068,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":27,
 										"props":{
-											"name":"diy_dress_002_final_1",
+											"name":"diy_dress_006_final_1",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1149,7 +1088,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_006_final-diy_dress_006_final_1.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -1165,12 +1104,307 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_1.lm"
-													},
+														"type":"BoxColliderShape",
+														"center":[
+															0.01343892,
+															0.0992499,
+															0.9080356
+														],
+														"size":[
+															0.4742978,
+															0.2384994,
+															1.123373
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":28,
+								"props":{
+									"name":"diy_dress_007_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										-0.362,
+										0.157
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":29,
+										"props":{
+											"name":"diy_dress_007_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_002_final-diy_dress_002_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															8.041412E-05,
+															0.05036721,
+															1.099376
+														],
+														"size":[
+															0.3976322,
+															0.1562565,
+															0.7415834
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":30,
+										"props":{
+											"name":"diy_dress_007_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															8.041412E-05,
+															-0.05654902,
+															1.097431
+														],
+														"size":[
+															0.3976322,
+															0.2034079,
+															0.749039
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":31,
+								"props":{
+									"name":"diy_dress_008_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										-0.293,
+										0.219
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":32,
+										"props":{
+											"name":"diy_dress_008_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															-0.0002946407,
+															0.06857102,
+															1.039864
+														],
+														"size":[
+															0.3955075,
+															0.1782993,
+															0.8607553
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":33,
+										"props":{
+											"name":"diy_dress_008_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															-0.0002945811,
+															-0.05346277,
+															1.03892
+														],
+														"size":[
+															0.4043505,
+															0.2107748,
+															0.8626434
+														]
 													}
 												],
 												"isTrigger":false
@@ -1184,7 +1418,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":28,
+						"instanceID":34,
 						"props":{
 							"name":"Top",
 							"active":true,
@@ -1211,260 +1445,6 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":29,
-								"props":{
-									"name":"diy_top_008_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										0,
-										-0.091,
-										-0.103
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":30,
-										"props":{
-											"name":"diy_top_008_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":31,
-										"props":{
-											"name":"diy_top_008_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_1.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
-								"instanceID":32,
-								"props":{
-									"name":"diy_top_005_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										0,
-										-0.039,
-										-0.078
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":33,
-										"props":{
-											"name":"diy_top_005_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":34,
-										"props":{
-											"name":"diy_top_005_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_1.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
 								"instanceID":35,
 								"props":{
 									"name":"diy_top_001_final",
@@ -1473,8 +1453,8 @@
 									"layer":0,
 									"position":[
 										0,
-										-0.072,
-										-0.101
+										-0.43,
+										-0.394
 									],
 									"rotation":[
 										0,
@@ -1530,8 +1510,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_001_final-diy_top_001_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-0.0007537752,
+															-0.06224551,
+															1.304762
+														],
+														"size":[
+															0.2360803,
+															0.1741709,
+															0.332232
+														]
 													}
 												],
 												"isTrigger":false
@@ -1579,8 +1568,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_001_final-diy_top_001_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-0.0009011179,
+															0.02891263,
+															1.31804
+														],
+														"size":[
+															0.2354752,
+															0.1086709,
+															0.3056746
+														]
 													}
 												],
 												"isTrigger":false
@@ -1600,8 +1598,8 @@
 									"layer":0,
 									"position":[
 										0,
-										-0.038,
-										-0.045
+										-0.418,
+										-0.266
 									],
 									"rotation":[
 										0,
@@ -1657,8 +1655,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_002_final-diy_top_002_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-2.808869E-06,
+															-0.06679579,
+															1.249079
+														],
+														"size":[
+															0.3429027,
+															0.1688814,
+															0.4676006
+														]
 													}
 												],
 												"isTrigger":false
@@ -1706,8 +1713,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_002_final-diy_top_002_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-2.816319E-06,
+															0.04462599,
+															1.251955
+														],
+														"size":[
+															0.3373871,
+															0.1275806,
+															0.465867
+														]
 													}
 												],
 												"isTrigger":false
@@ -1727,8 +1743,8 @@
 									"layer":0,
 									"position":[
 										0,
-										-0.015,
-										-0.018
+										-0.433,
+										-0.171
 									],
 									"rotation":[
 										0,
@@ -1784,8 +1800,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_003_final-diy_top_003_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0.0002987683,
+															-0.06038859,
+															1.218289
+														],
+														"size":[
+															0.5606682,
+															0.2002752,
+															0.5179606
+														]
 													}
 												],
 												"isTrigger":false
@@ -1833,8 +1858,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_003_final-diy_top_003_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0.0002004206,
+															0.06470353,
+															1.218633
+														],
+														"size":[
+															0.5560758,
+															0.1497624,
+															0.5172738
+														]
 													}
 												],
 												"isTrigger":false
@@ -1854,8 +1888,8 @@
 									"layer":0,
 									"position":[
 										0,
-										-0.024,
-										-0.105
+										-0.451,
+										-0.296
 									],
 									"rotation":[
 										0,
@@ -1911,8 +1945,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_004_final-diy_top_004_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0.001701258,
+															-0.06522754,
+															1.266257
+														],
+														"size":[
+															0.2995553,
+															0.1752387,
+															0.4199832
+														]
 													}
 												],
 												"isTrigger":false
@@ -1960,8 +2003,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_004_final-diy_top_004_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-0.0007450357,
+															0.03177641,
+															1.273581
+														],
+														"size":[
+															0.2946627,
+															0.1175007,
+															0.4267773
+														]
 													}
 												],
 												"isTrigger":false
@@ -1975,14 +2027,14 @@
 								"type":"Sprite3D",
 								"instanceID":47,
 								"props":{
-									"name":"diy_top_006_final",
+									"name":"diy_top_005_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										-0.085,
-										-0.113
+										-0.432,
+										-0.318
 									],
 									"rotation":[
 										0,
@@ -2001,6 +2053,151 @@
 									{
 										"type":"MeshSprite3D",
 										"instanceID":48,
+										"props":{
+											"name":"diy_top_005_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															-0.01031877,
+															-0.06224551,
+															1.27708
+														],
+														"size":[
+															0.2648078,
+															0.1741709,
+															0.387846
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":49,
+										"props":{
+											"name":"diy_top_005_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_005_final-diy_top_005_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															-0.01031877,
+															0.03268291,
+															1.280038
+														],
+														"size":[
+															0.2648078,
+															0.1011303,
+															0.3819287
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":50,
+								"props":{
+									"name":"diy_top_006_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										-0.547,
+										-0.368
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":51,
 										"props":{
 											"name":"diy_top_006_final_0",
 											"active":true,
@@ -2038,8 +2235,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_006_final-diy_top_006_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.06270561,
+															1.358303
+														],
+														"size":[
+															0.2355208,
+															0.1718801,
+															0.2265044
+														]
 													}
 												],
 												"isTrigger":false
@@ -2049,7 +2255,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":49,
+										"instanceID":52,
 										"props":{
 											"name":"diy_top_006_final_1",
 											"active":true,
@@ -2087,8 +2293,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_006_final-diy_top_006_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.02322187,
+															1.358505
+														],
+														"size":[
+															0.2312823,
+															0.1125726,
+															0.2261006
+														]
 													}
 												],
 												"isTrigger":false
@@ -2100,7 +2315,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":50,
+								"instanceID":53,
 								"props":{
 									"name":"diy_top_007_final",
 									"active":true,
@@ -2108,8 +2323,8 @@
 									"layer":0,
 									"position":[
 										0,
-										0,
-										0
+										-0.415,
+										-0.195
 									],
 									"rotation":[
 										0,
@@ -2127,7 +2342,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":51,
+										"instanceID":54,
 										"props":{
 											"name":"diy_top_007_final_0",
 											"active":true,
@@ -2165,8 +2380,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_007_final-diy_top_007_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.06293111,
+															1.210285
+														],
+														"size":[
+															0.5829362,
+															0.1914959,
+															0.5045785
+														]
 													}
 												],
 												"isTrigger":false
@@ -2176,7 +2400,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":52,
+										"instanceID":55,
 										"props":{
 											"name":"diy_top_007_final_1",
 											"active":true,
@@ -2214,8 +2438,162 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_007_final-diy_top_007_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.05794109,
+															1.211983
+														],
+														"size":[
+															0.5829362,
+															0.1475614,
+															0.5011823
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":56,
+								"props":{
+									"name":"diy_top_008_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										-0.527,
+										-0.308
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":57,
+										"props":{
+											"name":"diy_top_008_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.06166063,
+															1.331545
+														],
+														"size":[
+															0.5876123,
+															0.1809628,
+															0.2756403
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":58,
+										"props":{
+											"name":"diy_top_008_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Top/diy_top_008_final-diy_top_008_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.03182254,
+															1.331534
+														],
+														"size":[
+															0.5876123,
+															0.09704559,
+															0.2756624
+														]
 													}
 												],
 												"isTrigger":false
@@ -2229,7 +2607,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":53,
+						"instanceID":59,
 						"props":{
 							"name":"Bottoms",
 							"active":true,
@@ -2256,260 +2634,6 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":54,
-								"props":{
-									"name":"diy_bottom_007_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										0,
-										0.217,
-										0
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":55,
-										"props":{
-											"name":"diy_bottom_007_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":56,
-										"props":{
-											"name":"diy_bottom_007_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_1.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
-								"instanceID":57,
-								"props":{
-									"name":"diy_bottom_005_final",
-									"active":true,
-									"isStatic":false,
-									"layer":0,
-									"position":[
-										0,
-										0.189,
-										-0.139
-									],
-									"rotation":[
-										0,
-										1,
-										0,
-										0
-									],
-									"scale":[
-										1,
-										1,
-										1
-									]
-								},
-								"components":[],
-								"child":[
-									{
-										"type":"MeshSprite3D",
-										"instanceID":58,
-										"props":{
-											"name":"diy_bottom_005_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_final-diy_bottom_005_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_final-diy_bottom_005_final_0.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":59,
-										"props":{
-											"name":"diy_bottom_005_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_final-diy_bottom_005_final_1.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_final-diy_bottom_005_final_1.lm"
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									}
-								]
-							},
-							{
-								"type":"Sprite3D",
 								"instanceID":60,
 								"props":{
 									"name":"diy_bottom_001_final",
@@ -2518,8 +2642,8 @@
 									"layer":0,
 									"position":[
 										0,
-										0.217,
-										-0.118
+										-0.119,
+										-0.354
 									],
 									"rotation":[
 										0,
@@ -2575,8 +2699,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_001_final-diy_bottom_001_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.07395223,
+															0.937752
+														],
+														"size":[
+															0.3693604,
+															0.1602327,
+															0.3773182
+														]
 													}
 												],
 												"isTrigger":false
@@ -2624,8 +2757,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_001_final-diy_bottom_001_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.05226951,
+															0.940219
+														],
+														"size":[
+															0.3693604,
+															0.1479005,
+															0.3723842
+														]
 													}
 												],
 												"isTrigger":false
@@ -2645,8 +2787,8 @@
 									"layer":0,
 									"position":[
 										0,
-										0.217,
-										-0.028
+										-0.098,
+										-0.338
 									],
 									"rotation":[
 										0,
@@ -2702,8 +2844,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_002_final-diy_bottom_002_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-6.913394E-05,
+															-0.07470669,
+															0.9289516
+														],
+														"size":[
+															0.3904929,
+															0.1625656,
+															0.4900407
+														]
 													}
 												],
 												"isTrigger":false
@@ -2751,8 +2902,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_002_final-diy_bottom_002_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															-6.913394E-05,
+															0.04783221,
+															0.9301296
+														],
+														"size":[
+															0.3904929,
+															0.160745,
+															0.4876847
+														]
 													}
 												],
 												"isTrigger":false
@@ -2766,14 +2926,14 @@
 								"type":"Sprite3D",
 								"instanceID":66,
 								"props":{
-									"name":"diy_bottom_003_final",
+									"name":"diy_bottom_003_fina",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.295,
-										0.119
+										-0.057,
+										-0.307
 									],
 									"rotation":[
 										0,
@@ -2813,7 +2973,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_final-diy_bottom_003_final_0.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_fina-diy_bottom_003_final_0.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -2829,8 +2989,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_final-diy_bottom_003_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															1.600385E-05,
+															-0.03296095,
+															0.6554952
+														],
+														"size":[
+															0.4197522,
+															0.1977216,
+															0.955415
+														]
 													}
 												],
 												"isTrigger":false
@@ -2862,7 +3031,7 @@
 												1,
 												1
 											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_final-diy_bottom_003_final_1.lm",
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_fina-diy_bottom_003_final_1.lm",
 											"enableRender":true,
 											"materials":[
 												{
@@ -2878,8 +3047,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_final-diy_bottom_003_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															1.600385E-05,
+															0.08851237,
+															0.5787374
+														],
+														"size":[
+															0.4197522,
+															0.2177627,
+															1.108105
+														]
 													}
 												],
 												"isTrigger":false
@@ -2899,8 +3077,8 @@
 									"layer":0,
 									"position":[
 										0,
-										0.217,
-										-0.087
+										-0.135,
+										-0.336
 									],
 									"rotation":[
 										0,
@@ -2956,8 +3134,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_004_final-diy_bottom_004_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.0639129,
+															0.9344441
+														],
+														"size":[
+															0.319684,
+															0.1358176,
+															0.3975172
+														]
 													}
 												],
 												"isTrigger":false
@@ -3005,8 +3192,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_004_final-diy_bottom_004_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.03778145,
+															0.9342759
+														],
+														"size":[
+															0.3145375,
+															0.1163009,
+															0.3970285
+														]
 													}
 												],
 												"isTrigger":false
@@ -3020,14 +3216,14 @@
 								"type":"Sprite3D",
 								"instanceID":72,
 								"props":{
-									"name":"diy_bottom_006_final",
+									"name":"diy_bottom_005_fina",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.188,
-										-0.147
+										-0.182,
+										-0.405
 									],
 									"rotation":[
 										0,
@@ -3046,6 +3242,151 @@
 									{
 										"type":"MeshSprite3D",
 										"instanceID":73,
+										"props":{
+											"name":"diy_bottom_005_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_fina-diy_bottom_005_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.07779493,
+															1.008699
+														],
+														"size":[
+															0.3149071,
+															0.1169361,
+															0.2119437
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":74,
+										"props":{
+											"name":"diy_bottom_005_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_005_fina-diy_bottom_005_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.02126694,
+															1.009438
+														],
+														"size":[
+															0.3149071,
+															0.1593172,
+															0.2134222
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":75,
+								"props":{
+									"name":"diy_bottom_006_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										-0.161,
+										-0.367
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":76,
 										"props":{
 											"name":"diy_bottom_006_final_0",
 											"active":true,
@@ -3083,8 +3424,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_006_final-diy_bottom_006_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.07426481,
+															0.985982
+														],
+														"size":[
+															0.3194785,
+															0.1159522,
+															0.2475483
+														]
 													}
 												],
 												"isTrigger":false
@@ -3094,7 +3444,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":74,
+										"instanceID":77,
 										"props":{
 											"name":"diy_bottom_006_final_1",
 											"active":true,
@@ -3112,9 +3462,9 @@
 												-0.7071068
 											],
 											"scale":[
-												1,
-												1,
-												1
+												110,
+												110,
+												110
 											],
 											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_006_final-diy_bottom_006_final_1.lm",
 											"enableRender":true,
@@ -3132,8 +3482,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_006_final-diy_bottom_006_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.0002786627,
+															0.008958564
+														],
+														"size":[
+															0.002894256,
+															0.001217045,
+															0.002269235
+														]
 													}
 												],
 												"isTrigger":false
@@ -3145,16 +3504,16 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":75,
+								"instanceID":78,
 								"props":{
-									"name":"diy_bottom_008_final",
+									"name":"diy_bottom_007_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
 										0,
-										0.344,
-										0.091
+										-0.148,
+										-0.28
 									],
 									"rotation":[
 										0,
@@ -3172,7 +3531,152 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":76,
+										"instanceID":79,
+										"props":{
+											"name":"diy_bottom_007_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															-0.07789133,
+															0.94093
+														],
+														"size":[
+															0.3905493,
+															0.1639042,
+															0.4721187
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":80,
+										"props":{
+											"name":"diy_bottom_007_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_007_final-diy_bottom_007_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/Materials/5.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.05177866,
+															0.9419912
+														],
+														"size":[
+															0.3905493,
+															0.1650759,
+															0.4699963
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									}
+								]
+							},
+							{
+								"type":"Sprite3D",
+								"instanceID":81,
+								"props":{
+									"name":"diy_bottom_008_final",
+									"active":true,
+									"isStatic":false,
+									"layer":0,
+									"position":[
+										0,
+										0.076,
+										-0.085
+									],
+									"rotation":[
+										0,
+										1,
+										0,
+										0
+									],
+									"scale":[
+										1,
+										1,
+										1
+									]
+								},
+								"components":[],
+								"child":[
+									{
+										"type":"MeshSprite3D",
+										"instanceID":82,
 										"props":{
 											"name":"diy_bottom_008_final_0",
 											"active":true,
@@ -3190,9 +3694,9 @@
 												-0.7071068
 											],
 											"scale":[
-												1,
-												1,
-												1
+												110,
+												110,
+												110
 											],
 											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_008_final-diy_bottom_008_final_0.lm",
 											"enableRender":true,
@@ -3210,8 +3714,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_008_final-diy_bottom_008_final_0.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															6.74749E-06,
+															-0.0004022535,
+															0.00568194
+														],
+														"size":[
+															0.003341851,
+															0.001632235,
+															0.008779386
+														]
 													}
 												],
 												"isTrigger":false
@@ -3221,7 +3734,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":77,
+										"instanceID":83,
 										"props":{
 											"name":"diy_bottom_008_final_1",
 											"active":true,
@@ -3239,9 +3752,9 @@
 												-0.7071068
 											],
 											"scale":[
-												1,
-												1,
-												1
+												110,
+												110,
+												110
 											],
 											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_008_final-diy_bottom_008_final_1.lm",
 											"enableRender":true,
@@ -3259,8 +3772,17 @@
 												"rollingFriction":0,
 												"shapes":[
 													{
-														"type":"MeshColliderShape",
-														"mesh":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_008_final-diy_bottom_008_final_1.lm"
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.0003441566,
+															0.005682408
+														],
+														"size":[
+															0.00324822,
+															0.001054182,
+															0.008778449
+														]
 													}
 												],
 												"isTrigger":false
@@ -3276,7 +3798,7 @@
 			},
 			{
 				"type":"Sprite3D",
-				"instanceID":78,
+				"instanceID":84,
 				"props":{
 					"name":"Role",
 					"active":true,
@@ -3313,20 +3835,20 @@
 										"clipPath":"Assets/Game/Animation/Stand-Stand.lani"
 									},
 									{
-										"name":"Poss2",
-										"clipPath":"Assets/Game/Animation/Poss2-Poss2.lani"
-									},
-									{
-										"name":"Poss1",
-										"clipPath":"Assets/Game/Animation/Poss1-Poss1.lani"
-									},
-									{
 										"name":"DispalyCloth",
 										"clipPath":"Assets/Game/Animation/DispalyCloth-DispalyCloth.lani"
 									},
 									{
 										"name":"Walk",
 										"clipPath":"Assets/Game/Animation/Walk-Walk.lani"
+									},
+									{
+										"name":"Pose1",
+										"clipPath":"Assets/Game/Animation/Pose1-Pose1.lani"
+									},
+									{
+										"name":"Pose2",
+										"clipPath":"Assets/Game/Animation/Pose2-Pose2.lani"
 									}
 								]
 							}
@@ -3338,7 +3860,7 @@
 				"child":[
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":79,
+						"instanceID":85,
 						"props":{
 							"name":"body",
 							"active":true,
@@ -3360,7 +3882,7 @@
 								1,
 								1
 							],
-							"rootBone":80,
+							"rootBone":86,
 							"boundBox":{
 								"min":[
 									-0.9877443,
@@ -3382,23 +3904,17 @@
 								"radius":1.078712
 							},
 							"bones":[
-								81,
-								82,
-								83,
-								84,
-								85,
-								86,
 								87,
 								88,
 								89,
 								90,
-								80,
 								91,
 								92,
 								93,
 								94,
 								95,
 								96,
+								86,
 								97,
 								98,
 								99,
@@ -3420,7 +3936,13 @@
 								115,
 								116,
 								117,
-								118
+								118,
+								119,
+								120,
+								121,
+								122,
+								123,
+								124
 							],
 							"materials":[
 								{
@@ -3434,7 +3956,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":119,
+						"instanceID":125,
 						"props":{
 							"name":"eyeball",
 							"active":true,
@@ -3456,7 +3978,7 @@
 								1,
 								1
 							],
-							"rootBone":88,
+							"rootBone":94,
 							"boundBox":{
 								"min":[
 									0.07039714,
@@ -3478,7 +4000,7 @@
 								"radius":0.09176219
 							},
 							"bones":[
-								88
+								94
 							],
 							"materials":[
 								{
@@ -3492,7 +4014,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":120,
+						"instanceID":126,
 						"props":{
 							"name":"eyebrow",
 							"active":true,
@@ -3514,7 +4036,7 @@
 								1,
 								1
 							],
-							"rootBone":88,
+							"rootBone":94,
 							"boundBox":{
 								"min":[
 									0.1097609,
@@ -3536,9 +4058,9 @@
 								"radius":0.103489
 							},
 							"bones":[
-								121,
-								88,
-								122
+								127,
+								94,
+								128
 							],
 							"materials":[
 								{
@@ -3552,7 +4074,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":123,
+						"instanceID":129,
 						"props":{
 							"name":"eyelash",
 							"active":true,
@@ -3574,7 +4096,7 @@
 								1,
 								1
 							],
-							"rootBone":88,
+							"rootBone":94,
 							"boundBox":{
 								"min":[
 									0.07450731,
@@ -3596,11 +4118,11 @@
 								"radius":0.1021461
 							},
 							"bones":[
-								122,
-								124,
-								88,
-								121,
-								125
+								128,
+								130,
+								94,
+								127,
+								131
 							],
 							"materials":[
 								{
@@ -3614,7 +4136,7 @@
 					},
 					{
 						"type":"SkinnedMeshSprite3D",
-						"instanceID":126,
+						"instanceID":132,
 						"props":{
 							"name":"head",
 							"active":true,
@@ -3636,7 +4158,7 @@
 								1,
 								1
 							],
-							"rootBone":89,
+							"rootBone":95,
 							"boundBox":{
 								"min":[
 									0.06679416,
@@ -3658,12 +4180,12 @@
 								"radius":0.2203107
 							},
 							"bones":[
-								88,
-								122,
-								124,
-								121,
-								125,
-								89
+								94,
+								128,
+								130,
+								127,
+								131,
+								95
 							],
 							"materials":[
 								{
@@ -3677,7 +4199,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":127,
+						"instanceID":133,
 						"props":{
 							"name":"Root",
 							"active":true,
@@ -3704,7 +4226,7 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":128,
+								"instanceID":134,
 								"props":{
 									"name":"Bip001",
 									"active":true,
@@ -3731,7 +4253,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":80,
+										"instanceID":86,
 										"props":{
 											"name":"Bip001 Pelvis",
 											"active":true,
@@ -3758,7 +4280,7 @@
 										"child":[
 											{
 												"type":"Sprite3D",
-												"instanceID":92,
+												"instanceID":98,
 												"props":{
 													"name":"Bip001 L Thigh",
 													"active":true,
@@ -3785,7 +4307,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":110,
+														"instanceID":116,
 														"props":{
 															"name":"Bip001 L Calf",
 															"active":true,
@@ -3812,7 +4334,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":111,
+																"instanceID":117,
 																"props":{
 																	"name":"Bip001 L Foot",
 																	"active":true,
@@ -3839,7 +4361,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":112,
+																		"instanceID":118,
 																		"props":{
 																			"name":"Bip001 L Toe0",
 																			"active":true,
@@ -3873,7 +4395,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":91,
+												"instanceID":97,
 												"props":{
 													"name":"Bip001 R Thigh",
 													"active":true,
@@ -3900,7 +4422,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":95,
+														"instanceID":101,
 														"props":{
 															"name":"Bip001 R Calf",
 															"active":true,
@@ -3927,7 +4449,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":96,
+																"instanceID":102,
 																"props":{
 																	"name":"Bip001 R Foot",
 																	"active":true,
@@ -3954,7 +4476,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":97,
+																		"instanceID":103,
 																		"props":{
 																			"name":"Bip001 R Toe0",
 																			"active":true,
@@ -3988,7 +4510,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":90,
+												"instanceID":96,
 												"props":{
 													"name":"Bip001 Spine",
 													"active":true,
@@ -4015,7 +4537,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":83,
+														"instanceID":89,
 														"props":{
 															"name":"Bip001 Spine1",
 															"active":true,
@@ -4042,7 +4564,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":93,
+																"instanceID":99,
 																"props":{
 																	"name":"Bip001 L Clavicle",
 																	"active":true,
@@ -4069,7 +4591,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":104,
+																		"instanceID":110,
 																		"props":{
 																			"name":"Bip001 L UpperArm",
 																			"active":true,
@@ -4096,7 +4618,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":109,
+																				"instanceID":115,
 																				"props":{
 																					"name":"Bip001 L Forearm",
 																					"active":true,
@@ -4123,7 +4645,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":105,
+																						"instanceID":111,
 																						"props":{
 																							"name":"Bip001 L Hand",
 																							"active":true,
@@ -4150,7 +4672,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":116,
+																								"instanceID":122,
 																								"props":{
 																									"name":"Bip001 L Finger0",
 																									"active":true,
@@ -4177,7 +4699,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":115,
+																										"instanceID":121,
 																										"props":{
 																											"name":"Bip001 L Finger01",
 																											"active":true,
@@ -4204,7 +4726,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":114,
+																												"instanceID":120,
 																												"props":{
 																													"name":"Bip001 L Finger02",
 																													"active":true,
@@ -4236,7 +4758,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":118,
+																								"instanceID":124,
 																								"props":{
 																									"name":"Bip001 L Finger1",
 																									"active":true,
@@ -4263,7 +4785,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":117,
+																										"instanceID":123,
 																										"props":{
 																											"name":"Bip001 L Finger11",
 																											"active":true,
@@ -4290,7 +4812,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":107,
+																												"instanceID":113,
 																												"props":{
 																													"name":"Bip001 L Finger12",
 																													"active":true,
@@ -4322,7 +4844,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":106,
+																								"instanceID":112,
 																								"props":{
 																									"name":"Bip001 L Finger2",
 																									"active":true,
@@ -4349,7 +4871,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":113,
+																										"instanceID":119,
 																										"props":{
 																											"name":"Bip001 L Finger21",
 																											"active":true,
@@ -4376,7 +4898,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":108,
+																												"instanceID":114,
 																												"props":{
 																													"name":"Bip001 L Finger22",
 																													"active":true,
@@ -4416,7 +4938,7 @@
 															},
 															{
 																"type":"Sprite3D",
-																"instanceID":89,
+																"instanceID":95,
 																"props":{
 																	"name":"Bip001 Neck",
 																	"active":true,
@@ -4443,7 +4965,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":88,
+																		"instanceID":94,
 																		"props":{
 																			"name":"Bip001 Head",
 																			"active":true,
@@ -4470,7 +4992,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":122,
+																				"instanceID":128,
 																				"props":{
 																					"name":"Bone001",
 																					"active":true,
@@ -4498,7 +5020,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":121,
+																				"instanceID":127,
 																				"props":{
 																					"name":"Bone001(mirrored)",
 																					"active":true,
@@ -4526,7 +5048,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":124,
+																				"instanceID":130,
 																				"props":{
 																					"name":"Bone002",
 																					"active":true,
@@ -4554,7 +5076,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":125,
+																				"instanceID":131,
 																				"props":{
 																					"name":"Bone002(mirrored)",
 																					"active":true,
@@ -4582,7 +5104,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":129,
+																				"instanceID":135,
 																				"props":{
 																					"name":"Bone021",
 																					"active":true,
@@ -4609,7 +5131,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":130,
+																						"instanceID":136,
 																						"props":{
 																							"name":"Bone022",
 																							"active":true,
@@ -4636,7 +5158,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":131,
+																								"instanceID":137,
 																								"props":{
 																									"name":"Bone023",
 																									"active":true,
@@ -4663,7 +5185,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":132,
+																										"instanceID":138,
 																										"props":{
 																											"name":"Bone024",
 																											"active":true,
@@ -4697,7 +5219,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":133,
+																				"instanceID":139,
 																				"props":{
 																					"name":"Bone026",
 																					"active":true,
@@ -4724,7 +5246,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":134,
+																						"instanceID":140,
 																						"props":{
 																							"name":"Bone027",
 																							"active":true,
@@ -4751,7 +5273,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":135,
+																								"instanceID":141,
 																								"props":{
 																									"name":"Bone028",
 																									"active":true,
@@ -4783,7 +5305,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":136,
+																				"instanceID":142,
 																				"props":{
 																					"name":"Bone030",
 																					"active":true,
@@ -4810,7 +5332,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":137,
+																						"instanceID":143,
 																						"props":{
 																							"name":"Bone031",
 																							"active":true,
@@ -4837,7 +5359,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":138,
+																								"instanceID":144,
 																								"props":{
 																									"name":"Bone032",
 																									"active":true,
@@ -4864,7 +5386,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":139,
+																										"instanceID":145,
 																										"props":{
 																											"name":"Bone033",
 																											"active":true,
@@ -4898,7 +5420,7 @@
 																			},
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":140,
+																				"instanceID":146,
 																				"props":{
 																					"name":"Bone030(mirrored)",
 																					"active":true,
@@ -4925,7 +5447,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":141,
+																						"instanceID":147,
 																						"props":{
 																							"name":"Bone031(mirrored)",
 																							"active":true,
@@ -4952,7 +5474,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":142,
+																								"instanceID":148,
 																								"props":{
 																									"name":"Bone032(mirrored)",
 																									"active":true,
@@ -4979,7 +5501,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":143,
+																										"instanceID":149,
 																										"props":{
 																											"name":"Bone033(mirrored)",
 																											"active":true,
@@ -5017,7 +5539,7 @@
 															},
 															{
 																"type":"Sprite3D",
-																"instanceID":81,
+																"instanceID":87,
 																"props":{
 																	"name":"Bip001 R Clavicle",
 																	"active":true,
@@ -5044,7 +5566,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":82,
+																		"instanceID":88,
 																		"props":{
 																			"name":"Bip001 R UpperArm",
 																			"active":true,
@@ -5071,7 +5593,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":94,
+																				"instanceID":100,
 																				"props":{
 																					"name":"Bip001 R Forearm",
 																					"active":true,
@@ -5098,7 +5620,7 @@
 																				"child":[
 																					{
 																						"type":"Sprite3D",
-																						"instanceID":84,
+																						"instanceID":90,
 																						"props":{
 																							"name":"Bip001 R Hand",
 																							"active":true,
@@ -5125,7 +5647,7 @@
 																						"child":[
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":101,
+																								"instanceID":107,
 																								"props":{
 																									"name":"Bip001 R Finger0",
 																									"active":true,
@@ -5152,7 +5674,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":100,
+																										"instanceID":106,
 																										"props":{
 																											"name":"Bip001 R Finger01",
 																											"active":true,
@@ -5179,7 +5701,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":99,
+																												"instanceID":105,
 																												"props":{
 																													"name":"Bip001 R Finger02",
 																													"active":true,
@@ -5211,7 +5733,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":103,
+																								"instanceID":109,
 																								"props":{
 																									"name":"Bip001 R Finger1",
 																									"active":true,
@@ -5238,7 +5760,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":102,
+																										"instanceID":108,
 																										"props":{
 																											"name":"Bip001 R Finger11",
 																											"active":true,
@@ -5265,7 +5787,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":86,
+																												"instanceID":92,
 																												"props":{
 																													"name":"Bip001 R Finger12",
 																													"active":true,
@@ -5297,7 +5819,7 @@
 																							},
 																							{
 																								"type":"Sprite3D",
-																								"instanceID":85,
+																								"instanceID":91,
 																								"props":{
 																									"name":"Bip001 R Finger2",
 																									"active":true,
@@ -5324,7 +5846,7 @@
 																								"child":[
 																									{
 																										"type":"Sprite3D",
-																										"instanceID":98,
+																										"instanceID":104,
 																										"props":{
 																											"name":"Bip001 R Finger21",
 																											"active":true,
@@ -5351,7 +5873,7 @@
 																										"child":[
 																											{
 																												"type":"Sprite3D",
-																												"instanceID":87,
+																												"instanceID":93,
 																												"props":{
 																													"name":"Bip001 R Finger22",
 																													"active":true,
@@ -5395,7 +5917,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":144,
+												"instanceID":150,
 												"props":{
 													"name":"Bone003",
 													"active":true,
@@ -5422,7 +5944,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":145,
+														"instanceID":151,
 														"props":{
 															"name":"Bone004",
 															"active":true,
@@ -5449,7 +5971,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":146,
+																"instanceID":152,
 																"props":{
 																	"name":"Bone005",
 																	"active":true,
@@ -5476,7 +5998,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":147,
+																		"instanceID":153,
 																		"props":{
 																			"name":"Bone006",
 																			"active":true,
@@ -5503,7 +6025,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":148,
+																				"instanceID":154,
 																				"props":{
 																					"name":"Bone007",
 																					"active":true,
@@ -5539,7 +6061,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":149,
+												"instanceID":155,
 												"props":{
 													"name":"Bone003(mirrored)",
 													"active":true,
@@ -5566,7 +6088,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":150,
+														"instanceID":156,
 														"props":{
 															"name":"Bone004(mirrored)",
 															"active":true,
@@ -5593,7 +6115,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":151,
+																"instanceID":157,
 																"props":{
 																	"name":"Bone005(mirrored)",
 																	"active":true,
@@ -5620,7 +6142,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":152,
+																		"instanceID":158,
 																		"props":{
 																			"name":"Bone006(mirrored)",
 																			"active":true,
@@ -5647,7 +6169,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":153,
+																				"instanceID":159,
 																				"props":{
 																					"name":"Bone007(mirrored)",
 																					"active":true,
@@ -5683,7 +6205,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":154,
+												"instanceID":160,
 												"props":{
 													"name":"Bone009",
 													"active":true,
@@ -5710,7 +6232,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":155,
+														"instanceID":161,
 														"props":{
 															"name":"Bone010",
 															"active":true,
@@ -5737,7 +6259,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":156,
+																"instanceID":162,
 																"props":{
 																	"name":"Bone011",
 																	"active":true,
@@ -5764,7 +6286,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":157,
+																		"instanceID":163,
 																		"props":{
 																			"name":"Bone012",
 																			"active":true,
@@ -5791,7 +6313,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":158,
+																				"instanceID":164,
 																				"props":{
 																					"name":"Bone013",
 																					"active":true,
@@ -5827,7 +6349,7 @@
 											},
 											{
 												"type":"Sprite3D",
-												"instanceID":159,
+												"instanceID":165,
 												"props":{
 													"name":"Bone015",
 													"active":true,
@@ -5854,7 +6376,7 @@
 												"child":[
 													{
 														"type":"Sprite3D",
-														"instanceID":160,
+														"instanceID":166,
 														"props":{
 															"name":"Bone016",
 															"active":true,
@@ -5881,7 +6403,7 @@
 														"child":[
 															{
 																"type":"Sprite3D",
-																"instanceID":161,
+																"instanceID":167,
 																"props":{
 																	"name":"Bone017",
 																	"active":true,
@@ -5908,7 +6430,7 @@
 																"child":[
 																	{
 																		"type":"Sprite3D",
-																		"instanceID":162,
+																		"instanceID":168,
 																		"props":{
 																			"name":"Bone018",
 																			"active":true,
@@ -5935,7 +6457,7 @@
 																		"child":[
 																			{
 																				"type":"Sprite3D",
-																				"instanceID":163,
+																				"instanceID":169,
 																				"props":{
 																					"name":"Bone019",
 																					"active":true,
@@ -5975,7 +6497,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":164,
+								"instanceID":170,
 								"props":{
 									"name":"DIY",
 									"active":true,
@@ -6002,7 +6524,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":165,
+										"instanceID":171,
 										"props":{
 											"name":"Bottoms",
 											"active":true,
@@ -6029,7 +6551,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":166,
+												"instanceID":172,
 												"props":{
 													"name":"diy_bottom_001_final_0",
 													"active":true,
@@ -6051,7 +6573,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2479026,
@@ -6073,22 +6595,22 @@
 														"radius":0.297407
 													},
 													"bones":[
-														92,
-														80,
-														90,
-														159,
-														144,
-														154,
-														145,
-														155,
-														160,
-														146,
-														156,
-														161,
-														91,
-														149,
+														98,
+														86,
+														96,
+														165,
 														150,
-														151
+														160,
+														151,
+														161,
+														166,
+														152,
+														162,
+														167,
+														97,
+														155,
+														156,
+														157
 													],
 													"materials":[
 														{
@@ -6102,7 +6624,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":167,
+												"instanceID":173,
 												"props":{
 													"name":"diy_bottom_001_final_1",
 													"active":true,
@@ -6124,7 +6646,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2469465,
@@ -6146,19 +6668,19 @@
 														"radius":0.2931176
 													},
 													"bones":[
-														92,
-														80,
-														90,
-														154,
-														91,
-														144,
-														145,
-														155,
-														146,
-														156,
+														98,
+														86,
+														96,
+														160,
+														97,
 														150,
 														151,
-														149
+														161,
+														152,
+														162,
+														156,
+														157,
+														155
 													],
 													"materials":[
 														{
@@ -6172,7 +6694,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":168,
+												"instanceID":174,
 												"props":{
 													"name":"diy_bottom_002_final_0",
 													"active":true,
@@ -6194,7 +6716,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3228657,
@@ -6216,22 +6738,22 @@
 														"radius":0.3544294
 													},
 													"bones":[
-														145,
-														146,
-														155,
-														156,
-														161,
-														144,
-														160,
-														159,
-														154,
 														151,
+														152,
+														161,
+														162,
+														167,
 														150,
-														149,
-														80,
-														90,
-														92,
-														91
+														166,
+														165,
+														160,
+														157,
+														156,
+														155,
+														86,
+														96,
+														98,
+														97
 													],
 													"materials":[
 														{
@@ -6245,7 +6767,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":169,
+												"instanceID":175,
 												"props":{
 													"name":"diy_bottom_002_final_1",
 													"active":true,
@@ -6267,7 +6789,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3187576,
@@ -6289,19 +6811,19 @@
 														"radius":0.3356126
 													},
 													"bones":[
-														90,
-														80,
-														92,
-														144,
-														91,
-														154,
-														149,
+														96,
+														86,
+														98,
 														150,
+														97,
+														160,
 														155,
-														151,
 														156,
-														145,
-														146
+														161,
+														157,
+														162,
+														151,
+														152
 													],
 													"materials":[
 														{
@@ -6315,7 +6837,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":170,
+												"instanceID":176,
 												"props":{
 													"name":"diy_bottom_003_final_0",
 													"active":true,
@@ -6337,7 +6859,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8255279,
@@ -6359,28 +6881,28 @@
 														"radius":0.5566902
 													},
 													"bones":[
-														80,
-														90,
-														149,
-														150,
-														159,
-														154,
+														86,
+														96,
 														155,
-														160,
-														151,
-														161,
-														152,
-														144,
-														145,
-														162,
-														146,
-														147,
 														156,
-														148,
+														165,
+														160,
+														161,
+														166,
 														157,
-														153,
+														167,
 														158,
-														163
+														150,
+														151,
+														168,
+														152,
+														153,
+														162,
+														154,
+														163,
+														159,
+														164,
+														169
 													],
 													"materials":[
 														{
@@ -6394,7 +6916,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":171,
+												"instanceID":177,
 												"props":{
 													"name":"diy_bottom_003_final_1",
 													"active":true,
@@ -6416,7 +6938,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-1.008067,
@@ -6438,28 +6960,28 @@
 														"radius":0.6472181
 													},
 													"bones":[
-														152,
-														153,
 														158,
+														159,
+														164,
+														169,
 														163,
 														157,
-														151,
-														147,
-														148,
-														150,
+														153,
+														154,
 														156,
 														162,
-														146,
-														155,
-														149,
-														154,
-														145,
-														144,
+														168,
+														152,
 														161,
+														155,
 														160,
-														80,
-														159,
-														90
+														151,
+														150,
+														167,
+														166,
+														86,
+														165,
+														96
 													],
 													"materials":[
 														{
@@ -6473,7 +6995,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":172,
+												"instanceID":178,
 												"props":{
 													"name":"diy_bottom_004_final_0",
 													"active":true,
@@ -6495,7 +7017,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2784209,
@@ -6517,22 +7039,22 @@
 														"radius":0.305373
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														149,
-														159,
-														154,
-														150,
+														86,
+														97,
+														96,
 														155,
+														165,
 														160,
-														151,
 														156,
 														161,
-														92,
-														145,
-														146,
-														144
+														166,
+														157,
+														162,
+														167,
+														98,
+														151,
+														152,
+														150
 													],
 													"materials":[
 														{
@@ -6546,7 +7068,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":173,
+												"instanceID":179,
 												"props":{
 													"name":"diy_bottom_004_final_1",
 													"active":true,
@@ -6568,7 +7090,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2704752,
@@ -6590,19 +7112,19 @@
 														"radius":0.2918445
 													},
 													"bones":[
-														150,
-														151,
-														155,
 														156,
-														149,
-														154,
-														80,
-														145,
-														146,
-														144,
-														92,
-														90,
-														91
+														157,
+														161,
+														162,
+														155,
+														160,
+														86,
+														151,
+														152,
+														150,
+														98,
+														96,
+														97
 													],
 													"materials":[
 														{
@@ -6616,7 +7138,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":174,
+												"instanceID":180,
 												"props":{
 													"name":"diy_bottom_005_final_0",
 													"active":true,
@@ -6638,7 +7160,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.09492415,
@@ -6660,10 +7182,10 @@
 														"radius":0.2094283
 													},
 													"bones":[
-														92,
-														80,
-														91,
-														90
+														98,
+														86,
+														97,
+														96
 													],
 													"materials":[
 														{
@@ -6677,7 +7199,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":175,
+												"instanceID":181,
 												"props":{
 													"name":"diy_bottom_005_final_1",
 													"active":true,
@@ -6699,7 +7221,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1020243,
@@ -6721,10 +7243,10 @@
 														"radius":0.2213352
 													},
 													"bones":[
-														92,
-														80,
-														91,
-														90
+														98,
+														86,
+														97,
+														96
 													],
 													"materials":[
 														{
@@ -6738,7 +7260,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":176,
+												"instanceID":182,
 												"props":{
 													"name":"diy_bottom_006_final_0",
 													"active":true,
@@ -6760,7 +7282,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1359384,
@@ -6782,10 +7304,10 @@
 														"radius":0.2227164
 													},
 													"bones":[
-														80,
-														91,
-														92,
-														90
+														86,
+														97,
+														98,
+														96
 													],
 													"materials":[
 														{
@@ -6799,7 +7321,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":177,
+												"instanceID":183,
 												"props":{
 													"name":"diy_bottom_006_final_1",
 													"active":true,
@@ -6821,7 +7343,7 @@
 														110,
 														110
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1421435,
@@ -6843,10 +7365,10 @@
 														"radius":0.228264
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														92
+														86,
+														97,
+														96,
+														98
 													],
 													"materials":[
 														{
@@ -6860,7 +7382,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":178,
+												"instanceID":184,
 												"props":{
 													"name":"diy_bottom_007_final_0",
 													"active":true,
@@ -6882,7 +7404,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3009371,
@@ -6904,23 +7426,23 @@
 														"radius":0.3390193
 													},
 													"bones":[
-														146,
-														160,
-														161,
-														80,
-														90,
-														83,
-														92,
-														159,
-														144,
-														91,
-														149,
-														154,
+														152,
+														166,
+														167,
+														86,
+														96,
+														89,
+														98,
+														165,
 														150,
+														97,
 														155,
+														160,
+														156,
+														161,
+														157,
 														151,
-														145,
-														156
+														162
 													],
 													"materials":[
 														{
@@ -6934,7 +7456,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":179,
+												"instanceID":185,
 												"props":{
 													"name":"diy_bottom_007_final_1",
 													"active":true,
@@ -6956,7 +7478,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2964091,
@@ -6978,21 +7500,21 @@
 														"radius":0.3266226
 													},
 													"bones":[
-														90,
-														80,
-														91,
-														149,
-														92,
-														154,
-														144,
-														145,
+														96,
+														86,
+														97,
 														155,
-														159,
-														146,
+														98,
 														160,
-														156,
 														150,
-														151
+														151,
+														161,
+														165,
+														152,
+														166,
+														162,
+														156,
+														157
 													],
 													"materials":[
 														{
@@ -7006,7 +7528,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":180,
+												"instanceID":186,
 												"props":{
 													"name":"diy_bottom_008_final_0",
 													"active":true,
@@ -7028,7 +7550,7 @@
 														110,
 														110
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8570527,
@@ -7050,14 +7572,14 @@
 														"radius":0.5439926
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														92,
-														110,
-														111,
-														95,
-														96
+														86,
+														97,
+														96,
+														98,
+														116,
+														117,
+														101,
+														102
 													],
 													"materials":[
 														{
@@ -7071,7 +7593,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":181,
+												"instanceID":187,
 												"props":{
 													"name":"diy_bottom_008_final_1",
 													"active":true,
@@ -7093,7 +7615,7 @@
 														110,
 														110
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8534316,
@@ -7115,14 +7637,14 @@
 														"radius":0.5311663
 													},
 													"bones":[
-														110,
-														92,
-														95,
+														116,
+														98,
+														101,
+														102,
+														97,
+														86,
 														96,
-														91,
-														80,
-														90,
-														111
+														117
 													],
 													"materials":[
 														{
@@ -7138,7 +7660,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":182,
+										"instanceID":188,
 										"props":{
 											"name":"Dress",
 											"active":true,
@@ -7165,7 +7687,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":183,
+												"instanceID":189,
 												"props":{
 													"name":"diy_dress_001_final_0",
 													"active":true,
@@ -7187,7 +7709,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2656497,
@@ -7209,23 +7731,23 @@
 														"radius":0.4446758
 													},
 													"bones":[
-														90,
-														83,
-														81,
-														82,
+														96,
 														89,
-														93,
-														104,
-														80,
-														91,
-														159,
-														149,
+														87,
+														88,
+														95,
+														99,
+														110,
+														86,
+														97,
+														165,
+														155,
+														156,
+														166,
+														167,
+														151,
 														150,
-														160,
-														161,
-														145,
-														144,
-														92
+														98
 													],
 													"materials":[
 														{
@@ -7239,7 +7761,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":184,
+												"instanceID":190,
 												"props":{
 													"name":"diy_dress_001_final_1",
 													"active":true,
@@ -7261,7 +7783,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2618372,
@@ -7283,23 +7805,23 @@
 														"radius":0.4292604
 													},
 													"bones":[
-														80,
-														90,
-														154,
-														91,
-														149,
-														92,
+														86,
+														96,
+														160,
+														97,
 														155,
-														150,
-														144,
-														145,
+														98,
+														161,
 														156,
-														83,
-														81,
-														82,
-														93,
-														104,
-														89
+														150,
+														151,
+														162,
+														89,
+														87,
+														88,
+														99,
+														110,
+														95
 													],
 													"materials":[
 														{
@@ -7313,7 +7835,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":185,
+												"instanceID":191,
 												"props":{
 													"name":"diy_dress_002_final_0",
 													"active":true,
@@ -7335,7 +7857,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1732795,
@@ -7357,27 +7879,27 @@
 														"radius":0.3788067
 													},
 													"bones":[
-														93,
-														104,
-														90,
-														83,
-														81,
-														82,
-														80,
-														91,
-														149,
-														92,
-														144,
-														159,
-														150,
-														160,
-														154,
+														99,
+														110,
+														96,
+														89,
+														87,
+														88,
+														86,
+														97,
 														155,
-														151,
+														98,
+														150,
+														165,
 														156,
+														166,
+														160,
 														161,
-														145,
-														146
+														157,
+														162,
+														167,
+														151,
+														152
 													],
 													"materials":[
 														{
@@ -7391,7 +7913,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":186,
+												"instanceID":192,
 												"props":{
 													"name":"diy_dress_002_final_1",
 													"active":true,
@@ -7413,7 +7935,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.175395,
@@ -7435,26 +7957,26 @@
 														"radius":0.3600925
 													},
 													"bones":[
-														144,
-														145,
-														146,
-														155,
-														156,
-														160,
-														154,
-														159,
-														80,
-														92,
-														90,
 														150,
 														151,
-														149,
-														91,
-														83,
-														93,
-														104,
-														81,
-														82
+														152,
+														161,
+														162,
+														166,
+														160,
+														165,
+														86,
+														98,
+														96,
+														156,
+														157,
+														155,
+														97,
+														89,
+														99,
+														110,
+														87,
+														88
 													],
 													"materials":[
 														{
@@ -7468,7 +7990,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":187,
+												"instanceID":193,
 												"props":{
 													"name":"diy_dress_003_final_0",
 													"active":true,
@@ -7490,7 +8012,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.148787,
@@ -7512,29 +8034,29 @@
 														"radius":0.4548841
 													},
 													"bones":[
-														144,
-														145,
-														146,
-														155,
-														156,
-														160,
-														161,
-														154,
-														159,
-														80,
-														92,
-														90,
-														149,
 														150,
 														151,
-														83,
-														91,
-														104,
-														93,
-														81,
-														82,
-														109,
-														94
+														152,
+														161,
+														162,
+														166,
+														167,
+														160,
+														165,
+														86,
+														98,
+														96,
+														155,
+														156,
+														157,
+														89,
+														97,
+														110,
+														99,
+														87,
+														88,
+														115,
+														100
 													],
 													"materials":[
 														{
@@ -7548,7 +8070,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":188,
+												"instanceID":194,
 												"props":{
 													"name":"diy_dress_003_final_1",
 													"active":true,
@@ -7570,7 +8092,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1567219,
@@ -7592,29 +8114,29 @@
 														"radius":0.447239
 													},
 													"bones":[
-														104,
-														83,
-														93,
-														90,
+														110,
 														89,
-														81,
-														82,
-														94,
-														80,
-														91,
-														149,
-														154,
-														150,
+														99,
+														96,
+														95,
+														87,
+														88,
+														100,
+														86,
+														97,
 														155,
-														159,
 														160,
-														151,
 														156,
-														145,
-														146,
-														144,
-														92,
-														109
+														161,
+														165,
+														166,
+														157,
+														162,
+														151,
+														152,
+														150,
+														98,
+														115
 													],
 													"materials":[
 														{
@@ -7628,7 +8150,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":189,
+												"instanceID":195,
 												"props":{
 													"name":"diy_dress_004_final_0",
 													"active":true,
@@ -7650,7 +8172,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8168823,
@@ -7672,35 +8194,35 @@
 														"radius":0.7340158
 													},
 													"bones":[
-														152,
-														153,
 														158,
-														163,
-														157,
-														162,
-														151,
-														148,
-														161,
-														150,
-														156,
-														147,
-														160,
-														149,
-														155,
-														146,
-														145,
 														159,
+														164,
+														169,
+														163,
+														168,
+														157,
 														154,
-														144,
-														80,
-														90,
-														91,
-														83,
-														92,
-														82,
-														81,
-														104,
-														93
+														167,
+														156,
+														162,
+														153,
+														166,
+														155,
+														161,
+														152,
+														151,
+														165,
+														160,
+														150,
+														86,
+														96,
+														97,
+														89,
+														98,
+														88,
+														87,
+														110,
+														99
 													],
 													"materials":[
 														{
@@ -7714,7 +8236,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":190,
+												"instanceID":196,
 												"props":{
 													"name":"diy_dress_004_final_1",
 													"active":true,
@@ -7736,7 +8258,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8394861,
@@ -7758,36 +8280,36 @@
 														"radius":0.7322118
 													},
 													"bones":[
+														95,
+														87,
+														88,
 														89,
-														81,
-														82,
-														83,
-														90,
-														80,
-														91,
-														93,
-														104,
-														92,
-														145,
-														150,
-														146,
+														96,
+														86,
+														97,
+														99,
+														110,
+														98,
 														151,
-														147,
-														152,
-														148,
-														153,
-														155,
 														156,
+														152,
 														157,
+														153,
 														158,
-														160,
+														154,
+														159,
 														161,
 														162,
 														163,
-														149,
-														154,
-														159,
-														144
+														164,
+														166,
+														167,
+														168,
+														169,
+														155,
+														160,
+														165,
+														150
 													],
 													"materials":[
 														{
@@ -7801,7 +8323,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":191,
+												"instanceID":197,
 												"props":{
 													"name":"diy_dress_005_final_0",
 													"active":true,
@@ -7823,7 +8345,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2887284,
@@ -7845,28 +8367,28 @@
 														"radius":0.4802832
 													},
 													"bones":[
-														145,
-														146,
-														155,
-														156,
-														161,
-														144,
-														160,
-														154,
-														80,
-														159,
-														90,
-														92,
-														150,
 														151,
-														149,
-														91,
-														83,
-														93,
-														104,
+														152,
+														161,
+														162,
+														167,
+														150,
+														166,
+														160,
+														86,
+														165,
+														96,
+														98,
+														156,
+														157,
+														155,
+														97,
 														89,
-														81,
-														82
+														99,
+														110,
+														95,
+														87,
+														88
 													],
 													"materials":[
 														{
@@ -7880,7 +8402,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":192,
+												"instanceID":198,
 												"props":{
 													"name":"diy_dress_005_final_1",
 													"active":true,
@@ -7902,7 +8424,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2755157,
@@ -7924,27 +8446,27 @@
 														"radius":0.4592286
 													},
 													"bones":[
-														93,
-														104,
-														83,
+														99,
+														110,
 														89,
-														90,
-														81,
-														92,
-														80,
-														144,
-														154,
-														145,
-														155,
-														146,
-														156,
+														95,
+														96,
+														87,
+														98,
+														86,
 														150,
-														151,
-														149,
 														160,
-														91,
-														159,
-														82
+														151,
+														161,
+														152,
+														162,
+														156,
+														157,
+														155,
+														166,
+														97,
+														165,
+														88
 													],
 													"materials":[
 														{
@@ -7958,7 +8480,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":193,
+												"instanceID":199,
 												"props":{
 													"name":"diy_dress_006_final_0",
 													"active":true,
@@ -7980,7 +8502,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.6607045,
@@ -8002,35 +8524,35 @@
 														"radius":0.6549143
 													},
 													"bones":[
-														81,
-														82,
-														83,
-														90,
-														80,
-														91,
-														149,
-														150,
-														151,
-														154,
+														87,
+														88,
+														89,
+														96,
+														86,
+														97,
 														155,
-														159,
-														160,
-														152,
-														161,
-														144,
 														156,
-														145,
 														157,
-														162,
-														146,
+														160,
+														161,
+														165,
+														166,
 														158,
-														153,
-														147,
+														167,
+														150,
+														162,
+														151,
 														163,
-														148,
-														92,
-														93,
-														104
+														168,
+														152,
+														164,
+														159,
+														153,
+														169,
+														154,
+														98,
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -8044,7 +8566,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":194,
+												"instanceID":200,
 												"props":{
 													"name":"diy_dress_006_final_1",
 													"active":true,
@@ -8066,7 +8588,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.6746008,
@@ -8088,36 +8610,36 @@
 														"radius":0.647871
 													},
 													"bones":[
-														81,
-														82,
-														83,
+														87,
+														88,
 														89,
-														90,
-														93,
-														104,
-														80,
-														91,
-														92,
-														149,
-														150,
-														154,
-														159,
-														151,
+														95,
+														96,
+														99,
+														110,
+														86,
+														97,
+														98,
 														155,
-														160,
-														152,
-														161,
-														144,
 														156,
-														145,
+														160,
+														165,
 														157,
-														162,
-														146,
+														161,
+														166,
 														158,
-														153,
-														147,
+														167,
+														150,
+														162,
+														151,
 														163,
-														148
+														168,
+														152,
+														164,
+														159,
+														153,
+														169,
+														154
 													],
 													"materials":[
 														{
@@ -8131,7 +8653,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":195,
+												"instanceID":201,
 												"props":{
 													"name":"diy_dress_007_final_0",
 													"active":true,
@@ -8153,7 +8675,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2753966,
@@ -8175,27 +8697,27 @@
 														"radius":0.4433154
 													},
 													"bones":[
-														90,
-														83,
-														80,
-														91,
-														149,
-														154,
-														150,
-														155,
-														159,
-														151,
-														156,
-														144,
-														145,
-														146,
-														92,
-														93,
-														81,
-														104,
-														82,
+														96,
 														89,
-														161
+														86,
+														97,
+														155,
+														160,
+														156,
+														161,
+														165,
+														157,
+														162,
+														150,
+														151,
+														152,
+														98,
+														99,
+														87,
+														110,
+														88,
+														95,
+														167
 													],
 													"materials":[
 														{
@@ -8209,7 +8731,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":196,
+												"instanceID":202,
 												"props":{
 													"name":"diy_dress_007_final_1",
 													"active":true,
@@ -8231,7 +8753,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2987184,
@@ -8253,28 +8775,28 @@
 														"radius":0.4755291
 													},
 													"bones":[
-														93,
-														104,
+														99,
+														110,
+														95,
 														89,
-														83,
-														81,
-														82,
-														90,
-														80,
-														92,
-														91,
-														149,
-														159,
-														160,
-														150,
-														154,
+														87,
+														88,
+														96,
+														86,
+														98,
+														97,
 														155,
-														151,
-														145,
-														161,
+														165,
+														166,
 														156,
-														146,
-														144
+														160,
+														161,
+														157,
+														151,
+														167,
+														162,
+														152,
+														150
 													],
 													"materials":[
 														{
@@ -8288,7 +8810,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":197,
+												"instanceID":203,
 												"props":{
 													"name":"diy_dress_008_final_0",
 													"active":true,
@@ -8310,7 +8832,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3946646,
@@ -8332,27 +8854,27 @@
 														"radius":0.4983442
 													},
 													"bones":[
-														93,
-														104,
-														83,
+														99,
+														110,
 														89,
-														90,
-														81,
-														80,
-														92,
-														82,
-														91,
-														149,
-														154,
+														95,
+														96,
+														87,
+														86,
+														98,
+														88,
+														97,
 														155,
-														150,
-														144,
-														145,
-														159,
-														151,
-														156,
 														160,
-														146
+														161,
+														156,
+														150,
+														151,
+														165,
+														157,
+														162,
+														166,
+														152
 													],
 													"materials":[
 														{
@@ -8366,7 +8888,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":198,
+												"instanceID":204,
 												"props":{
 													"name":"diy_dress_008_final_1",
 													"active":true,
@@ -8388,7 +8910,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.4122747,
@@ -8410,28 +8932,28 @@
 														"radius":0.5168232
 													},
 													"bones":[
-														93,
-														104,
+														99,
+														110,
+														95,
 														89,
-														83,
-														90,
-														81,
-														82,
-														80,
-														91,
-														149,
-														150,
-														154,
-														159,
+														96,
+														87,
+														88,
+														86,
+														97,
 														155,
-														160,
-														151,
 														156,
+														160,
+														165,
 														161,
-														92,
-														146,
-														145,
-														144
+														166,
+														157,
+														162,
+														167,
+														98,
+														152,
+														151,
+														150
 													],
 													"materials":[
 														{
@@ -8447,7 +8969,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":199,
+										"instanceID":205,
 										"props":{
 											"name":"Top",
 											"active":true,
@@ -8474,7 +8996,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":200,
+												"instanceID":206,
 												"props":{
 													"name":"diy_top_001_final_0",
 													"active":true,
@@ -8496,7 +9018,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.1470615,
@@ -8518,14 +9040,14 @@
 														"radius":0.2484344
 													},
 													"bones":[
-														81,
-														82,
-														83,
+														87,
+														88,
 														89,
-														90,
-														93,
-														80,
-														104
+														95,
+														96,
+														99,
+														86,
+														110
 													],
 													"materials":[
 														{
@@ -8539,7 +9061,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":201,
+												"instanceID":207,
 												"props":{
 													"name":"diy_top_001_final_1",
 													"active":true,
@@ -8561,7 +9083,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.1691364,
@@ -8583,14 +9105,14 @@
 														"radius":0.2179867
 													},
 													"bones":[
+														95,
+														87,
+														88,
 														89,
-														81,
-														82,
-														83,
-														90,
-														93,
-														80,
-														104
+														96,
+														99,
+														86,
+														110
 													],
 													"materials":[
 														{
@@ -8604,7 +9126,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":202,
+												"instanceID":208,
 												"props":{
 													"name":"diy_top_002_final_0",
 													"active":true,
@@ -8626,7 +9148,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.009404182,
@@ -8648,14 +9170,14 @@
 														"radius":0.3233702
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														92,
-														83,
-														81,
+														86,
+														97,
+														96,
+														98,
 														89,
-														93
+														87,
+														95,
+														99
 													],
 													"materials":[
 														{
@@ -8669,7 +9191,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":203,
+												"instanceID":209,
 												"props":{
 													"name":"diy_top_002_final_1",
 													"active":true,
@@ -8691,7 +9213,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.02296174,
@@ -8713,14 +9235,14 @@
 														"radius":0.3067735
 													},
 													"bones":[
+														95,
+														87,
 														89,
-														81,
-														83,
-														93,
-														90,
-														80,
-														92,
-														91
+														99,
+														96,
+														86,
+														98,
+														97
 													],
 													"materials":[
 														{
@@ -8734,7 +9256,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":204,
+												"instanceID":210,
 												"props":{
 													"name":"diy_top_003_final_0",
 													"active":true,
@@ -8756,7 +9278,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.05225219,
@@ -8778,15 +9300,15 @@
 														"radius":0.4215156
 													},
 													"bones":[
-														93,
-														104,
-														83,
-														81,
-														90,
-														82,
-														80,
-														91,
-														92
+														99,
+														110,
+														89,
+														87,
+														96,
+														88,
+														86,
+														97,
+														98
 													],
 													"materials":[
 														{
@@ -8800,7 +9322,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":205,
+												"instanceID":211,
 												"props":{
 													"name":"diy_top_003_final_1",
 													"active":true,
@@ -8822,7 +9344,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.03379422,
@@ -8844,15 +9366,15 @@
 														"radius":0.4029827
 													},
 													"bones":[
-														93,
-														81,
-														83,
-														104,
-														90,
-														80,
-														92,
-														82,
-														91
+														99,
+														87,
+														89,
+														110,
+														96,
+														86,
+														98,
+														88,
+														97
 													],
 													"materials":[
 														{
@@ -8866,7 +9388,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":206,
+												"instanceID":212,
 												"props":{
 													"name":"diy_top_004_final_0",
 													"active":true,
@@ -8888,7 +9410,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.05396771,
@@ -8910,16 +9432,16 @@
 														"radius":0.2934995
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														83,
-														92,
-														93,
+														86,
+														97,
+														96,
 														89,
-														104,
-														81,
-														82
+														98,
+														99,
+														95,
+														110,
+														87,
+														88
 													],
 													"materials":[
 														{
@@ -8933,7 +9455,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":207,
+												"instanceID":213,
 												"props":{
 													"name":"diy_top_004_final_1",
 													"active":true,
@@ -8955,7 +9477,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.05914098,
@@ -8977,16 +9499,16 @@
 														"radius":0.2761204
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														92,
-														83,
+														86,
+														97,
+														96,
+														98,
 														89,
-														81,
-														82,
-														93,
-														104
+														95,
+														87,
+														88,
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -9000,7 +9522,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":208,
+												"instanceID":214,
 												"props":{
 													"name":"diy_top_005_final_0",
 													"active":true,
@@ -9022,7 +9544,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.08382982,
@@ -9044,16 +9566,16 @@
 														"radius":0.2755615
 													},
 													"bones":[
-														81,
-														90,
-														83,
-														82,
-														80,
-														91,
-														92,
-														93,
-														104,
-														89
+														87,
+														96,
+														89,
+														88,
+														86,
+														97,
+														98,
+														99,
+														110,
+														95
 													],
 													"materials":[
 														{
@@ -9067,7 +9589,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":209,
+												"instanceID":215,
 												"props":{
 													"name":"diy_top_005_final_1",
 													"active":true,
@@ -9089,7 +9611,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.09150843,
@@ -9111,16 +9633,16 @@
 														"radius":0.2467698
 													},
 													"bones":[
-														82,
-														90,
-														83,
-														81,
-														80,
-														91,
-														92,
-														93,
-														104,
-														89
+														88,
+														96,
+														89,
+														87,
+														86,
+														97,
+														98,
+														99,
+														110,
+														95
 													],
 													"materials":[
 														{
@@ -9134,7 +9656,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":210,
+												"instanceID":216,
 												"props":{
 													"name":"diy_top_006_final_0",
 													"active":true,
@@ -9156,7 +9678,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.1196777,
@@ -9178,13 +9700,13 @@
 														"radius":0.2115697
 													},
 													"bones":[
-														81,
-														82,
-														83,
+														87,
+														88,
 														89,
-														90,
-														93,
-														104
+														95,
+														96,
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -9198,7 +9720,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":211,
+												"instanceID":217,
 												"props":{
 													"name":"diy_top_006_final_1",
 													"active":true,
@@ -9220,7 +9742,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.1171351,
@@ -9242,13 +9764,13 @@
 														"radius":0.1955612
 													},
 													"bones":[
-														90,
-														83,
-														81,
-														82,
+														96,
 														89,
-														93,
-														104
+														87,
+														88,
+														95,
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -9262,7 +9784,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":212,
+												"instanceID":218,
 												"props":{
 													"name":"diy_top_007_final_0",
 													"active":true,
@@ -9284,7 +9806,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.04964089,
@@ -9306,15 +9828,15 @@
 														"radius":0.4187842
 													},
 													"bones":[
-														80,
-														91,
-														90,
-														83,
-														92,
-														104,
-														82,
-														81,
-														93
+														86,
+														97,
+														96,
+														89,
+														98,
+														110,
+														88,
+														87,
+														99
 													],
 													"materials":[
 														{
@@ -9328,7 +9850,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":213,
+												"instanceID":219,
 												"props":{
 													"name":"diy_top_007_final_1",
 													"active":true,
@@ -9350,7 +9872,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.04128253,
@@ -9372,15 +9894,15 @@
 														"radius":0.4033315
 													},
 													"bones":[
-														82,
-														83,
-														81,
-														93,
-														104,
-														90,
-														80,
-														91,
-														92
+														88,
+														89,
+														87,
+														99,
+														110,
+														96,
+														86,
+														97,
+														98
 													],
 													"materials":[
 														{
@@ -9394,7 +9916,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":214,
+												"instanceID":220,
 												"props":{
 													"name":"diy_top_008_final_0",
 													"active":true,
@@ -9416,7 +9938,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.06394023,
@@ -9438,12 +9960,12 @@
 														"radius":0.3594522
 													},
 													"bones":[
-														82,
-														83,
-														81,
-														90,
-														93,
-														104
+														88,
+														89,
+														87,
+														96,
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -9457,7 +9979,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":215,
+												"instanceID":221,
 												"props":{
 													"name":"diy_top_008_final_1",
 													"active":true,
@@ -9479,7 +10001,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.07301831,
@@ -9501,12 +10023,12 @@
 														"radius":0.3406107
 													},
 													"bones":[
-														82,
-														83,
-														81,
-														93,
-														90,
-														104
+														88,
+														89,
+														87,
+														99,
+														96,
+														110
 													],
 													"materials":[
 														{
@@ -9524,7 +10046,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":216,
+								"instanceID":222,
 								"props":{
 									"name":"General",
 									"active":true,
@@ -9551,7 +10073,7 @@
 								"child":[
 									{
 										"type":"Sprite3D",
-										"instanceID":217,
+										"instanceID":223,
 										"props":{
 											"name":"Bottoms",
 											"active":true,
@@ -9578,7 +10100,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":218,
+												"instanceID":224,
 												"props":{
 													"name":"bottom_001",
 													"active":true,
@@ -9600,7 +10122,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8656389,
@@ -9622,14 +10144,14 @@
 														"radius":0.5385206
 													},
 													"bones":[
-														92,
-														80,
-														91,
-														90,
-														95,
+														98,
+														86,
+														97,
 														96,
-														110,
-														111
+														101,
+														102,
+														116,
+														117
 													],
 													"materials":[
 														{
@@ -9643,7 +10165,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":219,
+												"instanceID":225,
 												"props":{
 													"name":"bottom_002",
 													"active":true,
@@ -9665,7 +10187,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8755641,
@@ -9687,14 +10209,14 @@
 														"radius":0.5504222
 													},
 													"bones":[
-														110,
-														111,
-														92,
-														80,
-														90,
-														91,
-														95,
-														96
+														116,
+														117,
+														98,
+														86,
+														96,
+														97,
+														101,
+														102
 													],
 													"materials":[
 														{
@@ -9708,7 +10230,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":220,
+												"instanceID":226,
 												"props":{
 													"name":"bottom_003",
 													"active":true,
@@ -9730,7 +10252,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3475743,
@@ -9752,22 +10274,22 @@
 														"radius":0.3528074
 													},
 													"bones":[
-														156,
-														146,
-														145,
-														155,
-														154,
-														161,
-														144,
-														80,
-														92,
-														160,
-														159,
-														90,
+														162,
+														152,
 														151,
+														161,
+														160,
+														167,
 														150,
-														149,
-														91
+														86,
+														98,
+														166,
+														165,
+														96,
+														157,
+														156,
+														155,
+														97
 													],
 													"materials":[
 														{
@@ -9781,7 +10303,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":221,
+												"instanceID":227,
 												"props":{
 													"name":"bottom_004",
 													"active":true,
@@ -9803,7 +10325,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.8704243,
@@ -9825,14 +10347,14 @@
 														"radius":0.5366637
 													},
 													"bones":[
-														110,
-														111,
-														92,
-														80,
-														90,
-														91,
-														95,
-														96
+														116,
+														117,
+														98,
+														86,
+														96,
+														97,
+														101,
+														102
 													],
 													"materials":[
 														{
@@ -9846,7 +10368,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":222,
+												"instanceID":228,
 												"props":{
 													"name":"bottom_005",
 													"active":true,
@@ -9868,7 +10390,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.3138009,
@@ -9890,22 +10412,22 @@
 														"radius":0.3487598
 													},
 													"bones":[
-														80,
-														154,
-														90,
-														155,
-														92,
-														144,
-														91,
-														145,
-														156,
-														146,
-														159,
+														86,
 														160,
+														96,
 														161,
-														149,
+														98,
 														150,
-														151
+														97,
+														151,
+														162,
+														152,
+														165,
+														166,
+														167,
+														155,
+														156,
+														157
 													],
 													"materials":[
 														{
@@ -9919,7 +10441,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":223,
+												"instanceID":229,
 												"props":{
 													"name":"bottom_006",
 													"active":true,
@@ -9941,7 +10463,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1097656,
@@ -9963,10 +10485,10 @@
 														"radius":0.2419971
 													},
 													"bones":[
-														92,
-														80,
-														90,
-														91
+														98,
+														86,
+														96,
+														97
 													],
 													"materials":[
 														{
@@ -9982,7 +10504,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":224,
+										"instanceID":230,
 										"props":{
 											"name":"Dress",
 											"active":true,
@@ -10009,7 +10531,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":225,
+												"instanceID":231,
 												"props":{
 													"name":"dress_001",
 													"active":true,
@@ -10031,7 +10553,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2309225,
@@ -10053,24 +10575,24 @@
 														"radius":0.5392064
 													},
 													"bones":[
-														104,
-														109,
-														82,
-														94,
-														83,
-														90,
-														93,
-														81,
+														110,
+														115,
+														88,
+														100,
 														89,
-														80,
-														154,
-														149,
-														150,
-														155,
-														159,
+														96,
+														99,
+														87,
+														95,
+														86,
 														160,
-														144,
-														145
+														155,
+														156,
+														161,
+														165,
+														166,
+														150,
+														151
 													],
 													"materials":[
 														{
@@ -10084,7 +10606,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":226,
+												"instanceID":232,
 												"props":{
 													"name":"dress_002",
 													"active":true,
@@ -10106,7 +10628,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2618926,
@@ -10128,27 +10650,27 @@
 														"radius":0.6260151
 													},
 													"bones":[
-														94,
-														82,
-														109,
-														104,
-														83,
-														90,
-														80,
-														149,
-														150,
-														151,
-														160,
+														100,
+														88,
+														115,
+														110,
+														89,
+														96,
+														86,
 														155,
-														154,
 														156,
-														146,
-														81,
-														93,
-														159,
+														157,
+														166,
 														161,
-														145,
-														144
+														160,
+														162,
+														152,
+														87,
+														99,
+														165,
+														167,
+														151,
+														150
 													],
 													"materials":[
 														{
@@ -10162,7 +10684,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":227,
+												"instanceID":233,
 												"props":{
 													"name":"dress_003",
 													"active":true,
@@ -10184,7 +10706,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.1738144,
@@ -10206,19 +10728,19 @@
 														"radius":0.4726799
 													},
 													"bones":[
-														160,
-														159,
-														145,
-														150,
-														149,
+														166,
+														165,
+														151,
+														156,
 														155,
-														144,
-														90,
-														80,
-														83,
-														154,
-														93,
-														81
+														161,
+														150,
+														96,
+														86,
+														89,
+														160,
+														99,
+														87
 													],
 													"materials":[
 														{
@@ -10232,7 +10754,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":228,
+												"instanceID":234,
 												"props":{
 													"name":"dress_004",
 													"active":true,
@@ -10254,7 +10776,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2075934,
@@ -10276,21 +10798,21 @@
 														"radius":0.4833306
 													},
 													"bones":[
-														83,
-														81,
-														82,
-														90,
-														80,
-														159,
-														149,
+														89,
+														87,
+														88,
+														96,
+														86,
+														165,
+														155,
+														166,
+														156,
+														151,
+														161,
 														160,
 														150,
-														145,
-														155,
-														154,
-														144,
-														93,
-														104
+														99,
+														110
 													],
 													"materials":[
 														{
@@ -10304,7 +10826,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":229,
+												"instanceID":235,
 												"props":{
 													"name":"dress_005",
 													"active":true,
@@ -10326,7 +10848,7 @@
 														0.9999999,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2998691,
@@ -10348,21 +10870,21 @@
 														"radius":0.5293303
 													},
 													"bones":[
-														93,
-														83,
-														104,
-														82,
-														90,
-														80,
-														159,
-														160,
-														144,
-														149,
-														145,
+														99,
+														89,
+														110,
+														88,
+														96,
+														86,
+														165,
+														166,
+														150,
 														155,
-														81,
-														154,
-														150
+														151,
+														161,
+														87,
+														160,
+														156
 													],
 													"materials":[
 														{
@@ -10376,7 +10898,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":230,
+												"instanceID":236,
 												"props":{
 													"name":"dress_006",
 													"active":true,
@@ -10398,7 +10920,7 @@
 														0.9999999,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															-0.2081909,
@@ -10420,19 +10942,19 @@
 														"radius":0.4842501
 													},
 													"bones":[
-														90,
-														83,
-														82,
-														80,
-														144,
-														154,
-														145,
-														155,
+														96,
+														89,
+														88,
+														86,
 														150,
-														149,
 														160,
-														159,
-														104
+														151,
+														161,
+														156,
+														155,
+														166,
+														165,
+														110
 													],
 													"materials":[
 														{
@@ -10448,7 +10970,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":231,
+										"instanceID":237,
 										"props":{
 											"name":"Hair",
 											"active":true,
@@ -10475,7 +10997,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":232,
+												"instanceID":238,
 												"props":{
 													"name":"hair_000",
 													"active":true,
@@ -10497,7 +11019,7 @@
 														1,
 														1
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.2435297,
@@ -10519,11 +11041,11 @@
 														"radius":0.3495895
 													},
 													"bones":[
-														88,
-														129,
-														133,
-														134,
-														135
+														94,
+														135,
+														139,
+														140,
+														141
 													],
 													"materials":[
 														{
@@ -10537,7 +11059,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":233,
+												"instanceID":239,
 												"props":{
 													"name":"hair_001",
 													"active":true,
@@ -10559,7 +11081,7 @@
 														1,
 														1
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.3706709,
@@ -10581,10 +11103,10 @@
 														"radius":0.4085114
 													},
 													"bones":[
-														88,
-														134,
-														133,
-														135
+														94,
+														140,
+														139,
+														141
 													],
 													"materials":[
 														{
@@ -10598,7 +11120,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":234,
+												"instanceID":240,
 												"props":{
 													"name":"hair_002",
 													"active":true,
@@ -10620,7 +11142,7 @@
 														110,
 														110
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.2239479,
@@ -10642,18 +11164,18 @@
 														"radius":0.3767756
 													},
 													"bones":[
-														88,
-														136,
-														137,
-														140,
-														138,
-														139,
-														133,
-														134,
-														141,
+														94,
 														142,
 														143,
-														135
+														146,
+														144,
+														145,
+														139,
+														140,
+														147,
+														148,
+														149,
+														141
 													],
 													"materials":[
 														{
@@ -10667,7 +11189,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":235,
+												"instanceID":241,
 												"props":{
 													"name":"hair_003",
 													"active":true,
@@ -10689,7 +11211,7 @@
 														110,
 														110
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.01988131,
@@ -10711,11 +11233,11 @@
 														"radius":0.2290339
 													},
 													"bones":[
-														88,
-														140,
-														141,
-														137,
-														136
+														94,
+														146,
+														147,
+														143,
+														142
 													],
 													"materials":[
 														{
@@ -10729,7 +11251,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":236,
+												"instanceID":242,
 												"props":{
 													"name":"hair_004",
 													"active":true,
@@ -10751,7 +11273,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.3643216,
@@ -10773,18 +11295,18 @@
 														"radius":0.4199973
 													},
 													"bones":[
-														88,
-														136,
-														137,
-														140,
-														133,
-														141,
-														138,
-														139,
+														94,
+														142,
 														143,
-														134,
-														135,
-														142
+														146,
+														139,
+														147,
+														144,
+														145,
+														149,
+														140,
+														141,
+														148
 													],
 													"materials":[
 														{
@@ -10798,7 +11320,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":237,
+												"instanceID":243,
 												"props":{
 													"name":"hair_005",
 													"active":true,
@@ -10820,7 +11342,7 @@
 														110,
 														110
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.1192029,
@@ -10842,12 +11364,12 @@
 														"radius":0.2810035
 													},
 													"bones":[
-														88,
-														140,
-														141,
-														133,
-														136,
-														137
+														94,
+														146,
+														147,
+														139,
+														142,
+														143
 													],
 													"materials":[
 														{
@@ -10861,7 +11383,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":238,
+												"instanceID":244,
 												"props":{
 													"name":"hair_006",
 													"active":true,
@@ -10883,7 +11405,7 @@
 														0.9999999,
 														0.9999999
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.2016967,
@@ -10905,12 +11427,12 @@
 														"radius":0.3196749
 													},
 													"bones":[
-														88,
-														140,
-														141,
-														137,
-														133,
-														136
+														94,
+														146,
+														147,
+														143,
+														139,
+														142
 													],
 													"materials":[
 														{
@@ -10924,7 +11446,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":239,
+												"instanceID":245,
 												"props":{
 													"name":"hair_007",
 													"active":true,
@@ -10946,7 +11468,7 @@
 														1,
 														1
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.2444871,
@@ -10968,11 +11490,11 @@
 														"radius":0.3469672
 													},
 													"bones":[
-														88,
-														132,
-														131,
-														130,
-														129
+														94,
+														138,
+														137,
+														136,
+														135
 													],
 													"materials":[
 														{
@@ -10986,7 +11508,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":240,
+												"instanceID":246,
 												"props":{
 													"name":"hair_008",
 													"active":true,
@@ -11008,7 +11530,7 @@
 														1,
 														1
 													],
-													"rootBone":88,
+													"rootBone":94,
 													"boundBox":{
 														"min":[
 															-0.2816769,
@@ -11030,14 +11552,14 @@
 														"radius":0.3566478
 													},
 													"bones":[
-														138,
-														139,
-														137,
-														88,
-														136,
-														140,
-														141,
-														142
+														144,
+														145,
+														143,
+														94,
+														142,
+														146,
+														147,
+														148
 													],
 													"materials":[
 														{
@@ -11053,7 +11575,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":241,
+										"instanceID":247,
 										"props":{
 											"name":"Shoes",
 											"active":true,
@@ -11080,7 +11602,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":242,
+												"instanceID":248,
 												"props":{
 													"name":"shoes_001",
 													"active":true,
@@ -11102,7 +11624,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4386866,
@@ -11124,12 +11646,12 @@
 														"radius":0.1746501
 													},
 													"bones":[
-														96,
-														95,
-														97,
-														111,
-														110,
-														112
+														102,
+														101,
+														103,
+														117,
+														116,
+														118
 													],
 													"materials":[
 														{
@@ -11143,7 +11665,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":243,
+												"instanceID":249,
 												"props":{
 													"name":"shoes_002",
 													"active":true,
@@ -11165,7 +11687,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4607173,
@@ -11187,12 +11709,12 @@
 														"radius":0.1706166
 													},
 													"bones":[
-														95,
-														96,
-														97,
-														110,
-														111,
-														112
+														101,
+														102,
+														103,
+														116,
+														117,
+														118
 													],
 													"materials":[
 														{
@@ -11206,7 +11728,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":244,
+												"instanceID":250,
 												"props":{
 													"name":"shoes_003",
 													"active":true,
@@ -11228,7 +11750,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4890745,
@@ -11250,12 +11772,12 @@
 														"radius":0.1684656
 													},
 													"bones":[
-														96,
-														97,
-														95,
-														111,
-														112,
-														110
+														102,
+														103,
+														101,
+														117,
+														118,
+														116
 													],
 													"materials":[
 														{
@@ -11269,7 +11791,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":245,
+												"instanceID":251,
 												"props":{
 													"name":"shoes_004",
 													"active":true,
@@ -11291,7 +11813,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4825478,
@@ -11313,12 +11835,12 @@
 														"radius":0.1733176
 													},
 													"bones":[
-														96,
-														97,
-														95,
-														111,
-														112,
-														110
+														102,
+														103,
+														101,
+														117,
+														118,
+														116
 													],
 													"materials":[
 														{
@@ -11332,7 +11854,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":246,
+												"instanceID":252,
 												"props":{
 													"name":"shoes_005",
 													"active":true,
@@ -11354,7 +11876,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4968373,
@@ -11376,12 +11898,12 @@
 														"radius":0.1646754
 													},
 													"bones":[
-														96,
-														97,
-														95,
-														111,
-														112,
-														110
+														102,
+														103,
+														101,
+														117,
+														118,
+														116
 													],
 													"materials":[
 														{
@@ -11395,7 +11917,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":247,
+												"instanceID":253,
 												"props":{
 													"name":"shoes_006",
 													"active":true,
@@ -11417,7 +11939,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4684051,
@@ -11439,12 +11961,12 @@
 														"radius":0.1678323
 													},
 													"bones":[
-														95,
-														96,
-														97,
-														110,
-														111,
-														112
+														101,
+														102,
+														103,
+														116,
+														117,
+														118
 													],
 													"materials":[
 														{
@@ -11458,7 +11980,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":248,
+												"instanceID":254,
 												"props":{
 													"name":"shoes_007",
 													"active":true,
@@ -11480,7 +12002,7 @@
 														1,
 														1
 													],
-													"rootBone":110,
+													"rootBone":116,
 													"boundBox":{
 														"min":[
 															0.4782621,
@@ -11502,12 +12024,12 @@
 														"radius":0.1670576
 													},
 													"bones":[
-														96,
-														95,
-														97,
-														111,
-														110,
-														112
+														102,
+														101,
+														103,
+														117,
+														116,
+														118
 													],
 													"materials":[
 														{
@@ -11523,7 +12045,7 @@
 									},
 									{
 										"type":"Sprite3D",
-										"instanceID":249,
+										"instanceID":255,
 										"props":{
 											"name":"Top",
 											"active":true,
@@ -11550,7 +12072,7 @@
 										"child":[
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":250,
+												"instanceID":256,
 												"props":{
 													"name":"top_001",
 													"active":true,
@@ -11572,7 +12094,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.05966884,
@@ -11594,14 +12116,14 @@
 														"radius":0.3228357
 													},
 													"bones":[
-														90,
-														83,
-														93,
-														104,
-														81,
-														82,
+														96,
 														89,
-														88
+														99,
+														110,
+														87,
+														88,
+														95,
+														94
 													],
 													"materials":[
 														{
@@ -11615,7 +12137,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":251,
+												"instanceID":257,
 												"props":{
 													"name":"top_002",
 													"active":true,
@@ -11637,7 +12159,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.04086143,
@@ -11659,12 +12181,12 @@
 														"radius":0.3221425
 													},
 													"bones":[
-														90,
-														83,
+														96,
 														89,
-														81,
-														82,
-														80
+														95,
+														87,
+														88,
+														86
 													],
 													"materials":[
 														{
@@ -11678,7 +12200,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":252,
+												"instanceID":258,
 												"props":{
 													"name":"top_003",
 													"active":true,
@@ -11700,7 +12222,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.04838866,
@@ -11722,12 +12244,12 @@
 														"radius":0.2629111
 													},
 													"bones":[
+														95,
+														87,
 														89,
-														81,
-														83,
-														93,
-														90,
-														88
+														99,
+														96,
+														94
 													],
 													"materials":[
 														{
@@ -11741,7 +12263,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":253,
+												"instanceID":259,
 												"props":{
 													"name":"top_004",
 													"active":true,
@@ -11763,7 +12285,7 @@
 														1,
 														1
 													],
-													"rootBone":80,
+													"rootBone":86,
 													"boundBox":{
 														"min":[
 															0.1202905,
@@ -11785,18 +12307,18 @@
 														"radius":0.5122239
 													},
 													"bones":[
-														93,
+														99,
+														95,
 														89,
-														83,
-														81,
-														90,
-														104,
-														92,
-														80,
-														109,
-														82,
-														91,
-														94
+														87,
+														96,
+														110,
+														98,
+														86,
+														115,
+														88,
+														97,
+														100
 													],
 													"materials":[
 														{
@@ -11810,7 +12332,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":254,
+												"instanceID":260,
 												"props":{
 													"name":"top_005",
 													"active":true,
@@ -11832,7 +12354,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															0.05690372,
@@ -11854,10 +12376,10 @@
 														"radius":0.2133804
 													},
 													"bones":[
-														90,
-														83,
-														81,
-														93
+														96,
+														89,
+														87,
+														99
 													],
 													"materials":[
 														{
@@ -11871,7 +12393,7 @@
 											},
 											{
 												"type":"SkinnedMeshSprite3D",
-												"instanceID":255,
+												"instanceID":261,
 												"props":{
 													"name":"top_006",
 													"active":true,
@@ -11893,7 +12415,7 @@
 														1,
 														1
 													],
-													"rootBone":90,
+													"rootBone":96,
 													"boundBox":{
 														"min":[
 															-0.009485006,
@@ -11915,17 +12437,17 @@
 														"radius":0.6089377
 													},
 													"bones":[
-														90,
-														83,
-														104,
-														93,
-														88,
-														81,
-														82,
-														109,
-														105,
+														96,
+														89,
+														110,
+														99,
 														94,
-														84
+														87,
+														88,
+														115,
+														111,
+														100,
+														90
 													],
 													"materials":[
 														{
@@ -11945,7 +12467,7 @@
 					},
 					{
 						"type":"MeshSprite3D",
-						"instanceID":256,
+						"instanceID":262,
 						"props":{
 							"name":"Plane",
 							"active":true,
@@ -11996,7 +12518,7 @@
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":257,
+				"instanceID":263,
 				"props":{
 					"name":"Bg1",
 					"active":true,
@@ -12009,8 +12531,8 @@
 					],
 					"rotation":[
 						0,
-						0.8191521,
-						-0.5735764,
+						0.7660445,
+						-0.6427876,
 						0
 					],
 					"scale":[
@@ -12026,26 +12548,12 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"MeshColliderShape",
-								"mesh":"Library/unity default resources-Plane.lm"
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":258,
+				"instanceID":264,
 				"props":{
 					"name":"MirrorTag",
 					"active":true,
@@ -12104,7 +12612,7 @@
 			},
 			{
 				"type":"Camera",
-				"instanceID":259,
+				"instanceID":265,
 				"props":{
 					"name":"Main Camera",
 					"active":true,
@@ -12112,13 +12620,13 @@
 					"layer":0,
 					"position":[
 						0,
-						1.336,
-						-0.629
+						0.98,
+						-0.99
 					],
 					"rotation":[
 						0,
-						0.9848078,
-						0.1736482,
+						0.9961947,
+						0.08715578,
 						0
 					],
 					"scale":[
@@ -12151,7 +12659,7 @@
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":260,
+				"instanceID":266,
 				"props":{
 					"name":"Bg2",
 					"active":true,
@@ -12181,35 +12689,21 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"MeshColliderShape",
-								"mesh":"Library/unity default resources-Plane.lm"
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":261,
+				"instanceID":267,
 				"props":{
 					"name":"BtnDress",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-0.683,
-						1.401,
-						1.705
+						-0.723,
+						1.413,
+						1.684
 					],
 					"rotation":[
 						0,
@@ -12231,43 +12725,20 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"BoxColliderShape",
-								"center":[
-									0,
-									0,
-									0
-								],
-								"size":[
-									1,
-									1,
-									1
-								]
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":262,
+				"instanceID":268,
 				"props":{
 					"name":"BtnTop",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-1.9389,
-						1.452,
+						-2.017,
+						1.479,
 						1.904
 					],
 					"rotation":[
@@ -12290,35 +12761,12 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"BoxColliderShape",
-								"center":[
-									0,
-									0,
-									0
-								],
-								"size":[
-									1,
-									1,
-									1
-								]
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":263,
+				"instanceID":269,
 				"props":{
 					"name":"BtnBottoms",
 					"active":true,
@@ -12349,35 +12797,12 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"BoxColliderShape",
-								"center":[
-									0,
-									0,
-									0
-								],
-								"size":[
-									1,
-									1,
-									1
-								]
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":264,
+				"instanceID":270,
 				"props":{
 					"name":"BtnDressingRoom",
 					"active":true,
@@ -12408,30 +12833,7 @@
 						}
 					]
 				},
-				"components":[
-					{
-						"type":"PhysicsCollider",
-						"restitution":0,
-						"friction":0.5,
-						"rollingFriction":0,
-						"shapes":[
-							{
-								"type":"BoxColliderShape",
-								"center":[
-									0,
-									0,
-									0
-								],
-								"size":[
-									1,
-									1,
-									1
-								]
-							}
-						],
-						"isTrigger":false
-					}
-				],
+				"components":[],
 				"child":[]
 			}
 		]

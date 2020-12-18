@@ -9,8 +9,6 @@ import { _Ranking } from "./_Ranking";
 import { _UI } from "./_UI";
 export module _MakePattern {
     export enum _Event {
-        addTexture2D = '_MakePattern_addTexture2D',
-        rotateHanger = '_MakePattern_rotateHanger',
         moveUltimately = '_MakePattern_moveUltimately',
         resetTex = '_MakePattern_resetTex',
         changeDir = '_MakePattern_resetTex',
@@ -80,8 +78,6 @@ export module _MakePattern {
                 } else {
                     Icon.skin = null;
                 }
-                // const Board = Cell.getChildByName('Board') as Laya.Image;
-                // Board.skin = `Lwg/UI/ui_orthogon_green.png`;
             }
         }
         lwgAdaptive(): void {
@@ -94,7 +90,7 @@ export module _MakePattern {
             for (let index = 0; index < _Pattern._ins()._List.cells.length; index++) {
                 let Cell = _Pattern._ins()._List.cells[index];
                 if (!Cell.getComponent(_Item)) {
-                    Cell.addComponent(_Item)
+                    Cell.addComponent(_Item);
                 }
             }
 
@@ -103,7 +99,7 @@ export module _MakePattern {
             const name0 = clothesName.substr(0, clothesName.length - 5);
             this._ImgVar('Front').loadImage(`Game/UI/MakePattern/basic/${name0}basic.png`, Laya.Handler.create(this, () => {
                 this._ImgVar('Reverse').loadImage(`Game/UI/MakePattern/basic/${name0}basic.png`, Laya.Handler.create(this, () => {
-                    EventAdmin._notify(_Event.addTexture2D, this.Tex.getTex());
+                    _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
                 }));
             }));
 
@@ -113,9 +109,10 @@ export module _MakePattern {
             this.UI = new _UI(this._Owner);
             this.UI.BtnAgain.pos(86, 630);
             TimerAdmin._frameOnce(10, this, () => {
-                this.UI.operationAppear();
+                this.UI.operationAppear(() => {
+                    this.UI.btnCompleteAppear(null, 400);
+                });
                 this.UI.btnBackAppear(null, 200);
-                this.UI.btnCompleteAppear(null, 400);
                 this.UI.btnRollbackAppear(null, 600);
                 this.UI.btnAgainAppear(null, 800);
             })
@@ -137,11 +134,11 @@ export module _MakePattern {
             this.UI.btnAgainClick = () => {
                 Tools._Node.removeAllChildren(this._SpriteVar('Front'));
                 Tools._Node.removeAllChildren(this._SpriteVar('Reverse'));
-                EventAdmin._notify(_Event.addTexture2D, this.Tex.getTex());
+                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             }
 
-            this._SpriteVar('Front').height = this._ImgVar('Reverse').height = _texHeight;
-            this._SpriteVar('Front').y = this._ImgVar('Reverse').y = _texHeight;
+            this._SpriteVar('Front').height = this._ImgVar('Reverse').height = _3D.DIYCloth._ins().texHeight;
+            this._SpriteVar('Front').y = this._ImgVar('Reverse').y = _3D.DIYCloth._ins().texHeight;
         }
 
         lwgEvent(): void {
@@ -199,7 +196,7 @@ export module _MakePattern {
                 this._SpriteVar('Dispaly').visible = true;
                 this.Tex.restore();
             },
-            getTex: (): Array<Laya.Texture> => {
+            getTex: (): Laya.Texture[] => {
                 let ImgF = this._ImgVar(this.Tex.dirType.Front);
                 let ImgR = this._ImgVar(this.Tex.dirType.Reverse);
                 let arr = [
@@ -208,25 +205,15 @@ export module _MakePattern {
                 ]
                 return arr;
             },
-            checkDir: () => {
-                if (0 <= _HangerSimRY && _HangerSimRY < 180) {
-                    this.Tex.dir = this.Tex.dirType.Front;
-                } else {
-                    this.Tex.dir = this.Tex.dirType.Reverse;
-                }
-            },
             setImgPos: (): boolean => {
                 let posArr = this.Tex.setPosArr();
                 let indexArr: Array<Laya.Point> = [];
-                let fOutArr: Array<Laya.HitResult> = [];
-                let rOutArr: Array<Laya.HitResult> = [];
+                let outArr: Laya.HitResult[] = [];
                 for (let index = 0; index < posArr.length; index++) {
                     let gPoint = this._SpriteVar('Wireframe').localToGlobal(new Laya.Point(posArr[index].x, posArr[index].y));
-                    let _outF = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
-                    _outF && fOutArr.push(_outF)
-                    let _outR = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
-                    _outR && rOutArr.push(_outR)
-                    if (_outF || _outR) {
+                    const out = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), 'model');
+                    if (out) {
+                        outArr.push(out);
                         indexArr.push(posArr[index]);
                         let Img = this._Owner.getChildByName(`Img${index}`) as Laya.Image;
                         if (!Img) {
@@ -244,46 +231,28 @@ export module _MakePattern {
                     }
                 }
                 if (indexArr.length !== 0) {
-                    let out: Laya.HitResult;
-                    if (fOutArr.length == rOutArr.length) {
-                        // console.log('两个都碰到了！');
-                        this.Tex.checkDir();
-                    } else if (fOutArr.length > rOutArr.length) {
-                        // console.log('正面')
-                        this.Tex.dir = this.Tex.dirType.Front;
-                    } else if (fOutArr.length < rOutArr.length) {
-                        // console.log('反面')
-                        this.Tex.dir = this.Tex.dirType.Reverse;
-                    }
-                    if (this.Tex.dir == this.Tex.dirType.Front) {
-                        out = fOutArr[fOutArr.length - 1]
-                    } else {
-                        out = rOutArr[rOutArr.length - 1]
-                    }
-
-                    //    console.log(out);
-
+                    const out = outArr[outArr.length - 1];
                     this._SpriteVar(this.Tex.dir).addChild(this.Tex.Img);
                     Tools._Node.changePivot(this.Tex.Img, indexArr[indexArr.length - 1].x, indexArr[indexArr.length - 1].y);
                     let _width = this._ImgVar(this.Tex.dir).width;
                     let _height = this._ImgVar(this.Tex.dir).height;
                     //通过xz的角度计算x的比例，俯视
-                    let angleXZ = Tools._Point.pointByAngle(_Hanger.transform.position.x - out.point.x, _Hanger.transform.position.z - out.point.z);
-                    let _angleY: number;
+                    let angleXZ = Tools._Point.pointByAngle(_3D.DIYCloth._ins().ModelTap.transform.position.x - out.point.x, _3D.DIYCloth._ins().ModelTap.transform.position.z - out.point.z);
+                    // let _angleY: number;
                     if (this.Tex.dir == this.Tex.dirType.Front) {
-                        _angleY = angleXZ + _HangerSimRY;
-                        this.Tex.Img.x = _width - _width / 180 * (_angleY);
+                        // _angleY = angleXZ + _3D.DIYCloth._ins().simRY;
+                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90);
                     } else {
-                        _angleY = angleXZ + _HangerSimRY - 180;
-                        this.Tex.Img.x = - _width / 180 * (_angleY);
+                        // _angleY = angleXZ + _3D.DIYCloth._ins().simRY - 180;
+                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90);
                     }
                     // console.log(this.Tex.Img.x);
 
                     // 通过xy计算y
-                    let pH = out.point.y - _Hanger.transform.position.y;//扫描点位置
-                    let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _Front : _Reverse).y;
+                    let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;//扫描点位置
+                    let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
-                    this.Tex.Img.y = ratio * _height + this._ImgVar('Wireframe').height / 2 * ratio;
+                    this.Tex.Img.y = ratio * _height;
 
                     // console.log(this.Tex.Img.x, this.Tex.Img.y);
                     return true;
@@ -321,22 +290,16 @@ export module _MakePattern {
              * 检测是不是在模型中
              * */
             checkInside: (): any => {
-                this.Tex.checkDir();
-                let posArr = this.Tex.setPosArr()
-                let fOutArr: Array<Laya.HitResult> = [];
-                let rOutArr: Array<Laya.HitResult> = [];
+                let posArr = this.Tex.setPosArr();
+                let bool = false;
                 for (let index = 0; index < posArr.length; index++) {
                     let gPoint = this._SpriteVar('Wireframe').localToGlobal(new Laya.Point(posArr[index].x, posArr[index].y));
-                    let _outF = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
-                    _outF && fOutArr.push(_outF)
-                    let _outR = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
-                    _outR && rOutArr.push(_outR);
+                    const _out = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), 'model');
+                    if (_out) {
+                        bool = true;
+                    }
                 }
-                if (fOutArr.length !== 0 || rOutArr.length !== 0) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return bool;
             },
             getDisGP: (): Laya.Point => {
                 return this.Tex.DisImg ? this._SpriteVar('Dispaly').localToGlobal(new Laya.Point(this.Tex.DisImg.x, this.Tex.DisImg.y)) : null
@@ -366,7 +329,7 @@ export module _MakePattern {
                     this.Tex.Img.x = Laya.stage.width;
                     this._SpriteVar('Dispaly').visible = true;
                 }
-                EventAdmin._notify(_Event.addTexture2D, this.Tex.getTex());
+                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             scale: (e: Laya.Event): void => {
                 let lPoint = this._ImgVar('Wireframe').globalToLocal(new Laya.Point(e.stageX, e.stageY));
@@ -386,13 +349,13 @@ export module _MakePattern {
                 Tools._Node.changePivotCenter(this.Tex.Img);
                 Tools._Node.changePivotCenter(this.Tex.DisImg);
                 this.Tex.setImgPos();
-                EventAdmin._notify(_Event.addTexture2D, this.Tex.getTex());
+                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             rotate: (e: Laya.Event) => {
                 if (this.Tex.diffP.x > 0) {
-                    EventAdmin._notify(_Event.rotateHanger, [1]);
+                    _3D.DIYCloth._ins().rotate(1);
                 } else {
-                    EventAdmin._notify(_Event.rotateHanger, [0]);
+                    _3D.DIYCloth._ins().rotate(0);
                 }
             },
             none: () => {
@@ -421,7 +384,7 @@ export module _MakePattern {
                 this.Tex.Img && this.Tex.Img.destroy();
                 this.Tex.state = this.Tex.stateType.none;
                 this.Tex.touchP = null;
-                EventAdmin._notify(_Event.addTexture2D, this.Tex.getTex());
+                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             btn: () => {
                 this._btnFour(this._ImgVar('WConversion'), (e: Laya.Event) => {
@@ -440,7 +403,7 @@ export module _MakePattern {
                     this._ImgVar('Wireframe').visible = false;
                     this.Tex.state = this.Tex.stateType.rotate;
                     TimerAdmin._frameLoop(1, this._ImgVar('BtnL'), () => {
-                        EventAdmin._notify(_Event.rotateHanger, [0]);
+                        _3D.DIYCloth._ins().rotate(0);
                     })
                 }, null, () => {
                     Laya.timer.clearAll(this._ImgVar('BtnL'));
@@ -451,7 +414,7 @@ export module _MakePattern {
                     this._ImgVar('Wireframe').visible = false;
                     this.Tex.state = this.Tex.stateType.rotate;
                     TimerAdmin._frameLoop(1, this._ImgVar('BtnR'), () => {
-                        EventAdmin._notify(_Event.rotateHanger, [1]);
+                        _3D.DIYCloth._ins().rotate(1);
                     })
                 }, null, () => {
                     Laya.timer.clearAll(this._ImgVar('BtnR'));
@@ -467,7 +430,7 @@ export module _MakePattern {
         EndCamera: Laya.Camera;
         /**截图*/
         photo(): void {
-            _Hanger.transform.localRotationEulerY = 180;
+            _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
             this.EndCamera = _3D._Scene._ins()._MainCamara.clone() as Laya.Camera;
             _3D._Scene._ins()._Owner.addChild(this.EndCamera);
             this.EndCamera.transform.position = _3D._Scene._ins()._MainCamara.transform.position;
@@ -544,68 +507,6 @@ export module _MakePattern {
         }
         lwgCloseAni(): number {
             return 10;
-        }
-    }
-    export let _Hanger: Laya.MeshSprite3D;
-    export let _Front: Laya.MeshSprite3D;
-    export let _Reverse: Laya.MeshSprite3D;
-    // export let _HangerP: Laya.MeshSprite3D;
-    export let _texHeight = 0;
-    /**模型的角度*/
-    export let _HangerSimRY = 90;
-    export class MakeClothes3D extends lwg3D._Scene3DBase {
-        lwgOnAwake(): void {
-        }
-        lwgEvent(): void {
-            this._evReg(_Event.remake, () => {
-                // _HangerP = this._Child('HangerP');
-                const Classify = _3D._Scene._ins()._DIYHanger.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
-                Tools._Node.showExcludedChild3D(_3D._Scene._ins()._DIYHanger, [Classify.name]);
-
-                _Hanger = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName) as Laya.MeshSprite3D;
-                Tools._Node.showExcludedChild3D(Classify, [_Hanger.name]);
-
-                _Hanger.transform.localRotationEulerY = 180;
-
-                _Front = _Hanger.getChildByName(`${_Hanger.name}_0`) as Laya.MeshSprite3D;
-                _Reverse = _Hanger.getChildByName(`${_Hanger.name}_1`) as Laya.MeshSprite3D;
-
-                let center = _Front.meshRenderer.bounds.getCenter();
-                let extent = _Front.meshRenderer.bounds.getExtent();
-
-                //映射图片宽度 
-                let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
-                let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
-                let point1 = Tools._3D.posToScreen(p1, _3D._Scene._ins()._MainCamara);
-                let point2 = Tools._3D.posToScreen(p2, _3D._Scene._ins()._MainCamara);
-                _texHeight = point2.y - point1.y;
-                // this._evNotify(_Event.setTexSize, [point2.y - point1.y]);
-            })
-
-            this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
-                const bMF = _Front.meshRenderer.material as Laya.UnlitMaterial;
-                bMF.albedoTexture && bMF.albedoTexture.destroy();
-                bMF.albedoTexture = Text2DF;
-                const bMR = _Reverse.meshRenderer.material as Laya.UnlitMaterial;
-                bMR.albedoTexture && bMR.albedoTexture.destroy();
-                bMR.albedoTexture = Text2DR;
-            })
-
-            this._evReg(_Event.rotateHanger, (num: number) => {
-                if (num == 1) {
-                    _Hanger.transform.localRotationEulerY++;
-                    _HangerSimRY += 2;
-                    if (_HangerSimRY > 360) {
-                        _HangerSimRY = 0;
-                    }
-                } else {
-                    _Hanger.transform.localRotationEulerY--;
-                    _HangerSimRY -= 2;
-                    if (_HangerSimRY < 0) {
-                        _HangerSimRY = 359;
-                    }
-                }
-            })
         }
     }
 }

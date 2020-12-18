@@ -35,7 +35,6 @@ export module _Start {
                     UI.effect(this._Owner, new Laya.Point(element.x, element.y), delay);
                 }
             });
-            _3D._Scene._ins().changeStartBg();
 
             if (_Ranking._whereFrom === 'MakePattern') {
                 TimerAdmin._frameOnce(60, this, () => {

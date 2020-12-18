@@ -457,7 +457,6 @@ export module _MakeTailor {
                         })
                         TimerAdmin._frameOnce(280, this, () => {
                             this._openScene('MakePattern', true, true);
-                            _3D._Scene._ins().setDIYClothes();
                         })
                     }
                 }

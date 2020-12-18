@@ -1,22 +1,9 @@
 import { Admin, EventAdmin, SceneAnimation, TimerAdmin, _LwgPreLoad, _SceneName } from "./Lwg";
+import { _3D } from "./_3D";
 import { _MakePattern } from "./_MakePattern";
 import { _MakeTailor } from "./_MakeTailor";
 import { _Res } from "./_PreLoad";
 export module _CutInRes {
-    export let MakePattern = {
-        scene3D: {
-            MakeScene: {
-                url: `_Lwg3D/_Scene/LayaScene_MakeScene/Conventional/MakeClothes.ls`,
-                Scene: null as Laya.Scene3D,
-            },
-        },
-    }
-    // export let MakeUp = {
-    //     MakeUp: {
-    //         url: `_Lwg3D/_Scene/LayaScene_MakeUp/Conventional/MakeUp.ls`,
-    //         Scene: null as Laya.Scene3D,
-    //     },
-    // }
 }
 export module _PreLoadCutIn {
     export enum _Event {
@@ -40,19 +27,18 @@ export module _PreLoadCutIn {
                 }, () => {
                     switch (Admin._PreLoadCutIn.openName) {
                         case 'MakePattern':
-                            this.intoMakePattern();
+                            _3D._Scene._ins().intoMakePattern();
                             break;
                         case 'MakeTailor':
+                            _3D._Scene._ins().intoMakeTailor();
                             _MakeTailor._DIYClothes._ins().ClothesArr = null;
                             _MakeTailor._DIYClothes._ins().getClothesArr();
                             break;
-
-                        case 'DressingRoom':
-                            // this.intoMakePattern();
-                            break;
                         case 'Start':
-                            this.backStart();
+                            _3D._Scene._ins().intoStart();
                             break;
+                        case 'DressingRoom':
+                            _3D._Scene._ins().intogeDressingRoom();
                         default:
                             break;
                     }
@@ -62,23 +48,8 @@ export module _PreLoadCutIn {
                 })
             })
         }
-        backStart(): void {
-            if (Admin._PreLoadCutIn.closeName == 'DressingRoom') {
-                // _Res._list.scene3D.MakeClothes.Scene.removeSelf();
-            } else if (Admin._PreLoadCutIn.closeName == 'MakeTailor') {
-                // SceneAnimation._closeSwitch = true;
-            }
-            else if (Admin._PreLoadCutIn.closeName == 'MakePattern') {
-                _Res._list.scene3D.MakeClothes.Scene.removeSelf();
-            }
-        }
-
         intoMakePattern(): void {
-            _MakePattern._Scene3D = _Res._list.scene3D.MakeClothes.Scene;
             Laya.stage.addChildAt(_Res._list.scene3D.MakeClothes.Scene, 0);
-            if (!_MakePattern._Scene3D.getComponent(_MakePattern.MakeClothes3D)) {
-                _MakePattern._Scene3D.addComponent(_MakePattern.MakeClothes3D);
-            }
             EventAdmin._notify(_MakePattern._Event.remake);
         }
 
