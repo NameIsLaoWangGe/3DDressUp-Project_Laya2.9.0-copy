@@ -139,6 +139,10 @@ export module _Res {
             bgMakePattern: {
                 url: `Game/Background/bgMakePattern.jpg`,
                 texture2D: null as Laya.Texture2D,
+            },
+            bgPhoto: {
+                url: `Game/Background/bgPhoto.png`,
+                texture2D: null as Laya.Texture2D,
             }
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/

@@ -63,6 +63,36 @@ export module _DressingRoom {
             }
             playAni && _3D._Scene._ins().playDispalyAni();
         }
+
+        private changeDIY(classify: string, partArr: Array<any>, playAni?: boolean): void {
+            const _classify = _3D._Scene._ins()._Root.getChildByName(classify) as Laya.MeshSprite3D;
+            console.log(_classify);
+            for (let i = 0; i < _classify.numChildren; i++) {
+                const _classifySp = _classify.getChildAt(i) as Laya.MeshSprite3D;
+                _classifySp.active = false;
+                for (let j = 0; j < partArr.length; j++) {
+                    const obj = partArr[j];
+                    if (obj[this._otherPro.part] === _classifySp.name) {
+                        _classifySp.active = true;
+                        for (let k = 0; k < _classifySp.numChildren; k++) {
+                            const cloth = _classifySp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
+                            if (cloth.name === obj[this._property.name]) {
+                                cloth.active = true;
+                                if (!cloth.skinnedMeshRenderer.material) {
+                                    cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                }
+                                Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
+                                    (cloth.skinnedMeshRenderer.material as Laya.UnlitMaterial).albedoTexture = tex;
+                                }));
+                            } else {
+                                cloth.active = false;
+                            }
+                        }
+                    }
+                }
+            }
+            playAni && _3D._Scene._ins().playDispalyAni();
+        }
         changeClothStart(): void {
             const arr = this._getArrByProperty(this._otherPro.putOn, true);
             this.changeClass(this._classify.DIY, arr);
@@ -88,17 +118,23 @@ export module _DressingRoom {
         /**特殊设置*/
         specialSet(part?: string): void {
             if (part === this._part.Dress) {
-                this['DressState'] = true;
+                StorageAdmin._bool('DressState').value = true;
             } else if (part === this._part.Top || part === this._part.Bottoms) {
-                this['DressState'] = false;
+                StorageAdmin._bool('DressState').value = false;
             }
-            if (this['DressState']) {
-                _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
+            if (StorageAdmin._bool('DressState').value) {
+                _3D._Scene._ins().displayDress();
             } else {
-                _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
+                _3D._Scene._ins().displayTopAndBotton();
             }
-            StorageAdmin._bool('DressState').value = this['DressState'];
         }
+
+        // changeDIY(): void {
+        // this._ImgVar('Front').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`));
+        // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
+        // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
+        // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
+        // }
     }
 
     class _Item extends Admin._ObjectBase {
@@ -123,7 +159,7 @@ export module _DressingRoom {
     export class DressingRoom extends Admin._SceneBase {
 
         lwgOnAwake(): void {
-    
+
             TimerAdmin._frameLoop(1, this, () => {
                 _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
             });
@@ -161,11 +197,7 @@ export module _DressingRoom {
                     Cell.addComponent(_Item)
                 }
             }
-            // this._ImgVar('Front').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`));
-            // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
-            // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
-            // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
-         
+
         }
 
         UI: _UI;

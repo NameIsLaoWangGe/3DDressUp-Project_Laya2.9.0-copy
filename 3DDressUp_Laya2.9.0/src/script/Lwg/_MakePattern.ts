@@ -387,6 +387,22 @@ export module _MakePattern {
                 _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             btn: () => {
+                this._btnUp(this._ImgVar('BtnTurnFace'), (e: Laya.Event) => {
+
+                    if (this.Tex.dir == this.Tex.dirType.Front) {
+                        this.Tex.dir = this.Tex.dirType.Reverse;
+                        this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/fan.png';
+                        _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 0;
+                    } else {
+                        this.Tex.dir = this.Tex.dirType.Front;
+                        this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/zheng.png';
+                        _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
+                    }
+
+                    this._ImgVar('Wireframe').visible = false;
+                    this.Tex.state = this.Tex.stateType.rotate;
+                    e.stopPropagation();
+                })
                 this._btnFour(this._ImgVar('WConversion'), (e: Laya.Event) => {
                     e.stopPropagation();
                     this.Tex.state = this.Tex.stateType.scale;
@@ -430,6 +446,7 @@ export module _MakePattern {
         EndCamera: Laya.Camera;
         /**截图*/
         photo(): void {
+            _3D._Scene._ins().photoBg();
             _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
             this.EndCamera = _3D._Scene._ins()._MainCamara.clone() as Laya.Camera;
             _3D._Scene._ins()._Owner.addChild(this.EndCamera);

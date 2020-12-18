@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":10,
+    "selecteID":4432,
     "searchKey":"View",
     "referenceLines":[
         {
@@ -12,7 +12,7 @@
         }],
     "props":{"width":1280,"sceneColor":"#a4a4a4","height":720},
     "nodeParent":-1,
-    "maxID":4442,
+    "maxID":4443,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -192,6 +192,20 @@
             "hasChild":true,
             "compId":4432,
             "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,BtnTurnFace,BtnTurnFace",
+                    "props":{"y":161,"x":-60,"width":80,"var":"BtnTurnFace","skin":"Game/UI/MakePattern/zheng.png","pivotY":46,"pivotX":40,"name":"BtnTurnFace","height":92},
+                    "nodeParent":4432,
+                    "label":"BtnTurnFace",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4442,
+                    "child":[
+                        ]
+                },
                 {
                     "x":30,
                     "type":"Image",

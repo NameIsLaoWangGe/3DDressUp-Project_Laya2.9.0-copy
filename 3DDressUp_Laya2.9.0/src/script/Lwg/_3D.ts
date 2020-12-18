@@ -202,6 +202,16 @@ export module _3D {
         intoMakeTailor(): void {
             _3D._Scene._ins()._Owner.active = false;
         }
+        photoBg(): void {
+            (this._Bg1.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Res._list.texture2D.bgPhoto.texture2D;
+        }
+
+        displayDress(): void {
+            this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+        }
+        displayTopAndBotton(): void {
+            this._GDress.active = this._DDress.active = false;
+        }
     }
     export class DIYCloth {
         private static ins: DIYCloth;
@@ -234,8 +244,8 @@ export module _3D {
             this.Front = this.Present.getChildByName(`${this.Present.name}_0`) as Laya.MeshSprite3D;
             this.Reverse = this.Present.getChildByName(`${this.Present.name}_1`) as Laya.MeshSprite3D;
 
-            this.ModelTap=this.Present.getChildByName('ModelTap')as Laya.MeshSprite3D;
-            
+            this.ModelTap = this.Present.getChildByName('ModelTap') as Laya.MeshSprite3D;
+
             let center = this.Front.meshRenderer.bounds.getCenter();
             let extent = this.Front.meshRenderer.bounds.getExtent();
 

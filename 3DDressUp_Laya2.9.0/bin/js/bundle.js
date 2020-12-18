@@ -7070,6 +7070,15 @@
             intoMakeTailor() {
                 _3D._Scene._ins()._Owner.active = false;
             }
+            photoBg() {
+                this._Bg1.meshRenderer.material.albedoTexture = _Res._list.texture2D.bgPhoto.texture2D;
+            }
+            displayDress() {
+                this._GBottoms.active = this._GTop.active = this._DBottoms.active = this._DTop.active = false;
+            }
+            displayTopAndBotton() {
+                this._GDress.active = this._DDress.active = false;
+            }
         }
         _3D._Scene = _Scene;
         class DIYCloth {
@@ -7182,6 +7191,36 @@
                 }
                 playAni && _3D._Scene._ins().playDispalyAni();
             }
+            changeDIY(classify, partArr, playAni) {
+                const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
+                console.log(_classify);
+                for (let i = 0; i < _classify.numChildren; i++) {
+                    const _classifySp = _classify.getChildAt(i);
+                    _classifySp.active = false;
+                    for (let j = 0; j < partArr.length; j++) {
+                        const obj = partArr[j];
+                        if (obj[this._otherPro.part] === _classifySp.name) {
+                            _classifySp.active = true;
+                            for (let k = 0; k < _classifySp.numChildren; k++) {
+                                const cloth = _classifySp.getChildAt(k);
+                                if (cloth.name === obj[this._property.name]) {
+                                    cloth.active = true;
+                                    if (!cloth.skinnedMeshRenderer.material) {
+                                        cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                    }
+                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
+                                        cloth.skinnedMeshRenderer.material.albedoTexture = tex;
+                                    }));
+                                }
+                                else {
+                                    cloth.active = false;
+                                }
+                            }
+                        }
+                    }
+                }
+                playAni && _3D._Scene._ins().playDispalyAni();
+            }
             changeClothStart() {
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr);
@@ -7203,18 +7242,17 @@
             }
             specialSet(part) {
                 if (part === this._part.Dress) {
-                    this['DressState'] = true;
+                    StorageAdmin._bool('DressState').value = true;
                 }
                 else if (part === this._part.Top || part === this._part.Bottoms) {
-                    this['DressState'] = false;
+                    StorageAdmin._bool('DressState').value = false;
                 }
-                if (this['DressState']) {
-                    _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
+                if (StorageAdmin._bool('DressState').value) {
+                    _3D._Scene._ins().displayDress();
                 }
                 else {
-                    _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
+                    _3D._Scene._ins().displayTopAndBotton();
                 }
-                StorageAdmin._bool('DressState').value = this['DressState'];
             }
         }
         _DressingRoom._Clothes = _Clothes;
@@ -7453,6 +7491,10 @@
                 },
                 bgMakePattern: {
                     url: `Game/Background/bgMakePattern.jpg`,
+                    texture2D: null,
+                },
+                bgPhoto: {
+                    url: `Game/Background/bgPhoto.png`,
                     texture2D: null,
                 }
             },
@@ -8090,6 +8132,21 @@
                         _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
                     },
                     btn: () => {
+                        this._btnUp(this._ImgVar('BtnTurnFace'), (e) => {
+                            if (this.Tex.dir == this.Tex.dirType.Front) {
+                                this.Tex.dir = this.Tex.dirType.Reverse;
+                                this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/fan.png';
+                                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 0;
+                            }
+                            else {
+                                this.Tex.dir = this.Tex.dirType.Front;
+                                this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/zheng.png';
+                                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
+                            }
+                            this._ImgVar('Wireframe').visible = false;
+                            this.Tex.state = this.Tex.stateType.rotate;
+                            e.stopPropagation();
+                        });
                         this._btnFour(this._ImgVar('WConversion'), (e) => {
                             e.stopPropagation();
                             this.Tex.state = this.Tex.stateType.scale;
@@ -8212,6 +8269,7 @@
                 this.Tex.btn();
             }
             photo() {
+                _3D._Scene._ins().photoBg();
                 _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
                 this.EndCamera = _3D._Scene._ins()._MainCamara.clone();
                 _3D._Scene._ins()._Owner.addChild(this.EndCamera);
