@@ -5169,8 +5169,8 @@
                     let ScreenV4 = new Laya.Vector4();
                     camera.viewport.project(v3, camera.projectionViewMatrix, ScreenV4);
                     let point = new Laya.Vector2();
-                    point.x = ScreenV4.x;
-                    point.y = ScreenV4.y;
+                    point.x = ScreenV4.x / Laya.stage.clientScaleX;
+                    point.y = ScreenV4.y / Laya.stage.clientScaleY;
                     return point;
                 }
                 _3D.posToScreen = posToScreen;
@@ -6370,6 +6370,8 @@
                 return Tools._3D.posToScreen(this._BtnDressingRoom.transform.position, this._MainCamara);
             }
             openStartAni(func) {
+                this._DIYHanger.active = false;
+                this._Role.active = true;
                 this._RoleAni.play(_AniName.Walk);
                 const dis = Tools._Number.randomOneHalf() == 0 ? -3 : 3;
                 const time = 180;
@@ -6413,20 +6415,9 @@
                 this.mirrortex = new Laya.Texture(this._MirrorCamera.renderTarget, Laya.Texture.DEF_UV);
                 _Sp.graphics.drawTexture(this.mirrortex);
             }
-            getCloneDIYClothes(part, name) {
-                Tools._Node.removeAllChildren(this._DIYHanger);
-                const _part = this._DIY.getChildByName(part);
-                const _0 = _part.getChildByName(`${name}_0`).clone();
-                const _1 = _part.getChildByName(`${name}_1`).clone();
-                this._DIYHanger.addChild(_0).active = true;
-                this._DIYHanger.addChild(_1).active = true;
+            setDIYClothes(part, name) {
+                this._DIYHanger.active = true;
                 this._Role.active = false;
-                _0.transform.localRotationEulerX = _1.transform.localRotationEulerX = -90;
-                _0.transform.localRotationEulerY = _1.transform.localRotationEulerY = 180;
-                _0.transform.position = _1.transform.position = new Laya.Vector3(0, -0.5, 0);
-                this._MainCamara.transform.localRotationEulerX = -10;
-                this._MainCamara.transform.position = new Laya.Vector3(0, 0.967, -0.834);
-                return [_0, _1];
             }
         }
         _3D._Scene = _Scene;
@@ -7067,7 +7058,7 @@
                             });
                             TimerAdmin._frameOnce(280, this, () => {
                                 this._openScene('MakePattern', true, true);
-                                _3D._Scene._ins().getCloneDIYClothes(_DIYClothes._ins()._pitchClassify, _DIYClothes._ins()._pitchName);
+                                _3D._Scene._ins().setDIYClothes();
                             });
                         }
                     }
@@ -8194,7 +8185,7 @@
                                 this.Tex.Img.x = -_width / 180 * (_angleY);
                             }
                             let pH = out.point.y - _MakePattern._Hanger.transform.position.y;
-                            let _DirHeight = Tools._3D.getSkinMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _MakePattern._Front : _MakePattern._Reverse).y;
+                            let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _MakePattern._Front : _MakePattern._Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
                             this.Tex.Img.y = ratio * _height + this._ImgVar('Wireframe').height / 2 * ratio;
                             return true;
@@ -8402,9 +8393,9 @@
                 this.UI = new _UI(this._Owner);
                 this.UI.BtnAgain.pos(86, 630);
                 TimerAdmin._frameOnce(10, this, () => {
-                    this.UI.operationAppear(() => {
-                    });
+                    this.UI.operationAppear();
                     this.UI.btnBackAppear(null, 200);
+                    this.UI.btnCompleteAppear(null, 400);
                     this.UI.btnRollbackAppear(null, 600);
                     this.UI.btnAgainAppear(null, 800);
                 });
@@ -8529,11 +8520,15 @@
             }
             lwgEvent() {
                 this._evReg(_Event.remake, () => {
-                    _MakePattern._Hanger = _3D._Scene._ins()._DIYHanger;
-                    _MakePattern._Front = _MakePattern._Hanger.getChildAt(0);
-                    _MakePattern._Reverse = _MakePattern._Hanger.getChildAt(1);
-                    let center = _MakePattern._Front.skinnedMeshRenderer.bounds.getCenter();
-                    let extent = _MakePattern._Front.skinnedMeshRenderer.bounds.getExtent();
+                    const Classify = _3D._Scene._ins()._DIYHanger.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify);
+                    Tools._Node.showExcludedChild3D(_3D._Scene._ins()._DIYHanger, [Classify.name]);
+                    _MakePattern._Hanger = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName);
+                    Tools._Node.showExcludedChild3D(Classify, [_MakePattern._Hanger.name]);
+                    _MakePattern._Hanger.transform.localRotationEulerY = 180;
+                    _MakePattern._Front = _MakePattern._Hanger.getChildByName(`${_MakePattern._Hanger.name}_0`);
+                    _MakePattern._Reverse = _MakePattern._Hanger.getChildByName(`${_MakePattern._Hanger.name}_1`);
+                    let center = _MakePattern._Front.meshRenderer.bounds.getCenter();
+                    let extent = _MakePattern._Front.meshRenderer.bounds.getExtent();
                     let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
                     let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
                     let point1 = Tools._3D.posToScreen(p1, _MakePattern._MainCamara);
@@ -8541,12 +8536,10 @@
                     _MakePattern._texHeight = point2.y - point1.y;
                 });
                 this._evReg(_Event.addTexture2D, (Text2DF, Text2DR) => {
-                    let bMF;
-                    bMF = _MakePattern._Front.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                    const bMF = _MakePattern._Front.meshRenderer.material;
                     bMF.albedoTexture && bMF.albedoTexture.destroy();
                     bMF.albedoTexture = Text2DF;
-                    let bMR;
-                    bMR = _MakePattern._Reverse.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                    const bMR = _MakePattern._Reverse.meshRenderer.material;
                     bMR.albedoTexture && bMR.albedoTexture.destroy();
                     bMR.albedoTexture = Text2DR;
                 });

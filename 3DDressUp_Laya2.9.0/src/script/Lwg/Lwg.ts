@@ -6806,8 +6806,8 @@ export module lwg {
                 let ScreenV4 = new Laya.Vector4();
                 camera.viewport.project(v3, camera.projectionViewMatrix, ScreenV4);
                 let point: Laya.Vector2 = new Laya.Vector2();
-                point.x = ScreenV4.x;
-                point.y = ScreenV4.y;
+                point.x = ScreenV4.x / Laya.stage.clientScaleX;
+                point.y = ScreenV4.y / Laya.stage.clientScaleY;
                 return point;
             }
             /**

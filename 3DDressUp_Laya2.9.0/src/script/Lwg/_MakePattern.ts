@@ -3,6 +3,7 @@ import { Admin, Animation2D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } f
 import { lwg3D } from "./Lwg3D";
 import { _3D } from "./_3D";
 import { _MakeTailor } from "./_MakeTailor";
+import { _MakeUp } from "./_MakeUp";
 import { _Res } from "./_PreLoad";
 import { _Ranking } from "./_Ranking";
 import { _UI } from "./_UI";
@@ -112,10 +113,9 @@ export module _MakePattern {
             this.UI = new _UI(this._Owner);
             this.UI.BtnAgain.pos(86, 630);
             TimerAdmin._frameOnce(10, this, () => {
-                this.UI.operationAppear(() => {
-
-                });
+                this.UI.operationAppear();
                 this.UI.btnBackAppear(null, 200);
+                this.UI.btnCompleteAppear(null, 400);
                 this.UI.btnRollbackAppear(null, 600);
                 this.UI.btnAgainAppear(null, 800);
             })
@@ -222,9 +222,9 @@ export module _MakePattern {
                 let rOutArr: Array<Laya.HitResult> = [];
                 for (let index = 0; index < posArr.length; index++) {
                     let gPoint = this._SpriteVar('Wireframe').localToGlobal(new Laya.Point(posArr[index].x, posArr[index].y));
-                    let _outF = Tools._3D.rayScanning(_MainCamara, _Scene3D, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
+                    let _outF = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
                     _outF && fOutArr.push(_outF)
-                    let _outR = Tools._3D.rayScanning(_MainCamara, _Scene3D, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
+                    let _outR = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
                     _outR && rOutArr.push(_outR)
                     if (_outF || _outR) {
                         indexArr.push(posArr[index]);
@@ -281,7 +281,7 @@ export module _MakePattern {
 
                     // 通过xy计算y
                     let pH = out.point.y - _Hanger.transform.position.y;//扫描点位置
-                    let _DirHeight = Tools._3D.getSkinMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _Front : _Reverse).y;
+                    let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _Front : _Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
                     this.Tex.Img.y = ratio * _height + this._ImgVar('Wireframe').height / 2 * ratio;
 
@@ -327,9 +327,9 @@ export module _MakePattern {
                 let rOutArr: Array<Laya.HitResult> = [];
                 for (let index = 0; index < posArr.length; index++) {
                     let gPoint = this._SpriteVar('Wireframe').localToGlobal(new Laya.Point(posArr[index].x, posArr[index].y));
-                    let _outF = Tools._3D.rayScanning(_MainCamara, _Scene3D, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
+                    let _outF = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Front.name);
                     _outF && fOutArr.push(_outF)
-                    let _outR = Tools._3D.rayScanning(_MainCamara, _Scene3D, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
+                    let _outR = Tools._3D.rayScanning(_3D._Scene._ins()._MainCamara, _3D._Scene._ins()._Owner, new Laya.Vector2(gPoint.x, gPoint.y), _Reverse.name);
                     _outR && rOutArr.push(_outR);
                 }
                 if (fOutArr.length !== 0 || rOutArr.length !== 0) {
@@ -468,10 +468,10 @@ export module _MakePattern {
         /**截图*/
         photo(): void {
             _Hanger.transform.localRotationEulerY = 180;
-            this.EndCamera = _MainCamara.clone() as Laya.Camera;
-            _Scene3D.addChild(this.EndCamera);
-            this.EndCamera.transform.position = _MainCamara.transform.position;
-            this.EndCamera.transform.localRotationEuler = _MainCamara.transform.localRotationEuler;
+            this.EndCamera = _3D._Scene._ins()._MainCamara.clone() as Laya.Camera;
+            _3D._Scene._ins()._Owner.addChild(this.EndCamera);
+            this.EndCamera.transform.position = _3D._Scene._ins()._MainCamara.transform.position;
+            this.EndCamera.transform.localRotationEuler = _3D._Scene._ins()._MainCamara.transform.localRotationEuler;
             //选择渲染目标为纹理
             this.EndCamera.renderTarget = new Laya.RenderTexture(this._SpriteVar('IconPhoto').width, this._SpriteVar('IconPhoto').height);
             //渲染顺序
@@ -546,54 +546,47 @@ export module _MakePattern {
             return 10;
         }
     }
-    export let _Scene3D: Laya.Scene3D;
-    export let _Role: Laya.MeshSprite3D;
-    export let _MainCamara: Laya.Camera;
     export let _Hanger: Laya.MeshSprite3D;
-    export let _Front: Laya.SkinnedMeshSprite3D;
-    export let _Reverse: Laya.SkinnedMeshSprite3D;
+    export let _Front: Laya.MeshSprite3D;
+    export let _Reverse: Laya.MeshSprite3D;
     // export let _HangerP: Laya.MeshSprite3D;
     export let _texHeight = 0;
     /**模型的角度*/
     export let _HangerSimRY = 90;
     export class MakeClothes3D extends lwg3D._Scene3DBase {
         lwgOnAwake(): void {
-            _MainCamara = this._MainCamera;
         }
         lwgEvent(): void {
             this._evReg(_Event.remake, () => {
                 // _HangerP = this._Child('HangerP');
-                // _Role = _Scene3D.getChildByName('Role') as Laya.MeshSprite3D;
-                // const Classify = _Role.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
-                // Tools._Node.showExcludedChild3D(_Role, [Classify.name]);
-                _Hanger = _3D._Scene._ins()._DIYHanger;
-                // Tools._Node.showExcludedChild3D(Classify, [_Hanger.name]);
+                const Classify = _3D._Scene._ins()._DIYHanger.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(_3D._Scene._ins()._DIYHanger, [Classify.name]);
 
-                // _Hanger.transform.localRotationEulerY = 180;
+                _Hanger = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(Classify, [_Hanger.name]);
 
-                _Front = _Hanger.getChildAt(0) as Laya.SkinnedMeshSprite3D;
-                _Reverse = _Hanger.getChildAt(1) as Laya.SkinnedMeshSprite3D;
+                _Hanger.transform.localRotationEulerY = 180;
 
-                let center = _Front.skinnedMeshRenderer.bounds.getCenter();
-                let extent = _Front.skinnedMeshRenderer.bounds.getExtent();
+                _Front = _Hanger.getChildByName(`${_Hanger.name}_0`) as Laya.MeshSprite3D;
+                _Reverse = _Hanger.getChildByName(`${_Hanger.name}_1`) as Laya.MeshSprite3D;
+
+                let center = _Front.meshRenderer.bounds.getCenter();
+                let extent = _Front.meshRenderer.bounds.getExtent();
 
                 //映射图片宽度 
                 let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
                 let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
-                let point1 = Tools._3D.posToScreen(p1, _MainCamara);
-                let point2 = Tools._3D.posToScreen(p2, _MainCamara);
+                let point1 = Tools._3D.posToScreen(p1, _3D._Scene._ins()._MainCamara);
+                let point2 = Tools._3D.posToScreen(p2, _3D._Scene._ins()._MainCamara);
                 _texHeight = point2.y - point1.y;
                 // this._evNotify(_Event.setTexSize, [point2.y - point1.y]);
             })
 
             this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
-                let bMF: Laya.UnlitMaterial;
-                bMF = _Front.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                const bMF = _Front.meshRenderer.material as Laya.UnlitMaterial;
                 bMF.albedoTexture && bMF.albedoTexture.destroy();
                 bMF.albedoTexture = Text2DF;
-
-                let bMR: Laya.UnlitMaterial;
-                bMR = _Reverse.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                const bMR = _Reverse.meshRenderer.material as Laya.UnlitMaterial;
                 bMR.albedoTexture && bMR.albedoTexture.destroy();
                 bMR.albedoTexture = Text2DR;
             })

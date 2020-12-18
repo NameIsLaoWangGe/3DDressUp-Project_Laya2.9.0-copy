@@ -1,4 +1,5 @@
-import { EventAdmin, TimerAdmin, Tools } from "./Lwg";
+import { Admin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
+import { lwg3D } from "./Lwg3D";
 import { _Res } from "./_PreLoad";
 
 export module _3D {
@@ -9,7 +10,18 @@ export module _3D {
         DispalyCloth = 'DispalyCloth',
         Walk = 'Walk',
     }
-    export class _Scene {
+    export enum _Event {
+        addTexture2D = '_MakePattern_addTexture2D',
+        rotateHanger = '_MakePattern_rotateHanger',
+        moveUltimately = '_MakePattern_moveUltimately',
+        resetTex = '_MakePattern_resetTex',
+        changeDir = '_MakePattern_resetTex',
+        remake = '_MakePattern_remake',
+        close = '_MakePattern_close',
+        createImg = '_MakePattern_createImg',
+        setTexSize = '_MakePattern_texSize',
+    }
+    export class _Scene extends Admin._ScriptBase {
         private static ins: _Scene;
         static _ins() {
             if (!this.ins) {
@@ -126,7 +138,8 @@ export module _3D {
         }
 
         openStartAni(func: Function): void {
-
+            this._DIYHanger.active = false;
+            this._Role.active = true;
             this._RoleAni.play(_AniName.Walk);
             const dis = Tools._Number.randomOneHalf() == 0 ? - 3 : 3;
             const time = 180;
@@ -182,8 +195,6 @@ export module _3D {
             //设置网格精灵的纹理
             _Sp.graphics.drawTexture(this.mirrortex);
         }
-
-
         /**
          * 获取一件DiY衣服模型
          * @param {string} part 部位
@@ -191,24 +202,135 @@ export module _3D {
          * @return {*}  {[any]}
          * @memberof _Scene
          */
-        getCloneDIYClothes(part: string, name: string): any[] {
-            Tools._Node.removeAllChildren(this._DIYHanger);
-            const _part = this._DIY.getChildByName(part) as Laya.MeshSprite3D;
-            const _0 = (_part.getChildByName(`${name}_0`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
-            const _1 = (_part.getChildByName(`${name}_1`) as Laya.SkinnedMeshSprite3D).clone() as Laya.MeshSprite3D;
-
-            this._DIYHanger.addChild(_0).active = true;
-            this._DIYHanger.addChild(_1).active = true;
+        setDIYClothes(part?: string, name?: string): void {
+            this._DIYHanger.active = true;
             this._Role.active = false;
-            _0.transform.localRotationEulerX = _1.transform.localRotationEulerX = -90;
-            _0.transform.localRotationEulerY = _1.transform.localRotationEulerY = 180;
-            _0.transform.position = _1.transform.position = new Laya.Vector3(0, 0.5, 0);
-            this._MainCamara.transform.localRotationEulerX = -10;
-            this._MainCamara.transform.position = new Laya.Vector3(0, 0.967, -0.834);
-            return [_0, _1];
         }
+        DIYCloth: {
+            Present: Laya.MeshSprite3D,
+            texHeight: number,
+            Front: Laya.MeshSprite3D;
+            Reverse: Laya.MeshSprite3D;
+        }
+        event(): void {
+            this._evReg(_Event.remake, () => {
+                // _HangerP = this._Child('HangerP');
+                const Classify = _3D._Scene._ins()._DIYHanger.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(_3D._Scene._ins()._DIYHanger, [Classify.name]);
 
+                this.DIYCloth.Present = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(Classify, [this.DIYCloth.Present.name]);
 
+                this.DIYCloth.Present.transform.localRotationEulerY = 180;
+
+                _Front = this.DIYCloth.Present.getChildByName(`${this.DIYCloth.Present.name}_0`) as Laya.MeshSprite3D;
+                _Reverse = this.DIYCloth.Present.getChildByName(`${this.DIYCloth.Present.name}_1`) as Laya.MeshSprite3D;
+
+                let center = _Front.meshRenderer.bounds.getCenter();
+                let extent = _Front.meshRenderer.bounds.getExtent();
+
+                //映射贴图图片宽高
+                let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
+                let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
+                let point1 = Tools._3D.posToScreen(p1, _3D._Scene._ins()._MainCamara);
+                let point2 = Tools._3D.posToScreen(p2, _3D._Scene._ins()._MainCamara);
+                this.DIYCloth.texHeight = point2.y - point1.y;
+                // this._evNotify(_Event.setTexSize, [point2.y - point1.y]);
+            })
+
+            this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
+                const bMF = _Front.meshRenderer.material as Laya.UnlitMaterial;
+                bMF.albedoTexture && bMF.albedoTexture.destroy();
+                bMF.albedoTexture = Text2DF;
+                const bMR = _Reverse.meshRenderer.material as Laya.UnlitMaterial;
+                bMR.albedoTexture && bMR.albedoTexture.destroy();
+                bMR.albedoTexture = Text2DR;
+            })
+
+            this._evReg(_Event.rotateHanger, (num: number) => {
+                if (num == 1) {
+                    this.DIYCloth.Present.transform.localRotationEulerY++;
+                    _HangerSimRY += 2;
+                    if (_HangerSimRY > 360) {
+                        _HangerSimRY = 0;
+                    }
+                } else {
+                    this.DIYCloth.Present.transform.localRotationEulerY--;
+                    _HangerSimRY -= 2;
+                    if (_HangerSimRY < 0) {
+                        _HangerSimRY = 359;
+                    }
+                }
+            })
+        }
+    }
+
+    export class SceneScript {
+        constructor(parameters) {
+
+        }
+    }
+
+    export let _Front: Laya.MeshSprite3D;
+    export let _Reverse: Laya.MeshSprite3D;
+    // export let _HangerP: Laya.MeshSprite3D;
+    // export let _texHeight = 0;
+    /**模型的角度*/
+    export let _HangerSimRY = 90;
+    export class MakeClothes3D extends lwg3D._Scene3DBase {
+        lwgOnAwake(): void {
+        }
+        lwgEvent(): void {
+            this._evReg(_Event.remake, () => {
+                // _HangerP = this._Child('HangerP');
+                const Classify = _3D._Scene._ins()._DIYHanger.getChildByName(_MakeTailor._DIYClothes._ins()._pitchClassify) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(_3D._Scene._ins()._DIYHanger, [Classify.name]);
+
+                this.DIYCloth.Present = Classify.getChildByName(_MakeTailor._DIYClothes._ins()._pitchName) as Laya.MeshSprite3D;
+                Tools._Node.showExcludedChild3D(Classify, [this.DIYCloth.name]);
+
+                this.DIYCloth.Present.transform.localRotationEulerY = 180;
+
+                _Front = this.DIYCloth.Present.getChildByName(`${this.DIYCloth.name}_0`) as Laya.MeshSprite3D;
+                _Reverse = this.DIYCloth.Present.getChildByName(`${this.DIYCloth.name}_1`) as Laya.MeshSprite3D;
+
+                let center = _Front.meshRenderer.bounds.getCenter();
+                let extent = _Front.meshRenderer.bounds.getExtent();
+
+                //映射图片宽度 
+                let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
+                let p2 = new Laya.Vector3(center.x, center.y - extent.y, center.z);
+                let point1 = Tools._3D.posToScreen(p1, _3D._Scene._ins()._MainCamara);
+                let point2 = Tools._3D.posToScreen(p2, _3D._Scene._ins()._MainCamara);
+                _texHeight = point2.y - point1.y;
+                // this._evNotify(_Event.setTexSize, [point2.y - point1.y]);
+            })
+
+            this._evReg(_Event.addTexture2D, (Text2DF: Laya.Texture2D, Text2DR: Laya.Texture2D) => {
+                const bMF = _Front.meshRenderer.material as Laya.UnlitMaterial;
+                bMF.albedoTexture && bMF.albedoTexture.destroy();
+                bMF.albedoTexture = Text2DF;
+                const bMR = _Reverse.meshRenderer.material as Laya.UnlitMaterial;
+                bMR.albedoTexture && bMR.albedoTexture.destroy();
+                bMR.albedoTexture = Text2DR;
+            })
+
+            this._evReg(_Event.rotateHanger, (num: number) => {
+                if (num == 1) {
+                    this.DIYCloth.Present.transform.localRotationEulerY++;
+                    _HangerSimRY += 2;
+                    if (_HangerSimRY > 360) {
+                        _HangerSimRY = 0;
+                    }
+                } else {
+                    this.DIYCloth.Present.transform.localRotationEulerY--;
+                    _HangerSimRY -= 2;
+                    if (_HangerSimRY < 0) {
+                        _HangerSimRY = 359;
+                    }
+                }
+            })
+        }
     }
 
 }
