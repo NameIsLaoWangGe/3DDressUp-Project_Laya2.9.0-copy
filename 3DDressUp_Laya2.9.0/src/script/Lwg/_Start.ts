@@ -70,11 +70,10 @@ export module _Start {
             })
 
             this._btnUp(this._ImgVar('BtnPersonalInfo'), () => {
-                Clothes._pitchClassify = Clothes._classify.Bottoms;
                 this._openScene('PersonalInfo', false);
             })
             this._btnUp(this._ImgVar('BtnRanking'), () => {
-                Clothes._pitchClassify = Clothes._classify.Bottoms;
+                _Ranking._whereFrom = 'Start';
                 this._openScene('Ranking', false);
             })
             this._btnUp(this._ImgVar('BtnDressingRoom'), () => {

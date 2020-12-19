@@ -1,12 +1,11 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":5,
+    "selectedBox":29,
+    "selecteID":41,
     "searchKey":"View",
     "props":{"width":1280,"sceneColor":"#000000","height":720},
     "nodeParent":-1,
-    "maxID":38,
+    "maxID":42,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -15,7 +14,6 @@
     "compId":2,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,Background,Background",
             "props":{"y":0,"x":0,"var":"Background","skin":"Lwg/UI/ui_orthogon_black_0.7.png","sizeGrid":"11,11,12,9","name":"Background"},
@@ -29,7 +27,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,Content,Content",
             "props":{"width":730,"var":"Content","name":"Content","height":630,"centerY":0,"centerX":0},
@@ -42,7 +39,6 @@
             "compId":5,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":81,"x":-4,"width":733,"skin":"Game/UI/Common/dikuang.png","height":558},
@@ -56,7 +52,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":109,"x":19,"skin":"Game/UI/PersonalInfo/zhi.png","alpha":1},
@@ -70,7 +65,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Name,Name",
                     "props":{"y":236,"x":82,"width":376,"var":"Name","name":"Name","height":62},
@@ -83,7 +77,6 @@
                     "compId":6,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":1,"x":75,"skin":"Game/UI/PersonalInfo/neikuang.png","name":""},
@@ -97,7 +90,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,BtnWrite,BtnWrite",
                             "props":{"y":35,"x":344,"width":64,"var":"BtnWrite","skin":"Game/UI/PersonalInfo/bianji.png","pivotY":34,"pivotX":32,"name":"BtnWrite","height":67},
@@ -111,7 +103,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
                             "searchKey":"TextInput,NameValue,NameValue",
                             "props":{"y":13,"x":60,"width":307,"var":"NameValue","valign":"middle","promptColor":"#cdc9c2","prompt":"name","name":"NameValue","maxChars":7,"height":36,"fontSize":30,"color":"#a56c0a","align":"center"},
@@ -126,7 +117,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":8.5,"x":1,"skin":"Game/UI/PersonalInfo/xingming.png","name":""},
@@ -141,7 +131,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Rank,Rank",
                     "props":{"y":326,"x":82,"width":376,"var":"Rank","name":"Rank","height":62},
@@ -194,7 +183,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Fans,Fans",
                     "props":{"y":420,"x":82,"width":376,"var":"Fans","name":"Fans","height":62},
@@ -247,7 +235,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BtnClose,BtnClose",
                     "props":{"y":114,"x":706,"var":"BtnClose","skin":"Game/UI/Common/guanbi.png","name":"BtnClose"},
@@ -261,13 +248,12 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":247,"x":497,"skin":"Game/UI/PersonalInfo/touxiangkuang.png"},
+                    "searchKey":"Image,Head,Head",
+                    "props":{"y":247,"x":497,"var":"Head","name":"Head"},
                     "nodeParent":5,
-                    "label":"Image",
-                    "isOpen":false,
+                    "label":"Head",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -276,7 +262,33 @@
                         {
                             "type":"Sprite",
                             "searchKey":"Sprite",
-                            "props":{"y":6,"x":6,"width":168,"texture":"Game/UI/Ranking/IconSkin/Ava.png","height":211},
+                            "props":{"y":0,"x":0,"texture":"Game/UI/PersonalInfo/touxiangkuang.png"},
+                            "nodeParent":29,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":41,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":0,"x":0,"texture":"Game/UI/PersonalInfo/touxiangkuang.png","renderType":"mask"},
+                            "nodeParent":29,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":40,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":6,"x":4,"width":168,"texture":"Game/UI/Ranking/IconSkin/Ava.png","height":211},
                             "nodeParent":29,
                             "label":"Sprite",
                             "isOpen":true,
@@ -286,10 +298,22 @@
                             "compId":28,
                             "child":[
                                 ]
+                        },
+                        {
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"y":6,"x":-46,"width":50,"skin":"Lwg/UI/ui_orthogon_white.png","sizeGrid":"8,8,9,9","rotation":41,"pivotY":151,"pivotX":25,"height":301,"alpha":0.8},
+                            "nodeParent":29,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":11,"x":221,"skin":"Game/UI/PersonalInfo/ding.png"},
@@ -319,10 +343,49 @@
     "animations":[
         {
             "nodes":[
-                ],
+                {
+                    "target":38,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":38,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":247,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":38,
+                                "label":"comp",
+                                "key":"y",
+                                "index":25
+                            }],
+                        "x":[
+                            {
+                                "value":-46,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":38,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":241,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":38,
+                                "key":"x",
+                                "index":25
+                            }]
+                    }
+                }],
             "name":"ani1",
             "id":1,
-            "frameRate":24,
+            "frameRate":60,
             "action":0
         }]
 }

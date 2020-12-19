@@ -1,7 +1,8 @@
 {
     "x":0,
     "type":"Box",
-    "selectedBox":6535,
+    "selectedBox":2578,
+    "selecteID":2579,
     "searchKey":"Box,diy_top_008_final",
     "props":{"y":0,"x":0,"width":720,"scaleY":1,"scaleX":1,"presetID":1,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"diy_top_008_final","isPresetRoot":true,"height":720,"centerY":0,"centerX":0},
     "nodeParent":-1,
@@ -137,30 +138,32 @@
             "props":{"y":-152,"width":512,"presetID":10,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"LineParent","height":725,"centerX":-14},
             "nodeParent":6535,
             "label":"LineParent",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2578,
             "child":[
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line07",
                     "props":{"y":558,"x":98.05776638804167,"width":344,"texture":"Game/UI/MakeTailor/diy_top_008_final/x2.png","presetID":11,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line07","height":21.634626257154984},
                     "nodeParent":2578,
                     "label":"Line07",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":2919,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":8,"x":11,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":98,"presetID":12,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":8,"x":11,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":98,"presetID":12,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -203,11 +206,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":11,"x":31,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":96,"presetID":15,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":11,"x":31,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":96,"presetID":15,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -250,11 +254,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":14,"x":52,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":94,"presetID":18,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":14,"x":52,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":94,"presetID":18,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -297,11 +302,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":15,"x":73,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":93,"presetID":21,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":15,"x":73,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":93,"presetID":21,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -344,11 +350,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":16,"x":93,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":91,"presetID":24,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":16,"x":93,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":91,"presetID":24,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -391,11 +398,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":17,"x":114,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":91,"presetID":27,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":17,"x":114,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":91,"presetID":27,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -438,11 +446,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":134,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":30,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":134,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":30,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -485,11 +494,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":154,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":33,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":154,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":33,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -532,11 +542,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":175,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":36,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":175,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":36,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -579,11 +590,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":196,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":39,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":196,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":39,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -626,11 +638,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":218,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":42,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":218,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":42,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -673,11 +686,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":239,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":45,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":239,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":90,"presetID":45,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -720,11 +734,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":18,"x":260,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":87,"presetID":48,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":18,"x":260,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":87,"presetID":48,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -767,11 +782,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":17,"x":280,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":85,"presetID":51,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":17,"x":280,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":85,"presetID":51,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -814,11 +830,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":15,"x":301,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":82,"presetID":54,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":15,"x":301,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":82,"presetID":54,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -861,11 +878,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":12,"x":320,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":78,"presetID":57,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":12,"x":320,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":78,"presetID":57,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -908,11 +926,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image,V",
-                            "props":{"y":8,"x":338,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":76,"presetID":60,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "searchKey":"Image,A",
+                            "props":{"y":8,"x":338,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":76,"presetID":60,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
                             "nodeParent":2919,
-                            "label":"V",
+                            "label":"A",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -956,6 +975,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line06",
                     "props":{"y":321,"x":-38.07106777397176,"width":28,"texture":"Game/UI/MakeTailor/diy_top_008_final/x7.png","presetID":63,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line06","height":126.05300766517317},
@@ -968,6 +988,7 @@
                     "compId":2872,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":11,"x":3,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-2,"presetID":64,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1015,6 +1036,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":33,"x":4,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-2,"presetID":67,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1062,6 +1084,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":57,"x":5,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-5,"presetID":70,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1109,6 +1132,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":77,"x":7,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-8,"presetID":73,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1156,6 +1180,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":98,"x":12,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-20,"presetID":76,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1203,6 +1228,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":118,"x":21,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-27,"presetID":79,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1251,6 +1277,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line05",
                     "props":{"y":319,"x":551,"width":27,"texture":"Game/UI/MakeTailor/diy_top_008_final/x3.png","presetID":82,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line05","height":128},
@@ -1263,6 +1290,7 @@
                     "compId":2900,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":9,"x":23,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-2,"presetID":83,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1310,6 +1338,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":30,"x":23,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":0,"presetID":86,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1357,6 +1386,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":52,"x":23,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":3,"presetID":89,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1404,6 +1434,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":74,"x":21,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":7,"presetID":92,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1451,6 +1482,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":95,"x":17,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":15,"presetID":95,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1498,6 +1530,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":115,"x":9,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":24,"presetID":98,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1546,6 +1579,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line04",
                     "props":{"y":383.5000000937821,"x":215.55776638804167,"width":109,"texture":"Game/UI/MakeTailor/diy_top_008_final/x1.png","presetID":101,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line04","height":77},
@@ -1558,6 +1592,7 @@
                     "compId":2754,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":24,"x":7,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-26,"presetID":102,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1605,6 +1640,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":41,"x":19,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-39,"presetID":105,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1652,6 +1688,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":56,"x":33,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-44,"presetID":108,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1699,6 +1736,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":70,"x":48,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-48,"presetID":111,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1746,6 +1784,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":68,"x":66,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":52,"presetID":114,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1793,6 +1832,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":55,"x":82,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":46,"presetID":117,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1840,6 +1880,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":40,"x":97,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":39,"presetID":120,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1887,6 +1928,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":21,"x":105,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":8,"presetID":123,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1934,6 +1976,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":7,"x":95,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":108,"presetID":126,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -1981,6 +2024,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":6,"x":76,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":84,"presetID":129,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2028,6 +2072,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":12,"x":61,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":54,"presetID":132,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2075,6 +2120,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":9,"x":44,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":113,"presetID":135,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2122,6 +2168,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":3,"x":25,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":100,"presetID":138,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2169,6 +2216,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":8,"x":8,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":40,"presetID":141,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2217,6 +2265,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line03",
                     "props":{"y":308.5,"x":379,"width":156,"texture":"Game/UI/MakeTailor/diy_top_008_final/x4.png","presetID":144,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line03","height":49},
@@ -2229,6 +2278,7 @@
                     "compId":2653,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":7,"x":8,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-23,"presetID":145,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2276,6 +2326,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":23,"x":19,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-46,"presetID":148,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2323,6 +2374,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":36,"x":35,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":115,"presetID":151,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2370,6 +2422,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":43,"x":55,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":101,"presetID":154,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2417,6 +2470,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":46,"x":76,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":93,"presetID":157,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2464,6 +2518,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":45,"x":97,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":81,"presetID":160,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2511,6 +2566,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":40,"x":117,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":69,"presetID":163,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2558,6 +2614,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":30,"x":135,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":50,"presetID":166,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2605,6 +2662,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":16,"x":149,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":32,"presetID":169,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2653,6 +2711,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line02",
                     "props":{"y":308.5,"x":5,"width":156,"texture":"Game/UI/MakeTailor/diy_top_008_final/x6.png","presetID":172,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line02","height":49},
@@ -2665,6 +2724,7 @@
                     "compId":2601,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":19,"x":9,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-38,"presetID":173,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2712,6 +2772,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":32,"x":24,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-60,"presetID":176,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2759,6 +2820,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":42,"x":43,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":105,"presetID":179,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2806,6 +2868,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":46,"x":63,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":94,"presetID":182,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2853,6 +2916,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":47,"x":84,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":88,"presetID":185,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2900,6 +2964,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":44,"x":106,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":76,"presetID":188,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2947,6 +3012,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":36,"x":125,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":56,"presetID":191,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -2994,6 +3060,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":22,"x":140,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":39,"presetID":194,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3041,6 +3108,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":8,"x":150,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":32,"presetID":197,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3089,6 +3157,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,Line01",
                     "props":{"y":306.5,"x":171.55776638804167,"width":195,"texture":"Game/UI/MakeTailor/diy_top_008_final/x5.png","rotation":0,"presetID":200,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","name":"Line01","height":61},
@@ -3101,6 +3170,7 @@
                     "compId":2579,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":10,"x":7,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-28,"presetID":201,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3148,6 +3218,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":27,"x":18,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-40,"presetID":204,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3195,6 +3266,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":40,"x":33,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-54,"presetID":207,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3242,6 +3314,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":51,"x":50,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":109,"presetID":210,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3289,6 +3362,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":57,"x":71,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":97,"presetID":213,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3336,6 +3410,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":59,"x":93,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":91,"presetID":216,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3383,6 +3458,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":59,"x":114,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":87,"presetID":219,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3430,6 +3506,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":56,"x":134,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":77,"presetID":222,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3477,6 +3554,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,A",
                             "props":{"y":50,"x":153,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":67,"presetID":225,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"A","height":14},
@@ -3524,6 +3602,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":39,"x":171,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":43,"presetID":228,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3571,6 +3650,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":23,"x":183,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":32,"presetID":231,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -3618,6 +3698,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":7,"x":190,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":17,"presetID":234,"preset":"laya/pages/Prefab/diy_top_008_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},

@@ -237,10 +237,10 @@ export module _MakePattern {
                     // let _angleY: number;
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY;
-                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90) 
+                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90)
                     } else {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY - 180;
-                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90) ;
+                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90)
                     }
                     // console.log(this.Tex.Img.x);
 
@@ -248,7 +248,7 @@ export module _MakePattern {
                     let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;//扫描点位置
                     let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
-                    this.Tex.Img.y = ratio * _height + 70;
+                    this.Tex.Img.y = ratio * _height + 80;
 
                     // console.log(this.Tex.Img.x, this.Tex.Img.y);
                     return true;
@@ -383,10 +383,11 @@ export module _MakePattern {
                 _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             turnFace: () => {
+                const time = 500;
                 if (this.Tex.dir == this.Tex.dirType.Front) {
-                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 180, 0), 800, this);
+                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 180, 0), time, this);
                 } else {
-                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
+                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), time, this);
                 }
             },
             btn: () => {

@@ -2604,7 +2604,7 @@ export module lwg {
              * @param time 所需时间
              * @param func 结束回调
              * */
-            _tweenToPitch(time: number, func?: Function): void {
+            _listTweenToPitch(time: number, func?: Function): void {
                 const index = this._getPitchIndexByList();
                 index && this._List.tweenTo(index, time, Laya.Handler.create(this, () => {
                     func && func();
@@ -2616,7 +2616,7 @@ export module lwg {
              * @param time 所需时间
              * @param func 结束回调
              * */
-            _tweenToPitchByIndex(diffIndex: number, time: number, func?: Function): void {
+            _listTweenToPitchChoose(diffIndex: number, time: number, func?: Function): void {
                 const index = this._getPitchIndexByList();
                 index && this._List.tweenTo(index + diffIndex, time, Laya.Handler.create(this, () => {
                     func && func();
@@ -2626,7 +2626,7 @@ export module lwg {
             /**
              * 将list中的最后一个移动到第一位
              * */
-            _scrollToLast(time: number, func?: Function): void {
+            _listScrollToLast(): void {
                 const index = this._List.array.length - 1;
                 index && this._List.scrollTo(index);
             }
@@ -3209,7 +3209,7 @@ export module lwg {
          * @param RGBA  [R,G,B,A],A必须输入
          * @param time time为时间， time*2为一个周期，基于帧
          */
-        export function _changeOnce(node, RGBA: Array<number>, time?: number, func?: Function): void {
+        export function _changeOnce(node, RGBA: Array<number>, time: number, func?: Function): void {
             if (!node) {
                 return;
             }

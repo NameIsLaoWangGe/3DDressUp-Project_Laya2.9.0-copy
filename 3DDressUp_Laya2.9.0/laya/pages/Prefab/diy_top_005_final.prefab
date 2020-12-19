@@ -104,7 +104,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,LineParent",
-            "props":{"y":22,"width":512,"presetID":8,"preset":"laya/pages/Prefab/diy_top_005_final.prefab","name":"LineParent","height":725,"centerX":-3},
+            "props":{"y":23,"width":512,"presetID":8,"preset":"laya/pages/Prefab/diy_top_005_final.prefab","name":"LineParent","height":725,"centerX":-3},
             "nodeParent":3965,
             "label":"LineParent",
             "isOpen":true,

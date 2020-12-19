@@ -82,9 +82,9 @@ export module _Ranking {
         }
 
         lwgOnStart(): void {
-            _Data._ins()._scrollToLast(10);
+            _Data._ins()._listScrollToLast();
             if (_whereFrom === 'MakePattern') {
-                _Data._ins()._tweenToPitchByIndex(-1, 1500);
+                _Data._ins()._listTweenToPitchChoose(-1, 1500);
 
                 const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                 const num1 = 150;
@@ -108,7 +108,11 @@ export module _Ranking {
                 })
                 _whereFrom = 'Start';
             } else {
-                _Data._ins()._tweenToPitchByIndex(-1, 600);
+                if (_Data._ins()._getProperty(_Data._ins()._pitchName, _Data._ins()._otherPro.rankNum) == 1) {
+                    _Data._ins()._listTweenToPitch(600);
+                } else {
+                    _Data._ins()._listTweenToPitchChoose(-1, 600);
+                }
             }
         }
 

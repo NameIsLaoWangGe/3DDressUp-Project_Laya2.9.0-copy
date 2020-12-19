@@ -1,4 +1,4 @@
-import { Admin, Animation2D, StorageAdmin } from "./Lwg";
+import { Admin, Animation2D, Color, StorageAdmin, TimerAdmin } from "./Lwg";
 import { _Ranking } from "./_Ranking";
 
 export module _PersonalInfo {
@@ -17,12 +17,23 @@ export module _PersonalInfo {
             const obj = _Ranking._Data._ins()._getPitchObj();
             this._LabelVar('RankValue').text = obj[_Ranking._Data._ins()._otherPro.rankNum];
             this._LabelVar('FansValue').text = obj[_Ranking._Data._ins()._otherPro.fansNum];
+
+
         }
 
         lwgOpenAni(): number {
             this._ImgVar('Background').alpha = 0;
             this._ImgVar('Content').alpha = 0;
-            Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350);
+            Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350, 0, () => {
+                TimerAdmin._frameLoop(240, this, () => {
+                    this._AniVar('ani1').play(0, false);
+                    this._AniVar('ani1').on(Laya.Event.LABEL, this, (e: string) => {
+                        if (e === 'comp') {
+                            Color._changeOnce(this._ImgVar('Head'), [50, 10, 10, 1], 40);
+                        }
+                    })
+                }, true)
+            });
             Animation2D.fadeOut(this._ImgVar('Content'), 0, 1, 200);
             return 200;
         }
