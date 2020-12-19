@@ -237,10 +237,10 @@ export module _MakePattern {
                     // let _angleY: number;
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY;
-                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90) - 10;
+                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90) 
                     } else {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY - 180;
-                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90) - 10;
+                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90) ;
                     }
                     // console.log(this.Tex.Img.x);
 
@@ -248,7 +248,7 @@ export module _MakePattern {
                     let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;//扫描点位置
                     let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
-                    this.Tex.Img.y = ratio * _height + 40;
+                    this.Tex.Img.y = ratio * _height + 70;
 
                     // console.log(this.Tex.Img.x, this.Tex.Img.y);
                     return true;

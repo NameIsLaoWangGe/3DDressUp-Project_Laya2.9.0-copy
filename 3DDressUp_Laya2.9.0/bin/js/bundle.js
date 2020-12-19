@@ -7194,12 +7194,7 @@
                                         if (!mat) {
                                             cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
                                         }
-                                        if (mat.albedoTexture) {
-                                            mat.albedoTexture.destroy();
-                                        }
-                                        Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
-                                            mat.albedoTexture = tex;
-                                        }));
+                                        mat.albedoTexture = _Res._list.texture2D[`${cloth.name}`]['texture2D'];
                                     }
                                     else {
                                         const front = cloth.getChildByName(`${cloth.name}_0`);
@@ -7504,7 +7499,143 @@
                 bgPhoto: {
                     url: `Game/Background/bgPhoto.png`,
                     texture2D: null,
-                }
+                },
+                dress_001: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_001.png`,
+                    texture2D: null,
+                },
+                dress_002: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_002.png`,
+                    texture2D: null,
+                },
+                dress_003: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_003.png`,
+                    texture2D: null,
+                },
+                dress_004: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_004.png`,
+                    texture2D: null,
+                },
+                dress_005: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_005.png`,
+                    texture2D: null,
+                },
+                dress_006: {
+                    url: `Game/UI/DressingRoom/ClothTex/dress_006.png`,
+                    texture2D: null,
+                },
+                top_001: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_001.png`,
+                    texture2D: null,
+                },
+                top_002: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_002.png`,
+                    texture2D: null,
+                },
+                top_003: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_003.png`,
+                    texture2D: null,
+                },
+                top_004: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_004.png`,
+                    texture2D: null,
+                },
+                top_005: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_005.png`,
+                    texture2D: null,
+                },
+                top_006: {
+                    url: `Game/UI/DressingRoom/ClothTex/top_006.png`,
+                    texture2D: null,
+                },
+                bottom_001: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_001.png`,
+                    texture2D: null,
+                },
+                bottom_002: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_002.png`,
+                    texture2D: null,
+                },
+                bottom_003: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_003.png`,
+                    texture2D: null,
+                },
+                bottom_004: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_004.png`,
+                    texture2D: null,
+                },
+                bottom_005: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_005.png`,
+                    texture2D: null,
+                },
+                bottom_006: {
+                    url: `Game/UI/DressingRoom/ClothTex/bottom_006.png`,
+                    texture2D: null,
+                },
+                shoes_001: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_001.png`,
+                    texture2D: null,
+                },
+                shoes_002: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_002.png`,
+                    texture2D: null,
+                },
+                shoes_003: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_003.png`,
+                    texture2D: null,
+                },
+                shoes_004: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_004.png`,
+                    texture2D: null,
+                },
+                shoes_005: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_005.png`,
+                    texture2D: null,
+                },
+                shoes_006: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_006.png`,
+                    texture2D: null,
+                },
+                shoes_007: {
+                    url: `Game/UI/DressingRoom/ClothTex/shoes_007.png`,
+                    texture2D: null,
+                },
+                hair_000: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_000.png`,
+                    texture2D: null,
+                },
+                hair_001: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_001.png`,
+                    texture2D: null,
+                },
+                hair_002: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_002.png`,
+                    texture2D: null,
+                },
+                hair_003: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_003.png`,
+                    texture2D: null,
+                },
+                hair_004: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_004.png`,
+                    texture2D: null,
+                },
+                hair_005: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_005.png`,
+                    texture2D: null,
+                },
+                hair_006: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_006.png`,
+                    texture2D: null,
+                },
+                hair_007: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_007.png`,
+                    texture2D: null,
+                },
+                hair_008: {
+                    url: `Game/UI/DressingRoom/ClothTex/hair_008.png`,
+                    texture2D: null,
+                },
             },
             scene2D: {
                 Start: `Scene/${_SceneName.Start}.json`,
@@ -7595,7 +7726,7 @@
             }
             lwgOpenAni() { return 1; }
             lwgStepComplete() {
-                this._ImgVar('ProgressBar').mask.x += 5;
+                this._ImgVar('ProgressBar').mask.x += 1;
             }
             lwgAllComplete() {
                 this._ImgVar('ProgressBar').mask.x = 0;
@@ -8006,15 +8137,15 @@
                             let _height = this._ImgVar(this.Tex.dir).height;
                             let angleXZ = Tools._Point.pointByAngle(_3D.DIYCloth._ins().ModelTap.transform.position.x - out.point.x, _3D.DIYCloth._ins().ModelTap.transform.position.z - out.point.z);
                             if (this.Tex.dir == this.Tex.dirType.Front) {
-                                this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90) - 10;
+                                this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90);
                             }
                             else {
-                                this.Tex.Img.x = -_width / 180 * (angleXZ - 90) - 10;
+                                this.Tex.Img.x = -_width / 180 * (angleXZ - 90);
                             }
                             let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;
                             let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
-                            this.Tex.Img.y = ratio * _height + 40;
+                            this.Tex.Img.y = ratio * _height + 70;
                             return true;
                         }
                         else {

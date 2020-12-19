@@ -143,7 +143,150 @@ export module _Res {
             bgPhoto: {
                 url: `Game/Background/bgPhoto.png`,
                 texture2D: null as Laya.Texture2D,
-            }
+            },
+
+
+            dress_001: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_001.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            dress_002: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_002.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            dress_003: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_003.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            dress_004: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_004.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            dress_005: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_005.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            dress_006: {
+                url: `Game/UI/DressingRoom/ClothTex/dress_006.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            top_001: {
+                url: `Game/UI/DressingRoom/ClothTex/top_001.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            top_002: {
+                url: `Game/UI/DressingRoom/ClothTex/top_002.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            top_003: {
+                url: `Game/UI/DressingRoom/ClothTex/top_003.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            top_004: {
+                url: `Game/UI/DressingRoom/ClothTex/top_004.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            top_005: {
+                url: `Game/UI/DressingRoom/ClothTex/top_005.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            top_006: {
+                url: `Game/UI/DressingRoom/ClothTex/top_006.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            bottom_001: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_001.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            bottom_002: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_002.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            bottom_003: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_003.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            bottom_004: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_004.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            bottom_005: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_005.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            bottom_006: {
+                url: `Game/UI/DressingRoom/ClothTex/bottom_006.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            shoes_001: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_001.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_002: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_002.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_003: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_003.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_004: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_004.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_005: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_005.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_006: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_006.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            shoes_007: {
+                url: `Game/UI/DressingRoom/ClothTex/shoes_007.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            hair_000: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_000.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_001: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_001.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_002: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_002.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_003: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_003.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_004: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_004.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_005: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_005.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_006: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_006.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_007: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_007.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            hair_008: {
+                url: `Game/UI/DressingRoom/ClothTex/hair_008.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -256,7 +399,7 @@ export module _PreLoad {
         }
         lwgOpenAni(): number { return 1; }
         lwgStepComplete(): void {
-            this._ImgVar('ProgressBar').mask.x += 5;
+            this._ImgVar('ProgressBar').mask.x += 1;
         }
         lwgAllComplete(): number {
             this._ImgVar('ProgressBar').mask.x = 0;

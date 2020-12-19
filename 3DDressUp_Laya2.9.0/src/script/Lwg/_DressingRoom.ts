@@ -53,12 +53,7 @@ export module _DressingRoom {
                                     if (!mat) {
                                         cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
                                     }
-                                    if (mat.albedoTexture) {
-                                        mat.albedoTexture.destroy();
-                                    }
-                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
-                                        mat.albedoTexture = tex;
-                                    }));
+                                    mat.albedoTexture = _Res._list.texture2D[`${cloth.name}`]['texture2D'];
                                 } else {
                                     const front = cloth.getChildByName(`${cloth.name}_0`) as Laya.SkinnedMeshSprite3D;
                                     const matF = front.skinnedMeshRenderer.material as Laya.UnlitMaterial;
