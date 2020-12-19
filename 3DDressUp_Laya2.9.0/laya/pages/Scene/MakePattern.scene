@@ -2,17 +2,13 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":4432,
+    "selecteID":4447,
     "searchKey":"View",
     "referenceLines":[
-        {
-            "value":-227,
-            "type":1,
-            "id":1
-        }],
+        ],
     "props":{"width":1280,"sceneColor":"#a4a4a4","height":720},
     "nodeParent":-1,
-    "maxID":4443,
+    "maxID":4448,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -56,14 +52,13 @@
             "props":{"y":505,"x":881,"width":123,"visible":false,"var":"Wireframe","sizeGrid":"13,20,21,25","rotation":0,"name":"Wireframe","height":157},
             "nodeParent":2,
             "label":"Wireframe",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":13,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,Frame,Frame",
                     "props":{"y":0,"x":0,"width":123,"visible":true,"var":"Frame","skin":"Lwg/UI/wireframeBlack2.png","sizeGrid":"13,20,21,25","rotation":0,"name":"Frame","height":157},
@@ -78,7 +73,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,WClose,WClose",
                     "props":{"y":0,"x":0,"width":49,"var":"WClose","skin":"Game/UI/MakePattern/close.png","pivotY":24,"pivotX":25,"name":"WClose","height":48},
@@ -92,7 +86,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,WConversion,WConversion",
                     "props":{"y":149,"x":114,"width":48,"var":"WConversion","skin":"Game/UI/MakePattern/lashen.png","pivotY":24,"pivotX":24,"name":"WConversion","height":48},
@@ -147,6 +140,34 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":34,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,DrawFront,DrawFront",
+                    "props":{"width":256,"var":"DrawFront","texture":"comp/image.png","name":"DrawFront","height":256},
+                    "nodeParent":10,
+                    "label":"DrawFront",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4443,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,DrawReverse,DrawReverse",
+                    "props":{"y":0,"x":0,"width":256,"var":"DrawReverse","texture":"comp/image.png","name":"DrawReverse","height":256},
+                    "nodeParent":10,
+                    "label":"DrawReverse",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4444,
                     "child":[
                         ]
                 }]

@@ -237,10 +237,10 @@ export module _MakePattern {
                     // let _angleY: number;
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY;
-                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90);
+                        this.Tex.Img.x = _width - _width / 180 * (angleXZ + 90) - 10;
                     } else {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY - 180;
-                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90);
+                        this.Tex.Img.x = - _width / 180 * (angleXZ - 90) - 10;
                     }
                     // console.log(this.Tex.Img.x);
 
@@ -248,7 +248,7 @@ export module _MakePattern {
                     let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;//扫描点位置
                     let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
-                    this.Tex.Img.y = ratio * _height;
+                    this.Tex.Img.y = ratio * _height + 40;
 
                     // console.log(this.Tex.Img.x, this.Tex.Img.y);
                     return true;
@@ -262,19 +262,19 @@ export module _MakePattern {
                 let _width = this._ImgVar('Frame').width;
                 let _height = this._ImgVar('Frame').height;
                 return [
-                    new Laya.Point(0, 0),
-                    new Laya.Point(0, _height / 2),
-                    new Laya.Point(_width, _height / 2),
-                    new Laya.Point(_width, 0),
-                    new Laya.Point(_width / 2, 0),
-                    new Laya.Point(_width / 2, _height),
-                    new Laya.Point(_width * 1 / 4, _height * 3 / 4),
-                    new Laya.Point(_width * 3 / 4, _height * 1 / 4),
+                    // new Laya.Point(0, 0),
+                    // new Laya.Point(0, _height / 2),
+                    // new Laya.Point(_width, _height / 2),
+                    // new Laya.Point(_width, 0),
+                    // new Laya.Point(_width / 2, 0),
+                    // new Laya.Point(_width / 2, _height),
+                    // new Laya.Point(_width * 1 / 4, _height * 3 / 4),
+                    // new Laya.Point(_width * 3 / 4, _height * 1 / 4),
                     new Laya.Point(_width / 2, _height / 2),
-                    new Laya.Point(_width * 1 / 4, _height * 1 / 4),
-                    new Laya.Point(_width * 3 / 4, _height * 3 / 4),
-                    new Laya.Point(x, _height),
-                    new Laya.Point(_width, _height),
+                    // new Laya.Point(_width * 1 / 4, _height * 1 / 4),
+                    // new Laya.Point(_width * 3 / 4, _height * 3 / 4),
+                    // new Laya.Point(x, _height),
+                    // new Laya.Point(_width, _height),
                 ];
             },
             crashType: {
@@ -383,10 +383,10 @@ export module _MakePattern {
                 _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             turnFace: () => {
-                if (0 < _3D.DIYCloth._ins().simRY && _3D.DIYCloth._ins().simRY < 180) {
-                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
-                } else {
+                if (this.Tex.dir == this.Tex.dirType.Front) {
                     Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 180, 0), 800, this);
+                } else {
+                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
                 }
             },
             btn: () => {
@@ -395,13 +395,11 @@ export module _MakePattern {
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         this.Tex.dir = this.Tex.dirType.Reverse;
                         this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/fan.png';
-                        Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
                     } else {
                         this.Tex.dir = this.Tex.dirType.Front;
                         this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/zheng.png';
-
                     }
-
+                    this.Tex.turnFace();
                     this._ImgVar('Wireframe').visible = false;
                     this.Tex.state = this.Tex.stateType.rotate;
                     e.stopPropagation();
@@ -461,20 +459,22 @@ export module _MakePattern {
             this.EndCamera.renderingOrder = -1;
             //清除标记
             this.EndCamera.clearFlag = Laya.CameraClearFlags.Sky;
-            var rtex = new Laya.Texture(((<Laya.Texture2D>(this.EndCamera.renderTarget as any))), Laya.Texture.DEF_UV);
-            this._SpriteVar('IconPhoto').graphics.drawTexture(rtex);
+            const ptex = new Laya.Texture(((<Laya.Texture2D>(this.EndCamera.renderTarget as any))), Laya.Texture.DEF_UV);
+            this._SpriteVar('IconPhoto').graphics.drawTexture(ptex);
+            // 绘制到两张只有一半的sp上，节省本地存储的内存
+            this._SpriteVar('Front').scaleY = this._SpriteVar('Reverse').scaleY = 1;
+            const texF = Tools._Draw.drawToTex(this._SpriteVar('Front'));
+            const texR = Tools._Draw.drawToTex(this._SpriteVar('Reverse'));
+            texF.width = texF.height = texR.width = texR.height = 256;
+            this._SpriteVar('DrawFront').graphics.drawTexture(texF);
+            this._SpriteVar('DrawReverse').graphics.drawTexture(texR);
             TimerAdmin._frameOnce(10, this, () => {
                 const base64Icon = Tools._Draw.screenshot(this._SpriteVar('IconPhoto'), 0.5);
-                this._SpriteVar('Front').scaleY = 1;
-                // this._SpriteVar('Front').width = this._SpriteVar('Front').height = 256;
-                const base64F = Tools._Draw.screenshot(this._SpriteVar('Front'), 0.1);
-                this._SpriteVar('Reverse').scaleY = 1;
-                // this._SpriteVar('Reverse').width = this._SpriteVar('Reverse').height = 256;
-                const base64R = Tools._Draw.screenshot(this._SpriteVar('Reverse'), 0.1);
+                const base64F = Tools._Draw.screenshot(this._SpriteVar('DrawFront'), 0.1);
+                const base64R = Tools._Draw.screenshot(this._SpriteVar('DrawReverse'), 0.1);
                 _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
-
                 this.EndCamera.destroy();
                 (_3D.DIYCloth._ins().Front.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
                 (_3D.DIYCloth._ins().Reverse.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
@@ -482,14 +482,12 @@ export module _MakePattern {
                 _Ranking._whereFrom = this._Owner.name;
             })
         }
-
         onStageMouseDown(e: Laya.Event): void {
             this.Tex.touchP = new Laya.Point(e.stageX, e.stageY);
             if (e.stageX > Laya.stage.width - this.UI.Operation.width) {
                 this['slideFY'] = e.stageY;
             }
         }
-
         onStageMouseMove(e: Laya.Event) {
             this.Tex.operation(e);
             if (e.stageX > Laya.stage.width - this.UI.Operation.width) {

@@ -6934,7 +6934,7 @@ export module lwg {
             }
 
             /**
-             * 对一个Sprite进行截图，返回一个图片信息字符串，可直接使用
+             * 对一个Sprite进行截图，返回一个图片信息字符串，可直接当前图片地址使用
              * @export
              * @param {Laya.Sprite} Sp 需要截图的Sp，Sp必须有宽高
              * @param quality 品质0-1;
@@ -6944,6 +6944,17 @@ export module lwg {
                 const htmlCanvas: Laya.HTMLCanvas = Sp.drawToCanvas(Sp.width, Sp.height, Sp.x, Sp.y);
                 const base64 = htmlCanvas.toBase64("image/png", quality ? quality : 1);
                 return base64;
+            }
+            /**
+               * 返回一个节点包括其子节点的截图
+               * @export
+               * @param {Laya.Sprite} Sp 需要截图的Sp，Sp必须有宽高
+               * @param quality 品质0-1;
+               * @return {*}  {string}
+               */
+            export function drawToTex(Sp: Laya.Sprite, quality?: number): Laya.Texture {
+                let tex = Sp.drawToTexture(Sp.width, Sp.height, Sp.x, Sp.y) as Laya.Texture;
+                return tex;
             }
 
             /**
