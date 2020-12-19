@@ -7083,6 +7083,7 @@
         _3D._Scene = _Scene;
         class DIYCloth {
             constructor() {
+                this.simRY = 90;
             }
             static _ins() {
                 if (!this.ins) {
@@ -7120,9 +7121,17 @@
             rotate(num) {
                 if (num == 1) {
                     this.Present.transform.localRotationEulerY++;
+                    this.simRY += 2;
+                    if (this.simRY > 360) {
+                        this.simRY = 0;
+                    }
                 }
                 else {
                     this.Present.transform.localRotationEulerY--;
+                    this.simRY -= 2;
+                    if (this.simRY < 0) {
+                        this.simRY = 359;
+                    }
                 }
             }
         }
@@ -7175,42 +7184,34 @@
                                 const cloth = _classifySp.getChildAt(k);
                                 if (cloth.name === obj[this._property.name]) {
                                     cloth.active = true;
-                                    if (!cloth.skinnedMeshRenderer.material) {
-                                        cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                    if (classify !== 'DIY') {
+                                        let mat = cloth.skinnedMeshRenderer.material;
+                                        if (!mat) {
+                                            cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                        }
+                                        if (mat.albedoTexture) {
+                                            mat.albedoTexture.destroy();
+                                        }
+                                        Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
+                                            mat.albedoTexture = tex;
+                                        }));
                                     }
-                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
-                                        cloth.skinnedMeshRenderer.material.albedoTexture = tex;
-                                    }));
-                                }
-                                else {
-                                    cloth.active = false;
-                                }
-                            }
-                        }
-                    }
-                }
-                playAni && _3D._Scene._ins().playDispalyAni();
-            }
-            changeDIY(classify, partArr, playAni) {
-                const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
-                console.log(_classify);
-                for (let i = 0; i < _classify.numChildren; i++) {
-                    const _classifySp = _classify.getChildAt(i);
-                    _classifySp.active = false;
-                    for (let j = 0; j < partArr.length; j++) {
-                        const obj = partArr[j];
-                        if (obj[this._otherPro.part] === _classifySp.name) {
-                            _classifySp.active = true;
-                            for (let k = 0; k < _classifySp.numChildren; k++) {
-                                const cloth = _classifySp.getChildAt(k);
-                                if (cloth.name === obj[this._property.name]) {
-                                    cloth.active = true;
-                                    if (!cloth.skinnedMeshRenderer.material) {
-                                        cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                    else {
+                                        const front = cloth.getChildByName(`${cloth.name}_0`);
+                                        const matF = front.skinnedMeshRenderer.material;
+                                        const fSp = new Laya.Sprite;
+                                        fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
+                                            matF.albedoTexture = fSp.texture.bitmap;
+                                            fSp.removeSelf();
+                                        }));
+                                        const reverse = cloth.getChildByName(`${cloth.name}_1`);
+                                        const matR = reverse.skinnedMeshRenderer.material;
+                                        const rSp = new Laya.Sprite;
+                                        rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
+                                            matR.albedoTexture = rSp.texture.bitmap;
+                                            rSp.removeSelf();
+                                        }));
                                     }
-                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex) {
-                                        cloth.skinnedMeshRenderer.material.albedoTexture = tex;
-                                    }));
                                 }
                                 else {
                                     cloth.active = false;
@@ -7253,6 +7254,8 @@
                 else {
                     _3D._Scene._ins().displayTopAndBotton();
                 }
+            }
+            changeDIY() {
             }
         }
         _DressingRoom._Clothes = _Clothes;
@@ -8131,17 +8134,24 @@
                         this.Tex.touchP = null;
                         _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
                     },
+                    turnFace: () => {
+                        if (0 < _3D.DIYCloth._ins().simRY && _3D.DIYCloth._ins().simRY < 180) {
+                            Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
+                        }
+                        else {
+                            Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 180, 0), 800, this);
+                        }
+                    },
                     btn: () => {
                         this._btnUp(this._ImgVar('BtnTurnFace'), (e) => {
                             if (this.Tex.dir == this.Tex.dirType.Front) {
                                 this.Tex.dir = this.Tex.dirType.Reverse;
                                 this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/fan.png';
-                                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 0;
+                                Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
                             }
                             else {
                                 this.Tex.dir = this.Tex.dirType.Front;
                                 this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/zheng.png';
-                                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
                             }
                             this._ImgVar('Wireframe').visible = false;
                             this.Tex.state = this.Tex.stateType.rotate;
@@ -8254,6 +8264,7 @@
                 this._evReg(_Event.createImg, (name, gPoint) => {
                     this.Tex.state = this.Tex.stateType.move;
                     this.Tex.createImg(name, gPoint);
+                    this.Tex.turnFace();
                 });
                 this._evReg(_Event.close, () => {
                     if (this.Tex.checkInside()) {
@@ -8283,15 +8294,15 @@
                 TimerAdmin._frameOnce(10, this, () => {
                     const base64Icon = Tools._Draw.screenshot(this._SpriteVar('IconPhoto'), 0.5);
                     this._SpriteVar('Front').scaleY = 1;
-                    this._SpriteVar('Front').width = this._SpriteVar('Front').height = 256;
                     const base64F = Tools._Draw.screenshot(this._SpriteVar('Front'), 0.1);
                     this._SpriteVar('Reverse').scaleY = 1;
-                    this._SpriteVar('Reverse').width = this._SpriteVar('Reverse').height = 256;
                     const base64R = Tools._Draw.screenshot(this._SpriteVar('Reverse'), 0.1);
                     _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
                     Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                     Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
                     this.EndCamera.destroy();
+                    _3D.DIYCloth._ins().Front.meshRenderer.material.albedoTexture = null;
+                    _3D.DIYCloth._ins().Reverse.meshRenderer.material.albedoTexture = null;
                     this._openScene('Start', true, true);
                     _Ranking._whereFrom = this._Owner.name;
                 });

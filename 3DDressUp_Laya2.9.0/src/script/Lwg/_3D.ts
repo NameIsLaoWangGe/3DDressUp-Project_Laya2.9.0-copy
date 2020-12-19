@@ -228,7 +228,7 @@ export module _3D {
         Reverse: Laya.MeshSprite3D;
         ModelTap: Laya.MeshSprite3D;//触摸模型
         texHeight: number;
-        // simRY: number = 90;
+        simRY: number = 90;
         remake(): void {
             _Scene._ins()._DIYHanger.active = true;
             _Scene._ins()._Role.active = false;
@@ -267,16 +267,16 @@ export module _3D {
         rotate(num: number): void {
             if (num == 1) {
                 this.Present.transform.localRotationEulerY++;
-                // this.simRY += 2;
-                // if (this.simRY > 360) {
-                //     this.simRY = 0;
-                // }
+                this.simRY += 2;
+                if (this.simRY > 360) {
+                    this.simRY = 0;
+                }
             } else {
                 this.Present.transform.localRotationEulerY--;
-                // this.simRY -= 2;
-                // if (this.simRY < 0) {
-                //     this.simRY = 359;
-                // }
+                this.simRY -= 2;
+                if (this.simRY < 0) {
+                    this.simRY = 359;
+                }
             }
         }
     }

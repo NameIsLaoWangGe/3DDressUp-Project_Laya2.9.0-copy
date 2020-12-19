@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":45,
+    "selectedBox":45,
+    "selecteID":48,
     "searchKey":"View",
     "props":{"width":1280,"sceneColor":"#9a7473","height":720},
     "nodeParent":-1,
@@ -258,13 +258,14 @@
                     "props":{"y":11,"x":-47,"width":159,"var":"List","spaceY":0,"rotation":0,"repeatY":4,"name":"List","height":628},
                     "nodeParent":45,
                     "label":"List",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":48,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":88,"x":80,"width":160,"renderType":"render","pivotY":88,"pivotX":80,"height":175},
@@ -277,6 +278,7 @@
                             "compId":49,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Board",
                                     "props":{"skin":"Game/UI/Common/xuanzhong.png","sizeGrid":"9,12,14,13","name":"Board","centerY":0,"centerX":0},
@@ -290,6 +292,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,Icon",
                                     "props":{"skin":"Game/UI/Clothes/Icon/diy_bottom_008_final.png","name":"Icon","centerY":0,"centerX":0},

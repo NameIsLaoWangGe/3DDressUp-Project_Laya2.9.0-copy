@@ -48,42 +48,35 @@ export module _DressingRoom {
                             const cloth = _classifySp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
                             if (cloth.name === obj[this._property.name]) {
                                 cloth.active = true;
-                                if (!cloth.skinnedMeshRenderer.material) {
-                                    cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
-                                }
-                                Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
-                                    (cloth.skinnedMeshRenderer.material as Laya.UnlitMaterial).albedoTexture = tex;
-                                }));
-                            } else {
-                                cloth.active = false;
-                            }
-                        }
-                    }
-                }
-            }
-            playAni && _3D._Scene._ins().playDispalyAni();
-        }
+                                if (classify !== 'DIY') {
+                                    let mat = cloth.skinnedMeshRenderer.material as Laya.UnlitMaterial;
+                                    if (!mat) {
+                                        cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                    }
+                                    if (mat.albedoTexture) {
+                                        mat.albedoTexture.destroy();
+                                    }
+                                    Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
+                                        mat.albedoTexture = tex;
+                                    }));
+                                } else {
+                                    const front = cloth.getChildByName(`${cloth.name}_0`) as Laya.SkinnedMeshSprite3D;
+                                    const matF = front.skinnedMeshRenderer.material as Laya.UnlitMaterial;
+                                    const fSp = new Laya.Sprite;
+                                    fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
+                                        matF.albedoTexture = (fSp.texture.bitmap as Laya.Texture2D);
+                                        fSp.removeSelf();
+                                    }));
 
-        private changeDIY(classify: string, partArr: Array<any>, playAni?: boolean): void {
-            const _classify = _3D._Scene._ins()._Root.getChildByName(classify) as Laya.MeshSprite3D;
-            console.log(_classify);
-            for (let i = 0; i < _classify.numChildren; i++) {
-                const _classifySp = _classify.getChildAt(i) as Laya.MeshSprite3D;
-                _classifySp.active = false;
-                for (let j = 0; j < partArr.length; j++) {
-                    const obj = partArr[j];
-                    if (obj[this._otherPro.part] === _classifySp.name) {
-                        _classifySp.active = true;
-                        for (let k = 0; k < _classifySp.numChildren; k++) {
-                            const cloth = _classifySp.getChildAt(k) as Laya.SkinnedMeshSprite3D;
-                            if (cloth.name === obj[this._property.name]) {
-                                cloth.active = true;
-                                if (!cloth.skinnedMeshRenderer.material) {
-                                    cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                    const reverse = cloth.getChildByName(`${cloth.name}_1`) as Laya.SkinnedMeshSprite3D;
+                                    const matR = reverse.skinnedMeshRenderer.material as Laya.UnlitMaterial;
+                                    const rSp = new Laya.Sprite;
+                                    rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
+                                        matR.albedoTexture = (rSp.texture.bitmap as Laya.Texture2D);
+                                        rSp.removeSelf();
+                                    }));
                                 }
-                                Laya.Texture2D.load(`Game/UI/DressingRoom/ClothTex/${cloth.name}.png`, Laya.Handler.create(this, function (tex: Laya.Texture2D): void {
-                                    (cloth.skinnedMeshRenderer.material as Laya.UnlitMaterial).albedoTexture = tex;
-                                }));
+
                             } else {
                                 cloth.active = false;
                             }
@@ -129,12 +122,12 @@ export module _DressingRoom {
             }
         }
 
-        // changeDIY(): void {
-        // this._ImgVar('Front').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`));
-        // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
-        // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
-        // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
-        // }
+        changeDIY(): void {
+            // this._ImgVar('Front').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`));
+            // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
+            // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
+            // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
+        }
     }
 
     class _Item extends Admin._ObjectBase {

@@ -1,5 +1,5 @@
 import { TaT } from "../TJ/Admanager";
-import { Admin, Animation2D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
+import { Admin, Animation2D, Animation3D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
 import { lwg3D } from "./Lwg3D";
 import { _3D } from "./_3D";
 import { _MakeTailor } from "./_MakeTailor";
@@ -145,6 +145,7 @@ export module _MakePattern {
             this._evReg(_Event.createImg, (name: string, gPoint: Laya.Point) => {
                 this.Tex.state = this.Tex.stateType.move;
                 this.Tex.createImg(name, gPoint);
+                this.Tex.turnFace();
             })
 
             this._evReg(_Event.close, () => {
@@ -155,11 +156,6 @@ export module _MakePattern {
                 }
                 this.Tex.state = this.Tex.stateType.none;
             })
-
-            // this._evReg(_Event.setTexSize, (_height: number) => {
-            //     this._SpriteVar('Front').height = this._ImgVar('Reverse').height = _height;
-            //     this._SpriteVar('Front').y = this._ImgVar('Reverse').y = _height;
-            // })
         }
         /**图片移动控制*/
         Tex = {
@@ -386,17 +382,24 @@ export module _MakePattern {
                 this.Tex.touchP = null;
                 _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
+            turnFace: () => {
+                if (0 < _3D.DIYCloth._ins().simRY && _3D.DIYCloth._ins().simRY < 180) {
+                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
+                } else {
+                    Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 180, 0), 800, this);
+                }
+            },
             btn: () => {
                 this._btnUp(this._ImgVar('BtnTurnFace'), (e: Laya.Event) => {
 
                     if (this.Tex.dir == this.Tex.dirType.Front) {
                         this.Tex.dir = this.Tex.dirType.Reverse;
                         this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/fan.png';
-                        _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 0;
+                        Animation3D.rotateTo(_3D.DIYCloth._ins().Present, new Laya.Vector3(0, 0, 0), 800, this);
                     } else {
                         this.Tex.dir = this.Tex.dirType.Front;
                         this._ImgVar('BtnTurnFace').skin = 'Game/UI/MakePattern/zheng.png';
-                        _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
+
                     }
 
                     this._ImgVar('Wireframe').visible = false;
@@ -463,21 +466,20 @@ export module _MakePattern {
             TimerAdmin._frameOnce(10, this, () => {
                 const base64Icon = Tools._Draw.screenshot(this._SpriteVar('IconPhoto'), 0.5);
                 this._SpriteVar('Front').scaleY = 1;
-                this._SpriteVar('Front').width = this._SpriteVar('Front').height = 256;
+                // this._SpriteVar('Front').width = this._SpriteVar('Front').height = 256;
                 const base64F = Tools._Draw.screenshot(this._SpriteVar('Front'), 0.1);
                 this._SpriteVar('Reverse').scaleY = 1;
-                this._SpriteVar('Reverse').width = this._SpriteVar('Reverse').height = 256;
+                // this._SpriteVar('Reverse').width = this._SpriteVar('Reverse').height = 256;
                 const base64R = Tools._Draw.screenshot(this._SpriteVar('Reverse'), 0.1);
                 _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
 
                 this.EndCamera.destroy();
+                (_3D.DIYCloth._ins().Front.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
+                (_3D.DIYCloth._ins().Reverse.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
                 this._openScene('Start', true, true);
                 _Ranking._whereFrom = this._Owner.name;
-                // console.log(base64Icon);
-                // console.log(base64F);
-                // console.log(base64R);
             })
         }
 
