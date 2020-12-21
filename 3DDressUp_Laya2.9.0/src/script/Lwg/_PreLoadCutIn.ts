@@ -49,7 +49,7 @@ export module _PreLoadCutIn {
             })
         }
         intoMakePattern(): void {
-            Laya.stage.addChildAt(_Res._list.scene3D.MakeClothes.Scene, 0);
+            // Laya.stage.addChildAt(_Res._list.scene3D.MakeClothes.Scene, 0);
             EventAdmin._notify(_MakePattern._Event.remake);
         }
 
@@ -59,6 +59,9 @@ export module _PreLoadCutIn {
             this._LabelVar('Schedule').text = `100`;
             return 500;
         }
+        // lwgCloseAni(): number {
+        //     return 100;
+        // }
     }
 };
 export default _PreLoadCutIn.PreLoadCutIn;

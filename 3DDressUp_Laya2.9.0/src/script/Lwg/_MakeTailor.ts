@@ -34,6 +34,8 @@ export module _MakeTailor {
         _otherPro = {
             color: 'color',
             icon: 'icon',
+            diffX: 'diffX',
+            diffY: 'diffY',
             texR: 'texR',
             texF: 'texF',
         };

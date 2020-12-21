@@ -24,7 +24,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 80,
+    "diffX": 0
   },
   {
     "index": 1,
@@ -49,7 +50,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 40,
+    "diffX": 0
   },
   {
     "index": 2,
@@ -74,7 +76,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 40,
+    "diffX": 0
   },
   {
     "index": 3,
@@ -99,7 +102,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": -10,
+    "diffX": 0
   },
   {
     "index": 4,
@@ -124,7 +128,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 20,
+    "diffX": 0
   },
   {
     "index": 1,
@@ -149,7 +154,8 @@
     "pitch": true,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 65,
+    "diffX": 0
   },
   {
     "index": 2,
@@ -174,7 +180,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 60,
+    "diffX": -60
   },
   {
     "index": 3,
@@ -199,7 +206,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 80,
+    "diffX": 0
   },
   {
     "index": 4,
@@ -224,7 +232,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 50,
+    "diffX": 0
   },
   {
     "index": 5,
@@ -249,7 +258,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 60,
+    "diffX": -100
   },
   {
     "index": 6,
@@ -274,7 +284,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 0,
+    "diffX": 0
   },
   {
     "index": 7,
@@ -299,7 +310,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 0,
+    "diffX": -10
   },
   {
     "index": 8,
@@ -324,7 +336,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 0,
+    "diffX": 0
   },
   {
     "index": 1,
@@ -349,7 +362,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 80,
+    "diffX": -5
   },
   {
     "index": 2,
@@ -372,7 +386,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 0,
+    "diffX": 0
   },
   {
     "index": 3,
@@ -397,7 +412,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 60,
+    "diffX": -15
   },
   {
     "index": 4,
@@ -422,7 +438,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 70,
+    "diffX": 0
   },
   {
     "index": 5,
@@ -447,7 +464,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 80,
+    "diffX": 0
   },
   {
     "index": 6,
@@ -472,7 +490,8 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0
+    "diffY": 0,
+    "diffX": 0
   }
 ]
 }

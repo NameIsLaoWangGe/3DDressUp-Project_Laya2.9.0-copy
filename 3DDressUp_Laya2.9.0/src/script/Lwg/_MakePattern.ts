@@ -132,9 +132,7 @@ export module _MakePattern {
                 this._openScene('MakeTailor', true, true);
             }
             this.UI.btnAgainClick = () => {
-                Tools._Node.removeAllChildren(this._SpriteVar('Front'));
-                Tools._Node.removeAllChildren(this._SpriteVar('Reverse'));
-                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
+                this.Tex.again();
             }
 
             this._SpriteVar('Front').height = this._ImgVar('Reverse').height = _3D.DIYCloth._ins().texHeight;
@@ -242,14 +240,14 @@ export module _MakePattern {
                         // _angleY = angleXZ + _3D.DIYCloth._ins().simRY - 180;
                         this.Tex.Img.x = - _width / 180 * (angleXZ - 90)
                     }
+                    this.Tex.Img.x += _MakeTailor._DIYClothes._ins()._getPitchProperty('diffX');
                     // console.log(this.Tex.Img.x);
 
                     // 通过xy计算y
                     let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;//扫描点位置
                     let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                     let ratio = 1 - pH / _DirHeight;//比例
-                    this.Tex.Img.y = ratio * _height + 80;
-
+                    this.Tex.Img.y = ratio * _height + _MakeTailor._DIYClothes._ins()._getPitchProperty('diffY');
                     // console.log(this.Tex.Img.x, this.Tex.Img.y);
                     return true;
                 } else {
@@ -353,6 +351,13 @@ export module _MakePattern {
                 } else {
                     _3D.DIYCloth._ins().rotate(0);
                 }
+            },
+            again: () => {
+                Tools._Node.removeAllChildren(this._SpriteVar('Front'));
+                Tools._Node.removeAllChildren(this._SpriteVar('Reverse'));
+                this._ImgVar('Wireframe').visible = false;
+                this.Tex.turnFace();
+                _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
             },
             none: () => {
                 return;
@@ -501,7 +506,6 @@ export module _MakePattern {
                         }
                         if (diffY < 0) {
                             _Pattern._ins()._List.tweenTo(index - 1, 100);
-
                         }
                         this['slideFY'] = null;
                     }

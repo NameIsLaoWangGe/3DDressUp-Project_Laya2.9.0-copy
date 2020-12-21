@@ -2219,6 +2219,11 @@
                     return value;
                 }
                 ;
+                _getPitchProperty(pro) {
+                    const obj = this._getPitchObj();
+                    return obj[pro];
+                }
+                ;
                 _randomOneObj(proName, value) {
                     let arr = [];
                     for (const key in this._arr) {
@@ -6431,6 +6436,8 @@
                 this._otherPro = {
                     color: 'color',
                     icon: 'icon',
+                    diffX: 'diffX',
+                    diffY: 'diffY',
                     texR: 'texR',
                     texF: 'texF',
                 };
@@ -7088,7 +7095,6 @@
         _3D._Scene = _Scene;
         class DIYCloth {
             constructor() {
-                this.simRY = 90;
             }
             static _ins() {
                 if (!this.ins) {
@@ -7126,17 +7132,9 @@
             rotate(num) {
                 if (num == 1) {
                     this.Present.transform.localRotationEulerY++;
-                    this.simRY += 2;
-                    if (this.simRY > 360) {
-                        this.simRY = 0;
-                    }
                 }
                 else {
                     this.Present.transform.localRotationEulerY--;
-                    this.simRY -= 2;
-                    if (this.simRY < 0) {
-                        this.simRY = 359;
-                    }
                 }
             }
         }
@@ -7367,6 +7365,9 @@
                         this.switchClassify(_element);
                     }, 'no');
                 }
+            }
+            lwgCloseAni() {
+                return 100;
             }
         }
         _DressingRoom.DressingRoom = DressingRoom;
@@ -8155,10 +8156,11 @@
                             else {
                                 this.Tex.Img.x = -_width / 180 * (angleXZ - 90);
                             }
+                            this.Tex.Img.x += _MakeTailor._DIYClothes._ins()._getPitchProperty('diffX');
                             let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;
                             let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
-                            this.Tex.Img.y = ratio * _height + 100;
+                            this.Tex.Img.y = ratio * _height + _MakeTailor._DIYClothes._ins()._getPitchProperty('diffY');
                             return true;
                         }
                         else {
@@ -8244,6 +8246,13 @@
                         else {
                             _3D.DIYCloth._ins().rotate(0);
                         }
+                    },
+                    again: () => {
+                        Tools._Node.removeAllChildren(this._SpriteVar('Front'));
+                        Tools._Node.removeAllChildren(this._SpriteVar('Reverse'));
+                        this._ImgVar('Wireframe').visible = false;
+                        this.Tex.turnFace();
+                        _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
                     },
                     none: () => {
                         return;
@@ -8391,9 +8400,7 @@
                     this._openScene('MakeTailor', true, true);
                 };
                 this.UI.btnAgainClick = () => {
-                    Tools._Node.removeAllChildren(this._SpriteVar('Front'));
-                    Tools._Node.removeAllChildren(this._SpriteVar('Reverse'));
-                    _3D.DIYCloth._ins().addTexture2D(this.Tex.getTex());
+                    this.Tex.again();
                 };
                 this._SpriteVar('Front').height = this._ImgVar('Reverse').height = _3D.DIYCloth._ins().texHeight;
                 this._SpriteVar('Front').y = this._ImgVar('Reverse').y = _3D.DIYCloth._ins().texHeight;
@@ -8542,7 +8549,6 @@
                 });
             }
             intoMakePattern() {
-                Laya.stage.addChildAt(_Res._list.scene3D.MakeClothes.Scene, 0);
                 EventAdmin._notify(_MakePattern._Event.remake);
             }
             lwgStepComplete() {

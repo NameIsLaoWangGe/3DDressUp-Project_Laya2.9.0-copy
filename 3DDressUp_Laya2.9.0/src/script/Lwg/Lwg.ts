@@ -2725,6 +2725,16 @@ export module lwg {
             };
 
             /**
+             * 获取当前被选中的某个属性的值
+             * @param {string} name 名称
+             * @param {string} pro 属性名
+            */
+            _getPitchProperty(pro: string): any {
+                const obj = this._getPitchObj();
+                return obj[pro];
+            };
+
+            /**
              * 通过一个属性和值随机出一个对象,用于从某个品类中随机获取一个对象
              * @param {string} [pro] 属性名如果不输入则从表中有此属性的对象中盲选一个。
              * @param {*} [value] 属性值默认为null

@@ -243,6 +243,9 @@ export module _DressingRoom {
                 }, 'no');
             }
         }
+        lwgCloseAni(): number {
+            return 100;
+        }
     }
 }
 export default _DressingRoom.DressingRoom;
