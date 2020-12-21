@@ -2820,6 +2820,18 @@ export module lwg {
             }
 
             /**
+             * 获取被选中对象的品类名称
+             * @param {string} name
+             * @return {*}  {string}
+             * @memberof _Table
+             */
+            _getPitchClassfiyName(): string {
+                const obj = this._getObjByName(this._pitchName);
+                return obj[this._property.classify];
+            }
+
+
+            /**
             * 通过某个属性名称和值获取所有不复合当前值的属性，可以反向查找出已获得或者未获得
             * @param {string} proName 属性名
             * @param {*} value 值
@@ -3039,6 +3051,7 @@ export module lwg {
                     const obj = objArr[i];
                     // 必须拷贝
                     let _obj = Tools._ObjArray.objCopy(obj);
+                    // 将原来和当前数组中名称相同的对象删掉，防止重名
                     for (let j = 0; j < this._arr.length; j++) {
                         const element = this._arr[j];
                         if (obj[this._property.name] === element[this._property.name]) {

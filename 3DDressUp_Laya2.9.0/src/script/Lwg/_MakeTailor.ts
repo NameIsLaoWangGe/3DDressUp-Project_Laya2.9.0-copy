@@ -22,7 +22,6 @@ export module _MakeTailor {
         static _ins() {
             if (!this.ins) {
                 this.ins = new _DIYClothes('DIYClothes', _Res._list.json.DIYClothes.dataArr, true);
-                //设置初始值
             }
             return this.ins;
         };
@@ -39,7 +38,7 @@ export module _MakeTailor {
             texR: 'texR',
             texF: 'texF',
         };
-        _getColor(): Array<any> {
+        getColor(): Array<any> {
             let obj = this._getPitchObj();
             return [obj[`${this._otherPro.color}1`], obj[`${this._otherPro.color}2`]]
         }
@@ -257,8 +256,8 @@ export module _MakeTailor {
             },
             effcts: () => {
                 const num = Tools._Number.randomOneInt(3, 6);
-                const color1 = _DIYClothes._ins()._getColor()[0];
-                const color2 = _DIYClothes._ins()._getColor()[1];
+                const color1 = _DIYClothes._ins().getColor()[0];
+                const color2 = _DIYClothes._ins().getColor()[1];
                 const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                 for (let index = 0; index < num; index++) {
                     Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);

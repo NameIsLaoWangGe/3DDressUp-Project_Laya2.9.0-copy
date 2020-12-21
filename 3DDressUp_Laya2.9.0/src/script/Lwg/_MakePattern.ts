@@ -2,6 +2,7 @@ import { TaT } from "../TJ/Admanager";
 import { Admin, Animation2D, Animation3D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
 import { lwg3D } from "./Lwg3D";
 import { _3D } from "./_3D";
+import { _DressingRoom } from "./_DressingRoom";
 import { _MakeTailor } from "./_MakeTailor";
 import { _MakeUp } from "./_MakeUp";
 import { _Res } from "./_PreLoad";
@@ -111,6 +112,7 @@ export module _MakePattern {
             TimerAdmin._frameOnce(10, this, () => {
                 this.UI.operationAppear(() => {
                     this.UI.btnCompleteAppear(null, 400);
+                    // Animation2D.bombs_Appear(this._ImgVar('BtnTurnFace'), 0, 1, this.UI.scale, 0, this.UI.time * 2);
                 });
                 this.UI.btnBackAppear(null, 200);
                 this.UI.btnRollbackAppear(null, 600);
@@ -484,7 +486,9 @@ export module _MakePattern {
                 this.EndCamera.destroy();
                 (_3D.DIYCloth._ins().Front.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
                 (_3D.DIYCloth._ins().Reverse.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
-                this._openScene('Start', true, true);
+                this._openScene('Start', true, true, () => {
+                    _DressingRoom._Clothes._ins().changeAfterMaking();
+                });
                 _Ranking._whereFrom = this._Owner.name;
             })
         }

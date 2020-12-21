@@ -405,6 +405,7 @@ export module _PreLoad {
             this._ImgVar('ProgressBar').mask.x = 0;
             _DressingRoom._Clothes._ins().changeClothStart();
             _3D._Scene._ins().intoStart();
+            Laya.BaseTexture.prototype.anisoLevel = 1000;
             return 1000;
         }
         lwgOnDisable(): void {

@@ -35,6 +35,29 @@ export module _DressingRoom {
             putOn: 'putOn',
             part: 'part'
         }
+
+        /**
+         *将DIY服装汇总进去
+         * */
+        collectDIY(): any[] {
+            let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+            // 必须复制
+            let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+            // 将类型修改为'DIY'
+            Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
+            this._addObjectArr(copyDIYArr);
+
+            return copyDIYArr;
+        }
+
+        /**
+         * 当前服装制作完毕后的换装
+         */
+        changeAfterMaking(): void {
+            _DressingRoom._Clothes._ins().collectDIY();
+            _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
+        }
+
         private changeClass(classify: string, partArr: Array<any>, playAni?: boolean): void {
             const _classify = _3D._Scene._ins()._Root.getChildByName(classify) as Laya.MeshSprite3D;
             for (let i = 0; i < _classify.numChildren; i++) {
@@ -117,29 +140,32 @@ export module _DressingRoom {
             }
         }
 
-        changeDIY(): void {
-            // this._ImgVar('Front').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`));
-            // this._ImgVar('Reverse').loadImage(Laya.LocalStorage.getItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`));
-            // this._ImgVar('Front').width = this._ImgVar('Front').height = 512;
-            // this._ImgVar('Reverse').width = this._ImgVar('Reverse').height = 512;
+        /**
+         * 精确换装
+         * @param {*} partValue 部位
+         * @param {string} name 名称
+         * @memberof _Clothes
+         */
+        accurateChange(partValue: any, name: string): void {
+            const arr = _Clothes._ins()._getArrByProperty('part', partValue);
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (name === element['name']) {
+                    element['putOn'] = true;
+                } else {
+                    element['putOn'] = false;
+                }
+            }
+            _Clothes._ins()._refreshAndStorage();
+            _Clothes._ins().changeCloth();
+            _Clothes._ins().specialSet(partValue);
         }
     }
 
     class _Item extends Admin._ObjectBase {
         lwgButton(): void {
             this._btnUp(this._Owner, (e: Laya.Event) => {
-                const arr = _Clothes._ins()._getArrByProperty('part', this._Owner['dataSource']['part']);
-                for (let index = 0; index < arr.length; index++) {
-                    const element = arr[index];
-                    if (this._Owner['dataSource']['name'] === element['name']) {
-                        element['putOn'] = true;
-                    } else {
-                        element['putOn'] = false;
-                    }
-                }
-                _Clothes._ins()._refreshAndStorage();
-                _Clothes._ins().changeCloth();
-                _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
+                _Clothes._ins().accurateChange(this._Owner['dataSource']['part'], this._Owner['dataSource']['name']);
             }, null)
         }
     }
@@ -151,13 +177,7 @@ export module _DressingRoom {
             TimerAdmin._frameLoop(1, this, () => {
                 _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
             });
-
-            let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-            // 必须复制
-            let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
-            // 将类型修改为'DIY'
-            Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
-            _Clothes._ins()._addObjectArr(copyDIYArr);
+            const copyDIYArr = _Clothes._ins().collectDIY();
             _Clothes._ins()._List = this._ListVar('List');
             _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
 

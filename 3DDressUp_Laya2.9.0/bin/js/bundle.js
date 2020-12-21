@@ -2285,6 +2285,10 @@
                     }
                     return arr;
                 }
+                _getPitchClassfiyName() {
+                    const obj = this._getObjByName(this._pitchName);
+                    return obj[this._property.classify];
+                }
                 _getArrByNoProperty(proName, value) {
                     let arr = [];
                     for (const key in this._arr) {
@@ -6410,6 +6414,13 @@
             });
         }
     }
+    class UI1 {
+        constructor(parameters) {
+            this.time = 100;
+            this.delay = 100;
+            this.scale = 1.4;
+        }
+    }
 
     var _MakeTailor;
     (function (_MakeTailor) {
@@ -6449,7 +6460,7 @@
                 return this.ins;
             }
             ;
-            _getColor() {
+            getColor() {
                 let obj = this._getPitchObj();
                 return [obj[`${this._otherPro.color}1`], obj[`${this._otherPro.color}2`]];
             }
@@ -6652,8 +6663,8 @@
                     },
                     effcts: () => {
                         const num = Tools._Number.randomOneInt(3, 6);
-                        const color1 = _DIYClothes._ins()._getColor()[0];
-                        const color2 = _DIYClothes._ins()._getColor()[1];
+                        const color1 = _DIYClothes._ins().getColor()[0];
+                        const color2 = _DIYClothes._ins().getColor()[1];
                         const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                         for (let index = 0; index < num; index++) {
                             Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
@@ -7174,6 +7185,17 @@
                 }
                 return this.ins;
             }
+            collectDIY() {
+                let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+                let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+                Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
+                this._addObjectArr(copyDIYArr);
+                return copyDIYArr;
+            }
+            changeAfterMaking() {
+                _DressingRoom._Clothes._ins().collectDIY();
+                _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
+            }
             changeClass(classify, partArr, playAni) {
                 const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
                 for (let i = 0; i < _classify.numChildren; i++) {
@@ -7253,26 +7275,27 @@
                     _3D._Scene._ins().displayTopAndBotton();
                 }
             }
-            changeDIY() {
+            accurateChange(partValue, name) {
+                const arr = _Clothes._ins()._getArrByProperty('part', partValue);
+                for (let index = 0; index < arr.length; index++) {
+                    const element = arr[index];
+                    if (name === element['name']) {
+                        element['putOn'] = true;
+                    }
+                    else {
+                        element['putOn'] = false;
+                    }
+                }
+                _Clothes._ins()._refreshAndStorage();
+                _Clothes._ins().changeCloth();
+                _Clothes._ins().specialSet(partValue);
             }
         }
         _DressingRoom._Clothes = _Clothes;
         class _Item extends Admin._ObjectBase {
             lwgButton() {
                 this._btnUp(this._Owner, (e) => {
-                    const arr = _Clothes._ins()._getArrByProperty('part', this._Owner['dataSource']['part']);
-                    for (let index = 0; index < arr.length; index++) {
-                        const element = arr[index];
-                        if (this._Owner['dataSource']['name'] === element['name']) {
-                            element['putOn'] = true;
-                        }
-                        else {
-                            element['putOn'] = false;
-                        }
-                    }
-                    _Clothes._ins()._refreshAndStorage();
-                    _Clothes._ins().changeCloth();
-                    _Clothes._ins().specialSet(this._Owner['dataSource']['part']);
+                    _Clothes._ins().accurateChange(this._Owner['dataSource']['part'], this._Owner['dataSource']['name']);
                 }, null);
             }
         }
@@ -7281,10 +7304,7 @@
                 TimerAdmin._frameLoop(1, this, () => {
                     _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
                 });
-                let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-                let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
-                Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
-                _Clothes._ins()._addObjectArr(copyDIYArr);
+                const copyDIYArr = _Clothes._ins().collectDIY();
                 _Clothes._ins()._List = this._ListVar('List');
                 _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
                 if (copyDIYArr.length > 0) {
@@ -7733,6 +7753,7 @@
                 this._ImgVar('ProgressBar').mask.x = 0;
                 _DressingRoom._Clothes._ins().changeClothStart();
                 _3D._Scene._ins().intoStart();
+                Laya.BaseTexture.prototype.anisoLevel = 0.1;
                 return 1000;
             }
             lwgOnDisable() {
@@ -8452,7 +8473,9 @@
                     this.EndCamera.destroy();
                     _3D.DIYCloth._ins().Front.meshRenderer.material.albedoTexture = null;
                     _3D.DIYCloth._ins().Reverse.meshRenderer.material.albedoTexture = null;
-                    this._openScene('Start', true, true);
+                    this._openScene('Start', true, true, () => {
+                        _DressingRoom._Clothes._ins().changeAfterMaking();
+                    });
                     _Ranking._whereFrom = this._Owner.name;
                 });
             }
