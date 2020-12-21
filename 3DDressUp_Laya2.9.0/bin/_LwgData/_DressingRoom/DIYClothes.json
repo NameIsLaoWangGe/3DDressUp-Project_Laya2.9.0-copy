@@ -310,7 +310,7 @@
     "pitch": false,
     "reach": true,
     "completeSkin": "",
-    "diffY": 0,
+    "diffY": 50,
     "diffX": -10
   },
   {

@@ -1077,7 +1077,7 @@
 									"isStatic":false,
 									"layer":0,
 									"position":[
-										-0.006,
+										0.393,
 										-0.391,
 										0.12
 									],
@@ -1576,7 +1576,7 @@
 												0.09999999
 											],
 											"meshPath":"Library/unity default resources-Cube.lm",
-											"enableRender":true,
+											"enableRender":false,
 											"materials":[
 												{
 													"type":"Laya.BlinnPhongMaterial",
@@ -10022,7 +10022,7 @@
 														"type":"SkinnedMeshSprite3D",
 														"instanceID":255,
 														"props":{
-															"name":"diy_dress_007_final_0",
+															"name":"diy_dress_007_final_1",
 															"active":true,
 															"isStatic":false,
 															"layer":0,
@@ -10100,7 +10100,7 @@
 														"type":"SkinnedMeshSprite3D",
 														"instanceID":256,
 														"props":{
-															"name":"diy_dress_007_final_1",
+															"name":"diy_dress_007_final_0",
 															"active":true,
 															"isStatic":false,
 															"layer":0,
@@ -13262,6 +13262,55 @@
 								]
 							}
 						]
+					},
+					{
+						"type":"MeshSprite3D",
+						"instanceID":311,
+						"props":{
+							"name":"Plane",
+							"active":true,
+							"isStatic":false,
+							"layer":0,
+							"position":[
+								0,
+								0,
+								0
+							],
+							"rotation":[
+								0,
+								0,
+								0,
+								-1
+							],
+							"scale":[
+								0.06,
+								1,
+								0.06
+							],
+							"meshPath":"Library/unity default resources-Plane.lm",
+							"enableRender":true,
+							"materials":[
+								{
+									"path":"Assets/Game/Materials/shadow.lmat"
+								}
+							]
+						},
+						"components":[
+							{
+								"type":"PhysicsCollider",
+								"restitution":0,
+								"friction":0.5,
+								"rollingFriction":0,
+								"shapes":[
+									{
+										"type":"MeshColliderShape",
+										"mesh":"Library/unity default resources-Plane.lm"
+									}
+								],
+								"isTrigger":false
+							}
+						],
+						"child":[]
 					}
 				]
 			}

@@ -28,11 +28,11 @@
 		"textures":[
 			{
 				"name":"albedoTexture",
-				"path":"../hanger.jpg",
+				"path":"../../../../Reference/Sprite/hand_bg_02.png",
 				"constructParams":[
 					256,
 					256,
-					0,
+					1,
 					true
 				],
 				"propertyParams":{

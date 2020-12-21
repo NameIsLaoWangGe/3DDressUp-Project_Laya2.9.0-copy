@@ -496,11 +496,20 @@ export module _MakePattern {
             this.Tex.touchP = new Laya.Point(e.stageX, e.stageY);
             if (e.stageX > Laya.stage.width - this.UI.Operation.width) {
                 this['slideFY'] = e.stageY;
+            } else {
+                // 点击位置离框子太远则消失
+                const p = new Laya.Point(e.stageX, e.stageY);
+                if (p.distance(this._ImgVar('Wireframe').x, this._ImgVar('Wireframe').y) > this._ImgVar('Frame').width / 2 + 50) {
+                    this._ImgVar('Wireframe').visible = false;
+                } else {
+                    this._ImgVar('Wireframe').visible = true;
+                }
             }
         }
         onStageMouseMove(e: Laya.Event) {
             this.Tex.operation(e);
             if (e.stageX > Laya.stage.width - this.UI.Operation.width) {
+                // 移动list
                 if (this['slideFY']) {
                     let diffY = this['slideFY'] - e.stageY;
                     let index = _Pattern._ins()._List.startIndex;
@@ -521,13 +530,13 @@ export module _MakePattern {
         }
         onStageMouseUp(e: Laya.Event) {
             this['slideFY'] = null;
+            // 在可以移动图片的位置进行移动
             if (e.stageX > Laya.stage.width - this.UI.Operation.width) {
                 this._evNotify(_Event.close);
             } else {
+                // 在列表上抬起则关闭
                 if (!this.Tex.checkInside()) {
-                    this.Tex.close()
-                } else {
-
+                    this.Tex.close();
                 }
             }
         }

@@ -7753,7 +7753,7 @@
                 this._ImgVar('ProgressBar').mask.x = 0;
                 _DressingRoom._Clothes._ins().changeClothStart();
                 _3D._Scene._ins().intoStart();
-                Laya.BaseTexture.prototype.anisoLevel = 0.1;
+                Laya.BaseTexture.prototype.anisoLevel = 1000;
                 return 1000;
             }
             lwgOnDisable() {
@@ -8181,7 +8181,7 @@
                             let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;
                             let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
-                            this.Tex.Img.y = ratio * _height + _MakeTailor._DIYClothes._ins()._getPitchProperty('diffY');
+                            this.Tex.Img.y = ratio * _height + 50;
                             return true;
                         }
                         else {
@@ -8484,6 +8484,15 @@
                 if (e.stageX > Laya.stage.width - this.UI.Operation.width) {
                     this['slideFY'] = e.stageY;
                 }
+                else {
+                    const p = new Laya.Point(e.stageX, e.stageY);
+                    if (p.distance(this._ImgVar('Wireframe').x, this._ImgVar('Wireframe').y) > this._ImgVar('Frame').width / 2 + 50) {
+                        this._ImgVar('Wireframe').visible = false;
+                    }
+                    else {
+                        this._ImgVar('Wireframe').visible = true;
+                    }
+                }
             }
             onStageMouseMove(e) {
                 this.Tex.operation(e);
@@ -8514,8 +8523,6 @@
                 else {
                     if (!this.Tex.checkInside()) {
                         this.Tex.close();
-                    }
-                    else {
                     }
                 }
             }

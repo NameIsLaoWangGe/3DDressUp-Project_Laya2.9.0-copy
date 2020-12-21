@@ -2,6 +2,7 @@
     "x":0,
     "type":"Box",
     "selectedBox":5575,
+    "selecteID":2578,
     "searchKey":"Box,diy_dress_007_final",
     "props":{"y":0,"x":0,"width":720,"scaleY":1,"scaleX":1,"presetID":1,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","name":"diy_dress_007_final","isPresetRoot":true,"height":720,"centerY":0,"centerX":0},
     "nodeParent":-1,
@@ -1525,16 +1526,17 @@
                     "props":{"y":255,"x":347,"texture":"Game/UI/MakeTailor/diy_dress_007_final/x1.png","presetID":99,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","name":"Line04"},
                     "nodeParent":2578,
                     "label":"Line04",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":2754,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
-                            "props":{"y":8,"x":15,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":3,"presetID":100,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "props":{"y":8,"x":21,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":11,"presetID":100,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
                             "nodeParent":2754,
                             "label":"V",
                             "isOpen":false,
@@ -1579,9 +1581,10 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
-                            "props":{"y":27,"x":14,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":4,"presetID":103,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "props":{"y":27,"x":17,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":10,"presetID":103,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
                             "nodeParent":2754,
                             "label":"V",
                             "isOpen":false,
@@ -1626,9 +1629,10 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
-                            "props":{"y":49,"x":12,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":7,"presetID":106,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
+                            "props":{"y":49,"x":13,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":10,"presetID":106,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
                             "nodeParent":2754,
                             "label":"V",
                             "isOpen":false,
@@ -1673,6 +1677,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":70,"x":9,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":9,"presetID":109,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1720,6 +1725,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":89,"x":6,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":9,"presetID":112,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1767,6 +1773,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":108,"x":4,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-2,"presetID":115,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1814,6 +1821,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":128,"x":6,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-7,"presetID":118,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1861,6 +1869,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":147,"x":9,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-11,"presetID":121,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1908,6 +1917,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":165,"x":13,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-11,"presetID":124,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -1955,6 +1965,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":184,"x":18,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-11,"presetID":127,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2002,6 +2013,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":202,"x":22,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-11,"presetID":130,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2049,6 +2061,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":222,"x":26,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-11,"presetID":133,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2096,6 +2109,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":242,"x":30,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":136,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2143,6 +2157,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":263,"x":34,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-10,"presetID":139,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2190,6 +2205,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":283,"x":38,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":142,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2237,6 +2253,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":303,"x":42,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":145,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2284,6 +2301,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":322,"x":45,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":148,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2331,6 +2349,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":341,"x":48,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":151,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2378,6 +2397,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":360,"x":51,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":154,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2425,6 +2445,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":378,"x":54,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":157,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":14},
@@ -2472,6 +2493,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,V",
                             "props":{"y":394,"x":57,"width":7,"skin":"Game/UI/MakeTailor/dotted1.png","rotation":-9,"presetID":160,"preset":"laya/pages/Prefab/diy_dress_007_final.prefab","pivotY":7,"pivotX":4,"name":"V","height":10},
