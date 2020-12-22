@@ -1,5 +1,5 @@
 import ADManager, { TaT } from "../TJ/Admanager";
-import lwg, { Admin, Animation2D, TimerAdmin, _SceneName, Tools } from "./Lwg";
+import { Admin, Animation2D, TimerAdmin, _SceneName, Tools, } from "./Lwg";
 import { _3D } from "./_3D";
 import { _Game } from "./_Game";
 import { _MakeTailor } from "./_MakeTailor";
@@ -7,8 +7,6 @@ import { _Res } from "./_PreLoad";
 import { _Ranking } from "./_Ranking";
 import { _UI } from "./_UI";
 
-/**测试模块,每个模块分开，默认导出一个类，这个类是默认挂载的脚本类，如果有多个脚本，
- * 那么在这个默认类中进行添加，或者在其他地方动态添加*/
 export module _Start {
     export enum _Event {
         updateRanking = '_Start_updateRanking',

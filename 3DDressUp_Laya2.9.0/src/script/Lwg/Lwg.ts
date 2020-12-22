@@ -3047,23 +3047,23 @@ export module lwg {
              * @param objArr 增加的对象数组
              * */
             _addObjectArr(objArr: Array<any>): void {
-                for (let i = 0; i < objArr.length; i++) {
-                    const obj = objArr[i];
-                    // 必须拷贝
-                    let _obj = Tools._ObjArray.objCopy(obj);
-                    // 将原来和当前数组中名称相同的对象删掉，防止重名
+                const _objArr = Tools._ObjArray.arrCopy(objArr);
+                for (let i = 0; i < _objArr.length; i++) {
+                    const obj = _objArr[i];
+                    // 将原来和当前数组中名称相同的对象冲掉，防止重名
                     for (let j = 0; j < this._arr.length; j++) {
                         const element = this._arr[j];
                         if (obj[this._property.name] === element[this._property.name]) {
-                            this._arr[j] = _obj;
-                            objArr.splice(i, 1);
+                            this._arr[j] = obj;
+                            _objArr.splice(i, 1);
                             i--;
                             continue;
-                        }
+                        }//不重名的也不可以直接push，否则可能导致遍历索引位错乱
                     }
                 }
-                for (let k = 0; k < objArr.length; k++) {
-                    const element = objArr[k];
+                // 再将剩余的
+                for (let k = 0; k < _objArr.length; k++) {
+                    const element = _objArr[k];
                     this._arr.push(element);
                 }
                 this._refreshAndStorage();
@@ -7168,7 +7168,7 @@ export module lwg {
              * 批量修改对象数组中的某个属性值
              * @param objArr 对象数组
              * */
-            export function modifyProValue(objArr: Array<any>, pro: string, value: any): void {
+            export function modifyProValue(objArr: Array<any>, pro: string, value: any): any[] {
                 for (const key in objArr) {
                     if (Object.prototype.hasOwnProperty.call(objArr, key)) {
                         const element = objArr[key];
@@ -7177,6 +7177,7 @@ export module lwg {
                         }
                     }
                 }
+                return objArr;
             }
 
             /**

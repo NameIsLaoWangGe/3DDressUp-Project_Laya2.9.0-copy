@@ -193,9 +193,12 @@ P 91745C3A zuo.png
 D Game/UI/Design
 R FD466C26 aixinlujing.png
 R 52B9AFC7 Draw.png
+R 576FA1DD loading.png
 R 106FA300 PersonalInfo.png
 R 5285B5BA ranking.png
 R 4CF40459 zhujiem.png
+R 96E38F6C 加载1.png
+R B56A5C9E 加载2.png
 D Game/UI/Draw
 P E3FBDD3B w_cheng.png
 P 40B77733 w_fen.png
@@ -236,7 +239,6 @@ P 511CC254 dotted1.png
 P 82029C53 scissors_01.png
 P 9131BB5C scissors_02.png
 D Game/UI/MakeUp
-P BE0A7AAD detailnormal_003_n.png
 D Game/UI/PersonalInfo
 P 5A529E09 bianji.png
 P E7A4BBB1 ding.png
@@ -249,13 +251,17 @@ P AF04FD72 xingming.png
 P CDB2F1EF zan.png
 R 080867C2 zhi.png
 D Game/UI/PreLoad
+P E0C6E74B %.png
+P 9393EB9E %2.png
 R 094EFA34 BG.png
 R 1A8AA34E di.png
 R 69BA84A8 jindu.png
-R 576FA1DD loading.png
 R 069E52CF logo.png
 P 84EF7C44 Powered by LayaAir Engine.png
 R 2EEF3C3D wenzi.png
+P 16F1F8F7 zhengzaijiazai.png
+P CB5CF0EF zi1.png
+R A230FB31 zi2.png
 D Game/UI/Ranking
 P 350815D6 choudai.png
 R 95EFBA66 dibuzhezhao.png
@@ -406,7 +412,6 @@ P 29A45970 diy_top_008_basic.png
 D Game/UI/MakePattern/Pattern
 D Game/UI/MakePattern/PatternIcon
 D Game/UI/MakeTailor/diy_bottom_002_final
-R 2FC48684 18.png
 P EBA39A10 diy_bottom_002_cut.png
 P 9F8E6ED4 q1.png
 R ED53CF9E s1.png
@@ -414,13 +419,11 @@ P 85633944 x1 拷贝 4.png
 P B78AB826 x1.png
 D Game/UI/MakeTailor/diy_bottom_003_final
 P F56A3981 diy_bottom_003_cut.png
-R 25AD2313 q.png
 R DEFC7498 q1.png
 R 9AC29CEE s1.png
 R DD26E45A x1.png
 D Game/UI/MakeTailor/diy_bottom_004_final
 P B6550C73 diy_bottom_004_cut.png
-R 2AAE9E1A q.png
 R B07CCF13 q1.png
 P 1014DFBD s1.png
 R 11D28AB4 s2.png
@@ -430,7 +433,6 @@ P EB950705 x2.png
 P D1483E9E x3.png
 D Game/UI/MakeTailor/diy_bottom_005_final
 P F0183338 diy_bottom_005_cut.png
-R CF14D1F1 p.png
 R C9BAB552 p1.png
 P FB40ED01 s1.png
 P 0B4DCB81 s2.png
@@ -442,7 +444,6 @@ P 7A276611 x3.png
 P 22756F44 x4.png
 D Game/UI/MakeTailor/diy_bottom_006_final
 P 70121EF0 diy_bottom_006_cut.png
-R EB175528 q.png
 R 5F3A0686 q1.png
 P A6FAA430 s1.png
 P 56FF22C7 s2.png
@@ -451,7 +452,6 @@ P EF967B41 x2.png
 D Game/UI/MakeTailor/diy_dress_001_final
 R 97A8E227 1.png
 P 1C497BAA diy_dress_001_cut.png
-R 6571108F p.png
 P E0B7B0FC s1.png
 P 75A99747 s2.png
 P 0CA17FF2 s3.png
@@ -459,7 +459,6 @@ P 63204EB8 x1.png
 P 86FE1C66 x2.png
 P A9B958BA x3.png
 D Game/UI/MakeTailor/diy_dress_002_final
-R 506BD57B 23.png
 P F0595826 diy_dress_002_cut.png
 P 8A286FA4 q1.png
 P EA585B36 s1.png
@@ -472,7 +471,6 @@ P ED605963 x3.png
 P 7F5AC52B x4.png
 D Game/UI/MakeTailor/diy_dress_003_final
 P 7B168678 diy_dress_003_cut.png
-R 954F8541 p.png
 R B8FF0F17 p1.png
 P A5AF9920 s1.png
 P B0B99934 s2.png
@@ -493,7 +491,6 @@ P 5B2F15DC x7.png
 P 49DCAD2B x8.png
 P 5F901462 x9.png
 D Game/UI/MakeTailor/diy_dress_004_final
-R 0898B971 19.png
 P 3BF6D2C7 diy_dress_004_cut.png
 R 4818D513 q1.png
 P 52338252 s1.png
@@ -505,7 +502,6 @@ P DF1FB882 x2.png
 P 48566B6D x3.png
 P 5B6A53D0 x4.png
 D Game/UI/MakeTailor/diy_dress_005_final
-R C64D51FA 24.png
 P D94A2FD7 diy_dress_005_cut.png
 P A3B84275 q1.png
 P 9C41EADF s1.png
@@ -516,7 +512,6 @@ P 248FD4EC x2.png
 P 2CA725E6 x3.png
 D Game/UI/MakeTailor/diy_dress_006_final
 P 30BE361E diy_dress_006_cut.png
-R BCD14E4C q.png
 R 18E5162A q1.png
 P 97AC2CE1 s1.png
 P 059C0CD2 s2.png
@@ -527,7 +522,6 @@ P C35D2659 x2.png
 P 06162A1F x3.png
 P DBE7BBA4 x4.png
 D Game/UI/MakeTailor/diy_dress_007_final
-R F940C332 20.png
 P E4727AAC diy_dress_007_cut.png
 R B09B549F q1.png
 P 2D5EB6EB s1.png
@@ -542,7 +536,6 @@ P 90452E74 x4 .png
 P B7868144 x5 .png
 D Game/UI/MakeTailor/diy_dress_008_final
 P 2AFA90F8 diy_dress_008_cut.png
-R 2B4161AF p.png
 R 53584E6D p1.png
 P A62240D1 s1.png
 P 1152966E s2.png
@@ -557,7 +550,6 @@ P FCBD56F6 x4.png
 P 9C7A824C x5.png
 P 112C87C0 x6.png
 D Game/UI/MakeTailor/diy_top_003_final
-R 3985BC18 21.png
 P 0B9924BF diy_top_003_cut.png
 P D9E36895 q1.png
 P 4C431B93 s1.png
@@ -577,7 +569,6 @@ P 25280DEC x6.png
 P 2B355B62 x7.png
 P F19A7425 x8.png
 D Game/UI/MakeTailor/diy_top_004_final
-R E282C5B5 22.png
 P 8E2F2DEF diy_top_004_cut.png
 P A0DB0B4B q1.png
 P A737CAE2 s1.png
@@ -594,7 +585,6 @@ P B7A26201 x5.png
 P 573FFC1F x6.png
 D Game/UI/MakeTailor/diy_top_005_final
 P 45F64995 diy_top_005_cut.png
-R 01075A84 q.png
 R 00E7E591 q1.png
 P BB2E2225 s1.png
 P FDE8869D s3.png
@@ -608,7 +598,6 @@ P B17D8C66 x4.png
 P 70B20960 x5.png
 D Game/UI/MakeTailor/diy_top_006_final
 P D6F65BA4 diy_top_006_cut.png
-R 7F75C67B q.png
 R BE4C108B q1.png
 P 7327C033 s1.png
 P 880448D4 s2.png
@@ -620,7 +609,6 @@ P 7F60E245 x3.png
 P 219742AE x4.png
 D Game/UI/MakeTailor/diy_top_007_final
 P 4C882DAB diy_top_007_cut.png
-R 59FDA200 p.png
 R 9AA529FA p1.png
 P 563FD49B s1.png
 P F5BBCAB0 s2.png
@@ -635,7 +623,6 @@ P 5222D989 x4.png
 P A9AF380E x5.png
 P 343BD2C8 x6.png
 D Game/UI/MakeTailor/diy_top_008_final
-R 64696B90 17.png
 P 378635B3 diy_top_008_cut.png
 R 2D14BD59 q1.png
 P 580E7A49 s1.png

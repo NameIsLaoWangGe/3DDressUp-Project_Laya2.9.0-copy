@@ -23,7 +23,7 @@ export module _PreLoadCutIn {
                 let time = 0;
                 TimerAdmin._frameNumLoop(1, 30, this, () => {
                     time++;
-                    this._LabelVar('Schedule').text = `${time}`;
+                    this._LabelVar('Schedule').text = `${time}%`;
                 }, () => {
                     switch (Admin._PreLoadCutIn.openName) {
                         case 'MakePattern':
@@ -56,7 +56,7 @@ export module _PreLoadCutIn {
         lwgStepComplete(): void {
         }
         lwgAllComplete(): number {
-            this._LabelVar('Schedule').text = `100`;
+            this._LabelVar('Schedule').text = `100%`;
             return 500;
         }
         // lwgCloseAni(): number {

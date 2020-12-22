@@ -2475,21 +2475,21 @@
                     this._refreshAndStorage();
                 }
                 _addObjectArr(objArr) {
-                    for (let i = 0; i < objArr.length; i++) {
-                        const obj = objArr[i];
-                        let _obj = Tools._ObjArray.objCopy(obj);
+                    const _objArr = Tools._ObjArray.arrCopy(objArr);
+                    for (let i = 0; i < _objArr.length; i++) {
+                        const obj = _objArr[i];
                         for (let j = 0; j < this._arr.length; j++) {
                             const element = this._arr[j];
                             if (obj[this._property.name] === element[this._property.name]) {
-                                this._arr[j] = _obj;
-                                objArr.splice(i, 1);
+                                this._arr[j] = obj;
+                                _objArr.splice(i, 1);
                                 i--;
                                 continue;
                             }
                         }
                     }
-                    for (let k = 0; k < objArr.length; k++) {
-                        const element = objArr[k];
+                    for (let k = 0; k < _objArr.length; k++) {
+                        const element = _objArr[k];
                         this._arr.push(element);
                     }
                     this._refreshAndStorage();
@@ -5398,6 +5398,7 @@
                             }
                         }
                     }
+                    return objArr;
                 }
                 _ObjArray.modifyProValue = modifyProValue;
                 function objCopy(obj) {
@@ -7343,10 +7344,10 @@
             }
             collectDIY() {
                 let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-                let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
-                Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
-                this._addObjectArr(copyDIYArr);
-                return copyDIYArr;
+                const copyArr = Tools._ObjArray.arrCopy(DIYArr);
+                Tools._ObjArray.modifyProValue(copyArr, _Clothes._ins()._property.classify, 'DIY');
+                this._addObjectArr(copyArr);
+                return copyArr;
             }
             changeAfterMaking() {
                 _DressingRoom._Clothes._ins().collectDIY();
@@ -7401,6 +7402,8 @@
                 playAni && _3D._Scene._ins().playDispalyAni();
             }
             changeClothStart() {
+                _Clothes._ins().collectDIY();
+                console.log(_Clothes._ins()._arr);
                 const arr = this._getArrByProperty(this._otherPro.putOn, true);
                 this.changeClass(this._classify.DIY, arr);
                 this.changeClass(this._classify.General, arr);
@@ -7418,6 +7421,7 @@
                 else {
                     _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
                 }
+                console.log('换装完毕');
             }
             specialSet(part) {
                 if (part === this._part.Dress) {
@@ -7444,9 +7448,11 @@
                         element['putOn'] = false;
                     }
                 }
-                _Clothes._ins()._refreshAndStorage();
+                console.log(_Clothes._ins()._arr);
+                _MakeTailor._DIYClothes._ins()._setProperty(_MakeTailor._DIYClothes._ins()._pitchName, 'putOn', true);
                 _Clothes._ins().changeCloth();
                 _Clothes._ins().specialSet(partValue);
+                _Clothes._ins()._refreshAndStorage();
             }
         }
         _DressingRoom._Clothes = _Clothes;
@@ -8905,7 +8911,7 @@
                     let time = 0;
                     TimerAdmin._frameNumLoop(1, 30, this, () => {
                         time++;
-                        this._LabelVar('Schedule').text = `${time}`;
+                        this._LabelVar('Schedule').text = `${time}%`;
                     }, () => {
                         switch (Admin._PreLoadCutIn.openName) {
                             case 'MakePattern':
@@ -8936,7 +8942,7 @@
             lwgStepComplete() {
             }
             lwgAllComplete() {
-                this._LabelVar('Schedule').text = `100`;
+                this._LabelVar('Schedule').text = `100%`;
                 return 500;
             }
         }

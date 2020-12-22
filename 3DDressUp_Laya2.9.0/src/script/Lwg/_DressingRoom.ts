@@ -41,13 +41,11 @@ export module _DressingRoom {
          * */
         collectDIY(): any[] {
             let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-            // 必须复制
-            let copyDIYArr = Tools._ObjArray.arrCopy(DIYArr);
+            const copyArr = Tools._ObjArray.arrCopy(DIYArr);
             // 将类型修改为'DIY'
-            Tools._ObjArray.modifyProValue(copyDIYArr, _Clothes._ins()._property.classify, 'DIY');
-            this._addObjectArr(copyDIYArr);
-
-            return copyDIYArr;
+            Tools._ObjArray.modifyProValue(copyArr, _Clothes._ins()._property.classify, 'DIY');
+            this._addObjectArr(copyArr);
+            return copyArr;
         }
 
         /**
@@ -56,6 +54,7 @@ export module _DressingRoom {
         changeAfterMaking(): void {
             _DressingRoom._Clothes._ins().collectDIY();
             _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
+
         }
 
         private changeClass(classify: string, partArr: Array<any>, playAni?: boolean): void {
@@ -107,6 +106,8 @@ export module _DressingRoom {
             playAni && _3D._Scene._ins().playDispalyAni();
         }
         changeClothStart(): void {
+            _Clothes._ins().collectDIY();
+            // console.log(_Clothes._ins()._arr);
             const arr = this._getArrByProperty(this._otherPro.putOn, true);
             this.changeClass(this._classify.DIY, arr);
             this.changeClass(this._classify.General, arr);
@@ -158,12 +159,12 @@ export module _DressingRoom {
                     element['putOn'] = false;
                 }
             }
-            _Clothes._ins()._refreshAndStorage();
+            // console.log(_Clothes._ins()._arr);
+            _MakeTailor._DIYClothes._ins()._setProperty(_MakeTailor._DIYClothes._ins()._pitchName, 'putOn', true);
             _Clothes._ins().changeCloth();
             _Clothes._ins().specialSet(partValue);
+            _Clothes._ins()._refreshAndStorage();
         }
-
-
     }
 
     class _Item extends Admin._ObjectBase {
@@ -209,7 +210,6 @@ export module _DressingRoom {
                     Cell.addComponent(_Item)
                 }
             }
-
         }
 
         UI: _UI;
