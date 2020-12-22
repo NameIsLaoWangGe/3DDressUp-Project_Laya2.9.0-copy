@@ -112,7 +112,7 @@ export module _MakePattern {
             TimerAdmin._frameOnce(10, this, () => {
                 this.UI.operationAppear(() => {
                     this.UI.btnCompleteAppear(null, 400);
-                    // Animation2D.bombs_Appear(this._ImgVar('BtnTurnFace'), 0, 1, this.UI.scale, 0, this.UI.time * 2);
+                    this.UI.btnTurnFaceAppear(null, 200);
                 });
                 this.UI.btnBackAppear(null, 200);
                 this.UI.btnRollbackAppear(null, 600);
@@ -123,6 +123,7 @@ export module _MakePattern {
                 this.UI.operationVinish(() => {
                     Animation2D.fadeOut(this._ImgVar('BtnL'), 1, 0, 200);
                     Animation2D.fadeOut(this._ImgVar('BtnR'), 1, 0, 200);
+                    this.UI.btnBackVinish(null, 200);
                     this.UI.btnBackVinish();
                     this.UI.btnRollbackVinish();
                     this.UI.btnAgainVinish(() => {

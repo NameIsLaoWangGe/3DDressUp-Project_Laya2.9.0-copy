@@ -367,7 +367,7 @@ export module _PreLoad {
                 }, true)
 
                 Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
-                    TimerAdmin._frameNumLoop(2, 50, this, () => {
+                    TimerAdmin._frameNumLoop(2, 20, this, () => {
                         this.count++;
                         this.progressDisplay();
                     }, () => {

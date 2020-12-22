@@ -6328,6 +6328,8 @@
             this.BtnBack.scale(0, 0);
             this.BtnAgain.scale(0, 0);
             this.BtnRollback.scale(0, 0);
+            this.BtnTurnFace = this.Scene['BtnTurnFace'];
+            this.BtnTurnFace && this.BtnTurnFace.scale(0, 0);
             this.BtnRollback.zOrder = this.BtnAgain.zOrder = this.BtnBack.zOrder = this.BtnComplete.zOrder = this.Operation.zOrder = 200;
             this.moveTargetX = Laya.stage.width - this.Operation.width + 50;
         }
@@ -6379,6 +6381,21 @@
             }, delay ? delay : 0);
         }
         ;
+        btnTurnFaceAppear(func, delay) {
+            if (this.BtnTurnFace) {
+                this.effect(this.Operation, new Laya.Point(this.BtnTurnFace.x, this.BtnTurnFace.y), delay);
+                Animation2D.bombs_Appear(this.BtnTurnFace, 0, 1, this.scale, 0, this.time * 2, () => {
+                    func && func();
+                });
+            }
+        }
+        btnTurnFaceVinish(func, delay) {
+            if (this.BtnTurnFace) {
+                Animation2D.bombs_Vanish(this.BtnTurnFace, 0, 0, 0, this.time * 4, () => {
+                    func && func();
+                }, delay ? delay : 0);
+            }
+        }
         operationAppear(func, delay) {
             if (this.Scene.name === 'MakeTailor') {
                 Animation2D.fadeOut(this.Scene['BG2'], this.Scene['BG2'].alpha, 1, 500);
@@ -6414,12 +6431,150 @@
             });
         }
     }
-    class UI1 {
-        constructor(parameters) {
+    class UI {
+        constructor(name) {
             this.time = 100;
             this.delay = 100;
             this.scale = 1.4;
+            this.name = name;
         }
+    }
+    class UICreater {
+    }
+    class MaketailorUI extends UICreater {
+        constructor() {
+            super(...arguments);
+            this.ui = new UI('MaketailorUI');
+        }
+        setScene(scene) {
+            this.ui.scene = scene;
+            return this;
+        }
+        setBtnAgain(btnAgain) {
+            this.ui.btnAgain = btnAgain;
+            return this;
+        }
+        buildBtnAgainClick(func) {
+            this.ui.btnAgainClick = func;
+            return this;
+        }
+        setBtnRollback(btnRollback) {
+            this.ui.btnRollback = btnRollback;
+            return this;
+        }
+        buildBtnRollbackClick(func) {
+            this.ui.btnRollbackClick = func;
+            return this;
+        }
+        setBtnComplete(btnComplete) {
+            this.ui.btnComplete = btnComplete;
+            return this;
+        }
+        buildBtnCompleteClick(func) {
+            this.ui.btnRollbackClick = func;
+            return this;
+        }
+        setBtnBack(btnBack) {
+            this.ui.btnBack = btnBack;
+            return this;
+        }
+        buildBtnBackClick(func) {
+            this.ui.btnBackClick = func;
+            return this;
+        }
+        setBtnTurnFace(btnTurnFace) {
+            throw new Error("Method not implemented.");
+        }
+        buildBtnTurnFaceClick(func) {
+            throw new Error("Method not implemented.");
+        }
+        createUI() {
+            return this.ui;
+        }
+    }
+    class UIDirector {
+        static constructMaketailorUI(builder, scene) {
+            return builder
+                .setScene(scene)
+                .createUI();
+        }
+    }
+    class Hamburg {
+        constructor(name) {
+            this.name = name;
+        }
+        setBreadNum(num) {
+            this.breadNum = num;
+        }
+    }
+    class HamburgBuilder {
+    }
+    class BeefHamburgBuilder extends HamburgBuilder {
+        constructor() {
+            super(...arguments);
+            this.hamburg = new Hamburg('牛肉汉堡');
+        }
+        buildBread(breadNum) {
+            console.log(`制作牛肉汉堡需要的 ${breadNum} 片面包`);
+            this.hamburg.setBreadNum(breadNum);
+            return this;
+        }
+        buildMeat(meatType) {
+            console.log(`制作牛肉汉堡需要的 ${meatType}`);
+            this.hamburg.meatType = meatType;
+            return this;
+        }
+        buildVegetable(vegetableType) {
+            console.log(`制作牛肉汉堡需要的 ${vegetableType}`);
+            this.hamburg.vegetableType = vegetableType;
+            return this;
+        }
+        createHamburg() {
+            return this.hamburg;
+        }
+    }
+    class PorkHamburgBuilder extends HamburgBuilder {
+        constructor() {
+            super(...arguments);
+            this.hamburg = new Hamburg('猪肉汉堡');
+        }
+        buildBread(breadNum) {
+            console.log(`制作猪肉汉堡需要的 ${breadNum} 片面包`);
+            this.hamburg.setBreadNum(breadNum);
+            return this;
+        }
+        buildMeat(meatType) {
+            console.log(`制作猪肉汉堡需要的 ${meatType}`);
+            this.hamburg.meatType = meatType;
+            return this;
+        }
+        buildVegetable(vegetableType) {
+            console.log(`制作猪肉汉堡需要的 ${vegetableType}`);
+            this.hamburg.vegetableType = vegetableType;
+            return this;
+        }
+        createHamburg() {
+            return this.hamburg;
+        }
+    }
+    class HamburgDirector {
+        static construct1(builder, breadNum, meatType, vegetableType) {
+            return builder.buildBread(breadNum)
+                .buildMeat(meatType)
+                .buildVegetable(vegetableType)
+                .createHamburg();
+        }
+        static construct2(builder, breadNum, meatType) {
+            return builder.buildMeat(meatType)
+                .buildBread(breadNum)
+                .createHamburg();
+        }
+    }
+    const beefHamburgBuilder = new BeefHamburgBuilder();
+    const porkHamburgBuilder = new PorkHamburgBuilder();
+    HamburgDirector.construct1(beefHamburgBuilder, 2, 'beef', 'carrot');
+    HamburgDirector.construct2(porkHamburgBuilder, 3, 'pork');
+    class Btn {
     }
 
     var _MakeTailor;
@@ -7717,7 +7872,7 @@
                         Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
                     }, true);
                     Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
-                        TimerAdmin._frameNumLoop(2, 50, this, () => {
+                        TimerAdmin._frameNumLoop(2, 20, this, () => {
                             this.count++;
                             this.progressDisplay();
                         }, () => {
@@ -8181,7 +8336,7 @@
                             let pH = out.point.y - _3D.DIYCloth._ins().ModelTap.transform.position.y;
                             let _DirHeight = Tools._3D.getMeshSize(this.Tex.dir == this.Tex.dirType.Front ? _3D.DIYCloth._ins().Front : _3D.DIYCloth._ins().Reverse).y;
                             let ratio = 1 - pH / _DirHeight;
-                            this.Tex.Img.y = ratio * _height + 50;
+                            this.Tex.Img.y = ratio * _height + _MakeTailor._DIYClothes._ins()._getPitchProperty('diffY');
                             return true;
                         }
                         else {
@@ -8400,6 +8555,7 @@
                 TimerAdmin._frameOnce(10, this, () => {
                     this.UI.operationAppear(() => {
                         this.UI.btnCompleteAppear(null, 400);
+                        this.UI.btnTurnFaceAppear(null, 200);
                     });
                     this.UI.btnBackAppear(null, 200);
                     this.UI.btnRollbackAppear(null, 600);
@@ -8410,6 +8566,7 @@
                     this.UI.operationVinish(() => {
                         Animation2D.fadeOut(this._ImgVar('BtnL'), 1, 0, 200);
                         Animation2D.fadeOut(this._ImgVar('BtnR'), 1, 0, 200);
+                        this.UI.btnBackVinish(null, 200);
                         this.UI.btnBackVinish();
                         this.UI.btnRollbackVinish();
                         this.UI.btnAgainVinish(() => {

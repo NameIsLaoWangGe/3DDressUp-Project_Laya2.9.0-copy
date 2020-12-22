@@ -16,8 +16,8 @@
 		"alphaTest":false,
 		"alphaTestValue":0.5,
 		"renderQueue":2000,
-		"metallic":0.101,
-		"smoothness":0.895,
+		"metallic":0,
+		"smoothness":0.632,
 		"smoothnessTextureScale":1,
 		"smoothnessSource":0,
 		"normalTextureScale":1,
@@ -57,8 +57,8 @@
 				"name":"albedoColor",
 				"value":[
 					1,
-					1,
-					1,
+					0.6656154,
+					0.3537736,
 					1
 				]
 			},
