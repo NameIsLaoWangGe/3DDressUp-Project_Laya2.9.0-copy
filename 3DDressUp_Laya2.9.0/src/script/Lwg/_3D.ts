@@ -108,7 +108,7 @@ export module _3D {
         }
 
         playRandomPose(): void {
-            TimerAdmin._frameLoop(450, this, () => {
+            TimerAdmin._frameLoop(500, this, () => {
                 Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani()
             }, true);
         }
@@ -223,9 +223,12 @@ export module _3D {
         }
         constructor() {
         }
+        name: string;
         Present: Laya.MeshSprite3D;
         Front: Laya.MeshSprite3D;
+        frontMat: Laya.BlinnPhongMaterial;
         Reverse: Laya.MeshSprite3D;
+        reverseMat: Laya.BlinnPhongMaterial;
         ModelTap: Laya.MeshSprite3D;//触摸模型
         texHeight: number;
         remake(): void {
@@ -241,7 +244,14 @@ export module _3D {
             this.Present.transform.localRotationEulerY = 180;
 
             this.Front = this.Present.getChildByName(`${this.Present.name}_0`) as Laya.MeshSprite3D;
+            this.frontMat = this.Front.meshRenderer.material as Laya.BlinnPhongMaterial;
+            // this.frontMat.normalTexture = _Res._list.texture2D[`${this.Present.name}_mat_001_n`]['texture2D'];
+
             this.Reverse = this.Present.getChildByName(`${this.Present.name}_1`) as Laya.MeshSprite3D;
+            this.reverseMat = this.Reverse.meshRenderer.material as Laya.BlinnPhongMaterial;
+            // this.reverseMat.normalTexture = _Res._list.texture2D[`${this.Present.name}_mat_002_n`];['texture2D'];
+
+            console.log(this.frontMat, this.reverseMat);
 
             this.ModelTap = this.Present.getChildByName('ModelTap') as Laya.MeshSprite3D;
 
@@ -256,13 +266,12 @@ export module _3D {
             this.texHeight = point2.y - point1.y;
         }
         addTexture2D(arr: any[]): void {
-            const bMF = this.Front.meshRenderer.material as Laya.UnlitMaterial;
-            bMF.albedoTexture && bMF.albedoTexture.destroy();
-            bMF.albedoTexture = arr[0];
-            const bMR = this.Reverse.meshRenderer.material as Laya.UnlitMaterial;
-            bMR.albedoTexture && bMR.albedoTexture.destroy();
-            bMR.albedoTexture = arr[1];
+            this.frontMat.albedoTexture && this.frontMat.albedoTexture.destroy();
+            this.frontMat.albedoTexture = arr[0];
+            this.reverseMat.albedoTexture && this.reverseMat.albedoTexture.destroy();
+            this.reverseMat.albedoTexture = arr[1];
         }
+
         /**方向*/
         rotate(num: number): void {
             if (num == 1) {

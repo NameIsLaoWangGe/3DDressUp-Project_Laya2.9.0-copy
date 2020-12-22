@@ -889,7 +889,7 @@
                 Scene.scale(1, 0);
                 Laya.timer.once(delaye, caller, () => {
                     Scene.scale(1, 1);
-                    var htmlCanvas1 = Laya.stage.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
+                    var htmlCanvas1 = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
                     let base641 = htmlCanvas1.toBase64("image/png", 1);
                     Scene.scale(1, 0);
                     for (let index = 0; index < num; index++) {
@@ -924,7 +924,7 @@
                 let caller = {};
                 let ran = Tools._Array.randomGetOne([0, 1, 2, 3, 4, 5]);
                 Laya.timer.once(delaye, caller, () => {
-                    var htmlCanvas1 = Laya.stage.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
+                    var htmlCanvas1 = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
                     let base641 = htmlCanvas1.toBase64("image/png", 1);
                     Scene.scale(1, 0);
                     for (let index = 0; index < num; index++) {
@@ -7198,7 +7198,7 @@
                 this._RoleAni.crossFade(this.aniName.Stand, 0.3);
             }
             playRandomPose() {
-                TimerAdmin._frameLoop(450, this, () => {
+                TimerAdmin._frameLoop(500, this, () => {
                     Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani();
                 }, true);
             }
@@ -7277,7 +7277,10 @@
                 Tools._Node.showExcludedChild3D(Classify, [this.Present.name]);
                 this.Present.transform.localRotationEulerY = 180;
                 this.Front = this.Present.getChildByName(`${this.Present.name}_0`);
+                this.frontMat = this.Front.meshRenderer.material;
                 this.Reverse = this.Present.getChildByName(`${this.Present.name}_1`);
+                this.reverseMat = this.Reverse.meshRenderer.material;
+                console.log(this.frontMat, this.reverseMat);
                 this.ModelTap = this.Present.getChildByName('ModelTap');
                 let center = this.Front.meshRenderer.bounds.getCenter();
                 let extent = this.Front.meshRenderer.bounds.getExtent();
@@ -7288,12 +7291,10 @@
                 this.texHeight = point2.y - point1.y;
             }
             addTexture2D(arr) {
-                const bMF = this.Front.meshRenderer.material;
-                bMF.albedoTexture && bMF.albedoTexture.destroy();
-                bMF.albedoTexture = arr[0];
-                const bMR = this.Reverse.meshRenderer.material;
-                bMR.albedoTexture && bMR.albedoTexture.destroy();
-                bMR.albedoTexture = arr[1];
+                this.frontMat.albedoTexture && this.frontMat.albedoTexture.destroy();
+                this.frontMat.albedoTexture = arr[0];
+                this.reverseMat.albedoTexture && this.reverseMat.albedoTexture.destroy();
+                this.reverseMat.albedoTexture = arr[1];
             }
             rotate(num) {
                 if (num == 1) {
@@ -7374,6 +7375,7 @@
                                     else {
                                         const front = cloth.getChildByName(`${cloth.name}_0`);
                                         const matF = front.skinnedMeshRenderer.material;
+                                        matF.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_001_n`]['texture2D'];
                                         const fSp = new Laya.Sprite;
                                         fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
                                             matF.albedoTexture = fSp.texture.bitmap;
@@ -7381,6 +7383,7 @@
                                         }));
                                         const reverse = cloth.getChildByName(`${cloth.name}_1`);
                                         const matR = reverse.skinnedMeshRenderer.material;
+                                        matR.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_002_n`]['texture2D'];
                                         const rSp = new Laya.Sprite;
                                         rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
                                             matR.albedoTexture = rSp.texture.bitmap;
@@ -7812,6 +7815,198 @@
                     url: `Game/UI/DressingRoom/ClothTex/hair_008.png`,
                     texture2D: null,
                 },
+                diy_bottom_001_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_001_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_002_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_002_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_003_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_003_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_004_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_004_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_005_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_005_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_006_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_006_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_007_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_007_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_008_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_bottom_008_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_001_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_001_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_002_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_002_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_003_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_003_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_004_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_004_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_005_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_005_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_006_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_006_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_007_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_007_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_008_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_dress_008_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_001_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_001_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_002_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_002_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_003_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_003_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_004_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_004_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_005_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_005_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_006_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_006_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_007_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_007_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_002_n.png`,
+                    texture2D: null,
+                },
+                diy_top_008_final_mat_001_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_001_n.png`,
+                    texture2D: null,
+                },
+                diy_top_008_final_mat_002_n: {
+                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_002_n.png`,
+                    texture2D: null,
+                },
             },
             scene2D: {
                 Start: `Scene/${_SceneName.Start}.json`,
@@ -7872,7 +8067,7 @@
                         Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
                     }, true);
                     Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
-                        TimerAdmin._frameNumLoop(2, 20, this, () => {
+                        TimerAdmin._frameNumLoop(2, 30, this, () => {
                             this.count++;
                             this.progressDisplay();
                         }, () => {
@@ -7902,7 +8097,7 @@
             }
             lwgOpenAni() { return 1; }
             lwgStepComplete() {
-                this._ImgVar('ProgressBar').mask.x += 1;
+                this._ImgVar('ProgressBar').mask.x += 2.5;
             }
             lwgAllComplete() {
                 this._ImgVar('ProgressBar').mask.x = 0;

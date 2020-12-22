@@ -1,7 +1,7 @@
 {
 	"version":"LAYAMATERIAL:02",
 	"props":{
-		"type":"Laya.UnlitMaterial",
+		"type":"Laya.BlinnPhongMaterial",
 		"name":"5",
 		"renderStates":[
 			{
@@ -18,7 +18,42 @@
 		"alphaTestValue":0.01,
 		"renderQueue":2000,
 		"albedoIntensity":1,
-		"textures":[],
+		"enableLighting":true,
+		"shininess":0.071,
+		"textures":[
+			{
+				"name":"albedoTexture",
+				"path":"../../Reference/Sprite/video_bg_05.jpg",
+				"constructParams":[
+					512,
+					256,
+					0,
+					true
+				],
+				"propertyParams":{
+					"filterMode":1,
+					"wrapModeU":0,
+					"wrapModeV":0,
+					"anisoLevel":1
+				}
+			},
+			{
+				"name":"normalTexture",
+				"path":"../NomlaTex(1)/diy_dress/diy_dress_006_final_mat_002_n.jpg",
+				"constructParams":[
+					256,
+					256,
+					0,
+					true
+				],
+				"propertyParams":{
+					"filterMode":1,
+					"wrapModeU":0,
+					"wrapModeV":0,
+					"anisoLevel":1
+				}
+			}
+		],
 		"vectors":[
 			{
 				"name":"tilingOffset",
@@ -27,6 +62,15 @@
 					1,
 					0,
 					0
+				]
+			},
+			{
+				"name":"specularColor",
+				"value":[
+					0.1960784,
+					0.1960784,
+					0.1960784,
+					1
 				]
 			},
 			{

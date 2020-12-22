@@ -1171,7 +1171,7 @@ export module lwg {
             // 延迟执行是为了场景渲染完毕，截图更加全面
             Laya.timer.once(delaye, caller, () => {
                 Scene.scale(1, 1);
-                var htmlCanvas1: Laya.HTMLCanvas = Laya.stage.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
+                var htmlCanvas1: Laya.HTMLCanvas = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
                 let base641 = htmlCanvas1.toBase64("image/png", 1);
                 Scene.scale(1, 0);
                 for (let index = 0; index < num; index++) {
@@ -1208,7 +1208,7 @@ export module lwg {
             let ran = Tools._Array.randomGetOne([0, 1, 2, 3, 4, 5])
             // 延迟执行是为了场景渲染完毕，截图更加全面
             Laya.timer.once(delaye, caller, () => {
-                var htmlCanvas1: Laya.HTMLCanvas = Laya.stage.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
+                var htmlCanvas1: Laya.HTMLCanvas = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
                 let base641 = htmlCanvas1.toBase64("image/png", 1);
                 Scene.scale(1, 0);
                 for (let index = 0; index < num; index++) {

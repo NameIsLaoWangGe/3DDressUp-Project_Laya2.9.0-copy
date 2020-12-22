@@ -20,7 +20,20 @@
 		"albedoIntensity":1.1,
 		"textures":[
 			{
-				"name":"albedoTexture"
+				"name":"albedoTexture",
+				"path":"../../Reference/Texture2D/video_bg_01.jpg",
+				"constructParams":[
+					512,
+					256,
+					0,
+					true
+				],
+				"propertyParams":{
+					"filterMode":1,
+					"wrapModeU":0,
+					"wrapModeV":0,
+					"anisoLevel":1
+				}
 			}
 		],
 		"vectors":[

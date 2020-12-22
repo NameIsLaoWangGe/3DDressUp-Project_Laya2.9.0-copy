@@ -1,5 +1,5 @@
 import ADManager, { TaT } from "../TJ/Admanager";
-import lwg, { Admin, Animation2D, Click, Dialogue, TimerAdmin, Gold, _SceneName, SceneAnimation, Tools, Effects } from "./Lwg";
+import lwg, { Admin, Animation2D, TimerAdmin, _SceneName, Tools } from "./Lwg";
 import { _3D } from "./_3D";
 import { _Game } from "./_Game";
 import { _MakeTailor } from "./_MakeTailor";

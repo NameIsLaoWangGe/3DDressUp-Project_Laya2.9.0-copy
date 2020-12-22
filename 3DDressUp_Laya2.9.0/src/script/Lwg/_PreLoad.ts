@@ -118,7 +118,6 @@ export module _Res {
                 url: 'Prefab/diy_top_008_final.json',
                 prefab: new Laya.Prefab,
             },
-
         },
         texture: {
             // glasses: {
@@ -287,6 +286,215 @@ export module _Res {
                 texture2D: null as Laya.Texture2D,
             },
 
+
+            // DIY的法线贴图
+            diy_bottom_001_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_001_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_002_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_002_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_003_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_003_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_004_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_004_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+
+            diy_bottom_005_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_005_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_006_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_006_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_007_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_007_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_bottom_008_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_bottom_008_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+
+            diy_dress_001_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_001_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+            diy_dress_002_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_002_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_003_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_003_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_004_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_004_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_005_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_005_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_006_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_006_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_007_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_007_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_008_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_dress_008_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
+
+            diy_top_001_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_001_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_002_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_002_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_003_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_003_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_004_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_004_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_005_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_005_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            
+            diy_top_006_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_006_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_007_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_007_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_008_final_mat_001_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_001_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+            diy_top_008_final_mat_002_n: {
+                url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_002_n.png`,
+                texture2D: null as Laya.Texture2D,
+            },
+
         },
         /**通过直接获取场景的显示和打开，和scene关联，实现，先加载，然后直接切换*/
         scene2D: {
@@ -367,7 +575,7 @@ export module _PreLoad {
                 }, true)
 
                 Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
-                    TimerAdmin._frameNumLoop(2, 20, this, () => {
+                    TimerAdmin._frameNumLoop(2, 30, this, () => {
                         this.count++;
                         this.progressDisplay();
                     }, () => {
@@ -399,7 +607,7 @@ export module _PreLoad {
         }
         lwgOpenAni(): number { return 1; }
         lwgStepComplete(): void {
-            this._ImgVar('ProgressBar').mask.x += 1;
+            this._ImgVar('ProgressBar').mask.x += 2.5;
         }
         lwgAllComplete(): number {
             this._ImgVar('ProgressBar').mask.x = 0;

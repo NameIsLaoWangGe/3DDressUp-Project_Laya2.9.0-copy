@@ -24,6 +24,53 @@
 				"type":"Camera",
 				"instanceID":0,
 				"props":{
+					"name":"Main Camera",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						0,
+						0.98,
+						-0.99
+					],
+					"rotation":[
+						0,
+						0.9961947,
+						0.08715578,
+						0
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"clearFlag":1,
+					"orthographic":false,
+					"orthographicVerticalSize":10,
+					"fieldOfView":60,
+					"enableHDR":true,
+					"nearPlane":0.3,
+					"farPlane":1000,
+					"viewport":[
+						0,
+						0,
+						1,
+						1
+					],
+					"clearColor":[
+						0.1921569,
+						0.3019608,
+						0.4745098,
+						0
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"Camera",
+				"instanceID":1,
+				"props":{
 					"name":"MirrorCamera",
 					"active":true,
 					"isStatic":false,
@@ -69,7 +116,7 @@
 			},
 			{
 				"type":"DirectionLight",
-				"instanceID":1,
+				"instanceID":2,
 				"props":{
 					"name":"Directional Light",
 					"active":true,
@@ -77,21 +124,21 @@
 					"layer":0,
 					"position":[
 						0,
-						9.48,
-						0
+						4.53,
+						-2.82
 					],
 					"rotation":[
-						0.1093816,
-						0.8754261,
-						0.4082179,
-						-0.2345697
+						0.07338692,
+						0.892539,
+						0.4161977,
+						-0.1573788
 					],
 					"scale":[
 						1,
 						1,
 						1
 					],
-					"intensity":1.27,
+					"intensity":0.9,
 					"lightmapBakedType":1,
 					"color":[
 						1,
@@ -104,7 +151,7 @@
 			},
 			{
 				"type":"Sprite3D",
-				"instanceID":2,
+				"instanceID":3,
 				"props":{
 					"name":"DIYHanger",
 					"active":true,
@@ -131,7 +178,7 @@
 				"child":[
 					{
 						"type":"Sprite3D",
-						"instanceID":3,
+						"instanceID":4,
 						"props":{
 							"name":"Dress",
 							"active":true,
@@ -158,14 +205,14 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":4,
+								"instanceID":5,
 								"props":{
 									"name":"diy_dress_001_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
-										-0.002,
+										0.012,
 										-0.4,
 										0.052
 									],
@@ -185,7 +232,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":5,
+										"instanceID":6,
 										"props":{
 											"name":"diy_dress_001_final_0",
 											"active":true,
@@ -211,7 +258,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_001_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -220,7 +267,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":6,
+										"instanceID":7,
 										"props":{
 											"name":"diy_dress_001_final_1",
 											"active":true,
@@ -246,7 +293,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_001_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -255,7 +302,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":7,
+										"instanceID":8,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -290,7 +337,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":8,
+										"instanceID":9,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -325,7 +372,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":9,
+												"instanceID":10,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -386,14 +433,14 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":10,
+								"instanceID":11,
 								"props":{
 									"name":"diy_dress_002_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
-										0,
+										-0.004,
 										-0.431,
 										-0.023
 									],
@@ -413,7 +460,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":11,
+										"instanceID":12,
 										"props":{
 											"name":"diy_dress_002_final_0",
 											"active":true,
@@ -439,7 +486,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_002_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -448,7 +495,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":12,
+										"instanceID":13,
 										"props":{
 											"name":"diy_dress_002_final_1",
 											"active":true,
@@ -474,7 +521,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_002_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -483,7 +530,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":13,
+										"instanceID":14,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -518,7 +565,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":14,
+												"instanceID":15,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -577,7 +624,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":15,
+										"instanceID":16,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -614,7 +661,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":16,
+								"instanceID":17,
 								"props":{
 									"name":"diy_dress_003_final",
 									"active":true,
@@ -641,7 +688,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":17,
+										"instanceID":18,
 										"props":{
 											"name":"diy_dress_003_final_0",
 											"active":true,
@@ -667,7 +714,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_003_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -676,7 +723,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":18,
+										"instanceID":19,
 										"props":{
 											"name":"diy_dress_003_final_1",
 											"active":true,
@@ -702,7 +749,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_003_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -711,7 +758,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":19,
+										"instanceID":20,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -746,7 +793,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":20,
+												"instanceID":21,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -805,7 +852,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":21,
+										"instanceID":22,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -842,7 +889,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":22,
+								"instanceID":23,
 								"props":{
 									"name":"diy_dress_004_final",
 									"active":true,
@@ -869,7 +916,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":23,
+										"instanceID":24,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -904,7 +951,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":24,
+												"instanceID":25,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -963,7 +1010,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":25,
+										"instanceID":26,
 										"props":{
 											"name":"diy_dress_004_final_0",
 											"active":true,
@@ -989,7 +1036,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_004_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -998,7 +1045,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":26,
+										"instanceID":27,
 										"props":{
 											"name":"diy_dress_004_final_1",
 											"active":true,
@@ -1024,7 +1071,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_004_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -1033,7 +1080,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":27,
+										"instanceID":28,
 										"props":{
 											"name":"model_001_01",
 											"active":true,
@@ -1068,7 +1115,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":28,
+										"instanceID":29,
 										"props":{
 											"name":"model_001_02",
 											"active":true,
@@ -1105,14 +1152,14 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":29,
+								"instanceID":30,
 								"props":{
 									"name":"diy_dress_005_final",
 									"active":true,
 									"isStatic":false,
 									"layer":0,
 									"position":[
-										-0.005,
+										0.002,
 										-0.391,
 										0.12
 									],
@@ -1132,7 +1179,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":30,
+										"instanceID":31,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -1167,7 +1214,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":31,
+												"instanceID":32,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -1226,7 +1273,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":32,
+										"instanceID":33,
 										"props":{
 											"name":"diy_dress_005_final_0",
 											"active":true,
@@ -1252,7 +1299,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -1261,7 +1308,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":33,
+										"instanceID":34,
 										"props":{
 											"name":"diy_dress_005_final_1",
 											"active":true,
@@ -1287,7 +1334,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_002_n 1.lmat"
 												}
 											]
 										},
@@ -1296,7 +1343,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":34,
+										"instanceID":35,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -1333,7 +1380,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":35,
+								"instanceID":36,
 								"props":{
 									"name":"diy_dress_006_final",
 									"active":true,
@@ -1360,7 +1407,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":36,
+										"instanceID":37,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -1395,7 +1442,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":37,
+												"instanceID":38,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -1454,7 +1501,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":38,
+										"instanceID":39,
 										"props":{
 											"name":"diy_dress_006_final_0",
 											"active":true,
@@ -1480,7 +1527,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_001_n 1.lmat"
 												}
 											]
 										},
@@ -1489,7 +1536,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":39,
+										"instanceID":40,
 										"props":{
 											"name":"diy_dress_006_final_1",
 											"active":true,
@@ -1515,7 +1562,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_002_n 1.lmat"
 												}
 											]
 										},
@@ -1524,7 +1571,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":40,
+										"instanceID":41,
 										"props":{
 											"name":"model_001_01",
 											"active":true,
@@ -1559,7 +1606,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":41,
+										"instanceID":42,
 										"props":{
 											"name":"model_001_02",
 											"active":true,
@@ -1596,7 +1643,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":42,
+								"instanceID":43,
 								"props":{
 									"name":"diy_dress_007_final",
 									"active":true,
@@ -1623,7 +1670,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":43,
+										"instanceID":44,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -1658,7 +1705,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":44,
+												"instanceID":45,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -1717,41 +1764,6 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":45,
-										"props":{
-											"name":"diy_dress_007_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
 										"instanceID":46,
 										"props":{
 											"name":"diy_dress_007_final_0",
@@ -1778,7 +1790,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_001_n 1.lmat"
 												}
 											]
 										},
@@ -1788,6 +1800,41 @@
 									{
 										"type":"MeshSprite3D",
 										"instanceID":47,
+										"props":{
+											"name":"diy_dress_007_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_007_final-diy_dress_007_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_001_n.lmat"
+												}
+											]
+										},
+										"components":[],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":48,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -1824,7 +1871,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":48,
+								"instanceID":49,
 								"props":{
 									"name":"diy_dress_008_final",
 									"active":true,
@@ -1851,7 +1898,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":49,
+										"instanceID":50,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -1886,7 +1933,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":50,
+												"instanceID":51,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -1945,41 +1992,6 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":51,
-										"props":{
-											"name":"diy_dress_008_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
 										"instanceID":52,
 										"props":{
 											"name":"diy_dress_008_final_0",
@@ -2006,7 +2018,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_008_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -2016,6 +2028,41 @@
 									{
 										"type":"MeshSprite3D",
 										"instanceID":53,
+										"props":{
+											"name":"diy_dress_008_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Dress/diy_dress_008_final-diy_dress_008_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_008_final_mat_002_n.lmat"
+												}
+											]
+										},
+										"components":[],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":54,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -2054,7 +2101,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":54,
+						"instanceID":55,
 						"props":{
 							"name":"Top",
 							"active":true,
@@ -2081,7 +2128,7 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":55,
+								"instanceID":56,
 								"props":{
 									"name":"diy_top_003_final",
 									"active":true,
@@ -2108,7 +2155,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":56,
+										"instanceID":57,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -2143,7 +2190,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":57,
+												"instanceID":58,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -2202,7 +2249,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":58,
+										"instanceID":59,
 										"props":{
 											"name":"diy_top_003_final_0",
 											"active":true,
@@ -2228,7 +2275,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_003_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -2237,7 +2284,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":59,
+										"instanceID":60,
 										"props":{
 											"name":"diy_top_003_final_1",
 											"active":true,
@@ -2263,7 +2310,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_003_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -2272,7 +2319,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":60,
+										"instanceID":61,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -2309,7 +2356,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":61,
+								"instanceID":62,
 								"props":{
 									"name":"diy_top_004_final",
 									"active":true,
@@ -2336,7 +2383,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":62,
+										"instanceID":63,
 										"props":{
 											"name":"diy_top_004_final_0",
 											"active":true,
@@ -2362,7 +2409,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_004_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -2371,7 +2418,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":63,
+										"instanceID":64,
 										"props":{
 											"name":"diy_top_004_final_1",
 											"active":true,
@@ -2397,7 +2444,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_004_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -2406,7 +2453,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":64,
+										"instanceID":65,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -2441,7 +2488,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":65,
+												"instanceID":66,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -2500,7 +2547,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":66,
+										"instanceID":67,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -2537,7 +2584,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":67,
+								"instanceID":68,
 								"props":{
 									"name":"diy_top_005_final",
 									"active":true,
@@ -2564,7 +2611,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":68,
+										"instanceID":69,
 										"props":{
 											"name":"diy_top_005_final_0",
 											"active":true,
@@ -2590,7 +2637,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_005_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -2599,7 +2646,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":69,
+										"instanceID":70,
 										"props":{
 											"name":"diy_top_005_final_1",
 											"active":true,
@@ -2625,7 +2672,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_005_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -2634,7 +2681,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":70,
+										"instanceID":71,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -2669,7 +2716,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":71,
+												"instanceID":72,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -2728,7 +2775,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":72,
+										"instanceID":73,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -2765,7 +2812,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":73,
+								"instanceID":74,
 								"props":{
 									"name":"diy_top_006_final",
 									"active":true,
@@ -2792,7 +2839,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":74,
+										"instanceID":75,
 										"props":{
 											"name":"diy_top_006_final_0",
 											"active":true,
@@ -2818,7 +2865,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_006_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -2827,7 +2874,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":75,
+										"instanceID":76,
 										"props":{
 											"name":"diy_top_006_final_1",
 											"active":true,
@@ -2853,7 +2900,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_006_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -2862,7 +2909,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":76,
+										"instanceID":77,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -2897,7 +2944,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":77,
+												"instanceID":78,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -2956,7 +3003,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":78,
+										"instanceID":79,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -2993,7 +3040,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":79,
+								"instanceID":80,
 								"props":{
 									"name":"diy_top_007_final",
 									"active":true,
@@ -3020,7 +3067,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":80,
+										"instanceID":81,
 										"props":{
 											"name":"diy_top_007_final_0",
 											"active":true,
@@ -3046,7 +3093,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_007_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -3055,7 +3102,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":81,
+										"instanceID":82,
 										"props":{
 											"name":"diy_top_007_final_1",
 											"active":true,
@@ -3081,7 +3128,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_007_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -3090,7 +3137,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":82,
+										"instanceID":83,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -3125,7 +3172,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":83,
+												"instanceID":84,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -3184,7 +3231,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":84,
+										"instanceID":85,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -3221,7 +3268,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":85,
+								"instanceID":86,
 								"props":{
 									"name":"diy_top_008_final",
 									"active":true,
@@ -3248,7 +3295,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":86,
+										"instanceID":87,
 										"props":{
 											"name":"diy_top_008_final_0",
 											"active":true,
@@ -3274,7 +3321,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_008_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -3283,7 +3330,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":87,
+										"instanceID":88,
 										"props":{
 											"name":"diy_top_008_final_1",
 											"active":true,
@@ -3309,7 +3356,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_008_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -3318,7 +3365,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":88,
+										"instanceID":89,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -3353,7 +3400,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":89,
+												"instanceID":90,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -3412,7 +3459,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":90,
+										"instanceID":91,
 										"props":{
 											"name":"hanger_001_01",
 											"active":true,
@@ -3451,7 +3498,7 @@
 					},
 					{
 						"type":"Sprite3D",
-						"instanceID":91,
+						"instanceID":92,
 						"props":{
 							"name":"Bottoms",
 							"active":true,
@@ -3478,7 +3525,7 @@
 						"child":[
 							{
 								"type":"Sprite3D",
-								"instanceID":92,
+								"instanceID":93,
 								"props":{
 									"name":"diy_bottom_002_final",
 									"active":true,
@@ -3505,7 +3552,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":93,
+										"instanceID":94,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -3540,7 +3587,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":94,
+												"instanceID":95,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -3599,7 +3646,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":95,
+										"instanceID":96,
 										"props":{
 											"name":"diy_bottom_002_final_0",
 											"active":true,
@@ -3625,7 +3672,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_002_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -3634,7 +3681,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":96,
+										"instanceID":97,
 										"props":{
 											"name":"diy_bottom_002_final_1",
 											"active":true,
@@ -3660,7 +3707,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_002_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -3669,7 +3716,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":97,
+										"instanceID":98,
 										"props":{
 											"name":"hanger_002_01",
 											"active":true,
@@ -3706,7 +3753,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":98,
+								"instanceID":99,
 								"props":{
 									"name":"diy_bottom_003_final",
 									"active":true,
@@ -3733,7 +3780,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":99,
+										"instanceID":100,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -3768,7 +3815,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":100,
+												"instanceID":101,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -3827,7 +3874,42 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":101,
+										"instanceID":102,
+										"props":{
+											"name":"diy_bottom_003_final_0",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												1,
+												1,
+												1
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_fina-diy_bottom_003_final_0.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_003_final_mat_001_n.lmat"
+												}
+											]
+										},
+										"components":[],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":103,
 										"props":{
 											"name":"diy_bottom_003_final_1",
 											"active":true,
@@ -3853,7 +3935,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_003_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -3862,7 +3944,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":102,
+										"instanceID":104,
 										"props":{
 											"name":"diy_bottom_003_final_0B",
 											"active":true,
@@ -3897,42 +3979,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":103,
-										"props":{
-											"name":"diy_bottom_003_final_0",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												1,
-												1,
-												1
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_003_fina-diy_bottom_003_final_0.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":104,
+										"instanceID":105,
 										"props":{
 											"name":"diy_bottom_003_final_1B",
 											"active":true,
@@ -3967,7 +4014,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":105,
+										"instanceID":106,
 										"props":{
 											"name":"hanger_002_01",
 											"active":true,
@@ -4004,7 +4051,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":106,
+								"instanceID":107,
 								"props":{
 									"name":"diy_bottom_004_final",
 									"active":true,
@@ -4031,7 +4078,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":107,
+										"instanceID":108,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -4066,7 +4113,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":108,
+												"instanceID":109,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -4125,7 +4172,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":109,
+										"instanceID":110,
 										"props":{
 											"name":"diy_bottom_004_final_0",
 											"active":true,
@@ -4151,7 +4198,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_004_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -4183,7 +4230,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":110,
+										"instanceID":111,
 										"props":{
 											"name":"diy_bottom_004_final_1",
 											"active":true,
@@ -4209,7 +4256,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_004_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -4241,7 +4288,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":111,
+										"instanceID":112,
 										"props":{
 											"name":"hanger_002_01",
 											"active":true,
@@ -4278,7 +4325,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":112,
+								"instanceID":113,
 								"props":{
 									"name":"diy_bottom_005_final",
 									"active":true,
@@ -4305,7 +4352,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":113,
+										"instanceID":114,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -4340,7 +4387,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":114,
+												"instanceID":115,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -4399,7 +4446,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":115,
+										"instanceID":116,
 										"props":{
 											"name":"diy_bottom_005_final_0",
 											"active":true,
@@ -4425,7 +4472,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_005_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -4457,7 +4504,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":116,
+										"instanceID":117,
 										"props":{
 											"name":"diy_bottom_005_final_1",
 											"active":true,
@@ -4483,7 +4530,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_005_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -4515,7 +4562,7 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":117,
+										"instanceID":118,
 										"props":{
 											"name":"hanger_002_01",
 											"active":true,
@@ -4552,7 +4599,7 @@
 							},
 							{
 								"type":"Sprite3D",
-								"instanceID":118,
+								"instanceID":119,
 								"props":{
 									"name":"diy_bottom_006_final",
 									"active":true,
@@ -4579,7 +4626,7 @@
 								"child":[
 									{
 										"type":"MeshSprite3D",
-										"instanceID":119,
+										"instanceID":120,
 										"props":{
 											"name":"ModelTap",
 											"active":true,
@@ -4614,7 +4661,7 @@
 										"child":[
 											{
 												"type":"MeshSprite3D",
-												"instanceID":120,
+												"instanceID":121,
 												"props":{
 													"name":"model",
 													"active":true,
@@ -4673,64 +4720,6 @@
 									},
 									{
 										"type":"MeshSprite3D",
-										"instanceID":121,
-										"props":{
-											"name":"diy_bottom_006_final_1",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												0,
-												0
-											],
-											"rotation":[
-												0.7071068,
-												0,
-												0,
-												-0.7071068
-											],
-											"scale":[
-												110,
-												110,
-												110
-											],
-											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_006_final-diy_bottom_006_final_1.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Materials/5.lmat"
-												}
-											]
-										},
-										"components":[
-											{
-												"type":"PhysicsCollider",
-												"restitution":0,
-												"friction":0.5,
-												"rollingFriction":0,
-												"shapes":[
-													{
-														"type":"BoxColliderShape",
-														"center":[
-															0,
-															0.0002786627,
-															0.008958564
-														],
-														"size":[
-															0.002894256,
-															0.001217045,
-															0.002269235
-														]
-													}
-												],
-												"isTrigger":false
-											}
-										],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
 										"instanceID":122,
 										"props":{
 											"name":"diy_bottom_006_final_0",
@@ -4757,7 +4746,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/Materials/5.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_008_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -4790,6 +4779,64 @@
 									{
 										"type":"MeshSprite3D",
 										"instanceID":123,
+										"props":{
+											"name":"diy_bottom_006_final_1",
+											"active":true,
+											"isStatic":false,
+											"layer":0,
+											"position":[
+												0,
+												0,
+												0
+											],
+											"rotation":[
+												0.7071068,
+												0,
+												0,
+												-0.7071068
+											],
+											"scale":[
+												110,
+												110,
+												110
+											],
+											"meshPath":"Assets/Game/Mesh/DIY/DIY_Bottoms/diy_bottom_006_final-diy_bottom_006_final_1.lm",
+											"enableRender":true,
+											"materials":[
+												{
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_008_final_mat_002_n.lmat"
+												}
+											]
+										},
+										"components":[
+											{
+												"type":"PhysicsCollider",
+												"restitution":0,
+												"friction":0.5,
+												"rollingFriction":0,
+												"shapes":[
+													{
+														"type":"BoxColliderShape",
+														"center":[
+															0,
+															0.0002786627,
+															0.008958564
+														],
+														"size":[
+															0.002894256,
+															0.001217045,
+															0.002269235
+														]
+													}
+												],
+												"isTrigger":false
+											}
+										],
+										"child":[]
+									},
+									{
+										"type":"MeshSprite3D",
+										"instanceID":124,
 										"props":{
 											"name":"hanger_002_01",
 											"active":true,
@@ -4830,7 +4877,7 @@
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":124,
+				"instanceID":125,
 				"props":{
 					"name":"Bg1",
 					"active":true,
@@ -4865,7 +4912,7 @@
 			},
 			{
 				"type":"MeshSprite3D",
-				"instanceID":125,
+				"instanceID":126,
 				"props":{
 					"name":"MirrorTag",
 					"active":true,
@@ -4920,53 +4967,6 @@
 						"isTrigger":false
 					}
 				],
-				"child":[]
-			},
-			{
-				"type":"Camera",
-				"instanceID":126,
-				"props":{
-					"name":"Main Camera",
-					"active":true,
-					"isStatic":false,
-					"layer":0,
-					"position":[
-						0,
-						0.98,
-						-0.99
-					],
-					"rotation":[
-						0,
-						0.9961947,
-						0.08715578,
-						0
-					],
-					"scale":[
-						1,
-						1,
-						1
-					],
-					"clearFlag":1,
-					"orthographic":false,
-					"orthographicVerticalSize":10,
-					"fieldOfView":60,
-					"enableHDR":true,
-					"nearPlane":0.3,
-					"farPlane":1000,
-					"viewport":[
-						0,
-						0,
-						1,
-						1
-					],
-					"clearColor":[
-						0.1921569,
-						0.3019608,
-						0.4745098,
-						0
-					]
-				},
-				"components":[],
 				"child":[]
 			},
 			{
@@ -11537,7 +11537,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_001.lm"
@@ -11602,7 +11602,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_002.lm"
@@ -11675,7 +11675,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_003.lm"
@@ -11740,7 +11740,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_004.lm"
@@ -11813,7 +11813,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_005.lm"
@@ -11874,7 +11874,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-bottom_006.lm"
@@ -11978,7 +11978,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_001.lm"
@@ -12056,7 +12056,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_002.lm"
@@ -12126,7 +12126,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_003.lm"
@@ -12198,7 +12198,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_004.lm"
@@ -12270,7 +12270,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_005.lm"
@@ -12340,7 +12340,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-dress_006.lm"
@@ -12431,7 +12431,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Reference/Texture2D/Materials/girl_hair_001.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-hair_000.lm"
@@ -12523,7 +12523,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_001.lm"
@@ -12586,7 +12586,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_002.lm"
@@ -12649,7 +12649,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_003.lm"
@@ -12712,7 +12712,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_004.lm"
@@ -12775,7 +12775,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_005.lm"
@@ -12838,7 +12838,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_006.lm"
@@ -12901,7 +12901,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-shoes_007.lm"
@@ -12995,7 +12995,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_001.lm"
@@ -13058,7 +13058,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_002.lm"
@@ -13121,7 +13121,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_003.lm"
@@ -13190,7 +13190,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_004.lm"
@@ -13251,7 +13251,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_005.lm"
@@ -13319,7 +13319,7 @@
 													],
 													"materials":[
 														{
-															"path":"Assets/Game/Materials/5.lmat"
+															"path":"Assets/Game/Materials/2.lmat"
 														}
 													],
 													"meshPath":"Assets/Game/Animation/ALL_Skin(1)-top_006.lm"
@@ -13383,6 +13383,222 @@
 						"child":[]
 					}
 				]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":314,
+				"props":{
+					"name":"Point Light",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-1.57,
+						0.04,
+						-0.73
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.7,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9874726,
+						1,
+						0.9198113
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":315,
+				"props":{
+					"name":"Point Light (1)",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						1.5,
+						0.04,
+						-0.61
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.7,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9874726,
+						1,
+						0.9198113
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":316,
+				"props":{
+					"name":"Point Light (2)",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-0.08,
+						0.59,
+						1.66
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.5,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9369608,
+						0.8726415,
+						1
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":317,
+				"props":{
+					"name":"Point Light (3)",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-0.08,
+						-2.13,
+						1.14
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.8,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9369608,
+						0.8726415,
+						1
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":318,
+				"props":{
+					"name":"Point Light (4)",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-1.57,
+						0.56,
+						1.42
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.3,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9874726,
+						1,
+						0.9198113
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":319,
+				"props":{
+					"name":"Point Light (5)",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						1.5,
+						0.56,
+						1.54
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.3,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9874726,
+						1,
+						0.9198113
+					]
+				},
+				"components":[],
+				"child":[]
 			}
 		]
 	}
