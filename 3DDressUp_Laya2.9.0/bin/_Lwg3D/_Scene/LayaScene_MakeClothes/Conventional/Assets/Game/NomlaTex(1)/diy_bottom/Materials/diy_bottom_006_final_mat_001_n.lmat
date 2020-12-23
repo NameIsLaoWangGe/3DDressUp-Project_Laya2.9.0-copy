@@ -2,7 +2,7 @@
 	"version":"LAYAMATERIAL:02",
 	"props":{
 		"type":"Laya.BlinnPhongMaterial",
-		"name":"diy_top_003_final_mat_002_n",
+		"name":"diy_bottom_006_final_mat_001_n",
 		"renderStates":[
 			{
 				"cull":2,
@@ -15,7 +15,7 @@
 		],
 		"enableVertexColor":false,
 		"alphaTest":false,
-		"alphaTestValue":0.01,
+		"alphaTestValue":0.5,
 		"renderQueue":2000,
 		"albedoIntensity":1,
 		"enableLighting":true,
@@ -39,7 +39,7 @@
 			},
 			{
 				"name":"normalTexture",
-				"path":"../diy_top_003_final_mat_002_n.jpg",
+				"path":"../diy_bottom_006_final_mat_001_n.jpg",
 				"constructParams":[
 					256,
 					256,

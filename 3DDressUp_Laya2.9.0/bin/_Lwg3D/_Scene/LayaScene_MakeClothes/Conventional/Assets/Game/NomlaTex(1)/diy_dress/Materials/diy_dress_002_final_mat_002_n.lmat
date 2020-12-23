@@ -19,11 +19,11 @@
 		"renderQueue":2000,
 		"albedoIntensity":1,
 		"enableLighting":true,
-		"shininess":0.078125,
+		"shininess":0.01,
 		"textures":[
 			{
 				"name":"albedoTexture",
-				"path":"../../../../Reference/Texture2D/diy_dress_001_basic.jpg",
+				"path":"../../../../Reference/Texture2D/diy_dress_003_basic.jpg",
 				"constructParams":[
 					256,
 					256,
@@ -67,9 +67,9 @@
 			{
 				"name":"specularColor",
 				"value":[
-					0.1960784,
-					0.1960784,
-					0.1960784,
+					0.1320755,
+					0.1320755,
+					0.1320755,
 					1
 				]
 			},

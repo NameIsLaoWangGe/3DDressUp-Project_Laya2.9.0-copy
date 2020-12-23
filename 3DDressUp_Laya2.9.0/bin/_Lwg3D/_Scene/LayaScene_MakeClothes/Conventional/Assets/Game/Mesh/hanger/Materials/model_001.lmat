@@ -17,7 +17,7 @@
 		"alphaTestValue":0.5,
 		"renderQueue":2000,
 		"metallic":0,
-		"smoothness":0.632,
+		"smoothness":0.601,
 		"smoothnessTextureScale":1,
 		"smoothnessSource":0,
 		"normalTextureScale":1,

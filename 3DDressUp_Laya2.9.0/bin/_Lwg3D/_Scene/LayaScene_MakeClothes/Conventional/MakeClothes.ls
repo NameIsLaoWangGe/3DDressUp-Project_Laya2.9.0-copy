@@ -304,7 +304,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":8,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -626,7 +626,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":16,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -854,7 +854,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":22,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1082,7 +1082,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":28,
 										"props":{
-											"name":"model_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1111,42 +1111,43 @@
 											]
 										},
 										"components":[],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":29,
-										"props":{
-											"name":"model_001_02",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												-0.04,
-												0.025
-											],
-											"rotation":[
-												0,
-												0,
-												0,
-												-1
-											],
-											"scale":[
-												0.01,
-												0.01,
-												0.01
-											],
-											"meshPath":"Assets/Game/Mesh/hanger/model_001_01(1)(1)-model_001_02.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Mesh/hanger/Materials/hanger.lmat"
-												}
-											]
-										},
-										"components":[],
-										"child":[]
+										"child":[
+											{
+												"type":"MeshSprite3D",
+												"instanceID":29,
+												"props":{
+													"name":"hanger",
+													"active":true,
+													"isStatic":false,
+													"layer":0,
+													"position":[
+														0,
+														0,
+														0
+													],
+													"rotation":[
+														0,
+														0,
+														0,
+														-1
+													],
+													"scale":[
+														1,
+														1,
+														1
+													],
+													"meshPath":"Assets/Game/Mesh/hanger/model_001_01(1)(1)-model_001_02.lm",
+													"enableRender":true,
+													"materials":[
+														{
+															"path":"Assets/Game/Mesh/hanger/Materials/hanger.lmat"
+														}
+													]
+												},
+												"components":[],
+												"child":[]
+											}
+										]
 									}
 								]
 							},
@@ -1334,7 +1335,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_002_n 1.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -1345,7 +1346,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":35,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1527,7 +1528,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_001_n 1.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -1562,7 +1563,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_002_n 1.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -1573,7 +1574,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":41,
 										"props":{
-											"name":"model_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -1602,42 +1603,43 @@
 											]
 										},
 										"components":[],
-										"child":[]
-									},
-									{
-										"type":"MeshSprite3D",
-										"instanceID":42,
-										"props":{
-											"name":"model_001_02",
-											"active":true,
-											"isStatic":false,
-											"layer":0,
-											"position":[
-												0,
-												-0.043,
-												0.027
-											],
-											"rotation":[
-												0,
-												0,
-												0,
-												-1
-											],
-											"scale":[
-												0.01,
-												0.01,
-												0.01
-											],
-											"meshPath":"Assets/Game/Mesh/hanger/model_001_01(1)(1)-model_001_02.lm",
-											"enableRender":true,
-											"materials":[
-												{
-													"path":"Assets/Game/Mesh/hanger/Materials/hanger.lmat"
-												}
-											]
-										},
-										"components":[],
-										"child":[]
+										"child":[
+											{
+												"type":"MeshSprite3D",
+												"instanceID":42,
+												"props":{
+													"name":"hanger",
+													"active":true,
+													"isStatic":false,
+													"layer":0,
+													"position":[
+														0,
+														0,
+														0
+													],
+													"rotation":[
+														0,
+														0,
+														0,
+														-1
+													],
+													"scale":[
+														1,
+														1,
+														1
+													],
+													"meshPath":"Assets/Game/Mesh/hanger/model_001_01(1)(1)-model_001_02.lm",
+													"enableRender":true,
+													"materials":[
+														{
+															"path":"Assets/Game/Mesh/hanger/Materials/hanger.lmat"
+														}
+													]
+												},
+												"components":[],
+												"child":[]
+											}
+										]
 									}
 								]
 							},
@@ -1790,7 +1792,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_001_n 1.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -1836,7 +1838,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":48,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -2064,7 +2066,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":54,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -2321,7 +2323,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":61,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -2549,7 +2551,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":67,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -2777,7 +2779,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":73,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -3005,7 +3007,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":79,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -3233,7 +3235,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":85,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -3461,7 +3463,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":91,
 										"props":{
-											"name":"hanger_001_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -3718,7 +3720,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":98,
 										"props":{
-											"name":"hanger_002_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -4016,7 +4018,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":106,
 										"props":{
-											"name":"hanger_002_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -4290,7 +4292,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":112,
 										"props":{
-											"name":"hanger_002_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -4564,7 +4566,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":118,
 										"props":{
-											"name":"hanger_002_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -4746,7 +4748,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_008_final_mat_001_n.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_006_final_mat_001_n.lmat"
 												}
 											]
 										},
@@ -4804,7 +4806,7 @@
 											"enableRender":true,
 											"materials":[
 												{
-													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_008_final_mat_002_n.lmat"
+													"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_006_final_mat_002_n.lmat"
 												}
 											]
 										},
@@ -4838,7 +4840,7 @@
 										"type":"MeshSprite3D",
 										"instanceID":124,
 										"props":{
-											"name":"hanger_002_01",
+											"name":"hanger",
 											"active":true,
 											"isStatic":false,
 											"layer":0,
@@ -7993,7 +7995,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_002_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_002_final_0.lm"
@@ -8063,7 +8065,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_002_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_002_final_1.lm"
@@ -8171,7 +8173,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_003_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_003_final_0.lm"
@@ -8329,7 +8331,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_003_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_003_final_1.lm"
@@ -8510,7 +8512,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_004_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_004_final_0.lm"
@@ -8580,7 +8582,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_004_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_004_final_1.lm"
@@ -8670,7 +8672,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_005_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_005_final_0.lm"
@@ -8731,7 +8733,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_005_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_005_final_1.lm"
@@ -8821,7 +8823,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_006_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_006_final_0.lm"
@@ -8882,7 +8884,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_bottom/Materials/diy_bottom_006_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_bottom_006_final_1.lm"
@@ -9014,7 +9016,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_001_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_001_final_0.lm"
@@ -9088,7 +9090,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_001_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_001_final_1.lm"
@@ -9195,7 +9197,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_002_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_002_final_0.lm"
@@ -9272,7 +9274,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_002_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_002_final_1.lm"
@@ -9381,7 +9383,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_003_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_003_final_0.lm"
@@ -9461,7 +9463,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_003_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_003_final_1.lm"
@@ -9576,7 +9578,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_004_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_004_final_0.lm"
@@ -9663,7 +9665,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_004_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_004_final_1.lm"
@@ -9771,7 +9773,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_005_final_0.lm"
@@ -9849,7 +9851,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_005_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_005_final_1.lm"
@@ -9964,7 +9966,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_006_final_0.lm"
@@ -10051,7 +10053,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_006_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_006_final_1.lm"
@@ -10091,84 +10093,6 @@
 													{
 														"type":"SkinnedMeshSprite3D",
 														"instanceID":257,
-														"props":{
-															"name":"diy_dress_007_final_1",
-															"active":true,
-															"isStatic":false,
-															"layer":0,
-															"position":[
-																0,
-																0,
-																0
-															],
-															"rotation":[
-																0,
-																0,
-																0,
-																-1
-															],
-															"scale":[
-																1,
-																1,
-																1
-															],
-															"rootBone":134,
-															"boundBox":{
-																"min":[
-																	-0.2753966,
-																	-0.1397105,
-																	-0.2089537
-																],
-																"max":[
-																	0.4835694,
-																	0.04813538,
-																	0.2091355
-																]
-															},
-															"boundSphere":{
-																"center":[
-																	0.1040864,
-																	-0.04578754,
-																	9.093434E-05
-																],
-																"radius":0.4433154
-															},
-															"bones":[
-																144,
-																137,
-																134,
-																145,
-																203,
-																208,
-																204,
-																209,
-																213,
-																205,
-																210,
-																198,
-																199,
-																200,
-																146,
-																147,
-																135,
-																158,
-																136,
-																143,
-																215
-															],
-															"materials":[
-																{
-																	"path":"Assets/Game/Materials/5.lmat"
-																}
-															],
-															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_007_final_0.lm"
-														},
-														"components":[],
-														"child":[]
-													},
-													{
-														"type":"SkinnedMeshSprite3D",
-														"instanceID":258,
 														"props":{
 															"name":"diy_dress_007_final_0",
 															"active":true,
@@ -10237,10 +10161,88 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_007_final_1.lm"
+														},
+														"components":[],
+														"child":[]
+													},
+													{
+														"type":"SkinnedMeshSprite3D",
+														"instanceID":258,
+														"props":{
+															"name":"diy_dress_007_final_1",
+															"active":true,
+															"isStatic":false,
+															"layer":0,
+															"position":[
+																0,
+																0,
+																0
+															],
+															"rotation":[
+																0,
+																0,
+																0,
+																-1
+															],
+															"scale":[
+																1,
+																1,
+																1
+															],
+															"rootBone":134,
+															"boundBox":{
+																"min":[
+																	-0.2753966,
+																	-0.1397105,
+																	-0.2089537
+																],
+																"max":[
+																	0.4835694,
+																	0.04813538,
+																	0.2091355
+																]
+															},
+															"boundSphere":{
+																"center":[
+																	0.1040864,
+																	-0.04578754,
+																	9.093434E-05
+																],
+																"radius":0.4433154
+															},
+															"bones":[
+																144,
+																137,
+																134,
+																145,
+																203,
+																208,
+																204,
+																209,
+																213,
+																205,
+																210,
+																198,
+																199,
+																200,
+																146,
+																147,
+																135,
+																158,
+																136,
+																143,
+																215
+															],
+															"materials":[
+																{
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_007_final_mat_002_n.lmat"
+																}
+															],
+															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_007_final_0.lm"
 														},
 														"components":[],
 														"child":[]
@@ -10344,7 +10346,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_008_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_008_final_0.lm"
@@ -10423,7 +10425,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_dress/Materials/diy_dress_008_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_dress_008_final_1.lm"
@@ -10547,7 +10549,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_003_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_003_final_0.lm"
@@ -10613,7 +10615,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_003_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_003_final_1.lm"
@@ -10709,7 +10711,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_004_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_004_final_0.lm"
@@ -10776,7 +10778,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_004_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_004_final_1.lm"
@@ -10872,7 +10874,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_005_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_005_final_0.lm"
@@ -10939,7 +10941,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_005_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_005_final_1.lm"
@@ -11032,7 +11034,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_006_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_006_final_0.lm"
@@ -11096,7 +11098,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_006_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_006_final_1.lm"
@@ -11191,7 +11193,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_007_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_007_final_0.lm"
@@ -11257,7 +11259,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_007_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_007_final_1.lm"
@@ -11349,7 +11351,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_008_final_mat_001_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_008_final_0.lm"
@@ -11412,7 +11414,7 @@
 															],
 															"materials":[
 																{
-																	"path":"Assets/Game/Materials/5.lmat"
+																	"path":"Assets/Game/NomlaTex(1)/diy_top/Materials/diy_top_008_final_mat_002_n.lmat"
 																}
 															],
 															"meshPath":"Assets/Game/Animation/ALL_Skin(1)-diy_top_008_final_1.lm"
@@ -13388,13 +13390,13 @@
 				"type":"PointLight",
 				"instanceID":314,
 				"props":{
-					"name":"Point Light",
+					"name":"fillLight_Right1",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-1.57,
-						0.04,
+						-2.05,
+						0.77,
 						-0.73
 					],
 					"rotation":[
@@ -13408,7 +13410,7 @@
 						1,
 						1
 					],
-					"intensity":0.7,
+					"intensity":0.3,
 					"lightmapBakedType":0,
 					"range":10,
 					"color":[
@@ -13424,13 +13426,13 @@
 				"type":"PointLight",
 				"instanceID":315,
 				"props":{
-					"name":"Point Light (1)",
+					"name":"fillLight_Left1",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						1.5,
-						0.04,
+						2.01,
+						0.77,
 						-0.61
 					],
 					"rotation":[
@@ -13444,7 +13446,7 @@
 						1,
 						1
 					],
-					"intensity":0.7,
+					"intensity":0.3,
 					"lightmapBakedType":0,
 					"range":10,
 					"color":[
@@ -13460,14 +13462,14 @@
 				"type":"PointLight",
 				"instanceID":316,
 				"props":{
-					"name":"Point Light (2)",
+					"name":"fillLight_Back",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
-						-0.08,
+						0.02,
 						0.59,
-						1.66
+						1.64
 					],
 					"rotation":[
 						0,
@@ -13480,7 +13482,7 @@
 						1,
 						1
 					],
-					"intensity":0.5,
+					"intensity":0.6,
 					"lightmapBakedType":0,
 					"range":10,
 					"color":[
@@ -13496,14 +13498,14 @@
 				"type":"PointLight",
 				"instanceID":317,
 				"props":{
-					"name":"Point Light (3)",
+					"name":"fillLight_Bottom1",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
 						-0.08,
-						-2.13,
-						1.14
+						-1.21,
+						1.48
 					],
 					"rotation":[
 						0,
@@ -13532,14 +13534,14 @@
 				"type":"PointLight",
 				"instanceID":318,
 				"props":{
-					"name":"Point Light (4)",
+					"name":"fillLight_Right2",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
 						-1.57,
-						0.56,
-						1.42
+						0.69,
+						1.14
 					],
 					"rotation":[
 						0,
@@ -13568,14 +13570,14 @@
 				"type":"PointLight",
 				"instanceID":319,
 				"props":{
-					"name":"Point Light (5)",
+					"name":"fillLight_Left2",
 					"active":true,
 					"isStatic":false,
 					"layer":0,
 					"position":[
 						1.5,
-						0.56,
-						1.54
+						0.69,
+						1.14
 					],
 					"rotation":[
 						0,
@@ -13595,6 +13597,42 @@
 						0.9874726,
 						1,
 						0.9198113
+					]
+				},
+				"components":[],
+				"child":[]
+			},
+			{
+				"type":"PointLight",
+				"instanceID":320,
+				"props":{
+					"name":"fillLight_Bottom2",
+					"active":true,
+					"isStatic":false,
+					"layer":0,
+					"position":[
+						-0.08,
+						-1.21,
+						-0.3
+					],
+					"rotation":[
+						0,
+						0,
+						0,
+						-1
+					],
+					"scale":[
+						1,
+						1,
+						1
+					],
+					"intensity":0.8,
+					"lightmapBakedType":0,
+					"range":10,
+					"color":[
+						0.9369608,
+						0.8726415,
+						1
 					]
 				},
 				"components":[],

@@ -19,7 +19,7 @@
 		"renderQueue":2000,
 		"albedoIntensity":1,
 		"enableLighting":true,
-		"shininess":0.078125,
+		"shininess":0.01,
 		"textures":[
 			{
 				"name":"albedoTexture",
@@ -67,9 +67,9 @@
 			{
 				"name":"specularColor",
 				"value":[
-					0.1960784,
-					0.1960784,
-					0.1960784,
+					0.1320755,
+					0.1320755,
+					0.1320755,
 					1
 				]
 			},

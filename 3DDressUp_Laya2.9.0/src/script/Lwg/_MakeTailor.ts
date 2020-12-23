@@ -1,4 +1,4 @@
-import lwg, { Admin, Animation2D, AudioAdmin, Click, DataAdmin, Effects, EventAdmin, SceneAnimation, TimerAdmin, Tools, _SceneName } from "./Lwg";
+import lwg, { Admin, Animation2D, AudioAdmin, Click, DataAdmin, Effects2D, EventAdmin, SceneAnimation, TimerAdmin, Tools, _SceneName } from "./Lwg";
 import { _3D } from "./_3D";
 import { _Res } from "./_PreLoad";
 import { _UI } from "./_UI";
@@ -260,7 +260,7 @@ export module _MakeTailor {
                 const color2 = _DIYClothes._ins().getColor()[1];
                 const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                 for (let index = 0; index < num; index++) {
-                    Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
+                    Effects2D._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects2D._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
                 }
             }
         }
@@ -492,9 +492,9 @@ export module _MakeTailor {
                 let _caller = {};
                 TimerAdmin._frameLoop(1, _caller, () => {
                     let gP = (this._ImgVar('EFlower').parent as Laya.Image).localToGlobal(new Laya.Point(this._ImgVar('EFlower').x, this._ImgVar('EFlower').y))
-                    Effects._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y - 40), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 222, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
+                    Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y - 40), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 222, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
 
-                    Effects._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
+                    Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
                 })
                 this._AniVar('complete').on(Laya.Event.COMPLETE, this, () => {
                     TimerAdmin._clearAll([_caller]);
@@ -513,7 +513,7 @@ export module _MakeTailor {
                             Laya.timer.clearAll(_caller);
                         }
                         p1.y -= moveY;
-                        Effects._Particle._fallingVertical(this._Owner, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
+                        Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
                     }
                     TimerAdmin._frameLoop(1, _caller, () => {
                         funcL();
@@ -527,7 +527,7 @@ export module _MakeTailor {
                             Laya.timer.clearAll(_callerR);
                         }
                         p2.y -= moveY;
-                        Effects._Particle._fallingVertical(this._Owner, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
+                        Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
                     }
                     TimerAdmin._frameLoop(1, _callerR, () => {
                         funcR();
@@ -564,9 +564,9 @@ export module _MakeTailor {
                             Laya.timer.clearAll(_caller);
                         }
                         if (index % 2 == 0) {
-                            Effects._Particle._fallingVertical(Img, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
+                            Effects2D._Particle._fallingVertical(Img, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1])
                         } else {
-                            Effects._Particle._fallingVertical_Reverse(Img, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [-100, -200], [-0.8, -1.5], [-0.05, -0.1])
+                            Effects2D._Particle._fallingVertical_Reverse(Img, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [-100, -200], [-0.8, -1.5], [-0.05, -0.1])
                         }
                     }
                     TimerAdmin._frameNumLoop(2, 50, _caller, () => {

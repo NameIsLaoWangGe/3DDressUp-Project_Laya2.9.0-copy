@@ -10,14 +10,8 @@ import { _Ranking } from "./_Ranking";
 import { _UI } from "./_UI";
 export module _MakePattern {
     export enum _Event {
-        moveUltimately = '_MakePattern_moveUltimately',
-        resetTex = '_MakePattern_resetTex',
-        changeDir = '_MakePattern_resetTex',
-        remake = '_MakePattern_remake',
         close = '_MakePattern_close',
         createImg = '_MakePattern_createImg',
-        setTexSize = '_MakePattern_texSize',
-        photo = '_MakePattern_photo',
     }
 
     class _Pattern extends DataAdmin._Table {
@@ -128,13 +122,14 @@ export module _MakePattern {
                     this.UI.btnBackVinish();
                     this.UI.btnRollbackVinish();
                     this.UI.btnAgainVinish(() => {
-                        // this.photo();
                         _3D._Scene._ins().cameraToSprite(this._Owner);
+                        this.texStorage();
                         this._openScene('Start', true, true, () => { });
                     });
                 }, 200);
             }
             this.UI.btnRollbackClick = () => {
+                _3D._Scene._ins().cameraToSprite(this._Owner);
                 this._openScene('MakeTailor', true, true);
             }
             this.UI.btnAgainClick = () => {
@@ -160,32 +155,9 @@ export module _MakePattern {
                 }
                 this.Tex.state = this.Tex.stateType.none;
             })
-
-            this._evReg(_Event.photo, () => {
-                this.photo();
-            })
         }
-
-
-        // EndCamera: Laya.Camera;
         /**截图*/
-        photo(): void {
-            console.log('11');
-            _3D._Scene._ins().photoBg();
-            _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
-            // this.EndCamera = _3D._Scene._ins()._MainCamara.clone() as Laya.Camera;
-            // _3D._Scene._ins()._Owner.addChild(this.EndCamera);
-            // this.EndCamera.transform.position = _3D._Scene._ins()._MainCamara.transform.position;
-            // this.EndCamera.transform.localRotationEuler = _3D._Scene._ins()._MainCamara.transform.localRotationEuler;
-            // //选择渲染目标为纹理
-            // this.EndCamera.renderTarget = new Laya.RenderTexture(this._SpriteVar('IconPhoto').width, this._SpriteVar('IconPhoto').height);
-            // //渲染顺序
-            // this.EndCamera.renderingOrder = -1;
-            // //清除标记
-            // this.EndCamera.clearFlag = Laya.CameraClearFlags.Sky;
-            // const ptex = new Laya.Texture(((<Laya.Texture2D>(this.EndCamera.renderTarget as any))), Laya.Texture.DEF_UV);
-            // this._SpriteVar('IconPhoto').graphics.drawTexture(ptex);
-            Tools._Draw.cameraToSprite(_3D._Scene._ins()._MainCamara, this._SpriteVar('IconPhoto'));
+        texStorage(): void {
             // 绘制到两张只有一半的sp上，节省本地存储的内存
             this._SpriteVar('Front').scaleY = this._SpriteVar('Reverse').scaleY = 1;
             const texF = Tools._Draw.drawToTex(this._SpriteVar('Front'));
@@ -193,18 +165,11 @@ export module _MakePattern {
             texF.width = texF.height = texR.width = texR.height = 256;
             this._SpriteVar('DrawFront').graphics.drawTexture(texF);
             this._SpriteVar('DrawReverse').graphics.drawTexture(texR);
-            TimerAdmin._frameOnce(10, this, () => {
-                const base64Icon = Tools._Draw.screenshot(this._SpriteVar('IconPhoto'), 0.5);
+            TimerAdmin._frameOnce(5, this, () => {
                 const base64F = Tools._Draw.screenshot(this._SpriteVar('DrawFront'), 0.1);
                 const base64R = Tools._Draw.screenshot(this._SpriteVar('DrawReverse'), 0.1);
-                _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
-                // this.EndCamera.destroy();
-                (_3D.DIYCloth._ins().Front.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
-                (_3D.DIYCloth._ins().Reverse.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = null;
-                _DressingRoom._Clothes._ins().changeAfterMaking();
-                // this._openScene('Start', true, true, () => {});
                 _Ranking._whereFrom = this._Owner.name;
             })
         }
@@ -552,9 +517,6 @@ export module _MakePattern {
                 }
             }
         }
-        // lwgCloseAni(): number {
-        //     return 10;
-        // }
     }
 }
 export default _MakePattern.MakePattern;

@@ -2698,8 +2698,8 @@
             }
             Color._changeConstant = _changeConstant;
         })(Color = lwg.Color || (lwg.Color = {}));
-        let Effects;
-        (function (Effects) {
+        let Effects2D;
+        (function (Effects2D) {
             let _SkinUrl;
             (function (_SkinUrl) {
                 _SkinUrl["\u7231\u5FC31"] = "Lwg/Effects/aixin1.png";
@@ -2731,7 +2731,7 @@
                 _SkinUrl["\u5149\u57082"] = "Lwg/Effects/guangquan2.png";
                 _SkinUrl["\u4E09\u89D2\u5F621"] = "Lwg/Effects/triangle1.png";
                 _SkinUrl["\u4E09\u89D2\u5F622"] = "Lwg/Effects/triangle2.png";
-            })(_SkinUrl = Effects._SkinUrl || (Effects._SkinUrl = {}));
+            })(_SkinUrl = Effects2D._SkinUrl || (Effects2D._SkinUrl = {}));
             let _Aperture;
             (function (_Aperture) {
                 class _ApertureImage extends Laya.Image {
@@ -2801,7 +2801,7 @@
                     });
                 }
                 _Aperture._continuous = _continuous;
-            })(_Aperture = Effects._Aperture || (Effects._Aperture = {}));
+            })(_Aperture = Effects2D._Aperture || (Effects2D._Aperture = {}));
             let _Particle;
             (function (_Particle) {
                 class _ParticleImgBase extends Laya.Image {
@@ -3369,7 +3369,7 @@
                     return Img;
                 }
                 _Particle._AnnularInhalation = _AnnularInhalation;
-            })(_Particle = Effects._Particle || (Effects._Particle = {}));
+            })(_Particle = Effects2D._Particle || (Effects2D._Particle = {}));
             let _Glitter;
             (function (_Glitter) {
                 class _GlitterImage extends Laya.Image {
@@ -3480,7 +3480,7 @@
                     return Img;
                 }
                 _Glitter._simpleInfinite = _simpleInfinite;
-            })(_Glitter = Effects._Glitter || (Effects._Glitter = {}));
+            })(_Glitter = Effects2D._Glitter || (Effects2D._Glitter = {}));
             let _circulation;
             (function (_circulation) {
                 class _circulationImage extends Laya.Image {
@@ -3571,8 +3571,8 @@
                     return Img;
                 }
                 _circulation._corner = _corner;
-            })(_circulation = Effects._circulation || (Effects._circulation = {}));
-        })(Effects = lwg.Effects || (lwg.Effects = {}));
+            })(_circulation = Effects2D._circulation || (Effects2D._circulation = {}));
+        })(Effects2D = lwg.Effects2D || (lwg.Effects2D = {}));
         let Click;
         (function (Click) {
             Click._switch = true;
@@ -4188,7 +4188,6 @@
             Animation2D.bombs_VanishAllChild = bombs_VanishAllChild;
             function bombs_Vanish(node, scale, alpha, rotation, time, func, delayed) {
                 Laya.Tween.to(node, { scaleX: scale, scaleY: scale, alpha: alpha, rotation: rotation }, time, Laya.Ease.cubicOut, Laya.Handler.create(this, function () {
-                    console.log('完成！');
                     if (func) {
                         func();
                     }
@@ -6210,7 +6209,7 @@
     let AudioAdmin = lwg.AudioAdmin;
     let Click = lwg.Click;
     let Color = lwg.Color;
-    let Effects = lwg.Effects;
+    let Effects2D = lwg.Effects2D;
     let Dialogue = lwg.Dialogue;
     let Animation2D = lwg.Animation2D;
     let Animation3D = lwg.Animation3D;
@@ -6314,6 +6313,307 @@
     })(_Guide || (_Guide = {}));
     var _Guide$1 = _Guide.Guide;
 
+    var _DressingRoom;
+    (function (_DressingRoom) {
+        let _Event;
+        (function (_Event) {
+            _Event["changeCloth"] = "_DressingRoom_ChangeCloth";
+        })(_Event = _DressingRoom._Event || (_DressingRoom._Event = {}));
+        class _Clothes extends DataAdmin._Table {
+            constructor() {
+                super(...arguments);
+                this._classify = {
+                    DIY: 'DIY',
+                    General: 'General',
+                };
+                this._part = {
+                    Dress: 'Dress',
+                    Top: 'Top',
+                    Bottoms: 'Bottoms',
+                    FaceMask: 'FaceMask',
+                    Accessories: 'Accessories',
+                    Shoes: 'Shoes',
+                    Hair: 'Hair',
+                };
+                this._otherPro = {
+                    putOn: 'putOn',
+                    part: 'part'
+                };
+            }
+            static _ins() {
+                if (!this.ins) {
+                    this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
+                }
+                return this.ins;
+            }
+            collectDIY() {
+                let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
+                const copyArr = Tools._ObjArray.arrCopy(DIYArr);
+                Tools._ObjArray.modifyProValue(copyArr, _Clothes._ins()._property.classify, 'DIY');
+                this._addObjectArr(copyArr);
+                return copyArr;
+            }
+            changeAfterMaking() {
+                _DressingRoom._Clothes._ins().collectDIY();
+                _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
+            }
+            changeClass(classify, partArr, playAni) {
+                const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
+                for (let i = 0; i < _classify.numChildren; i++) {
+                    const _classifySp = _classify.getChildAt(i);
+                    _classifySp.active = false;
+                    for (let j = 0; j < partArr.length; j++) {
+                        const obj = partArr[j];
+                        if (obj[this._otherPro.part] === _classifySp.name) {
+                            _classifySp.active = true;
+                            for (let k = 0; k < _classifySp.numChildren; k++) {
+                                const cloth = _classifySp.getChildAt(k);
+                            }
+                        }
+                    }
+                }
+                playAni && _3D._Scene._ins().playDispalyAni();
+            }
+            changeClothStart() {
+                _Clothes._ins().collectDIY();
+                const arr = this._getArrByProperty(this._otherPro.putOn, true);
+                this.changeClass(this._classify.DIY, arr);
+                this.changeClass(this._classify.General, arr);
+                this.startSpecialSet();
+            }
+            changeCloth() {
+                const arr = this._getArrByProperty(this._otherPro.putOn, true);
+                this.changeClass(this._classify.DIY, arr, true);
+                this.changeClass(this._classify.General, arr, true);
+            }
+            startSpecialSet() {
+                if (StorageAdmin._bool('DressState').value) {
+                    _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
+                }
+                else {
+                    _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
+                }
+            }
+            specialSet(part) {
+                if (part === this._part.Dress) {
+                    StorageAdmin._bool('DressState').value = true;
+                }
+                else if (part === this._part.Top || part === this._part.Bottoms) {
+                    StorageAdmin._bool('DressState').value = false;
+                }
+                if (StorageAdmin._bool('DressState').value) {
+                    _3D._Scene._ins().displayDress();
+                }
+                else {
+                    _3D._Scene._ins().displayTopAndBotton();
+                }
+            }
+            accurateChange(partValue, name) {
+                const arr = _Clothes._ins()._getArrByProperty('part', partValue);
+                for (let index = 0; index < arr.length; index++) {
+                    const element = arr[index];
+                    if (name === element['name']) {
+                        element['putOn'] = true;
+                    }
+                    else {
+                        element['putOn'] = false;
+                    }
+                }
+                _MakeTailor._DIYClothes._ins()._setProperty(_MakeTailor._DIYClothes._ins()._pitchName, 'putOn', true);
+                _Clothes._ins().changeCloth();
+                _Clothes._ins().specialSet(partValue);
+                _Clothes._ins()._refreshAndStorage();
+            }
+        }
+        _DressingRoom._Clothes = _Clothes;
+        class _Item extends Admin._ObjectBase {
+            lwgButton() {
+                this._btnUp(this._Owner, (e) => {
+                    _Clothes._ins().accurateChange(this._Owner['dataSource']['part'], this._Owner['dataSource']['name']);
+                }, null);
+            }
+        }
+        class DressingRoom extends Admin._SceneBase {
+            lwgOnAwake() {
+                _3D._Scene._ins().mirrorSurface = true;
+                TimerAdmin._frameLoop(1, this, () => {
+                    _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
+                });
+                const copyDIYArr = _Clothes._ins().collectDIY();
+                _Clothes._ins()._List = this._ListVar('List');
+                _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
+                if (copyDIYArr.length > 0) {
+                    this.switchClassify(this._ImgVar('DIY'));
+                }
+                else {
+                    this.switchClassify(this._ImgVar('Dress'));
+                }
+                _Clothes._ins()._listRender = (Cell, index) => {
+                    let data = Cell.dataSource;
+                    let Icon = Cell.getChildByName('Icon');
+                    const Board = Cell.getChildByName('Board');
+                    if (data[_Clothes._ins()._otherPro.putOn]) {
+                        Board.skin = `Game/UI/Common/xuanzhong.png`;
+                    }
+                    else {
+                        Board.skin = null;
+                    }
+                    if (data[_Clothes._ins()._property.classify] === _Clothes._ins()._classify.DIY) {
+                        Icon.skin = data[_MakeTailor._DIYClothes._ins()._otherPro.icon];
+                    }
+                    else {
+                        Icon.skin = `Game/UI/DressingRoom/Icon/${data[_Clothes._ins()._property.name]}.png`;
+                    }
+                    if (!Cell.getComponent(_Item)) {
+                        Cell.addComponent(_Item);
+                    }
+                };
+            }
+            lwgOnStart() {
+                this.UI = new _UI(this._Owner);
+                TimerAdmin._frameOnce(10, this, () => {
+                    this.UI.operationAppear(() => {
+                        this.UI.btnCompleteAppear(null, 400);
+                    });
+                    this.UI.btnBackAppear(null, 200);
+                });
+                this.UI.btnCompleteClick = () => {
+                    this.UI.operationVinish(() => {
+                        _3D._Scene._ins().mirrorSurface = false;
+                        _3D._Scene._ins().cameraToSprite(this._Owner);
+                        this._openScene('Start', true, true);
+                        this.UI.btnBackVinish(() => {
+                        });
+                    }, 200);
+                };
+            }
+            switchClassify(_element) {
+                let arr = [];
+                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                    const element = this._ImgVar('Part').getChildAt(index);
+                    const Icon = element.getChildAt(0);
+                    if (_element === element) {
+                        element.skin = `Game/UI/Common/kuang_fen.png`;
+                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
+                        if (_element.name === 'DIY') {
+                            arr = _Clothes._ins()._getArrByClassify(_element.name);
+                        }
+                        else {
+                            let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
+                            for (let index = 0; index < _arr.length; index++) {
+                                const obj = _arr[index];
+                                if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
+                                    arr.push(obj);
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        element.skin = `Game/UI/Common/kuang_bai.png`;
+                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
+                    }
+                    _Clothes._ins()._List.array = arr;
+                }
+            }
+            lwgButton() {
+                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
+                    const _element = this._ImgVar('Part').getChildAt(index);
+                    this._btnUp(_element, () => {
+                        this.switchClassify(_element);
+                    }, 'no');
+                }
+            }
+        }
+        _DressingRoom.DressingRoom = DressingRoom;
+    })(_DressingRoom || (_DressingRoom = {}));
+    var _DressingRoom$1 = _DressingRoom.DressingRoom;
+
+    var _PreLoadCutIn;
+    (function (_PreLoadCutIn) {
+        let _Event;
+        (function (_Event) {
+            _Event["animation1"] = "_PreLoadCutIn_animation1";
+            _Event["preLoad"] = "_PreLoadCutIn_preLoad";
+            _Event["animation2"] = "_PreLoadCutIn_animation2";
+            _Event["fromBtnBack"] = "_PreLoadCutIn_fromBtnBack";
+        })(_Event = _PreLoadCutIn._Event || (_PreLoadCutIn._Event = {}));
+        _PreLoadCutIn._fromBack = false;
+        function _init() {
+            EventAdmin._register(_Event.fromBtnBack, _PreLoadCutIn, () => {
+                _PreLoadCutIn._fromBack = true;
+            });
+        }
+        _PreLoadCutIn._init = _init;
+        class PreLoadCutIn extends _LwgPreLoad._PreLoadScene {
+            lwgOnStart() {
+                TimerAdmin._frameOnce(50, this, () => {
+                    EventAdmin._notify(_Event.animation1);
+                });
+            }
+            lwgEvent() {
+                this._evReg(_Event.animation1, () => {
+                    let time = 0;
+                    TimerAdmin._frameNumLoop(1, 30, this, () => {
+                        time++;
+                        this._LabelVar('Schedule').text = `${time}%`;
+                    }, () => {
+                        switch (Admin._PreLoadCutIn.openName) {
+                            case 'MakePattern':
+                                _3D._Scene._ins().intoMakePattern();
+                                break;
+                            case 'MakeTailor':
+                                _3D._Scene._ins().intoMakeTailor();
+                                _MakeTailor._DIYClothes._ins().ClothesArr = null;
+                                _MakeTailor._DIYClothes._ins().getClothesArr();
+                                break;
+                            case 'Start':
+                                if (Admin._PreLoadCutIn.closeName === 'MakePattern' && !_PreLoadCutIn._fromBack) {
+                                    this.iconPhoto();
+                                }
+                                else {
+                                    _3D._Scene._ins().intoStart();
+                                }
+                                break;
+                            case 'DressingRoom':
+                                _3D._Scene._ins().intogeDressingRoom();
+                            default:
+                                break;
+                        }
+                        TimerAdmin._frameOnce(20, this, () => {
+                            EventAdmin._notify(_LwgPreLoad._Event.importList, [{}]);
+                        });
+                    });
+                });
+            }
+            lwgStepComplete() {
+            }
+            lwgAllComplete() {
+                this._LabelVar('Schedule').text = `100%`;
+                return 500;
+            }
+            lwgOnDisable() {
+                _PreLoadCutIn._fromBack = false;
+            }
+            iconPhoto() {
+                _3D._Scene._ins().photoBg();
+                _3D.DIYCloth._ins().hanger.active = false;
+                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
+                const sp = new Laya.Sprite;
+                this._Owner.addChild(sp)['size'](126, 146);
+                Tools._Draw.cameraToSprite(_3D._Scene._ins()._MainCamara, sp);
+                TimerAdmin._frameOnce(5, this, () => {
+                    const base64Icon = Tools._Draw.screenshot(sp, 0.5);
+                    _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
+                    _DressingRoom._Clothes._ins().changeAfterMaking();
+                    _3D._Scene._ins().intoStart();
+                });
+            }
+        }
+        _PreLoadCutIn.PreLoadCutIn = PreLoadCutIn;
+    })(_PreLoadCutIn || (_PreLoadCutIn = {}));
+    ;
+    var _PreLoadCutIn$1 = _PreLoadCutIn.PreLoadCutIn;
+
     class _UI {
         constructor(_Scene) {
             this.time = 100;
@@ -6334,6 +6634,7 @@
             });
             this.BtnBack = Tools._Node.createPrefab(_Res._list.prefab2D.BtnBack.prefab, _Scene, [77, 79]);
             Click._on(Click._Use.value, this.BtnBack, this, null, null, () => {
+                EventAdmin._notify(_PreLoadCutIn._Event.fromBtnBack);
                 _3D._Scene._ins()._Owner.active && _3D._Scene._ins().cameraToSprite(this.Scene);
                 _Scene[_Scene.name]._openScene('Start', true, true);
             });
@@ -6443,156 +6744,11 @@
                 const time = 5;
                 const dis = Tools._Number.randomOneInt(30, 30);
                 for (let index = 0; index < count; index++) {
-                    Effects._Particle._sprayRound(Parent, p, null, [20, 40], null, [Effects._SkinUrl.星星8], null, [dis, dis], [time, time], null, null, 5);
+                    Effects2D._Particle._sprayRound(Parent, p, null, [20, 40], null, [Effects2D._SkinUrl.星星8], null, [dis, dis], [time, time], null, null, 5);
                 }
                 AudioAdmin._playSound();
             });
         }
-    }
-    class UI {
-        constructor(name) {
-            this.time = 100;
-            this.delay = 100;
-            this.scale = 1.4;
-            this.name = name;
-        }
-    }
-    class UICreater {
-    }
-    class MaketailorUI extends UICreater {
-        constructor() {
-            super(...arguments);
-            this.ui = new UI('MaketailorUI');
-        }
-        setScene(scene) {
-            this.ui.scene = scene;
-            return this;
-        }
-        setBtnAgain(btnAgain) {
-            this.ui.btnAgain = btnAgain;
-            return this;
-        }
-        buildBtnAgainClick(func) {
-            this.ui.btnAgainClick = func;
-            return this;
-        }
-        setBtnRollback(btnRollback) {
-            this.ui.btnRollback = btnRollback;
-            return this;
-        }
-        buildBtnRollbackClick(func) {
-            this.ui.btnRollbackClick = func;
-            return this;
-        }
-        setBtnComplete(btnComplete) {
-            this.ui.btnComplete = btnComplete;
-            return this;
-        }
-        buildBtnCompleteClick(func) {
-            this.ui.btnRollbackClick = func;
-            return this;
-        }
-        setBtnBack(btnBack) {
-            this.ui.btnBack = btnBack;
-            return this;
-        }
-        buildBtnBackClick(func) {
-            this.ui.btnBackClick = func;
-            return this;
-        }
-        setBtnTurnFace(btnTurnFace) {
-            throw new Error("Method not implemented.");
-        }
-        buildBtnTurnFaceClick(func) {
-            throw new Error("Method not implemented.");
-        }
-        createUI() {
-            return this.ui;
-        }
-    }
-    class UIDirector {
-        static constructMaketailorUI(builder, scene) {
-            return builder
-                .setScene(scene)
-                .createUI();
-        }
-    }
-    class Hamburg {
-        constructor(name) {
-            this.name = name;
-        }
-        setBreadNum(num) {
-            this.breadNum = num;
-        }
-    }
-    class HamburgBuilder {
-    }
-    class BeefHamburgBuilder extends HamburgBuilder {
-        constructor() {
-            super(...arguments);
-            this.hamburg = new Hamburg('牛肉汉堡');
-        }
-        buildBread(breadNum) {
-            console.log(`制作牛肉汉堡需要的 ${breadNum} 片面包`);
-            this.hamburg.setBreadNum(breadNum);
-            return this;
-        }
-        buildMeat(meatType) {
-            console.log(`制作牛肉汉堡需要的 ${meatType}`);
-            this.hamburg.meatType = meatType;
-            return this;
-        }
-        buildVegetable(vegetableType) {
-            console.log(`制作牛肉汉堡需要的 ${vegetableType}`);
-            this.hamburg.vegetableType = vegetableType;
-            return this;
-        }
-        createHamburg() {
-            return this.hamburg;
-        }
-    }
-    class PorkHamburgBuilder extends HamburgBuilder {
-        constructor() {
-            super(...arguments);
-            this.hamburg = new Hamburg('猪肉汉堡');
-        }
-        buildBread(breadNum) {
-            console.log(`制作猪肉汉堡需要的 ${breadNum} 片面包`);
-            this.hamburg.setBreadNum(breadNum);
-            return this;
-        }
-        buildMeat(meatType) {
-            console.log(`制作猪肉汉堡需要的 ${meatType}`);
-            this.hamburg.meatType = meatType;
-            return this;
-        }
-        buildVegetable(vegetableType) {
-            console.log(`制作猪肉汉堡需要的 ${vegetableType}`);
-            this.hamburg.vegetableType = vegetableType;
-            return this;
-        }
-        createHamburg() {
-            return this.hamburg;
-        }
-    }
-    class HamburgDirector {
-        static construct1(builder, breadNum, meatType, vegetableType) {
-            return builder.buildBread(breadNum)
-                .buildMeat(meatType)
-                .buildVegetable(vegetableType)
-                .createHamburg();
-        }
-        static construct2(builder, breadNum, meatType) {
-            return builder.buildMeat(meatType)
-                .buildBread(breadNum)
-                .createHamburg();
-        }
-    }
-    const beefHamburgBuilder = new BeefHamburgBuilder();
-    const porkHamburgBuilder = new PorkHamburgBuilder();
-    HamburgDirector.construct1(beefHamburgBuilder, 2, 'beef', 'carrot');
-    HamburgDirector.construct2(porkHamburgBuilder, 3, 'pork');
-    class Btn {
     }
 
     var _MakeTailor;
@@ -6840,7 +6996,7 @@
                         const color2 = _DIYClothes._ins().getColor()[1];
                         const color = Tools._Number.randomOneHalf() === 0 ? color1 : color2;
                         for (let index = 0; index < num; index++) {
-                            Effects._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
+                            Effects2D._Particle._spray(this._Scene, this._point, [10, 30], null, [0, 360], [Effects2D._SkinUrl.三角形1], [color1, color2], [20, 90], null, null, [1, 3], [0.1, 0.2], this._Owner.zOrder - 1);
                         }
                     }
                 };
@@ -6905,8 +7061,8 @@
                         let _caller = {};
                         TimerAdmin._frameLoop(1, _caller, () => {
                             let gP = this._ImgVar('EFlower').parent.localToGlobal(new Laya.Point(this._ImgVar('EFlower').x, this._ImgVar('EFlower').y));
-                            Effects._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y - 40), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 222, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
-                            Effects._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
+                            Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y - 40), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 222, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
+                            Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(gP.x, gP.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
                         });
                         this._AniVar('complete').on(Laya.Event.COMPLETE, this, () => {
                             TimerAdmin._clearAll([_caller]);
@@ -6925,7 +7081,7 @@
                                     Laya.timer.clearAll(_caller);
                                 }
                                 p1.y -= moveY;
-                                Effects._Particle._fallingVertical(this._Owner, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
+                                Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
                             };
                             TimerAdmin._frameLoop(1, _caller, () => {
                                 funcL();
@@ -6938,7 +7094,7 @@
                                     Laya.timer.clearAll(_callerR);
                                 }
                                 p2.y -= moveY;
-                                Effects._Particle._fallingVertical(this._Owner, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
+                                Effects2D._Particle._fallingVertical(this._Owner, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.花2], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
                             };
                             TimerAdmin._frameLoop(1, _callerR, () => {
                                 funcR();
@@ -6972,10 +7128,10 @@
                                     Laya.timer.clearAll(_caller);
                                 }
                                 if (index % 2 == 0) {
-                                    Effects._Particle._fallingVertical(Img, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
+                                    Effects2D._Particle._fallingVertical(Img, new Laya.Point(p1.x, p1.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [100, 200], [0.8, 1.5], [0.05, 0.1]);
                                 }
                                 else {
-                                    Effects._Particle._fallingVertical_Reverse(Img, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [-100, -200], [-0.8, -1.5], [-0.05, -0.1]);
+                                    Effects2D._Particle._fallingVertical_Reverse(Img, new Laya.Point(p2.x, p2.y), [0, 0], null, null, [0, 360], [Effects2D._SkinUrl.星星8], [[255, 222, 0, 1], [255, 24, 0, 1]], null, [-100, -200], [-0.8, -1.5], [-0.05, -0.1]);
                                 }
                             };
                             TimerAdmin._frameNumLoop(2, 50, _caller, () => {
@@ -7186,6 +7342,18 @@
                     this.ins._BtnBottoms = this.ins._Owner.getChildByName('BtnBottoms');
                     this.ins._BtnDressingRoom = this.ins._Owner.getChildByName('BtnDressingRoom');
                     this.ins._DIYHanger = this.ins._Owner.getChildByName('DIYHanger');
+                    this.ins.fillLight_Right1 = this.ins._Owner.getChildByName('fillLight_Right1');
+                    this.ins.fillLight_Right2 = this.ins._Owner.getChildByName('fillLight_Right2');
+                    this.ins.fillLight_Left1 = this.ins._Owner.getChildByName('fillLight_Left1');
+                    this.ins.fillLight_Left2 = this.ins._Owner.getChildByName('fillLight_Left2');
+                    this.ins.fillLight_Back1 = this.ins._Owner.getChildByName('fillLight_Back1');
+                    this.ins.fillLight_Bottom1 = this.ins._Owner.getChildByName('fillLight_Bottom1');
+                    this.ins.fillLight_Bottom2 = this.ins._Owner.getChildByName('fillLight_Bottom2');
+                    this.ins.fillLight_Left1.intensity = 0.15;
+                    this.ins.fillLight_Right1.intensity = 0.15;
+                    this.ins.fillLight_Bottom2.active = false;
+                    this.ins.fillLight_Left2.intensity = 0.4;
+                    this.ins.fillLight_Right2.intensity = 0.4;
                 }
                 return this.ins;
             }
@@ -7247,8 +7415,11 @@
                 this._MirrorCamera.active = false;
             }
             intoStart() {
-                _3D._Scene._ins().playStandAni();
-                _3D._Scene._ins()._Owner.active = true;
+                this.playStandAni();
+                this._Owner.active = true;
+                this._DIYHanger.active = false;
+                this.fillLight_Left1.active = false;
+                this.fillLight_Right1.active = false;
                 this._MirrorCamera.active = false;
                 this._Bg1.meshRenderer.material.albedoTexture = _Res._list.texture2D.bgStart.texture2D;
             }
@@ -7268,8 +7439,10 @@
                 }
             }
             intoMakePattern() {
-                _3D._Scene._ins()._Owner.active = true;
+                this._Owner.active = true;
                 _3D.DIYCloth._ins().remake();
+                this.fillLight_Left1.active = true;
+                this.fillLight_Right1.active = true;
                 this._Bg1.meshRenderer.material.albedoTexture = _Res._list.texture2D.bgMakePattern.texture2D;
             }
             intoMakeTailor() {
@@ -7307,8 +7480,9 @@
                 this.frontMat = this.Front.meshRenderer.material;
                 this.Reverse = this.Present.getChildByName(`${this.Present.name}_1`);
                 this.reverseMat = this.Reverse.meshRenderer.material;
-                console.log(this.frontMat, this.reverseMat);
                 this.ModelTap = this.Present.getChildByName('ModelTap');
+                this.hanger = this.Present.getChildByName('hanger');
+                this.hanger.active = true;
                 let center = this.Front.meshRenderer.bounds.getCenter();
                 let extent = this.Front.meshRenderer.bounds.getExtent();
                 let p1 = new Laya.Vector3(center.x, center.y + extent.y, center.z);
@@ -7334,252 +7508,6 @@
         }
         _3D.DIYCloth = DIYCloth;
     })(_3D || (_3D = {}));
-
-    var _DressingRoom;
-    (function (_DressingRoom) {
-        let _Event;
-        (function (_Event) {
-            _Event["changeCloth"] = "_DressingRoom_ChangeCloth";
-        })(_Event = _DressingRoom._Event || (_DressingRoom._Event = {}));
-        class _Clothes extends DataAdmin._Table {
-            constructor() {
-                super(...arguments);
-                this._classify = {
-                    DIY: 'DIY',
-                    General: 'General',
-                };
-                this._part = {
-                    Dress: 'Dress',
-                    Top: 'Top',
-                    Bottoms: 'Bottoms',
-                    FaceMask: 'FaceMask',
-                    Accessories: 'Accessories',
-                    Shoes: 'Shoes',
-                    Hair: 'Hair',
-                };
-                this._otherPro = {
-                    putOn: 'putOn',
-                    part: 'part'
-                };
-            }
-            static _ins() {
-                if (!this.ins) {
-                    this.ins = new _Clothes('ClothesGeneral', _Res._list.json.GeneralClothes.dataArr, true);
-                }
-                return this.ins;
-            }
-            collectDIY() {
-                let DIYArr = _MakeTailor._DIYClothes._ins()._getArrByNoProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, "");
-                const copyArr = Tools._ObjArray.arrCopy(DIYArr);
-                Tools._ObjArray.modifyProValue(copyArr, _Clothes._ins()._property.classify, 'DIY');
-                this._addObjectArr(copyArr);
-                return copyArr;
-            }
-            changeAfterMaking() {
-                _DressingRoom._Clothes._ins().collectDIY();
-                _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
-            }
-            changeClass(classify, partArr, playAni) {
-                const _classify = _3D._Scene._ins()._Root.getChildByName(classify);
-                for (let i = 0; i < _classify.numChildren; i++) {
-                    const _classifySp = _classify.getChildAt(i);
-                    _classifySp.active = false;
-                    for (let j = 0; j < partArr.length; j++) {
-                        const obj = partArr[j];
-                        if (obj[this._otherPro.part] === _classifySp.name) {
-                            _classifySp.active = true;
-                            for (let k = 0; k < _classifySp.numChildren; k++) {
-                                const cloth = _classifySp.getChildAt(k);
-                                if (cloth.name === obj[this._property.name]) {
-                                    cloth.active = true;
-                                    if (classify !== 'DIY') {
-                                        let mat = cloth.skinnedMeshRenderer.material;
-                                        if (!mat) {
-                                            cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
-                                        }
-                                        mat.albedoTexture = _Res._list.texture2D[`${cloth.name}`]['texture2D'];
-                                    }
-                                    else {
-                                        const front = cloth.getChildByName(`${cloth.name}_0`);
-                                        const matF = front.skinnedMeshRenderer.material;
-                                        matF.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_001_n`]['texture2D'];
-                                        const fSp = new Laya.Sprite;
-                                        fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
-                                            matF.albedoTexture = fSp.texture.bitmap;
-                                            fSp.removeSelf();
-                                        }));
-                                        const reverse = cloth.getChildByName(`${cloth.name}_1`);
-                                        const matR = reverse.skinnedMeshRenderer.material;
-                                        matR.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_002_n`]['texture2D'];
-                                        const rSp = new Laya.Sprite;
-                                        rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
-                                            matR.albedoTexture = rSp.texture.bitmap;
-                                            rSp.removeSelf();
-                                        }));
-                                    }
-                                }
-                                else {
-                                    cloth.active = false;
-                                }
-                            }
-                        }
-                    }
-                }
-                playAni && _3D._Scene._ins().playDispalyAni();
-            }
-            changeClothStart() {
-                _Clothes._ins().collectDIY();
-                const arr = this._getArrByProperty(this._otherPro.putOn, true);
-                this.changeClass(this._classify.DIY, arr);
-                this.changeClass(this._classify.General, arr);
-                this.startSpecialSet();
-            }
-            changeCloth() {
-                const arr = this._getArrByProperty(this._otherPro.putOn, true);
-                this.changeClass(this._classify.DIY, arr, true);
-                this.changeClass(this._classify.General, arr, true);
-            }
-            startSpecialSet() {
-                if (StorageAdmin._bool('DressState').value) {
-                    _3D._Scene._ins()._GBottoms.active = _3D._Scene._ins()._GTop.active = _3D._Scene._ins()._DBottoms.active = _3D._Scene._ins()._DTop.active = false;
-                }
-                else {
-                    _3D._Scene._ins()._GDress.active = _3D._Scene._ins()._DDress.active = false;
-                }
-            }
-            specialSet(part) {
-                if (part === this._part.Dress) {
-                    StorageAdmin._bool('DressState').value = true;
-                }
-                else if (part === this._part.Top || part === this._part.Bottoms) {
-                    StorageAdmin._bool('DressState').value = false;
-                }
-                if (StorageAdmin._bool('DressState').value) {
-                    _3D._Scene._ins().displayDress();
-                }
-                else {
-                    _3D._Scene._ins().displayTopAndBotton();
-                }
-            }
-            accurateChange(partValue, name) {
-                const arr = _Clothes._ins()._getArrByProperty('part', partValue);
-                for (let index = 0; index < arr.length; index++) {
-                    const element = arr[index];
-                    if (name === element['name']) {
-                        element['putOn'] = true;
-                    }
-                    else {
-                        element['putOn'] = false;
-                    }
-                }
-                _MakeTailor._DIYClothes._ins()._setProperty(_MakeTailor._DIYClothes._ins()._pitchName, 'putOn', true);
-                _Clothes._ins().changeCloth();
-                _Clothes._ins().specialSet(partValue);
-                _Clothes._ins()._refreshAndStorage();
-            }
-        }
-        _DressingRoom._Clothes = _Clothes;
-        class _Item extends Admin._ObjectBase {
-            lwgButton() {
-                this._btnUp(this._Owner, (e) => {
-                    _Clothes._ins().accurateChange(this._Owner['dataSource']['part'], this._Owner['dataSource']['name']);
-                }, null);
-            }
-        }
-        class DressingRoom extends Admin._SceneBase {
-            lwgOnAwake() {
-                _3D._Scene._ins().mirrorSurface = true;
-                TimerAdmin._frameLoop(1, this, () => {
-                    _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
-                });
-                const copyDIYArr = _Clothes._ins().collectDIY();
-                _Clothes._ins()._List = this._ListVar('List');
-                _Clothes._ins()._List.array = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.DIY);
-                if (copyDIYArr.length > 0) {
-                    this.switchClassify(this._ImgVar('DIY'));
-                }
-                else {
-                    this.switchClassify(this._ImgVar('Dress'));
-                }
-                _Clothes._ins()._listRender = (Cell, index) => {
-                    let data = Cell.dataSource;
-                    let Icon = Cell.getChildByName('Icon');
-                    const Board = Cell.getChildByName('Board');
-                    if (data[_Clothes._ins()._otherPro.putOn]) {
-                        Board.skin = `Game/UI/Common/xuanzhong.png`;
-                    }
-                    else {
-                        Board.skin = null;
-                    }
-                    if (data[_Clothes._ins()._property.classify] === _Clothes._ins()._classify.DIY) {
-                        Icon.skin = data[_MakeTailor._DIYClothes._ins()._otherPro.icon];
-                    }
-                    else {
-                        Icon.skin = `Game/UI/DressingRoom/Icon/${data[_Clothes._ins()._property.name]}.png`;
-                    }
-                    if (!Cell.getComponent(_Item)) {
-                        Cell.addComponent(_Item);
-                    }
-                };
-            }
-            lwgOnStart() {
-                this.UI = new _UI(this._Owner);
-                TimerAdmin._frameOnce(10, this, () => {
-                    this.UI.operationAppear(() => {
-                        this.UI.btnCompleteAppear(null, 400);
-                    });
-                    this.UI.btnBackAppear(null, 200);
-                });
-                this.UI.btnCompleteClick = () => {
-                    this.UI.operationVinish(() => {
-                        _3D._Scene._ins().mirrorSurface = false;
-                        _3D._Scene._ins().cameraToSprite(this._Owner);
-                        this._openScene('Start', true, true);
-                        this.UI.btnBackVinish(() => {
-                        });
-                    }, 200);
-                };
-            }
-            switchClassify(_element) {
-                let arr = [];
-                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
-                    const element = this._ImgVar('Part').getChildAt(index);
-                    const Icon = element.getChildAt(0);
-                    if (_element === element) {
-                        element.skin = `Game/UI/Common/kuang_fen.png`;
-                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}_s.png`;
-                        if (_element.name === 'DIY') {
-                            arr = _Clothes._ins()._getArrByClassify(_element.name);
-                        }
-                        else {
-                            let _arr = _Clothes._ins()._getArrByClassify(_Clothes._ins()._classify.General);
-                            for (let index = 0; index < _arr.length; index++) {
-                                const obj = _arr[index];
-                                if (obj[_Clothes._ins()._otherPro.part] === _element.name) {
-                                    arr.push(obj);
-                                }
-                            }
-                        }
-                    }
-                    else {
-                        element.skin = `Game/UI/Common/kuang_bai.png`;
-                        Icon.skin = `Game/UI/DressingRoom/PartIcon/${element.name}.png`;
-                    }
-                    _Clothes._ins()._List.array = arr;
-                }
-            }
-            lwgButton() {
-                for (let index = 0; index < this._ImgVar('Part').numChildren; index++) {
-                    const _element = this._ImgVar('Part').getChildAt(index);
-                    this._btnUp(_element, () => {
-                        this.switchClassify(_element);
-                    }, 'no');
-                }
-            }
-        }
-        _DressingRoom.DressingRoom = DressingRoom;
-    })(_DressingRoom || (_DressingRoom = {}));
-    var _DressingRoom$1 = _DressingRoom.DressingRoom;
 
     var _Res;
     (function (_Res) {
@@ -7844,198 +7772,6 @@
                     url: `Game/UI/DressingRoom/ClothTex/hair_008.png`,
                     texture2D: null,
                 },
-                diy_bottom_001_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_001_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_001_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_002_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_002_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_002_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_003_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_003_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_003_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_004_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_004_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_004_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_005_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_005_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_005_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_006_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_006_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_006_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_007_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_007_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_007_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_008_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_bottom_008_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_bottom/diy_bottom_008_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_001_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_001_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_001_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_002_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_002_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_002_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_003_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_003_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_003_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_004_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_004_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_004_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_005_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_005_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_005_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_006_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_006_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_006_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_007_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_007_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_007_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_008_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_dress_008_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_dress/diy_dress_008_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_001_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_001_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_001_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_002_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_002_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_002_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_003_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_003_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_003_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_004_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_004_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_004_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_005_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_005_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_005_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_006_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_006_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_006_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_007_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_007_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_007_final_mat_002_n.png`,
-                    texture2D: null,
-                },
-                diy_top_008_final_mat_001_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_001_n.png`,
-                    texture2D: null,
-                },
-                diy_top_008_final_mat_002_n: {
-                    url: `Game/UI/DressingRoom/Normalmap/diy_top/diy_top_008_final_mat_002_n.png`,
-                    texture2D: null,
-                },
             },
             scene2D: {
                 Start: `Scene/${_SceneName.Start}.json`,
@@ -8090,10 +7826,10 @@
                 });
                 Animation2D.bombs_Appear(this._ImgVar('LoGo'), 0, 1, scale, 0, time * 5, () => {
                     TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                        Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                        Effects2D._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x - 350, this._ImgVar('LoGo').y), [150, 100], [Effects2D._SkinUrl.星星1], null, [80, 80]);
                     }, true);
                     TimerAdmin._frameRandomLoop(30, 50, this, () => {
-                        Effects._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects._SkinUrl.星星1], null, [80, 80]);
+                        Effects2D._Glitter._blinkStar(this._Owner, new Laya.Point(this._ImgVar('LoGo').x + 350, this._ImgVar('LoGo').y), [150, 100], [Effects2D._SkinUrl.星星1], null, [80, 80]);
                     }, true);
                     Animation2D.bombs_Appear(this._ImgVar('Progress'), 0, 1, scale, 0, time * 1.5, () => {
                         TimerAdmin._frameNumLoop(2, 30, this, () => {
@@ -8115,10 +7851,10 @@
                 const dis = Tools._Number.randomOneInt(500, 500);
                 const p = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2);
                 for (let index = 0; index < count; index++) {
-                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
+                    Effects2D._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [dis, dis], [time, time], null, null, 5);
                 }
                 for (let index = 0; index < count * 2; index++) {
-                    Effects._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects._SkinUrl.花4], null, [100, dis - 20], [time, time], null, null, 5);
+                    Effects2D._Particle._sprayRound(this._Owner, p, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [100, dis - 20], [time, time], null, null, 5);
                 }
             }
             progressDisplay() {
@@ -8141,61 +7877,6 @@
         _PreLoad.PreLoad = PreLoad;
     })(_PreLoad || (_PreLoad = {}));
     var _PreLoad$1 = _PreLoad.PreLoad;
-
-    var _PreLoadCutIn;
-    (function (_PreLoadCutIn) {
-        let _Event;
-        (function (_Event) {
-            _Event["animation1"] = "_PreLoadCutIn_animation1";
-            _Event["preLoad"] = "_PreLoadCutIn_preLoad";
-            _Event["animation2"] = "_PreLoadCutIn_animation2";
-        })(_Event = _PreLoadCutIn._Event || (_PreLoadCutIn._Event = {}));
-        class PreLoadCutIn extends _LwgPreLoad._PreLoadScene {
-            lwgOnStart() {
-                TimerAdmin._frameOnce(50, this, () => {
-                    EventAdmin._notify(_Event.animation1);
-                });
-            }
-            lwgEvent() {
-                EventAdmin._register(_Event.animation1, this, () => {
-                    let time = 0;
-                    TimerAdmin._frameNumLoop(1, 30, this, () => {
-                        time++;
-                        this._LabelVar('Schedule').text = `${time}%`;
-                    }, () => {
-                        switch (Admin._PreLoadCutIn.openName) {
-                            case 'MakePattern':
-                                break;
-                            case 'MakeTailor':
-                                _3D._Scene._ins().intoMakeTailor();
-                                _MakeTailor._DIYClothes._ins().ClothesArr = null;
-                                _MakeTailor._DIYClothes._ins().getClothesArr();
-                                break;
-                            case 'Start':
-                                _3D._Scene._ins().intoStart();
-                                break;
-                            case 'DressingRoom':
-                                _3D._Scene._ins().intogeDressingRoom();
-                            default:
-                                break;
-                        }
-                        TimerAdmin._frameOnce(20, this, () => {
-                            EventAdmin._notify(_LwgPreLoad._Event.importList, [{}]);
-                        });
-                    });
-                });
-            }
-            lwgStepComplete() {
-            }
-            lwgAllComplete() {
-                this._LabelVar('Schedule').text = `100%`;
-                return 500;
-            }
-        }
-        _PreLoadCutIn.PreLoadCutIn = PreLoadCutIn;
-    })(_PreLoadCutIn || (_PreLoadCutIn = {}));
-    ;
-    var _PreLoadCutIn$1 = _PreLoadCutIn.PreLoadCutIn;
 
     var _PersonalInfo;
     (function (_PersonalInfo) {
@@ -8355,7 +8036,7 @@
                     const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                     const num1 = 150;
                     TimerAdmin._frameNumRandomLoop(1, 3, num1, this, () => {
-                        Effects._Particle._fallingRotate(Laya.stage, centerP1, [Laya.stage.width, 0], [10, 30], [10, 30], [Effects._SkinUrl.矩形1, Effects._SkinUrl.矩形2, Effects._SkinUrl.矩形3], null, [300, Laya.stage.height], [1, 8]);
+                        Effects2D._Particle._fallingRotate(Laya.stage, centerP1, [Laya.stage.width, 0], [10, 30], [10, 30], [Effects2D._SkinUrl.矩形1, Effects2D._SkinUrl.矩形2, Effects2D._SkinUrl.矩形3], null, [300, Laya.stage.height], [1, 8]);
                     });
                     const num2 = 16;
                     const centerP2 = new Laya.Point(Laya.stage.width / 2, Laya.stage.height / 2 - 50);
@@ -8365,10 +8046,10 @@
                         const dis = Tools._Number.randomOneInt(100, 300);
                         const radomP = Tools._Point.randomPointByCenter(centerP2, 500, 150)[0];
                         for (let index = 0; index < count * 2; index++) {
-                            Effects._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time]);
+                            Effects2D._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [dis, dis], [time, time]);
                         }
                         for (let index = 0; index < count * 2; index++) {
-                            Effects._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time]);
+                            Effects2D._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [50, dis - 20], [time, time]);
                         }
                     });
                     _Ranking._whereFrom = 'Start';
@@ -8818,14 +8499,8 @@
     (function (_MakePattern) {
         let _Event;
         (function (_Event) {
-            _Event["moveUltimately"] = "_MakePattern_moveUltimately";
-            _Event["resetTex"] = "_MakePattern_resetTex";
-            _Event["changeDir"] = "_MakePattern_resetTex";
-            _Event["remake"] = "_MakePattern_remake";
             _Event["close"] = "_MakePattern_close";
             _Event["createImg"] = "_MakePattern_createImg";
-            _Event["setTexSize"] = "_MakePattern_texSize";
-            _Event["photo"] = "_MakePattern_photo";
         })(_Event = _MakePattern._Event || (_MakePattern._Event = {}));
         class _Pattern extends DataAdmin._Table {
             constructor() {
@@ -9196,11 +8871,13 @@
                         this.UI.btnRollbackVinish();
                         this.UI.btnAgainVinish(() => {
                             _3D._Scene._ins().cameraToSprite(this._Owner);
+                            this.texStorage();
                             this._openScene('Start', true, true, () => { });
                         });
                     }, 200);
                 };
                 this.UI.btnRollbackClick = () => {
+                    _3D._Scene._ins().cameraToSprite(this._Owner);
                     this._openScene('MakeTailor', true, true);
                 };
                 this.UI.btnAgainClick = () => {
@@ -9224,31 +8901,19 @@
                     }
                     this.Tex.state = this.Tex.stateType.none;
                 });
-                this._evReg(_Event.photo, () => {
-                    this.photo();
-                });
             }
-            photo() {
-                console.log('11');
-                _3D._Scene._ins().photoBg();
-                _3D.DIYCloth._ins().Present.transform.localRotationEulerY = 180;
-                Tools._Draw.cameraToSprite(_3D._Scene._ins()._MainCamara, this._SpriteVar('IconPhoto'));
+            texStorage() {
                 this._SpriteVar('Front').scaleY = this._SpriteVar('Reverse').scaleY = 1;
                 const texF = Tools._Draw.drawToTex(this._SpriteVar('Front'));
                 const texR = Tools._Draw.drawToTex(this._SpriteVar('Reverse'));
                 texF.width = texF.height = texR.width = texR.height = 256;
                 this._SpriteVar('DrawFront').graphics.drawTexture(texF);
                 this._SpriteVar('DrawReverse').graphics.drawTexture(texR);
-                TimerAdmin._frameOnce(10, this, () => {
-                    const base64Icon = Tools._Draw.screenshot(this._SpriteVar('IconPhoto'), 0.5);
+                TimerAdmin._frameOnce(5, this, () => {
                     const base64F = Tools._Draw.screenshot(this._SpriteVar('DrawFront'), 0.1);
                     const base64R = Tools._Draw.screenshot(this._SpriteVar('DrawReverse'), 0.1);
-                    _MakeTailor._DIYClothes._ins()._setPitchProperty(_MakeTailor._DIYClothes._ins()._otherPro.icon, base64Icon);
                     Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                     Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
-                    _3D.DIYCloth._ins().Front.meshRenderer.material.albedoTexture = null;
-                    _3D.DIYCloth._ins().Reverse.meshRenderer.material.albedoTexture = null;
-                    _DressingRoom._Clothes._ins().changeAfterMaking();
                     _Ranking._whereFrom = this._Owner.name;
                 });
             }

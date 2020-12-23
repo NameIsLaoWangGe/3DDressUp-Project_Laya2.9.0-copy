@@ -2,7 +2,7 @@
 	"version":"LAYAMATERIAL:02",
 	"props":{
 		"type":"Laya.BlinnPhongMaterial",
-		"name":"diy_top_003_final_mat_002_n",
+		"name":"diy_dress_007_final_mat_002_n",
 		"renderStates":[
 			{
 				"cull":2,
@@ -39,7 +39,7 @@
 			},
 			{
 				"name":"normalTexture",
-				"path":"../diy_top_003_final_mat_002_n.jpg",
+				"path":"../../../../Reference/Texture2D/diy_dress_007_final_mat_002_n.jpg",
 				"constructParams":[
 					256,
 					256,
@@ -67,9 +67,9 @@
 			{
 				"name":"specularColor",
 				"value":[
-					0.1333333,
-					0.1333333,
-					0.1333333,
+					0.1320755,
+					0.1320755,
+					0.1320755,
 					1
 				]
 			},

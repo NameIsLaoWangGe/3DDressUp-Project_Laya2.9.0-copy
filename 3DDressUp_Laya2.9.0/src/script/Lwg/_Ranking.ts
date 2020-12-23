@@ -1,4 +1,4 @@
-import { Admin, Animation2D, AudioAdmin, DataAdmin, Effects, TimerAdmin, Tools } from "./Lwg";
+import { Admin, Animation2D, AudioAdmin, DataAdmin, Effects2D, TimerAdmin, Tools } from "./Lwg";
 import { _PersonalInfo } from "./_PersonalInfo";
 import { _Res } from "./_PreLoad";
 import { _Start } from "./_Start";
@@ -89,7 +89,7 @@ export module _Ranking {
                 const centerP1 = new Laya.Point(Laya.stage.width / 2, 0);
                 const num1 = 150;
                 TimerAdmin._frameNumRandomLoop(1, 3, num1, this, () => {
-                    Effects._Particle._fallingRotate(Laya.stage, centerP1, [Laya.stage.width, 0], [10, 30], [10, 30], [Effects._SkinUrl.矩形1, Effects._SkinUrl.矩形2, Effects._SkinUrl.矩形3], null, [300, Laya.stage.height], [1, 8]);
+                    Effects2D._Particle._fallingRotate(Laya.stage, centerP1, [Laya.stage.width, 0], [10, 30], [10, 30], [Effects2D._SkinUrl.矩形1, Effects2D._SkinUrl.矩形2, Effects2D._SkinUrl.矩形3], null, [300, Laya.stage.height], [1, 8]);
                 })
 
                 const num2 = 16;
@@ -100,10 +100,10 @@ export module _Ranking {
                     const dis = Tools._Number.randomOneInt(100, 300);
                     const radomP = Tools._Point.randomPointByCenter(centerP2, 500, 150)[0];
                     for (let index = 0; index < count * 2; index++) {
-                        Effects._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects._SkinUrl.花4], null, [dis, dis], [time, time]);
+                        Effects2D._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [dis, dis], [time, time]);
                     }
                     for (let index = 0; index < count * 2; index++) {
-                        Effects._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects._SkinUrl.花4], null, [50, dis - 20], [time, time]);
+                        Effects2D._Particle._sprayRound(Laya.stage, radomP, null, [20, 40], null, [Effects2D._SkinUrl.花4], null, [50, dis - 20], [time, time]);
                     }
                 })
                 _whereFrom = 'Start';

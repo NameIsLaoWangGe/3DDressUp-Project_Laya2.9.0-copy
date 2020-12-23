@@ -3326,8 +3326,31 @@ export module lwg {
         }
     }
 
-    /**特效模块*/
-    export module Effects {
+
+    /**2D特效模块*/
+    export module Effects3D {
+        export module _Particle {
+            export function _createBox(): Laya.MeshSprite3D {
+                const box = this.newScene.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(0.75, 0.5, 0.5))) as Laya.MeshSprite3D
+                return box;
+            }
+
+            //
+            export function _spiral(parent: Laya.Sprite, centerPoint: Laya.Point, sectionWH: [number, number], width: [number, number], height: [number, number], rotation: [number, number], urlArr: Array<string>, colorRGBA: [[number, number, number, number], [number, number, number, number]], zOrder: number): Laya.MeshSprite3D {
+                return;
+            }
+
+            // export class _ParticleImgBase extends Laya.MeshSprite3D {
+            //     constructor() {
+            //         var box = this.newScene.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(0.75, 0.5, 0.5))) as Laya.MeshSprite3D
+            //     }
+
+            // }
+        }
+
+    }
+    /**2D特效模块*/
+    export module Effects2D {
         /**特效元素的图片地址，所有项目都可用*/
         export enum _SkinUrl {
             爱心1 = 'Lwg/Effects/aixin1.png',
@@ -3489,10 +3512,6 @@ export module lwg {
                     Color._colour(this, RGBA);
                 }
             }
-
-
-
-
 
 
             /**
@@ -5451,7 +5470,6 @@ export module lwg {
          */
         export function bombs_Vanish(node: Laya.Node, scale: number, alpha: number, rotation: number, time: number, func?: Function, delayed?: number): void {
             Laya.Tween.to(node, { scaleX: scale, scaleY: scale, alpha: alpha, rotation: rotation }, time, Laya.Ease.cubicOut, Laya.Handler.create(this, function () {
-                console.log('完成！')
                 if (func) {
                     func()
                 }
@@ -7593,7 +7611,7 @@ export module lwg {
                         Admin._SceneControl[_loadType] = this._Owner;
                         // 页面前
                         if (_loadType !== Admin._SceneName.PreLoad) {
-                            Admin._PreLoadCutIn.openName && this._openScene(Admin._PreLoadCutIn.openName)
+                            Admin._PreLoadCutIn.openName && this._openScene(Admin._PreLoadCutIn.openName);
                             // console.log('预加载完毕开始打开界面！')
                         } else {
                             //游戏开始前
@@ -8102,7 +8120,7 @@ export let Setting = lwg.Setting;
 export let AudioAdmin = lwg.AudioAdmin;
 export let Click = lwg.Click;
 export let Color = lwg.Color;
-export let Effects = lwg.Effects;
+export let Effects2D = lwg.Effects2D;
 export let Dialogue = lwg.Dialogue;
 export let Animation2D = lwg.Animation2D;
 export let Animation3D = lwg.Animation3D;

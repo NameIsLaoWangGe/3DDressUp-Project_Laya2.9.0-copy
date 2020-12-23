@@ -48,6 +48,22 @@ export module _3D {
                 this.ins._BtnDressingRoom = this.ins._Owner.getChildByName('BtnDressingRoom') as Laya.MeshSprite3D;
 
                 this.ins._DIYHanger = this.ins._Owner.getChildByName('DIYHanger') as Laya.MeshSprite3D;
+
+
+                this.ins.fillLight_Right1 = this.ins._Owner.getChildByName('fillLight_Right1') as Laya.PointLight;
+                this.ins.fillLight_Right2 = this.ins._Owner.getChildByName('fillLight_Right2') as Laya.PointLight;
+                this.ins.fillLight_Left1 = this.ins._Owner.getChildByName('fillLight_Left1') as Laya.PointLight;
+                this.ins.fillLight_Left2 = this.ins._Owner.getChildByName('fillLight_Left2') as Laya.PointLight;
+                this.ins.fillLight_Back1 = this.ins._Owner.getChildByName('fillLight_Back1') as Laya.PointLight;
+                this.ins.fillLight_Bottom1 = this.ins._Owner.getChildByName('fillLight_Bottom1') as Laya.PointLight;
+                this.ins.fillLight_Bottom2 = this.ins._Owner.getChildByName('fillLight_Bottom2') as Laya.PointLight;
+
+                this.ins.fillLight_Left1.intensity = 0.15;
+                this.ins.fillLight_Right1.intensity = 0.15;
+                this.ins.fillLight_Bottom2.active = false;
+
+                this.ins.fillLight_Left2.intensity = 0.4;
+                this.ins.fillLight_Right2.intensity = 0.4;
             }
             return this.ins;
         }
@@ -76,6 +92,14 @@ export module _3D {
         _BtnBottoms: Laya.MeshSprite3D;
         _BtnDressingRoom: Laya.MeshSprite3D;
         _DIYHanger: Laya.MeshSprite3D;
+
+        fillLight_Right1: Laya.PointLight;
+        fillLight_Right2: Laya.PointLight;
+        fillLight_Left1: Laya.PointLight;
+        fillLight_Left2: Laya.PointLight;
+        fillLight_Back1: Laya.PointLight;
+        fillLight_Bottom1: Laya.PointLight;
+        fillLight_Bottom2: Laya.PointLight;
 
         playDispalyAni(): void {
             this._RoleAni.play(this.aniName.Stand);
@@ -109,7 +133,7 @@ export module _3D {
 
         playRandomPose(): void {
             TimerAdmin._frameLoop(500, this, () => {
-                Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani()
+                Tools._Number.randomOneHalf() == 0 ? _3D._Scene._ins().playPoss1Ani() : _3D._Scene._ins().playPoss2Ani();
             }, true);
         }
 
@@ -175,8 +199,11 @@ export module _3D {
             // })
         }
         intoStart(): void {
-            _3D._Scene._ins().playStandAni();
-            _3D._Scene._ins()._Owner.active = true;
+            this.playStandAni();
+            this._Owner.active = true;
+            this._DIYHanger.active = false;
+            this.fillLight_Left1.active = false;
+            this.fillLight_Right1.active = false;
             this._MirrorCamera.active = false;
             (this._Bg1.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Res._list.texture2D.bgStart.texture2D;
         }
@@ -207,8 +234,10 @@ export module _3D {
         }
 
         intoMakePattern(): void {
-            _3D._Scene._ins()._Owner.active = true;
+            this._Owner.active = true;
             _3D.DIYCloth._ins().remake();
+            this.fillLight_Left1.active = true;
+            this.fillLight_Right1.active = true;
             (this._Bg1.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Res._list.texture2D.bgMakePattern.texture2D;
         }
 
@@ -243,7 +272,8 @@ export module _3D {
         Reverse: Laya.MeshSprite3D;
         reverseMat: Laya.BlinnPhongMaterial;
         ModelTap: Laya.MeshSprite3D;//触摸模型
-        texHeight: number;
+        hanger: Laya.MeshSprite3D;//衣服模架
+        texHeight: number;//操作贴图的高度也是模型在屏幕上映射的高度
         remake(): void {
             _Scene._ins()._DIYHanger.active = true;
             _Scene._ins()._Role.active = false;
@@ -258,15 +288,14 @@ export module _3D {
 
             this.Front = this.Present.getChildByName(`${this.Present.name}_0`) as Laya.MeshSprite3D;
             this.frontMat = this.Front.meshRenderer.material as Laya.BlinnPhongMaterial;
-            // this.frontMat.normalTexture = _Res._list.texture2D[`${this.Present.name}_mat_001_n`]['texture2D'];
 
             this.Reverse = this.Present.getChildByName(`${this.Present.name}_1`) as Laya.MeshSprite3D;
             this.reverseMat = this.Reverse.meshRenderer.material as Laya.BlinnPhongMaterial;
-            // this.reverseMat.normalTexture = _Res._list.texture2D[`${this.Present.name}_mat_002_n`];['texture2D'];
-
-            console.log(this.frontMat, this.reverseMat);
 
             this.ModelTap = this.Present.getChildByName('ModelTap') as Laya.MeshSprite3D;
+
+            this.hanger = this.Present.getChildByName('hanger') as Laya.MeshSprite3D;
+            this.hanger.active = true;
 
             let center = this.Front.meshRenderer.bounds.getCenter();
             let extent = this.Front.meshRenderer.bounds.getExtent();

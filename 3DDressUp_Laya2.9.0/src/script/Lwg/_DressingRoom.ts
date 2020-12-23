@@ -78,7 +78,7 @@ export module _DressingRoom {
                                 } else {
                                     const front = cloth.getChildByName(`${cloth.name}_0`) as Laya.SkinnedMeshSprite3D;
                                     const matF = front.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
-                                    matF.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_001_n`]['texture2D'];
+                                    // matF.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_001_n`]['texture2D'];
                                     const fSp = new Laya.Sprite;
                                     fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
                                         matF.albedoTexture = (fSp.texture.bitmap as Laya.Texture2D);
@@ -87,7 +87,7 @@ export module _DressingRoom {
 
                                     const reverse = cloth.getChildByName(`${cloth.name}_1`) as Laya.SkinnedMeshSprite3D;
                                     const matR = reverse.skinnedMeshRenderer.material as Laya.BlinnPhongMaterial;
-                                    matR.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_002_n`]['texture2D'];
+                                    // matR.normalTexture = _Res._list.texture2D[`${cloth.name}_mat_002_n`]['texture2D'];
                                     const rSp = new Laya.Sprite;
                                     rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
                                         matR.albedoTexture = (rSp.texture.bitmap as Laya.Texture2D);
