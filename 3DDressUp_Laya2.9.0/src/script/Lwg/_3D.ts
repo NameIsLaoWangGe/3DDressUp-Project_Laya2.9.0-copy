@@ -126,6 +126,14 @@ export module _3D {
             return Tools._3D.posToScreen(this._BtnDressingRoom.transform.position, this._MainCamara);
         }
 
+        /**将3D场景绘制到2D屏幕上*/
+        cameraToSprite(scene: Laya.Scene): void {
+            _3D._Scene._ins().mirrorSurface = false;
+            const Sp = new Laya.Sprite;
+            scene.addChild(Sp)['size'](Laya.stage.width, Laya.stage.height);
+            Tools._Draw.cameraToSprite(this._MainCamara, Sp);
+        }
+
         openStartAni(func: Function): void {
             func();
             this.playRandomPose();
@@ -177,20 +185,25 @@ export module _3D {
             this._MirrorCamera.active = true;
             (this._Bg1.meshRenderer.material as Laya.UnlitMaterial).albedoTexture = _Res._list.texture2D.bgDressingRoom.texture2D;
         }
-        /**2D图片有遮罩的时候无法事实渲染，需要每帧渲染，所以需要手动清理前一帧的贴图，必须是可查找变量，否则无法手动回收*/
+
+        /**控制渲染*/
+        mirrorSurface = true;
+        /**2D图片有遮罩的时候无法实时渲染，需要每帧渲染，所以需要手动清理前一帧的贴图，必须是可查找变量，否则无法手动回收*/
         mirrortex: Laya.Texture;
         createMirror(_Sp: Laya.Image): void {
-            //选择渲染目标为纹理
-            this._MirrorCamera.renderTarget = new Laya.RenderTexture(_Sp.width, _Sp.height);
-            //渲染顺序
-            this._MirrorCamera.renderingOrder = -1;
-            //清除标记
-            this._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
-            // 频繁更换需要删除
-            this.mirrortex && this.mirrortex.destroy();
-            this.mirrortex = new Laya.Texture(((<Laya.Texture2D>(this._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
-            //设置网格精灵的纹理
-            _Sp.graphics.drawTexture(this.mirrortex);
+            if (this.mirrorSurface) {
+                //选择渲染目标为纹理
+                this._MirrorCamera.renderTarget = new Laya.RenderTexture(_Sp.width, _Sp.height);
+                //渲染顺序
+                this._MirrorCamera.renderingOrder = -1;
+                //清除标记
+                this._MirrorCamera.clearFlag = Laya.CameraClearFlags.Sky;
+                // 频繁更换需要删除
+                this.mirrortex && this.mirrortex.destroy();
+                this.mirrortex = new Laya.Texture(((<Laya.Texture2D>(this._MirrorCamera.renderTarget as any))), Laya.Texture.DEF_UV);
+                //设置网格精灵的纹理
+                _Sp.graphics.drawTexture(this.mirrortex);
+            }
         }
 
         intoMakePattern(): void {

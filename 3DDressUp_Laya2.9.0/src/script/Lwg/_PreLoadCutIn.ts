@@ -11,7 +11,6 @@ export module _PreLoadCutIn {
         preLoad = '_PreLoadCutIn_preLoad',
         animation2 = '_PreLoadCutIn_animation2',
     }
-    /**可以手动挂在脚本中的类，全脚本唯一的默认导出，也可动态添加，动态添加写在模块内更方便*/
     export class PreLoadCutIn extends _LwgPreLoad._PreLoadScene {
         lwgOnStart(): void {
             TimerAdmin._frameOnce(50, this, () => {
@@ -35,6 +34,7 @@ export module _PreLoadCutIn {
                             _MakeTailor._DIYClothes._ins().getClothesArr();
                             break;
                         case 'Start':
+                            this._evNotify(_MakePattern._Event.photo);
                             _3D._Scene._ins().intoStart();
                             break;
                         case 'DressingRoom':
@@ -48,11 +48,6 @@ export module _PreLoadCutIn {
                 })
             })
         }
-        intoMakePattern(): void {
-            // Laya.stage.addChildAt(_Res._list.scene3D.MakeClothes.Scene, 0);
-            EventAdmin._notify(_MakePattern._Event.remake);
-        }
-
         lwgStepComplete(): void {
         }
         lwgAllComplete(): number {

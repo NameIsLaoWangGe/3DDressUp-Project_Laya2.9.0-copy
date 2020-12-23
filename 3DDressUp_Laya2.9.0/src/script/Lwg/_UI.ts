@@ -1,4 +1,5 @@
 import { Animation2D, AudioAdmin, Click, Effects, TimerAdmin, Tools } from "./Lwg";
+import { _3D } from "./_3D";
 import { _Res } from "./_PreLoad";
 
 export class _UI {
@@ -21,6 +22,7 @@ export class _UI {
 
         this.BtnBack = Tools._Node.createPrefab(_Res._list.prefab2D.BtnBack.prefab, _Scene, [77, 79]) as Laya.Image;
         Click._on(Click._Use.value, this.BtnBack, this, null, null, () => {
+            _3D._Scene._ins()._Owner.active && _3D._Scene._ins().cameraToSprite(this.Scene);
             _Scene[_Scene.name]._openScene('Start', true, true);
         })
 
@@ -58,6 +60,7 @@ export class _UI {
     delay: number = 100;
     scale: number = 1.4;
     moveTargetX: number;
+
     btnRollbackAppear(func?: Function, delay?: number): void {
         Animation2D.bombs_Appear(this.BtnRollback, 0, 1, this.scale, 0, this.time * 2, () => {
             func && func();

@@ -1193,6 +1193,7 @@ export module lwg {
                     Sp.scale(1, 0);
                     Animation2D.scale(Sp, 1, 0, 1, 1, time, 0, () => {
                         Scene.scale(1, 1);
+                        htmlCanvas1.destroy();
                         Sp.destroy();
                     });
                 }
@@ -6968,6 +6969,34 @@ export module lwg {
                 const base64 = htmlCanvas.toBase64("image/png", quality ? quality : 1);
                 return base64;
             }
+
+            /**
+             * 将当前摄像机的图像渲染到一个sprite中
+             * @export
+             * @param {Laya.Camera} camera 摄像机
+             * @param {Laya.Sprite} sprite 目标sprite,必须有宽高
+             * @param {boolean} clear 是否延时自动清除贴图，默认为
+             */
+            export function cameraToSprite(camera: Laya.Camera, sprite: Laya.Sprite, clear?: boolean): void {
+                // 赋值当前摄像机
+                const _camera = camera.clone() as Laya.Camera;
+                camera.scene.addChild(_camera);
+                _camera.transform.position = camera.transform.position;
+                _camera.transform.localRotationEuler = camera.transform.localRotationEuler;
+                //选择渲染目标为纹理
+                _camera.renderTarget = new Laya.RenderTexture(sprite.width, sprite.height);
+                //渲染顺序
+                _camera.renderingOrder = -1;
+                //清除标记
+                _camera.clearFlag = Laya.CameraClearFlags.Sky;
+                const ptex = new Laya.Texture(((<Laya.Texture2D>(_camera.renderTarget as any))), Laya.Texture.DEF_UV);
+                sprite.graphics.drawTexture(ptex, sprite.x, sprite.y, sprite.width, sprite.height);
+                // 延迟销毁，因为渲染需要时间
+                TimerAdmin._frameOnce(20, this, () => {
+                    _camera.destroy();
+                })
+            }
+
             /**
                * 返回一个节点包括其子节点的截图
                * @export

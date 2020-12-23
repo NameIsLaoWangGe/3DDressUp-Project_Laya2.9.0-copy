@@ -54,7 +54,6 @@ export module _DressingRoom {
         changeAfterMaking(): void {
             _DressingRoom._Clothes._ins().collectDIY();
             _DressingRoom._Clothes._ins().accurateChange(_MakeTailor._DIYClothes._ins()._getPitchProperty('part'), _MakeTailor._DIYClothes._ins()._pitchName);
-
         }
 
         private changeClass(classify: string, partArr: Array<any>, playAni?: boolean): void {
@@ -95,7 +94,6 @@ export module _DressingRoom {
                                         rSp.removeSelf();
                                     }));
                                 }
-
                             } else {
                                 cloth.active = false;
                             }
@@ -178,7 +176,7 @@ export module _DressingRoom {
     export class DressingRoom extends Admin._SceneBase {
 
         lwgOnAwake(): void {
-
+            _3D._Scene._ins().mirrorSurface = true;
             TimerAdmin._frameLoop(1, this, () => {
                 _3D._Scene._ins().createMirror(this._ImgVar('MirrorSurface'));
             });
@@ -214,6 +212,7 @@ export module _DressingRoom {
 
         UI: _UI;
         lwgOnStart(): void {
+
             this.UI = new _UI(this._Owner);
             TimerAdmin._frameOnce(10, this, () => {
                 this.UI.operationAppear(() => {
@@ -223,8 +222,10 @@ export module _DressingRoom {
             })
             this.UI.btnCompleteClick = () => {
                 this.UI.operationVinish(() => {
+                    _3D._Scene._ins().mirrorSurface = false;
+                    _3D._Scene._ins().cameraToSprite(this._Owner);
+                    this._openScene('Start', true, true);
                     this.UI.btnBackVinish(() => {
-                        this._openScene('Start', true, true);
                     });
                 }, 200);
             }
@@ -267,9 +268,9 @@ export module _DressingRoom {
                 }, 'no');
             }
         }
-        lwgCloseAni(): number {
-            return 100;
-        }
+        // lwgCloseAni(): number {
+        //     return 100;
+        // }
     }
 }
 export default _DressingRoom.DressingRoom;

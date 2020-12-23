@@ -17,15 +17,13 @@ export module _PersonalInfo {
             const obj = _Ranking._Data._ins()._getPitchObj();
             this._LabelVar('RankValue').text = obj[_Ranking._Data._ins()._otherPro.rankNum];
             this._LabelVar('FansValue').text = obj[_Ranking._Data._ins()._otherPro.fansNum];
-
-
         }
 
         lwgOpenAni(): number {
             this._ImgVar('Background').alpha = 0;
             this._ImgVar('Content').alpha = 0;
             Animation2D.fadeOut(this._ImgVar('Background'), 0, 1, 350, 0, () => {
-                TimerAdmin._frameLoop(240, this, () => {
+                TimerAdmin._frameLoop(200, this, () => {
                     this._AniVar('ani1').play(0, false);
                     this._AniVar('ani1').on(Laya.Event.LABEL, this, (e: string) => {
                         if (e === 'comp') {

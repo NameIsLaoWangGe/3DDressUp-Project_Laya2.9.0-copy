@@ -12,10 +12,8 @@ export module _Start {
         updateRanking = '_Start_updateRanking',
     }
     export function _init(): void {
-
     }
     export class Start extends Admin._SceneBase {
-
         lwgOnAwake(): void {
             Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
             _3D._Scene._ins().openStartAni(() => {
@@ -55,14 +53,17 @@ export module _Start {
         lwgButton(): void {
             const Clothes = _MakeTailor._DIYClothes._ins();
             this._btnUp(this._ImgVar('BtnTop'), () => {
+                _3D._Scene._ins().cameraToSprite(this._Owner);
                 Clothes._pitchClassify = Clothes._classify.Top;
                 this._openScene('MakeTailor', true, true);
             })
             this._btnUp(this._ImgVar('BtnDress'), () => {
+                _3D._Scene._ins().cameraToSprite(this._Owner);
                 Clothes._pitchClassify = Clothes._classify.Dress;
                 this._openScene('MakeTailor', true, true);
             })
             this._btnUp(this._ImgVar('BtnBottoms'), () => {
+                _3D._Scene._ins().cameraToSprite(this._Owner);
                 Clothes._pitchClassify = Clothes._classify.Bottoms;
                 this._openScene('MakeTailor', true, true);
             })
@@ -75,7 +76,7 @@ export module _Start {
                 this._openScene('Ranking', false);
             })
             this._btnUp(this._ImgVar('BtnDressingRoom'), () => {
-                Clothes._pitchClassify = Clothes._classify.Bottoms;
+                _3D._Scene._ins().cameraToSprite(this._Owner);
                 this._openScene('DressingRoom', true, true);
             })
         }
