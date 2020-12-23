@@ -946,6 +946,7 @@
                             Mask.pos(0, Laya.stage.height / num * index);
                             Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
                             Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                         };
@@ -955,6 +956,7 @@
                             Mask.pos(Laya.stage.width / num * index, 0);
                             Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                             Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                         };
@@ -964,6 +966,7 @@
                             Mask.pos(0, Laya.stage.height / num * index);
                             Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
                             Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                             if (index % 2 == 0) {
@@ -983,6 +986,7 @@
                                 Mask1.pos(Laya.stage.width / num * index, 0);
                                 Tools._Node.changePivot(Sp1, index * Sp1.width / num + Sp1.width / num / 2, Sp1.height / 2);
                                 Animation2D.scale(Sp1, 1, 1, 0, 1, time, 0, () => {
+                                    htmlCanvas1.destroy();
                                     Sp1.destroy();
                                 });
                             }
@@ -995,6 +999,7 @@
                             Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                             Mask.rotation = 10;
                             Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                         };
@@ -1007,6 +1012,7 @@
                             Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                             Mask.rotation = -10;
                             Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                         };
@@ -1018,6 +1024,7 @@
                             Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                             Mask.rotation = -15;
                             Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp.destroy();
                             });
                             let Sp2 = new Laya.Image;
@@ -1038,6 +1045,7 @@
                             Tools._Node.changePivot(Sp2, index * Sp2.width / num + Sp2.width / num / 2, Sp2.height / 2);
                             Mask1.rotation = 15;
                             Animation2D.scale(Sp2, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp2.destroy();
                             });
                         };
@@ -2698,6 +2706,82 @@
             }
             Color._changeConstant = _changeConstant;
         })(Color = lwg.Color || (lwg.Color = {}));
+        let Effects3D;
+        (function (Effects3D) {
+            Effects3D._tex2D = {
+                爱心2: {
+                    url: 'Lwg/Effects/3D/aixin2.png',
+                    tex: null,
+                }
+            };
+            let _Particle;
+            (function (_Particle) {
+                function _createBox(parent, position, sectionSize, sectionRotation, texArr, colorRGBA, multiple) {
+                    const _scaleX = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][0], sectionSize[1][0]) : Tools._Number.randomOneBySection(0.01, 0.03);
+                    const _scaleY = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][1], sectionSize[1][1]) : Tools._Number.randomOneBySection(0.01, 0.03);
+                    const _scaleZ = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][2], sectionSize[1][2]) : Tools._Number.randomOneBySection(0.01, 0.03);
+                    const box = parent.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(_scaleX, _scaleY, _scaleZ)));
+                    if (position) {
+                        box.transform.position.setValue(position.x, position.y, position.z);
+                    }
+                    else {
+                        box.transform.position.setValue(0, 0, 0);
+                    }
+                    box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][0], sectionRotation[1][0]) : Tools._Number.randomOneBySection(0, 360);
+                    box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][1], sectionRotation[1][1]) : Tools._Number.randomOneBySection(0, 360);
+                    box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][2], sectionRotation[1][2]) : Tools._Number.randomOneBySection(0, 360);
+                    const mat = box.meshRenderer.material = new Laya.UnlitMaterial;
+                    mat.albedoTexture = texArr ? Tools._Array.randomGetOne(texArr) : Effects3D._tex2D.爱心2.tex;
+                    mat.renderMode = 2;
+                    mat.albedoColorR = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(180, 255);
+                    mat.albedoColorG = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 180);
+                    mat.albedoColorB = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 180);
+                    mat.albedoColorA = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
+                    return box;
+                }
+                _Particle._createBox = _createBox;
+                function _spiral(parent, position, sectionSize, sectionRotation, texArr, colorRGBA, liveTime) {
+                    const box = _createBox(parent, position, sectionSize, sectionRotation, texArr, colorRGBA);
+                    const mat = box.meshRenderer.material;
+                    const _liveTime = liveTime ? Tools._Number.randomOneBySection(liveTime[0], liveTime[1]) : Tools._Number.randomOneBySection(100, 200);
+                    let moveCaller = {
+                        time: 0,
+                        alpha: true,
+                        move: false,
+                        vinish: false,
+                    };
+                    box['moveCaller'] = moveCaller;
+                    mat.albedoColorA = 0;
+                    TimerAdmin._frameLoop(1, moveCaller, () => {
+                        moveCaller.time++;
+                        if (moveCaller.alpha) {
+                            mat.albedoColorA += 0.15;
+                            box.transform.localPositionY += 0.002;
+                            if (mat.albedoColorA >= 1) {
+                                moveCaller.alpha = false;
+                                moveCaller.move = true;
+                            }
+                        }
+                        if (moveCaller.move) {
+                            box.transform.localPositionY += 0.005;
+                            if (moveCaller.time > _liveTime) {
+                                moveCaller.move = false;
+                                moveCaller.vinish = true;
+                            }
+                        }
+                        if (moveCaller.vinish) {
+                            mat.albedoColorA -= 0.15;
+                            box.transform.localPositionY += 0.002;
+                            if (mat.albedoColorA <= 0) {
+                                box.removeSelf();
+                            }
+                        }
+                    });
+                    return box;
+                }
+                _Particle._spiral = _spiral;
+            })(_Particle = Effects3D._Particle || (Effects3D._Particle = {}));
+        })(Effects3D = lwg.Effects3D || (lwg.Effects3D = {}));
         let Effects2D;
         (function (Effects2D) {
             let _SkinUrl;
@@ -5265,6 +5349,7 @@
                     const ptex = new Laya.Texture(_camera.renderTarget, Laya.Texture.DEF_UV);
                     sprite.graphics.drawTexture(ptex, sprite.x, sprite.y, sprite.width, sprite.height);
                     TimerAdmin._frameOnce(20, this, () => {
+                        ptex.destroy();
                         _camera.destroy();
                     });
                 }
@@ -6210,6 +6295,7 @@
     let Click = lwg.Click;
     let Color = lwg.Color;
     let Effects2D = lwg.Effects2D;
+    let Effects3D = lwg.Effects3D;
     let Dialogue = lwg.Dialogue;
     let Animation2D = lwg.Animation2D;
     let Animation3D = lwg.Animation3D;
@@ -6368,6 +6454,35 @@
                             _classifySp.active = true;
                             for (let k = 0; k < _classifySp.numChildren; k++) {
                                 const cloth = _classifySp.getChildAt(k);
+                                if (cloth.name === obj[this._property.name]) {
+                                    cloth.active = true;
+                                    if (classify !== 'DIY') {
+                                        let mat = cloth.skinnedMeshRenderer.material;
+                                        if (!mat) {
+                                            cloth.skinnedMeshRenderer.material = new Laya.UnlitMaterial();
+                                        }
+                                        mat.albedoTexture = _Res._list.texture2D[`${cloth.name}`]['texture2D'];
+                                    }
+                                    else {
+                                        const front = cloth.getChildByName(`${cloth.name}_0`);
+                                        const matF = front.skinnedMeshRenderer.material;
+                                        const fSp = new Laya.Sprite;
+                                        fSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`), Laya.Handler.create(this, () => {
+                                            matF.albedoTexture = fSp.texture.bitmap;
+                                            fSp.removeSelf();
+                                        }));
+                                        const reverse = cloth.getChildByName(`${cloth.name}_1`);
+                                        const matR = reverse.skinnedMeshRenderer.material;
+                                        const rSp = new Laya.Sprite;
+                                        rSp.loadImage(Laya.LocalStorage.getItem(`${cloth.name}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`), Laya.Handler.create(this, () => {
+                                            matR.albedoTexture = rSp.texture.bitmap;
+                                            rSp.removeSelf();
+                                        }));
+                                    }
+                                }
+                                else {
+                                    cloth.active = false;
+                                }
                             }
                         }
                     }
@@ -7402,10 +7517,6 @@
                 return Tools._3D.posToScreen(this._BtnDressingRoom.transform.position, this._MainCamara);
             }
             cameraToSprite(scene) {
-                _3D._Scene._ins().mirrorSurface = false;
-                const Sp = new Laya.Sprite;
-                scene.addChild(Sp)['size'](Laya.stage.width, Laya.stage.height);
-                Tools._Draw.cameraToSprite(this._MainCamara, Sp);
             }
             openStartAni(func) {
                 func();
@@ -7772,6 +7883,10 @@
                     url: `Game/UI/DressingRoom/ClothTex/hair_008.png`,
                     texture2D: null,
                 },
+                爱心2: {
+                    url: 'Lwg/Effects/3D/aixin2.png',
+                    tex: null,
+                }
             },
             scene2D: {
                 Start: `Scene/${_SceneName.Start}.json`,
@@ -8089,6 +8204,9 @@
         _Start._init = _init;
         class Start extends Admin._SceneBase {
             lwgOnAwake() {
+                TimerAdmin._frameLoop(20, this, () => {
+                    lwg$1.Effects3D._Particle._spiral(_3D._Scene._ins()._Owner, new Laya.Vector3(5, 5, -15));
+                });
                 Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
                 _3D._Scene._ins().openStartAni(() => {
                     this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);

@@ -313,7 +313,6 @@ export module _3D {
             this.reverseMat.albedoTexture && this.reverseMat.albedoTexture.destroy();
             this.reverseMat.albedoTexture = arr[1];
         }
-
         /**方向*/
         rotate(num: number): void {
             if (num == 1) {

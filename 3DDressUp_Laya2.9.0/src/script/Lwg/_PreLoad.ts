@@ -286,6 +286,10 @@ export module _Res {
                 texture2D: null as Laya.Texture2D,
             },
 
+            爱心2: {
+                url: 'Lwg/Effects/3D/aixin2.png',
+                tex: null as Laya.Texture2D,
+            }
 
             // DIY的法线贴图
             // diy_bottom_001_final_mat_001_n: {

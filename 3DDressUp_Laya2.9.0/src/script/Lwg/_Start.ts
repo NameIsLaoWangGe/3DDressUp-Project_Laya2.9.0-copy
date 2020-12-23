@@ -1,5 +1,5 @@
 import ADManager, { TaT } from "../TJ/Admanager";
-import { Admin, Animation2D, TimerAdmin, _SceneName, Tools, } from "./Lwg";
+import lwg, { Admin, Animation2D, TimerAdmin, _SceneName, Tools, Effects2D, } from "./Lwg";
 import { _3D } from "./_3D";
 import { _Game } from "./_Game";
 import { _MakeTailor } from "./_MakeTailor";
@@ -15,6 +15,11 @@ export module _Start {
     }
     export class Start extends Admin._SceneBase {
         lwgOnAwake(): void {
+
+            TimerAdmin._frameLoop(20, this, () => {
+                lwg.Effects3D._Particle._spiral(_3D._Scene._ins()._Owner, new Laya.Vector3(5, 5, -15));
+            })
+
             Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
             _3D._Scene._ins().openStartAni(() => {
                 this._ImgVar('BtnTop').pos(_3D._Scene._ins().btnTopPos.x, _3D._Scene._ins().btnTopPos.y);

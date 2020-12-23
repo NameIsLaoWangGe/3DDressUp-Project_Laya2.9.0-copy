@@ -1231,6 +1231,7 @@ export module lwg {
                         Mask.pos(0, Laya.stage.height / num * index);
                         Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
                         Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
                     }
@@ -1240,6 +1241,7 @@ export module lwg {
                         Mask.pos(Laya.stage.width / num * index, 0);
                         Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                         Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
                     }
@@ -1250,6 +1252,7 @@ export module lwg {
                         Mask.pos(0, Laya.stage.height / num * index);
                         Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
                         Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
 
@@ -1270,6 +1273,7 @@ export module lwg {
                             Mask1.pos(Laya.stage.width / num * index, 0);
                             Tools._Node.changePivot(Sp1, index * Sp1.width / num + Sp1.width / num / 2, Sp1.height / 2);
                             Animation2D.scale(Sp1, 1, 1, 0, 1, time, 0, () => {
+                                htmlCanvas1.destroy();
                                 Sp1.destroy();
                             });
                         }
@@ -1283,6 +1287,7 @@ export module lwg {
                         Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                         Mask.rotation = 10;
                         Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
                     }
@@ -1295,6 +1300,7 @@ export module lwg {
                         Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                         Mask.rotation = -10;
                         Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
                     }
@@ -1306,6 +1312,7 @@ export module lwg {
                         Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
                         Mask.rotation = -15;
                         Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp.destroy();
                         });
 
@@ -1327,6 +1334,7 @@ export module lwg {
                         Tools._Node.changePivot(Sp2, index * Sp2.width / num + Sp2.width / num / 2, Sp2.height / 2);
                         Mask1.rotation = 15;
                         Animation2D.scale(Sp2, 1, 1, 0, 1, time, 0, () => {
+                            htmlCanvas1.destroy();
                             Sp2.destroy();
                         });
                     }
@@ -3329,15 +3337,95 @@ export module lwg {
 
     /**2D特效模块*/
     export module Effects3D {
+        export let _tex2D = {
+            爱心2: {
+                url: 'Lwg/Effects/3D/aixin2.png',
+                tex: null as Laya.Texture2D,
+            }
+        }
         export module _Particle {
-            export function _createBox(): Laya.MeshSprite3D {
-                const box = this.newScene.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(0.75, 0.5, 0.5))) as Laya.MeshSprite3D
+            /**
+             * @export 粒子系统基础单元,计量单位为1
+             * @param {Laya.Scene3D} parent 父节点
+             * @param {Laya.Vector3} position 位置，世界坐标默认为[0,0,0];
+             * @param {[[number, number, number], [number, number, number]]} sectionSize 大小区间默认
+             * @param {[[number, number, number], [number, number, number]]} sectionRotation
+             * @param {Laya.Texture2D[]} texArr
+             * @param {[[number, number, number, number], [number, number, number, number]]} colorRGBA 色彩区间
+             * @param {number} multiple 放大倍数，默认为1，可根据模型的具体大小放大倍数
+             * @return {*}  {Laya.MeshSprite3D}
+             */
+            export function _createBox(parent: Laya.Scene3D, position: Laya.Vector3, sectionSize: [[number, number, number], [number, number, number]], sectionRotation: [[number, number, number], [number, number, number]], texArr: Laya.Texture2D[], colorRGBA: [[number, number, number, number], [number, number, number, number]], multiple?: number): Laya.MeshSprite3D {
+
+                const _scaleX = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][0], sectionSize[1][0]) : Tools._Number.randomOneBySection(0.01, 0.03);
+                const _scaleY = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][1], sectionSize[1][1]) : Tools._Number.randomOneBySection(0.01, 0.03);
+                const _scaleZ = sectionSize ? Tools._Number.randomOneBySection(sectionSize[0][2], sectionSize[1][2]) : Tools._Number.randomOneBySection(0.01, 0.03);
+
+                const box = parent.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(_scaleX, _scaleY, _scaleZ))) as Laya.MeshSprite3D;
+
+                if (position) {
+                    box.transform.position.setValue(position.x, position.y, position.z);
+                } else {
+                    box.transform.position.setValue(0, 0, 0);
+                }
+
+                box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][0], sectionRotation[1][0]) : Tools._Number.randomOneBySection(0, 360);
+                box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][1], sectionRotation[1][1]) : Tools._Number.randomOneBySection(0, 360);
+                box.transform.localRotationEulerX = sectionRotation ? Tools._Number.randomOneBySection(sectionRotation[0][2], sectionRotation[1][2]) : Tools._Number.randomOneBySection(0, 360);
+
+                const mat = box.meshRenderer.material = new Laya.UnlitMaterial;
+                mat.albedoTexture = texArr ? Tools._Array.randomGetOne(texArr) : _tex2D.爱心2.tex;
+
+                mat.renderMode = 2;//忽略透明度
+
+                mat.albedoColorR = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][0], colorRGBA[1][0]) : Tools._Number.randomOneBySection(180, 255);
+                mat.albedoColorG = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][1], colorRGBA[1][1]) : Tools._Number.randomOneBySection(10, 180);
+                mat.albedoColorB = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][2], colorRGBA[1][2]) : Tools._Number.randomOneBySection(10, 180);
+                mat.albedoColorA = colorRGBA ? Tools._Number.randomOneBySection(colorRGBA[0][3], colorRGBA[1][3]) : Tools._Number.randomOneBySection(1, 1);
+
                 return box;
             }
 
             //
-            export function _spiral(parent: Laya.Sprite, centerPoint: Laya.Point, sectionWH: [number, number], width: [number, number], height: [number, number], rotation: [number, number], urlArr: Array<string>, colorRGBA: [[number, number, number, number], [number, number, number, number]], zOrder: number): Laya.MeshSprite3D {
-                return;
+            export function _spiral(parent?: Laya.Scene3D, position?: Laya.Vector3, sectionSize?: [[number, number, number], [number, number, number]], sectionRotation?: [[number, number, number], [number, number, number]], texArr?: Laya.Texture2D[], colorRGBA?: [[number, number, number, number], [number, number, number, number]], liveTime?: [number, number]): Laya.MeshSprite3D {
+                const box = _createBox(parent, position, sectionSize, sectionRotation, texArr, colorRGBA);
+                const mat = box.meshRenderer.material as Laya.UnlitMaterial;
+                const _liveTime = liveTime ? Tools._Number.randomOneBySection(liveTime[0], liveTime[1]) : Tools._Number.randomOneBySection(100, 200);
+
+                let moveCaller = {
+                    time: 0,
+                    alpha: true,
+                    move: false,
+                    vinish: false,
+                };
+                box['moveCaller'] = moveCaller;
+                mat.albedoColorA = 0;
+                TimerAdmin._frameLoop(1, moveCaller, () => {
+                    moveCaller.time++;
+                    if (moveCaller.alpha) {
+                        mat.albedoColorA += 0.15;
+                        box.transform.localPositionY += 0.002;
+                        if (mat.albedoColorA >= 1) {
+                            moveCaller.alpha = false;
+                            moveCaller.move = true;
+                        }
+                    }
+                    if (moveCaller.move) {
+                        box.transform.localPositionY += 0.005;
+                        if (moveCaller.time > _liveTime) {
+                            moveCaller.move = false;
+                            moveCaller.vinish = true;
+                        }
+                    }
+                    if (moveCaller.vinish) {
+                        mat.albedoColorA -= 0.15;
+                        box.transform.localPositionY += 0.002;
+                        if (mat.albedoColorA <= 0) {
+                            box.removeSelf();
+                        }
+                    }
+                })
+                return box;
             }
 
             // export class _ParticleImgBase extends Laya.MeshSprite3D {
@@ -7011,6 +7099,7 @@ export module lwg {
                 sprite.graphics.drawTexture(ptex, sprite.x, sprite.y, sprite.width, sprite.height);
                 // 延迟销毁，因为渲染需要时间
                 TimerAdmin._frameOnce(20, this, () => {
+                    ptex.destroy();
                     _camera.destroy();
                 })
             }
@@ -8121,6 +8210,7 @@ export let AudioAdmin = lwg.AudioAdmin;
 export let Click = lwg.Click;
 export let Color = lwg.Color;
 export let Effects2D = lwg.Effects2D;
+export let Effects3D = lwg.Effects3D;
 export let Dialogue = lwg.Dialogue;
 export let Animation2D = lwg.Animation2D;
 export let Animation3D = lwg.Animation3D;
