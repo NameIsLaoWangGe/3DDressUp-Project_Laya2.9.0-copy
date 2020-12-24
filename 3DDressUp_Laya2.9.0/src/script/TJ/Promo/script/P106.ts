@@ -24,9 +24,7 @@ export default class P106 extends Behaviour
         TJ.Develop.Yun.Promo.Data.ReportAwake(P106.style);
 
         this.active = false;
-        if (Laya.Browser.onIOS && TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt) {
-            return;
-        }
+
         let list = await TJ.Develop.Yun.Promo.List.Get(P106.style);
         if (this.promoList == null) this.promoList = list;
         if (this.promoList.count > 0)
@@ -39,11 +37,12 @@ export default class P106 extends Behaviour
                 let node = this.layout.getCell(i);
                 if (i < this.promoList.count)
                 {
-                    let item = node.getComponent(PromoItem);
+                    let item: PromoItem = node.getComponent(PromoItem);
                     if (item != null)
                     {
                         this.itemList.push(item);
                         item.style = P106.style;
+                        item.onAwake();
                     }
                     Behaviour.SetActive(node, true);
                 }

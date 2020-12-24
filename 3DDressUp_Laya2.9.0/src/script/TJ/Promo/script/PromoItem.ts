@@ -1,5 +1,6 @@
+import Behaviour from "./Behaviour";
 
-export default class PromoItem extends Laya.Script
+export default class PromoItem extends Behaviour
 {
     public bgImage: Laya.Image = null;
     public iconImage: Laya.Image = null;
@@ -9,13 +10,17 @@ export default class PromoItem extends Laya.Script
     public flag2: Laya.Image = null;
     public flag3: Laya.Image = null;
 
+    public nbg: Laya.Image = null;
+
     public onClick_: Function;
 
     public style: string;
     public data: TJ.Develop.Yun.Promo.Data;
 
+    public posId: number;
+    public dataId: number;
 
-    onAwake()
+    OnAwake()
     {
         this.bgImage = this.owner.getChildByName("bg") as Laya.Image;
         this.iconImage = this.owner.getChildByName("icon") as Laya.Image;
@@ -27,6 +32,7 @@ export default class PromoItem extends Laya.Script
         }
         this.nameText = this.owner.getChildByName("name") as Laya.Label;
         this.infoText = this.owner.getChildByName("info") as Laya.Label;
+        this.nbg = this.owner.getChildByName("nbg") as Laya.Image;
     }
 
 
@@ -35,6 +41,7 @@ export default class PromoItem extends Laya.Script
         if (this.data == null) return;
         if (this.iconImage != null) this.iconImage.skin = this.data.icon;
         if (this.nameText != null) this.nameText.text = this.data.title;
+        if (this.nbg != null) this.nbg.skin = "TJ/Promo/image/互推icon底色/" + this.data.titleBG + ".png";
         this.SetFlag();
     }
 

@@ -9,4 +9,5 @@
    <item name="Game/UI/DressingRoom/ClothTex/top_006.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="Game/UI/DressingRoom/Normalmap" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="Lwg/Effects" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="Game/UI/Tweeting/Main/DIY.png" type="Sprite" props="x=14@@!@@y=-752"/>
 </res>

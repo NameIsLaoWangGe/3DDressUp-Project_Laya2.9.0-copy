@@ -258,6 +258,7 @@ P 566B10AF wangye.png
 P C6F8FE16 x_biankuang.png
 P 8A1A4460 xiazhuang.png
 P B9D54275 yifu.png
+D Game/UI/Tweeting
 D Game/UI/01Repertory/AdsHint
 D Game/UI/01Repertory/Card
 D Game/UI/01Repertory/CheckIn
@@ -658,6 +659,74 @@ P 61D6F0D4 avatar_6.png
 P 17C49FDC avatar_7.png
 P AF5D2085 avatar_8.png
 P BCD55A8C avatar_9.png
+D Game/UI/Tweeting/ChoosePhotos
+P 8D6B5EB6 anniu_fasong.png
+P 0C2EE456 anniu_hui.png
+P 0F557285 duihao.png
+R 39977AE2 kuang.png
+P 25BF0F9A xuanze.png
+P 3D56F89C zhaopian.png
+P 926771DD zhaopian_di.png
+R FA9EA4CD 选择照片.png
+D Game/UI/Tweeting/Dynamic
+P 352208EF fenge1.png
+R CAC8A7D3 fenge2.png
+P 6593FA97 guanzhu.png
+P A2265A92 huifu.png
+R 6131DA7F juxing.png
+P 55095D1D redu.png
+P 0CB13A1B shijian.png
+P 85F55B1E shoucang.png
+R 065268E5 t_kuang.png
+P 1F9B15FA t_pinglun.png
+P 05AA18EF t_shoucang.png
+P 02E8DF52 t_zan.png
+P 12A6ACC2 t_zhuanfa.png
+P 59D087CB tupian.png
+P 3D2A5544 tx.png
+P 753B7DE7 tx_biankuang.png
+R 555CF583 动态.png
+D Game/UI/Tweeting/GetFan
+R 65650974 caidai.png
+P 37F5F631 choudai.png
+P 49475AC9 haode.png
+P AC0B5687 hutui.png
+P 47466FC5 shuangbei.png
+P 0422F21A zhangfen.png
+P 46094EAD zi.png
+R 73490104 涨粉.png
+D Game/UI/Tweeting/Main
+P BDC5D2EC 1.png
+P A4B79B84 2.png
+P 383767E7 3.png
+R 39AC676B di.png
+R 0A31F495 DIY.png
+P C1B71F78 dongtai.png
+P 46B67C1B fenge.png
+P AC438295 fenge2.png
+P C2CE1A50 fensi.png
+P 8776F345 guanzhu.png
+R 2D775F4C juxing.png
+P C9ECE09C juxing2.png
+P B53CA081 kuang_bai.png
+P 73C66D7B kuang_fen.png
+R A0038876 kuang_xuanze.png
+P 75FA074C remen.png
+P 1F95DF27 shou.png
+P 5A05A914 shoucang.png
+P C756B444 shouye.png
+R 3D2A6F02 shurukuang.png
+P 03F86DD3 touxiangkuang.png
+P F46FF54F tx_biankuang.png
+P ACDCDBF4 weibo.png
+P 3DC60C8A weibo_logo.png
+P B2C61B94 xingming.png
+P FE8678F3 xinxianshi.png
+P 399A73D9 xuanze-2.png
+P 82B84675 xuanze.png
+P 3E7BC878 zan.png
+P 259C18ED zhaopian.png
+P 3240DC8E zuopin.png
 D Game/UI/MakePattern/Pattern/general
 P 428D9D49 pattern1.png
 P 3049515E pattern2.png

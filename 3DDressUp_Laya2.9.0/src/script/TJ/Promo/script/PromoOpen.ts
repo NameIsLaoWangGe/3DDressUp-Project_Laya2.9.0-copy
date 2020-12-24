@@ -1,4 +1,3 @@
-
 export default class PromoOpen extends Laya.Script
 {
 

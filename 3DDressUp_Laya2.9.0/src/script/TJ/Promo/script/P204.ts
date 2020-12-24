@@ -1,8 +1,8 @@
 import PromoItem from "./PromoItem";
 import Behaviour from "./Behaviour";
 
-
-export default class P204 extends Behaviour {
+export default class P204 extends Behaviour
+{
     private static style = "P204";
 
     private promoList: TJ.Develop.Yun.Promo.List = null;
@@ -14,8 +14,8 @@ export default class P204 extends Behaviour {
     paddingLeft = 20;
     paddingRight = 20;
 
-
-    async OnAwake() {
+    async OnAwake()
+    {
         this.scroll = this.owner.getChildByName("scroll") as Laya.Panel
         this.layout = this.scroll.getChildByName("layout") as Laya.List;
         this.prefab = this.layout.getCell(0);
@@ -23,25 +23,28 @@ export default class P204 extends Behaviour {
         TJ.Develop.Yun.Promo.Data.ReportAwake(P204.style);
 
         this.active = false;
-        if (Laya.Browser.onIOS && TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt) {
-            return;
-        }
         let list = await TJ.Develop.Yun.Promo.List.Get(P204.style);
         if (this.promoList == null) this.promoList = list;
-        if (this.promoList.count > 0) {
+        if (this.promoList.count > 0)
+        {
             TJ.Develop.Yun.Promo.Data.ReportStart(P204.style);
             this.layout.repeatX = this.promoList.count;
-            for (let i = 0; i < this.layout.cells.length; i++) {
+            for (let i = 0; i < this.layout.cells.length; i++)
+            {
                 let node = this.layout.getCell(i);
-                if (i < this.promoList.count) {
-                    let item = node.getComponent(PromoItem);
-                    if (item != null) {
+                if (i < this.promoList.count)
+                {
+                    let item: PromoItem = node.getComponent(PromoItem);
+                    if (item != null)
+                    {
                         this.itemList.push(item);
                         item.style = P204.style;
+                        item.onAwake();
                     }
                     node.active = node.visible = true;
                 }
-                else {
+                else
+                {
                     node.active = node.visible = false;
                 }
             }
@@ -49,74 +52,93 @@ export default class P204 extends Behaviour {
             let w = this.paddingLeft + this.paddingRight;
             w += this.prefab.width * this.itemList.length + this.layout.spaceX * (this.itemList.length - 1);
             this.layout.width = w;
-            if (this.scroll.width < this.layout.width) {
+            if (this.scroll.width < this.layout.width)
+            {
                 this.scroll.hScrollBarSkin = "";
                 this.scroll.hScrollBar.rollRatio = 0;
             }
 
             this.layout.width = w;
-            for (let item of this.itemList) {
+            for (let item of this.itemList)
+            {
                 this.LoadIcon(item);
             }
             this.active = true;
         }
-        else {
+        else
+        {
             this.owner.destroy();
         }
     }
 
-    get maxLeft() {
+    get maxLeft()
+    {
         let x = 0;
         return x;
     }
-    get maxRight() {
+    get maxRight()
+    {
         let x = this.scroll.hScrollBar.max;
         return x;
     }
-    get scrollValue() {
-        if (this.scroll.hScrollBar != null) {
+    get scrollValue()
+    {
+        if (this.scroll.hScrollBar != null)
+        {
             return this.scroll.hScrollBar.value;
         }
         return 0;
     }
-    set scrollValue(v) {
-        if (this.scroll.hScrollBar != null) {
+    set scrollValue(v)
+    {
+        if (this.scroll.hScrollBar != null)
+        {
             this.scroll.hScrollBar.value = v;
         }
     }
 
     toLeft = false;
-    OnUpdate() {
+    OnUpdate()
+    {
         let deltaTime = Laya.timer.delta / 1000;
-        if (this.scroll.width < this.layout.width) {
-            if (this.scrollValue >= this.maxRight) {
+        if (this.scroll.width < this.layout.width)
+        {
+            if (this.scrollValue >= this.maxRight)
+            {
                 this.toLeft = true;
             }
-            else if (this.scrollValue <= this.maxLeft) {
+            else if (this.scrollValue <= this.maxLeft)
+            {
                 this.toLeft = false;
             }
-            if (this.toLeft) {
+            if (this.toLeft)
+            {
                 this.scrollValue -= 50 * deltaTime;
             }
-            else {
+            else
+            {
                 this.scrollValue += 50 * deltaTime;
             }
         }
-        else {
+        else
+        {
             this.layout.x = this.maxLeft;
         }
         this.CheckShow();
     }
 
-    LoadIcon(promoItem: PromoItem) {
+    LoadIcon(promoItem: PromoItem)
+    {
         let data = this.promoList.Load();
-        if (data != null) {
+        if (data != null)
+        {
             this.promoList.Unload(promoItem.data);
             promoItem.data = data;
             promoItem.onClick_ = (item) => { this.LoadIcon(item); };
             promoItem.DoLoad();
             let i = this.showing.indexOf(promoItem);
-            if (i >= 0) {
+            if (i >= 0)
+            {
                 this.showing.splice(i, 1);
             }
         }
@@ -124,21 +146,27 @@ export default class P204 extends Behaviour {
     }
 
     showing: PromoItem[] = [];
-    CheckShow() {
+    CheckShow()
+    {
         let a = 0;
-        for (let item of this.itemList) {
+        for (let item of this.itemList)
+        {
             let node = item.owner as Laya.Box;
             let d = Math.abs(node.x - this.scrollValue - this.scroll.width / 2 + node.width / 2 + this.layout.spaceX);
             let i = this.showing.indexOf(item);
-            if (d < this.scroll.width / 2) {
-                if (i < 0) {
+            if (d < this.scroll.width / 2)
+            {
+                if (i < 0)
+                {
                     this.showing.push(item);
                     item.OnShow();
                     // console.log("P104 show " + item.data.title);
                 }
             }
-            else {
-                if (i >= 0) {
+            else
+            {
+                if (i >= 0)
+                {
                     this.showing.splice(i, 1);
                 }
             }

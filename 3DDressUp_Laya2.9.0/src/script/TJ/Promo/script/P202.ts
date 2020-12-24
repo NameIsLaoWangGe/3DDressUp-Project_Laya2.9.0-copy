@@ -1,5 +1,6 @@
 import PromoItem from "./PromoItem";
 import Behaviour from "./Behaviour";
+
 export default class P202 extends Behaviour
 {
     private static style = "P202";
@@ -29,9 +30,7 @@ export default class P202 extends Behaviour
         TJ.Develop.Yun.Promo.Data.ReportAwake(P202.style);
 
         this.active = false;
-        if (Laya.Browser.onIOS && TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt) {
-            return;
-        }
+
         this.promoList = await TJ.Develop.Yun.Promo.List.Get(P202.style);
         if (this.promoList.count > 0)
         {
@@ -45,11 +44,12 @@ export default class P202 extends Behaviour
                 let node = this.layout.getCell(i);
                 if (i < this.promoList.count)
                 {
-                    let item = node.getComponent(PromoItem);
+                    let item: PromoItem = node.getComponent(PromoItem);
                     if (item != null)
                     {
                         this.itemList.push(item);
                         item.style = P202.style;
+                        item.onAwake();
                     }
                     Behaviour.SetActive(node, true);
                 }

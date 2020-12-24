@@ -18,9 +18,6 @@ export default class P103 extends Behaviour
 
         TJ.Develop.Yun.Promo.Data.ReportAwake(P103.style);
         this.active = false;
-        if (Laya.Browser.onIOS && TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt) {
-            return;
-        }
         this.promoList = await TJ.Develop.Yun.Promo.List.Get(P103.style);
         if (this.promoList.count > 0)
         {
@@ -30,11 +27,12 @@ export default class P103 extends Behaviour
                 let node = this.layout.getCell(i);
                 if (i < this.promoList.count)
                 {
-                    let item = node.getComponent(PromoItem);
+                    let item: PromoItem = node.getComponent(PromoItem);
                     if (item != null)
                     {
                         this.itemList.push(item);
                         item.style = P103.style;
+                        item.onAwake();
                     }
                     node.active = node.visible = true;
                 }

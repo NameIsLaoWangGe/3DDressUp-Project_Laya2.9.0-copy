@@ -20,10 +20,6 @@ export default class P201 extends Behaviour
         this.promoItem.style = P201.style;
 
         this.active = false;
-    
-        if (Laya.Browser.onIOS && TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt) {
-            return;
-        }
         if (P201.promoList == null)
         {
             let list = await TJ.Develop.Yun.Promo.List.Get(P201.style);
