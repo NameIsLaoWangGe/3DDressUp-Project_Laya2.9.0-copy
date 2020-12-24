@@ -1,6 +1,0 @@
-{
-  "code": "export var SceneName;\r\n(function (SceneName) {\r\n})(SceneName || (SceneName = {}));\r\nexport default class LwgInit extends _LwgInitScene {\r\n    lwgOnAwake() {\r\n        _LwgInit._pkgInfo = [];\r\n        Admin._platform.name = Admin._platform.tpye.Bytedance;\r\n        Admin._sceneAnimation.presentAni = Admin._sceneAnimation.type.stickIn.random;\r\n        Admin._moudel = {};\r\n    }\r\n}\r\nimport { Admin, _LwgInit, _LwgInitScene } from \"./Lwg\";\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
-  ]
-}

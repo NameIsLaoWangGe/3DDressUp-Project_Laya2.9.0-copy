@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":255,
+    "selecteID":253,
     "searchKey":"View",
     "referenceLines":[
         {
@@ -12,7 +12,7 @@
         }],
     "props":{"width":1280,"sceneColor":"#7b866c","height":720},
     "nodeParent":-1,
-    "maxID":279,
+    "maxID":312,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -24,7 +24,7 @@
             "x":15,
             "type":"Box",
             "searchKey":"Box,Main,Main",
-            "props":{"width":1280,"var":"Main","top":0,"right":0,"name":"Main","left":0,"height":720,"bottom":0},
+            "props":{"var":"Main","top":0,"right":0,"name":"Main","left":0,"bottom":0},
             "nodeParent":2,
             "label":"Main",
             "isOpen":false,
@@ -90,7 +90,7 @@
                             "props":{"y":14,"skin":"Game/UI/Tweeting/Main/xingming.png","right":300,"centerY":0},
                             "nodeParent":133,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -270,7 +270,7 @@
                 {
                     "type":"Image",
                     "searchKey":"Image,Head,Head",
-                    "props":{"y":89,"width":293,"var":"Head","right":59,"name":"Head","height":195},
+                    "props":{"y":89,"width":293,"var":"Head","right":57,"name":"Head","height":195},
                     "nodeParent":45,
                     "label":"Head",
                     "isOpen":false,
@@ -285,7 +285,7 @@
                             "props":{"y":7,"x":123.5,"var":"HeadIcon","skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerX":0},
                             "nodeParent":71,
                             "label":"HeadIcon",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -462,341 +462,133 @@
                                 ]
                         },
                         {
-                            "type":"Image",
-                            "searchKey":"Image,No1",
-                            "props":{"y":57,"x":25,"width":271,"name":"No1","height":107},
+                            "type":"List",
+                            "searchKey":"List,HotList,HotList",
+                            "props":{"y":53,"x":14,"width":292,"var":"HotList","spaceY":0,"rotation":0,"repeatY":3,"repeatX":1,"name":"HotList","height":313},
                             "nodeParent":82,
-                            "label":"No1",
-                            "isOpen":true,
+                            "label":"HotList",
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":89,
+                            "compId":279,
                             "child":[
                                 {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":101,"x":3,"width":282,"skin":"Game/UI/Tweeting/Main/fenge2.png","height":1,"centerX":0},
-                                    "nodeParent":89,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":88,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":18,"x":100,"skin":"Game/UI/Tweeting/Main/1.png"},
-                                    "nodeParent":89,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":97,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,HeadIcon",
-                                    "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
-                                    "nodeParent":89,
-                                    "label":"HeadIcon",
-                                    "isOpen":true,
+                                    "type":"Box",
+                                    "searchKey":"Box",
+                                    "props":{"y":57,"x":146,"width":272,"renderType":"render","pivotY":53,"pivotX":136,"height":105},
+                                    "nodeParent":279,
+                                    "label":"Box",
+                                    "isOpen":false,
                                     "isDirectory":true,
-                                    "isAniNode":true,
+                                    "isAniNode":false,
                                     "hasChild":true,
-                                    "compId":94,
+                                    "compId":280,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "searchKey":"Image,OtherIcon1,OtherIcon1",
-                                            "props":{"var":"OtherIcon1","skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon1","centerY":0,"centerX":0},
-                                            "nodeParent":94,
-                                            "label":"OtherIcon1",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":95,
+                                            "searchKey":"Image",
+                                            "props":{"y":101,"x":3,"width":282,"skin":"Game/UI/Tweeting/Main/fenge2.png","height":1,"centerX":0},
+                                            "nodeParent":280,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":288,
                                             "child":[
-                                                {
-                                                    "type":"Sprite",
-                                                    "searchKey":"Sprite",
-                                                    "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
-                                                    "nodeParent":95,
-                                                    "label":"Sprite",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":96,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname,Nickname",
-                                    "props":{"y":16,"width":64,"var":"Nickname","valign":"middle","text":"昵称","name":"Nickname","left":130,"height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":89,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":99,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":41,"width":64,"valign":"middle","text":"简介","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":89,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":101,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":64,"width":127,"valign":"middle","text":"本周热度5555","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":89,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":102,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,No2",
-                            "props":{"y":164,"x":24.5,"width":271,"name":"No2","height":107},
-                            "nodeParent":82,
-                            "label":"No2",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":111,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":101,"x":3,"width":282,"skin":"Game/UI/Tweeting/Main/fenge2.png","height":1,"centerX":0},
-                                    "nodeParent":111,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":112,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":18,"x":100,"skin":"Game/UI/Tweeting/Main/2.png"},
-                                    "nodeParent":111,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":113,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,HeadIcon",
-                                    "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
-                                    "nodeParent":111,
-                                    "label":"HeadIcon",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":114,
-                                    "child":[
+                                                ]
+                                        },
                                         {
                                             "type":"Image",
-                                            "searchKey":"Image,OtherIcon2,OtherIcon2",
-                                            "props":{"var":"OtherIcon2","skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon2","centerY":0,"centerX":0},
-                                            "nodeParent":114,
-                                            "label":"OtherIcon2",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":115,
+                                            "searchKey":"Image",
+                                            "props":{"y":18,"x":100,"skin":"Game/UI/Tweeting/Main/1.png"},
+                                            "nodeParent":280,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":289,
                                             "child":[
-                                                {
-                                                    "type":"Sprite",
-                                                    "searchKey":"Sprite",
-                                                    "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
-                                                    "nodeParent":115,
-                                                    "label":"Sprite",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":116,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":16,"x":130,"width":64,"valign":"middle","text":"昵称","name":"Nickname","left":130,"height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":111,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":117,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":41,"x":129,"width":64,"valign":"middle","text":"简介","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":111,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":118,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":64,"x":129.5,"width":127,"valign":"middle","text":"本周热度5555","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":111,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":119,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,No3",
-                            "props":{"y":271,"x":24.5,"width":271,"name":"No3","height":107},
-                            "nodeParent":82,
-                            "label":"No3",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":120,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":18,"x":100,"skin":"Game/UI/Tweeting/Main/3.png"},
-                                    "nodeParent":120,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":122,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,HeadIcon",
-                                    "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
-                                    "nodeParent":120,
-                                    "label":"HeadIcon",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":123,
-                                    "child":[
+                                                ]
+                                        },
                                         {
                                             "type":"Image",
-                                            "searchKey":"Image,OtherIcon3,OtherIcon3",
-                                            "props":{"var":"OtherIcon3","skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon3","centerY":0,"centerX":0},
-                                            "nodeParent":123,
-                                            "label":"OtherIcon3",
-                                            "isOpen":true,
+                                            "searchKey":"Image,HeadIcon",
+                                            "props":{"y":0,"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
+                                            "nodeParent":280,
+                                            "label":"HeadIcon",
+                                            "isOpen":false,
                                             "isDirectory":true,
-                                            "isAniNode":true,
+                                            "isAniNode":false,
                                             "hasChild":true,
-                                            "compId":124,
+                                            "compId":290,
                                             "child":[
                                                 {
-                                                    "type":"Sprite",
-                                                    "searchKey":"Sprite",
-                                                    "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
-                                                    "nodeParent":124,
-                                                    "label":"Sprite",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":125,
+                                                    "type":"Image",
+                                                    "searchKey":"Image,Icon",
+                                                    "props":{"skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"Icon","centerY":0,"centerX":0},
+                                                    "nodeParent":290,
+                                                    "label":"Icon",
+                                                    "isOpen":false,
+                                                    "isDirectory":true,
+                                                    "isAniNode":false,
+                                                    "hasChild":true,
+                                                    "compId":294,
                                                     "child":[
-                                                        ]
+                                                        {
+                                                            "type":"Sprite",
+                                                            "searchKey":"Sprite",
+                                                            "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
+                                                            "nodeParent":294,
+                                                            "label":"Sprite",
+                                                            "isDirectory":false,
+                                                            "isAniNode":false,
+                                                            "hasChild":false,
+                                                            "compId":295,
+                                                            "child":[
+                                                                ]
+                                                        }]
                                                 }]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Introduction",
+                                            "props":{"y":16,"x":0,"width":64,"valign":"middle","text":"昵称","name":"Introduction","left":130,"height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
+                                            "nodeParent":280,
+                                            "label":"Introduction",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":291,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Introduction",
+                                            "props":{"y":41,"x":0,"width":64,"valign":"middle","text":"简介","name":"Introduction","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
+                                            "nodeParent":280,
+                                            "label":"Introduction",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":292,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Heat",
+                                            "props":{"y":64,"x":0,"width":127,"valign":"middle","text":"本周热度5555","name":"Heat","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
+                                            "nodeParent":280,
+                                            "label":"Heat",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":293,
+                                            "child":[
+                                                ]
                                         }]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":16,"x":130,"width":64,"valign":"middle","text":"昵称","name":"Nickname","left":130,"height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":120,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":126,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":41,"x":129,"width":64,"valign":"middle","text":"简介","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":120,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":127,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":64,"x":129.5,"width":127,"valign":"middle","text":"本周热度5555","name":"Nickname","left":130,"height":24,"fontSize":15,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":120,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":128,
-                                    "child":[
-                                        ]
                                 }]
                         }]
                 },
@@ -827,10 +619,10 @@
                         },
                         {
                             "type":"Label",
-                            "searchKey":"Label",
-                            "props":{"top":30,"text":"你好","right":20,"left":20,"fontSize":25,"color":"#656565","bottom":140,"bold":true},
+                            "searchKey":"Label,Publishontent,Publishontent",
+                            "props":{"var":"Publishontent","top":30,"text":"你好","right":20,"name":"Publishontent","left":20,"fontSize":25,"color":"#656565","bottom":140,"bold":true},
                             "nodeParent":136,
-                            "label":"Label",
+                            "label":"Publishontent",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -840,22 +632,22 @@
                         }]
                 },
                 {
-                    "type":"Image",
-                    "searchKey":"Image,ChoosePhotos,ChoosePhotos",
-                    "props":{"y":408,"var":"ChoosePhotos","skin":"Game/UI/Tweeting/Main/kuang_xuanze.png","sizeGrid":"0,37,0,43","right":390,"name":"ChoosePhotos","left":265},
+                    "type":"Panel",
+                    "searchKey":"Panel,ChoosePhotos,ChoosePhotos",
+                    "props":{"y":404,"var":"ChoosePhotos","right":390,"name":"ChoosePhotos","left":265,"height":274},
                     "nodeParent":45,
                     "label":"ChoosePhotos",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":137,
+                    "compId":310,
                     "child":[
                         {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"width":156,"skin":"Game/UI/Tweeting/Main/zhaopian.png","height":156,"centerY":10,"centerX":-190},
-                            "nodeParent":137,
+                            "props":{"y":69,"x":45,"width":156,"skin":"Game/UI/Tweeting/Main/zhaopian.png","height":156,"centerY":10,"centerX":-190},
+                            "nodeParent":310,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -865,23 +657,10 @@
                                 ]
                         },
                         {
-                            "type":"Sprite",
-                            "searchKey":"Sprite",
-                            "props":{"y":25,"x":50,"texture":"Game/UI/Tweeting/Main/xuanze.png"},
-                            "nodeParent":137,
-                            "label":"Sprite",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":141,
-                            "child":[
-                                ]
-                        },
-                        {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"skin":"Game/UI/Tweeting/Main/zhaopian.png","centerY":10,"centerX":0},
-                            "nodeParent":137,
+                            "props":{"y":69,"x":235,"skin":"Game/UI/Tweeting/Main/zhaopian.png","centerY":10,"centerX":0},
+                            "nodeParent":310,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -893,13 +672,40 @@
                         {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"skin":"Game/UI/Tweeting/Main/zhaopian.png","centerY":10,"centerX":190},
-                            "nodeParent":137,
+                            "props":{"y":69,"x":425,"skin":"Game/UI/Tweeting/Main/zhaopian.png","centerY":10,"centerX":190},
+                            "nodeParent":310,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":143,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":25,"x":50,"texture":"Game/UI/Tweeting/Main/xuanze.png"},
+                            "nodeParent":310,
+                            "label":"Sprite",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":141,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"top":0,"skin":"Game/UI/Tweeting/Main/kuang_xuanze.png","sizeGrid":"0,37,0,43","right":0,"left":0,"bottom":0},
+                            "nodeParent":310,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":137,
                             "child":[
                                 ]
                         }]
@@ -1342,7 +1148,7 @@
                         {
                             "type":"Image",
                             "searchKey":"Image,Forwarded,Forwarded",
-                            "props":{"var":"Forwarded","skin":"Game/UI/Tweeting/Dynamic/t_zhuanfa.png","name":"Forwarded","centerY":0,"centerX":-203},
+                            "props":{"var":"Forwarded","skin":"Game/UI/Tweeting/Dynamic/t_zhuanfa.png","name":"Forwarded","centerY":-1,"centerX":-203},
                             "nodeParent":183,
                             "label":"Forwarded",
                             "isOpen":false,
@@ -1368,7 +1174,7 @@
                         {
                             "type":"Image",
                             "searchKey":"Image,Comment",
-                            "props":{"skin":"Game/UI/Tweeting/Dynamic/t_pinglun.png","name":"Comment","centerY":1,"centerX":108},
+                            "props":{"skin":"Game/UI/Tweeting/Dynamic/t_pinglun.png","name":"Comment","centerY":0,"centerX":108},
                             "nodeParent":183,
                             "label":"Comment",
                             "isOpen":false,
@@ -1394,7 +1200,7 @@
                         {
                             "type":"Image",
                             "searchKey":"Image,Like",
-                            "props":{"skin":"Game/UI/Tweeting/Dynamic/t_zan.png","right":123,"name":"Like","centerY":-2},
+                            "props":{"skin":"Game/UI/Tweeting/Dynamic/t_zan.png","right":123,"name":"Like","centerY":-3},
                             "nodeParent":183,
                             "label":"Like",
                             "isOpen":false,
@@ -1419,9 +1225,9 @@
                         }]
                 },
                 {
-                    "type":"Image",
-                    "searchKey":"Image,Bottom",
-                    "props":{"y":443,"skin":"Game/UI/Tweeting/Dynamic/juxing.png","sizeGrid":"0,73,0,84","right":75,"name":"Bottom","left":80,"height":240},
+                    "type":"Panel",
+                    "searchKey":"Panel,Bottom",
+                    "props":{"y":438,"width":1125,"styleSkin":"Game/UI/Tweeting/Dynamic/juxing.png","sizeGrid":"0,73,0,84","right":75,"name":"Bottom","left":80,"height":223},
                     "nodeParent":166,
                     "label":"Bottom",
                     "isOpen":true,
@@ -1432,224 +1238,16 @@
                     "child":[
                         {
                             "type":"Image",
-                            "searchKey":"Image,Other1",
-                            "props":{"y":42,"right":20,"name":"Other1","left":20,"height":107},
+                            "searchKey":"Image",
+                            "props":{"top":0,"skin":"Game/UI/Tweeting/Dynamic/juxing.png","sizeGrid":"37,94,58,84","right":0,"left":0,"bottom":0},
                             "nodeParent":195,
-                            "label":"Other1",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "label":"Image",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":206,
+                            "hasChild":false,
+                            "compId":297,
                             "child":[
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,HeadIcon",
-                                    "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
-                                    "nodeParent":206,
-                                    "label":"HeadIcon",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":209,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "searchKey":"Image,OtherIcon1",
-                                            "props":{"skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon1","centerY":0,"centerX":0},
-                                            "nodeParent":209,
-                                            "label":"OtherIcon1",
-                                            "isOpen":false,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":210,
-                                            "child":[
-                                                {
-                                                    "type":"Sprite",
-                                                    "searchKey":"Sprite",
-                                                    "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
-                                                    "nodeParent":210,
-                                                    "label":"Sprite",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":211,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":25,"x":104,"width":133,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":206,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":212,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":58,"x":105,"wordWrap":true,"width":72,"valign":"top","text":"12月24日","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
-                                    "nodeParent":206,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":226,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":58,"x":179,"wordWrap":true,"width":72,"valign":"top","text":"21：10","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
-                                    "nodeParent":206,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":227,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":101,"width":1140,"skin":"Game/UI/Tweeting/Dynamic/fenge2.png","sizeGrid":"0,57,0,97","right":0,"left":0,"height":2},
-                                    "nodeParent":206,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":236,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":25,"x":249,"width":770,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":51,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":206,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":237,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,Other2",
-                            "props":{"y":143,"right":20,"name":"Other2","left":20,"height":107},
-                            "nodeParent":195,
-                            "label":"Other2",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":238,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,HeadIcon",
-                                    "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-5},
-                                    "nodeParent":238,
-                                    "label":"HeadIcon",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":239,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "searchKey":"Image,OtherIcon1",
-                                            "props":{"skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon1","centerY":0,"centerX":0},
-                                            "nodeParent":239,
-                                            "label":"OtherIcon1",
-                                            "isOpen":false,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":240,
-                                            "child":[
-                                                {
-                                                    "type":"Sprite",
-                                                    "searchKey":"Sprite",
-                                                    "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
-                                                    "nodeParent":240,
-                                                    "label":"Sprite",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":241,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":25,"x":104,"width":133,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":238,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":242,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":58,"x":105,"wordWrap":true,"width":72,"valign":"top","text":"12月24日","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
-                                    "nodeParent":238,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":243,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":58,"x":179,"wordWrap":true,"width":72,"valign":"top","text":"21：10","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
-                                    "nodeParent":238,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":244,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "searchKey":"Label,Nickname",
-                                    "props":{"y":25,"x":249,"width":770,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":51,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
-                                    "nodeParent":238,
-                                    "label":"Nickname",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":246,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         },
                         {
                             "type":"Image",
@@ -1689,9 +1287,139 @@
                                     "child":[
                                         ]
                                 }]
+                        },
+                        {
+                            "type":"List",
+                            "searchKey":"List,BottomList,BottomList",
+                            "props":{"y":45,"x":20,"width":1083,"var":"BottomList","spaceY":0,"rotation":0,"repeatY":2,"repeatX":1,"name":"BottomList","height":205},
+                            "nodeParent":195,
+                            "label":"BottomList",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":298,
+                            "child":[
+                                {
+                                    "type":"Box",
+                                    "searchKey":"Box",
+                                    "props":{"y":88,"x":80,"width":1087,"renderType":"render","pivotY":88,"pivotX":80,"height":105},
+                                    "nodeParent":298,
+                                    "label":"Box",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":false,
+                                    "hasChild":true,
+                                    "compId":299,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "searchKey":"Image,HeadIcon",
+                                            "props":{"x":0,"skin":"Game/UI/Tweeting/Main/tx_biankuang.png","name":"HeadIcon","centerY":-6},
+                                            "nodeParent":299,
+                                            "label":"HeadIcon",
+                                            "isOpen":false,
+                                            "isDirectory":true,
+                                            "isAniNode":false,
+                                            "hasChild":true,
+                                            "compId":302,
+                                            "child":[
+                                                {
+                                                    "type":"Image",
+                                                    "searchKey":"Image,OtherIcon1",
+                                                    "props":{"skin":"Game/UI/Tweeting/Main/touxiangkuang.png","name":"OtherIcon1","centerY":0,"centerX":0},
+                                                    "nodeParent":302,
+                                                    "label":"OtherIcon1",
+                                                    "isOpen":false,
+                                                    "isDirectory":true,
+                                                    "isAniNode":false,
+                                                    "hasChild":true,
+                                                    "compId":308,
+                                                    "child":[
+                                                        {
+                                                            "type":"Sprite",
+                                                            "searchKey":"Sprite",
+                                                            "props":{"y":0,"x":0,"texture":"Game/UI/Tweeting/Main/touxiangkuang.png","renderType":"mask"},
+                                                            "nodeParent":308,
+                                                            "label":"Sprite",
+                                                            "isDirectory":false,
+                                                            "isAniNode":false,
+                                                            "hasChild":false,
+                                                            "compId":309,
+                                                            "child":[
+                                                                ]
+                                                        }]
+                                                }]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Nickname",
+                                            "props":{"y":24,"x":104,"width":133,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":24,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
+                                            "nodeParent":299,
+                                            "label":"Nickname",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":303,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Nickname",
+                                            "props":{"y":57,"x":105,"wordWrap":true,"width":72,"valign":"top","text":"12月24日","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
+                                            "nodeParent":299,
+                                            "label":"Nickname",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":304,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Nickname",
+                                            "props":{"y":57,"x":179,"wordWrap":true,"width":72,"valign":"top","text":"21：10","name":"Nickname","height":17,"fontSize":15,"color":"#ddb26b","bold":false,"align":"left"},
+                                            "nodeParent":299,
+                                            "label":"Nickname",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":305,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "searchKey":"Image",
+                                            "props":{"y":100,"width":1140,"skin":"Game/UI/Tweeting/Dynamic/fenge2.png","sizeGrid":"0,57,0,97","right":0,"left":0,"height":2},
+                                            "nodeParent":299,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":306,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "searchKey":"Label,Nickname",
+                                            "props":{"y":24,"x":249,"width":770,"valign":"top","text":"昵称昵称昵称昵","name":"Nickname","height":51,"fontSize":18,"color":"#a56c0a","bold":true,"align":"left"},
+                                            "nodeParent":299,
+                                            "label":"Nickname",
+                                            "isDirectory":false,
+                                            "isAniNode":false,
+                                            "hasChild":false,
+                                            "compId":307,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
                         }]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -1818,179 +1546,9 @@
                             "compId":262,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "searchKey":"Box,P402",
-                            "props":{"width":590,"visible":true,"name":"P402","height":259,"centerY":15,"centerX":0},
-                            "nodeParent":257,
-                            "label":"P402",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":267,
-                            "child":[
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "searchKey":"Image,bg",
-                                    "props":{"width":590,"top":0,"skin":"Game/UI/Tweeting/GetFan/hutui.png","right":0,"name":"bg","left":0,"height":740,"bottom":0,"anchorY":0.5,"anchorX":0.5},
-                                    "nodeParent":267,
-                                    "label":"bg",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":268,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Panel",
-                                    "searchKey":"Panel,scroll",
-                                    "props":{"width":570,"name":"scroll","height":231,"centerY":-2,"centerX":0,"anchorY":0.5,"anchorX":0.5},
-                                    "nodeParent":267,
-                                    "label":"scroll",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":269,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"Box",
-                                            "searchKey":"Box,layout",
-                                            "props":{"y":0,"x":0,"width":1,"name":"layout","height":705},
-                                            "nodeParent":269,
-                                            "label":"layout",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":270,
-                                            "child":[
-                                                {
-                                                    "x":90,
-                                                    "type":"Box",
-                                                    "searchKey":"Box,item",
-                                                    "props":{"y":105,"x":85,"width":180,"name":"item","height":225,"anchorY":0.5,"anchorX":0.5},
-                                                    "nodeParent":270,
-                                                    "label":"item",
-                                                    "isOpen":true,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":271,
-                                                    "child":[
-                                                        {
-                                                            "x":105,
-                                                            "type":"Image",
-                                                            "searchKey":"Image,icon",
-                                                            "props":{"width":180,"skin":"TJ/Promo/image/jx8.png","name":"icon","height":180,"centerY":-22.5,"centerX":0,"anchorY":0.5,"anchorX":0.5},
-                                                            "nodeParent":271,
-                                                            "label":"icon",
-                                                            "isOpen":true,
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":272,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
-                                                        },
-                                                        {
-                                                            "x":105,
-                                                            "type":"Image",
-                                                            "searchKey":"Image,nbg",
-                                                            "props":{"x":0,"width":180,"skin":"comp/image.png","name":"nbg","height":45,"centerY":90},
-                                                            "nodeParent":271,
-                                                            "label":"nbg",
-                                                            "isOpen":true,
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":273,
-                                                            "child":[
-                                                                ]
-                                                        },
-                                                        {
-                                                            "x":105,
-                                                            "type":"Label",
-                                                            "searchKey":"Label,name",
-                                                            "props":{"x":85,"wordWrap":false,"width":170,"valign":"middle","text":"这里是游戏名称","name":"name","multiline":false,"mouseEnabled":false,"height":24,"fontSize":20,"editable":false,"color":"#ffffff","centerY":90,"centerX":0,"anchorY":0.5,"anchorX":0.5,"align":"center"},
-                                                            "nodeParent":271,
-                                                            "label":"name",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":274,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
-                                                        },
-                                                        {
-                                                            "x":105,
-                                                            "type":"Script",
-                                                            "switchAble":true,
-                                                            "source":"src/script/TJ/Promo/script/PromoItem.ts",
-                                                            "searchKey":"Script,PromoItem",
-                                                            "removeAble":true,
-                                                            "props":{},
-                                                            "nodeParent":271,
-                                                            "label":"PromoItem",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":275,
-                                                            "child":[
-                                                                ]
-                                                        },
-                                                        {
-                                                            "x":105,
-                                                            "type":"Script",
-                                                            "switchAble":true,
-                                                            "source":"src/script/TJ/Promo/script/ButtonScale.ts",
-                                                            "searchKey":"Script,ButtonScale",
-                                                            "removeAble":true,
-                                                            "props":{},
-                                                            "nodeParent":271,
-                                                            "label":"ButtonScale",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":276,
-                                                            "child":[
-                                                                ]
-                                                        }],
-                                                    "$HIDDEN":false
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Script",
-                                    "switchAble":true,
-                                    "source":"src/script/TJ/Promo/script/P402.ts",
-                                    "searchKey":"Script,P402",
-                                    "removeAble":true,
-                                    "props":{},
-                                    "nodeParent":267,
-                                    "label":"P402",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":277,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
                         }]
-                }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

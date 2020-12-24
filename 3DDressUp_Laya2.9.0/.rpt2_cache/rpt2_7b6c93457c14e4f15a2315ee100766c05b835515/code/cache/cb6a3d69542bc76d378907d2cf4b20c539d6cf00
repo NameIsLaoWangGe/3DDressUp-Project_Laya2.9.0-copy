@@ -1,7 +1,0 @@
-{
-  "code": "import LwgInit from \"./script/Lwg/LwgInit\";\r\nimport GameUI from \"./script/GameUI\";\r\nexport default class GameConfig {\r\n    constructor() {\r\n    }\r\n    static init() {\r\n        var reg = Laya.ClassUtils.regClass;\r\n        reg(\"script/Lwg/LwgInit.ts\", LwgInit);\r\n        reg(\"script/GameUI.ts\", GameUI);\r\n    }\r\n}\r\nGameConfig.width = 1280;\r\nGameConfig.height = 720;\r\nGameConfig.scaleMode = \"fixedheight\";\r\nGameConfig.screenMode = \"horizontal\";\r\nGameConfig.alignV = \"top\";\r\nGameConfig.alignH = \"left\";\r\nGameConfig.startScene = \"Scene/LwgInit.scene\";\r\nGameConfig.sceneRoot = \"\";\r\nGameConfig.debug = false;\r\nGameConfig.stat = false;\r\nGameConfig.physicsDebug = false;\r\nGameConfig.exportSceneToJson = true;\r\nGameConfig.init();\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Copy/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/LwgInit.ts",
-    "D:/Game/project/3DDressUp/Copy/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/GameUI.ts"
-  ]
-}

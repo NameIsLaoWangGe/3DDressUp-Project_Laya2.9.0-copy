@@ -506,11 +506,11 @@ declare namespace TJ.API.Account {
     class Param {
         force: boolean;
     }
-    let userId: {};
+    let userIds: any;
     let autoLogin: boolean;
     let loginPromiseWrap: Common.PromiseWrap<{}>;
     function Login(param: Param): Promise<void>;
-    let userInfo: {};
+    let userInfo: any;
     let autoGetUserInfo: boolean;
     let getUserInfoPromiseWrap: Common.PromiseWrap<{}>;
     function GetUserInfo(param: Param): Promise<void>;
@@ -534,6 +534,7 @@ declare namespace TJ.API.AdService {
         template: boolean;
         video: boolean;
         refresh: boolean;
+        extraData: any;
         onNative: (item: NativeItem) => void;
         ToJson(): string;
     }
@@ -802,6 +803,8 @@ declare namespace TJ.Develop.Yun.Location {
     let syncPromise: Promise<void>;
     function Sync(): Promise<void>;
     let shield: boolean;
+    let noAdTime: number;
+    let nativeAdCD: number;
 }
 declare namespace TJ.Develop.Yun.Login {
     let apiUrl: string;
@@ -901,8 +904,10 @@ declare namespace TJ.Develop.Yun.Promo {
         appGuid: string;
         appPackageName: string;
         promoOriginIcon: string;
+        appName: string;
         weight: number;
         title: string;
+        titleBG: number;
         describe: string;
         tag: number;
         private promoStyle;
@@ -949,6 +954,10 @@ declare namespace TJ.Develop.Yun.Promo {
         private static Random;
         static Get(style?: string): Promise<List>;
     }
+}
+declare namespace TJ.Develop.Yun.Push {
+    let apiUrl: string;
+    function AddPush(delayTime: number, template_id: string, data: any): Promise<void>;
 }
 declare namespace TJ.Develop.Yun.Rank {
     class RankData {
@@ -2299,7 +2308,7 @@ declare namespace TJ.Platform.AppRt.Extern.WX {
         private bannerAd;
         constructor(obj: any);
         readonly style: BannerAdStyle;
-        Show(): Promise<any>;
+        Show(param?: any): Promise<any>;
         Hide(): Promise<any>;
         OnLoad(callback: (res: any) => void): void;
         OffLoad(callback?: (res: any) => void): void;
@@ -2320,7 +2329,7 @@ declare namespace TJ.Platform.AppRt.Extern.WX {
         private interstitialAd;
         constructor(obj: any);
         Load(): Promise<any>;
-        Show(): Promise<any>;
+        Show(param?: any): Promise<any>;
         OnLoad(callback: (res: any) => void): void;
         OffLoad(callback?: (res: any) => void): void;
         OnClose(callback: (res: any) => void): void;
@@ -2334,7 +2343,7 @@ declare namespace TJ.Platform.AppRt.Extern.WX {
         private rewardedVideoAd;
         constructor(obj: any);
         Load(): Promise<any>;
-        Show(): Promise<any>;
+        Show(param?: any): Promise<any>;
         OnLoad(callback: (res: any) => void): void;
         OffLoad(callback?: (res: any) => void): void;
         OnError(callback: (res: {
@@ -2426,11 +2435,15 @@ declare namespace TJ.Platform.AppRt.Extern.WX {
         imageUrlId: string;
     }
     function OnShareAppMessage(param: OnShareAppMessageParam): void;
-    function ShowShareMenu(param: ShowShareMenusParam): void;
-    class ShowShareMenusParam extends CallbackParam {
+    class ShowShareMenuParam extends CallbackParam {
         withShareTicket: boolean;
         menus: string[];
     }
+    function ShowShareMenu(param: ShowShareMenuParam): void;
+    class RequestSubscribeMessageParam extends CallbackParam {
+        tmplIds: string[];
+    }
+    function RequestSubscribeMessage(param: RequestSubscribeMessageParam): void;
 }
 declare namespace TJ.Platform.AppRt.Extern.XIAOMI.QG {
     function Exist(): boolean;
@@ -2625,6 +2638,9 @@ declare namespace TJ.Platform.AppRt.Develop.WX.Account {
         errmsg: string;
     }>;
     function GetUserInfo(): Promise<Extern.WX.UserInfo>;
+}
+declare namespace TJ.Platform.AppRt.Develop.WX.Message {
+    function Subscribe(delaySeconds: number, tmplId: string, data: {}): void;
 }
 declare namespace TJ.Platform.AppRt.Develop.Yun.Login {
     function OPPOLogin(param: {

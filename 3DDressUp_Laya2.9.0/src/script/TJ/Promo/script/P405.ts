@@ -1,7 +1,7 @@
 import PromoItem from "./PromoItem";
 import Behaviour from "./Behaviour";
 import { GO } from "../../GO";
-import { EventMgr } from "../../../script/Frame/Core";
+// import { EventMgr } from "../../../script/Frame/Core";
 
 export default class P405 extends Behaviour
 {
@@ -121,7 +121,7 @@ export default class P405 extends Behaviour
 
     public Show()
     {
-        EventMgr.notify("nativeHide");
+        // EventMgr.notify("nativeHide");
         if (TJ.API.AppInfo.Channel() == TJ.Define.Channel.AppRt.ZJTD_AppRt)
         {
             let param = new TJ.API.Promo.Param();
@@ -136,7 +136,7 @@ export default class P405 extends Behaviour
     }
     public Hide()
     {
-        EventMgr.notify("nativeShow");
+        // EventMgr.notify("nativeShow");
         this.targetX = 0;
         this.showing = [];
     }

@@ -8209,6 +8209,7 @@
         (function (_Event) {
             _Event["updateRanking"] = "_Start_updateRanking";
         })(_Event = _Start._Event || (_Start._Event = {}));
+        _Start._whichFrom = '';
         function _init() {
         }
         _Start._init = _init;
@@ -8229,9 +8230,9 @@
                         UI.effect(this._Owner, new Laya.Point(element.x, element.y), delay);
                     }
                 });
-                if (_Ranking._whereFrom === 'MakePattern') {
-                    TimerAdmin._frameOnce(60, this, () => {
-                        this._openScene('Ranking', false);
+                if (_Start._whichFrom === 'MakePattern') {
+                    TimerAdmin._frameOnce(30, this, () => {
+                        this._openScene('Tweeting', false);
                     });
                 }
             }
@@ -9006,7 +9007,8 @@
                             _3D._Scene._ins().cameraToSprite(this._Owner);
                             this.texStorage();
                             _MakePattern._completeNum.value++;
-                            this._openScene('Start', true, true, () => { });
+                            _Start._whichFrom = 'MakePattern';
+                            this._openScene('Start', true, true);
                         });
                     }, 200);
                 };
@@ -9112,6 +9114,36 @@
     (function (_Tweeting) {
         _Tweeting._photo = [];
         class Tweeting extends Admin._SceneBase {
+            constructor() {
+                super(...arguments);
+                this.Main = {
+                    owner: null,
+                    PlayerName: null,
+                    AttentionNum: null,
+                    FansNum: null,
+                    AroductionNum: null,
+                    HotList: null,
+                    Publishontent: null,
+                    ChoosePhotos: null,
+                };
+                this.ChoosePhot = {
+                    owner: null,
+                    open: () => { },
+                    close: () => { },
+                };
+                this.Dynamic = {
+                    owner: null,
+                    open: () => { },
+                    close: () => { },
+                };
+                this.GetFan = {
+                    owner: null,
+                    open: () => { },
+                    close: () => { },
+                };
+            }
+            lwgOnAwake() {
+            }
         }
         _Tweeting.Tweeting = Tweeting;
     })(_Tweeting || (_Tweeting = {}));
@@ -9144,80 +9176,12 @@
         }
     }
 
-    var Scene = Laya.Scene;
-    var REG = Laya.ClassUtils.regClass;
-    var ui;
-    (function (ui) {
-        var test;
-        (function (test) {
-            class TestSceneUI extends Scene {
-                constructor() { super(); }
-                createChildren() {
-                    super.createChildren();
-                    this.loadScene("test/TestScene");
-                }
-            }
-            test.TestSceneUI = TestSceneUI;
-            REG("ui.test.TestSceneUI", TestSceneUI);
-        })(test = ui.test || (ui.test = {}));
-    })(ui || (ui = {}));
-
-    class GameUI extends ui.test.TestSceneUI {
-        constructor() {
-            super();
-            this.newScene = Laya.stage.addChild(new Laya.Scene3D());
-            var camera = this.newScene.addChild(new Laya.Camera(0, 0.1, 100));
-            camera.transform.translate(new Laya.Vector3(0, 6, 9.5));
-            camera.transform.rotate(new Laya.Vector3(-15, 0, 0), true, false);
-            var directionLight = new Laya.DirectionLight();
-            this.newScene.addChild(directionLight);
-            directionLight.color = new Laya.Vector3(0.6, 0.6, 0.6);
-            var mat = directionLight.transform.worldMatrix;
-            mat.setForward(new Laya.Vector3(-1.0, -1.0, -1.0));
-            directionLight.transform.worldMatrix = mat;
-            var plane = this.newScene.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createPlane(10, 10, 10, 10)));
-            var planeMat = new Laya.BlinnPhongMaterial();
-            Laya.Texture2D.load("res/grass.png", Laya.Handler.create(this, function (tex) {
-                planeMat.albedoTexture = tex;
-            }));
-            var tilingOffset = planeMat.tilingOffset;
-            tilingOffset.setValue(5, 5, 0, 0);
-            planeMat.tilingOffset = tilingOffset;
-            plane.meshRenderer.material = planeMat;
-            var planeStaticCollider = plane.addComponent(Laya.PhysicsCollider);
-            var planeShape = new Laya.BoxColliderShape(10, 0, 10);
-            planeStaticCollider.colliderShape = planeShape;
-            planeStaticCollider.friction = 2;
-            planeStaticCollider.restitution = 0.3;
-            this.mat1 = new Laya.BlinnPhongMaterial();
-            Laya.Texture2D.load("res/wood.jpg", Laya.Handler.create(this, function (tex) {
-                this.mat1.albedoTexture = tex;
-                Laya.timer.once(100, this, function () {
-                    this.addBox();
-                });
-            }));
-        }
-        addBox() {
-            var box = this.newScene.addChild(new Laya.MeshSprite3D(Laya.PrimitiveMesh.createBox(0.75, 0.5, 0.5)));
-            box.meshRenderer.material = this.mat1;
-            var transform = box.transform;
-            var pos = transform.position;
-            pos.setValue(0, 10, 0);
-            transform.position = pos;
-            var rigidBody = box.addComponent(Laya.Rigidbody3D);
-            var boxShape = new Laya.BoxColliderShape(0.75, 0.5, 0.5);
-            rigidBody.colliderShape = boxShape;
-            rigidBody.mass = 10;
-        }
-    }
-
     class GameConfig {
         constructor() {
         }
         static init() {
             var reg = Laya.ClassUtils.regClass;
             reg("script/Lwg/LwgInit.ts", LwgInit);
-            reg("script/GameUI.ts", GameUI);
         }
     }
     GameConfig.width = 1280;

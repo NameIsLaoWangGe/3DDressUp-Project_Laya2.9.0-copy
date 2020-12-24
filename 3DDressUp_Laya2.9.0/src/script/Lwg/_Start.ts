@@ -11,6 +11,7 @@ export module _Start {
     export enum _Event {
         updateRanking = '_Start_updateRanking',
     }
+    export let _whichFrom = '';
     export function _init(): void {
     }
     export class Start extends Admin._SceneBase {
@@ -36,10 +37,9 @@ export module _Start {
                     UI.effect(this._Owner, new Laya.Point(element.x, element.y), delay);
                 }
             });
-
-            if (_Ranking._whereFrom === 'MakePattern') {
-                TimerAdmin._frameOnce(60, this, () => {
-                    this._openScene('Ranking', false);
+            if (_whichFrom === 'MakePattern') {
+                TimerAdmin._frameOnce(30, this, () => {
+                    this._openScene('Tweeting', false);
                 })
             }
         }

@@ -15,7 +15,9 @@ export default class PromoItem extends Behaviour
     public onClick_: Function;
 
     public style: string;
+    // public data: TJ.Develop.Yun.Promo.Data;
     public data: TJ.Develop.Yun.Promo.Data;
+
 
     public posId: number;
     public dataId: number;

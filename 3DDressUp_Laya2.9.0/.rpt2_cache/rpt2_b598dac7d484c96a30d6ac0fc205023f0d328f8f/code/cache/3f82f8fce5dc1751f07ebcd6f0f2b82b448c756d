@@ -1,9 +1,0 @@
-{
-  "code": "import { Admin } from \"./Lwg\";\r\nexport var _Start;\r\n(function (_Start) {\r\n    function _init() {\r\n    }\r\n    _Start._init = _init;\r\n    class Start extends Admin._SceneBase {\r\n        lwgOnStart() {\r\n        }\r\n        lwgButton() {\r\n            this._btnUp(this._ImgVar('BtnStart'), () => {\r\n                this._openScene('MakeTailor', true, true);\r\n            });\r\n        }\r\n    }\r\n    _Start.Start = Start;\r\n})(_Start || (_Start = {}));\r\nexport default _Start.Start;\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/TJ/Admanager.ts",
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts",
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_Game.ts",
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_PreLoad.ts"
-  ]
-}

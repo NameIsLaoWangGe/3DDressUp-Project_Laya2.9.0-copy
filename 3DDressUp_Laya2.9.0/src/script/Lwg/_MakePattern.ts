@@ -7,6 +7,7 @@ import { _MakeTailor } from "./_MakeTailor";
 import { _MakeUp } from "./_MakeUp";
 import { _Res } from "./_PreLoad";
 import { _Ranking } from "./_Ranking";
+import { _Start } from "./_Start";
 import { _UI } from "./_UI";
 export module _MakePattern {
     export enum _Event {
@@ -133,7 +134,8 @@ export module _MakePattern {
                         _3D._Scene._ins().cameraToSprite(this._Owner);
                         this.texStorage();
                         _completeNum.value++;
-                        this._openScene('Start', true, true, () => { });
+                        _Start._whichFrom = 'MakePattern';
+                        this._openScene('Start', true, true);
                     });
                 }, 200);
             }

@@ -1,7 +1,0 @@
-{
-  "code": "import { Admin } from \"./Lwg\";\r\nimport { _Res } from \"./_PreLoad\";\r\nexport var _MakeClothes;\r\n(function (_MakeClothes) {\r\n    class MakeClothes extends Admin._SceneBase {\r\n        lwgOnAwake() {\r\n            Laya.stage.addChildAt(_Res._list.scene3D.MakeScene.Scene, this._Owner.zOrder - 1);\r\n        }\r\n    }\r\n    _MakeClothes.MakeClothes = MakeClothes;\r\n})(_MakeClothes || (_MakeClothes = {}));\r\nexport default _MakeClothes.MakeClothes;\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts",
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/_PreLoad.ts"
-  ]
-}

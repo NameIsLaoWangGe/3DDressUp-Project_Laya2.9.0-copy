@@ -1,6 +1,0 @@
-{
-  "code": "import { Admin } from \"./Lwg\";\r\nexport var _PersonalInfo;\r\n(function (_PersonalInfo) {\r\n    class PersonalInfo extends Admin._SceneBase {\r\n        lwgButton() {\r\n            this._btnUp(this._ImgVar('BtnClose'), () => {\r\n                this._closeScene();\r\n            });\r\n        }\r\n    }\r\n    _PersonalInfo.PersonalInfo = PersonalInfo;\r\n})(_PersonalInfo || (_PersonalInfo = {}));\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
-  ]
-}

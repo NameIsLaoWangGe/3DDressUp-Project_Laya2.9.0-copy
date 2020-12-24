@@ -1,6 +1,0 @@
-{
-  "code": "import { Admin } from \"./Lwg\";\r\nexport var _Tweeting;\r\n(function (_Tweeting) {\r\n    _Tweeting._photo = [];\r\n    class Tweeting extends Admin._SceneBase {\r\n    }\r\n    _Tweeting.Tweeting = Tweeting;\r\n})(_Tweeting || (_Tweeting = {}));\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Copy/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
-  ]
-}

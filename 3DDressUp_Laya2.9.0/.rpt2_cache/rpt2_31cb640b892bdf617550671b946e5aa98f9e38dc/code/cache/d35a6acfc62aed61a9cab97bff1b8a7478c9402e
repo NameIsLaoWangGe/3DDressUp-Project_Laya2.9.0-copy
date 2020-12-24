@@ -1,6 +1,0 @@
-{
-  "code": "import { Admin, EventAdmin, _LwgPreLoad, _SceneName } from \"./Lwg\";\r\nexport var _PreLoadStepUrl;\r\n(function (_PreLoadStepUrl) {\r\n    _PreLoadStepUrl._game = {};\r\n})(_PreLoadStepUrl || (_PreLoadStepUrl = {}));\r\nexport var _PreLoadStep;\r\n(function (_PreLoadStep) {\r\n    class PreLoadStep extends _LwgPreLoad._PreLoadScene {\r\n        lwgOnStart() {\r\n            switch (Admin._preLoadOpenSceneLater.openSceneName) {\r\n                case _SceneName.Game:\r\n                    EventAdmin._notify(_LwgPreLoad._Event.importList, ([_PreLoadStepUrl._game]));\r\n                    break;\r\n                default:\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n    _PreLoadStep.PreLoadStep = PreLoadStep;\r\n})(_PreLoadStep || (_PreLoadStep = {}));\r\n;\r\nexport default _PreLoadStep.PreLoadStep;\r\n",
-  "references": [
-    "D:/Game/project/3DDressUp/Project_Laya2.9.0/3DDressUp_Laya2.9.0/3DDressUp_Laya2.9.0/src/script/Lwg/Lwg.ts"
-  ]
-}
