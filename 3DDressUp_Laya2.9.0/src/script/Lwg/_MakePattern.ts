@@ -1,5 +1,5 @@
 import { TaT } from "../TJ/Admanager";
-import { Admin, Animation2D, Animation3D, Click, DataAdmin, EventAdmin, TimerAdmin, Tools } from "./Lwg";
+import { Admin, Animation2D, Animation3D, Click, DataAdmin, EventAdmin, StorageAdmin, TimerAdmin, Tools } from "./Lwg";
 import { lwg3D } from "./Lwg3D";
 import { _3D } from "./_3D";
 import { _DressingRoom } from "./_DressingRoom";
@@ -13,7 +13,15 @@ export module _MakePattern {
         close = '_MakePattern_close',
         createImg = '_MakePattern_createImg',
     }
-
+    /**完成次数*/
+    export let _completeNum = {
+        get value(): number {
+            return StorageAdmin._mum('_MakePattern/completeNum').value
+        },
+        set value(val: number) {
+            StorageAdmin._mum('_MakePattern/completeNum').value = val;
+        }
+    }
     class _Pattern extends DataAdmin._Table {
         private static ins: _Pattern;
         static _ins(): _Pattern {
@@ -124,6 +132,7 @@ export module _MakePattern {
                     this.UI.btnAgainVinish(() => {
                         _3D._Scene._ins().cameraToSprite(this._Owner);
                         this.texStorage();
+                        _completeNum.value++;
                         this._openScene('Start', true, true, () => { });
                     });
                 }, 200);
@@ -171,6 +180,8 @@ export module _MakePattern {
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texF}`, base64F);
                 Laya.LocalStorage.setItem(`${_MakeTailor._DIYClothes._ins()._pitchName}/${_MakeTailor._DIYClothes._ins()._otherPro.texR}`, base64R);
                 _Ranking._whereFrom = this._Owner.name;
+                texF.destroy();
+                texR.destroy();
             })
         }
 

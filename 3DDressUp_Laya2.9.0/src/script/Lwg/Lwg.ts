@@ -154,7 +154,7 @@ export module lwg {
             clickContent = 'clickContent',
         }
 
-        export let DialogueNode;
+        export let DialogueNode: Laya.Sprite;
         /**
          * 动态创建一个自动播放的对话框
          * @param x x位置
@@ -1191,58 +1191,61 @@ export module lwg {
                     Sp.mask = Mask;
                     Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
                     Sp.scale(1, 0);
+                    var destroy = () => {
+                        htmlCanvas1.destroy();
+                        Sp.texture.destroy();
+                        Sp.destroy();
+                    }
                     Animation2D.scale(Sp, 1, 0, 1, 1, time, 0, () => {
                         Scene.scale(1, 1);
-                        htmlCanvas1.destroy();
-                        Sp.destroy();
+                        destroy();
                     });
                 }
             })
             return time + delaye + 100;
         }
 
+        let _base64: string;
         function _shutters_Close(Scene: Laya.Scene, type?: string): number {
-            let num = 12;
+            let num = 10;
             let time = 600;
             let delaye = 100;
             let caller = {};
             let ran = Tools._Array.randomGetOne([0, 1, 2, 3, 4, 5])
             // 延迟执行是为了场景渲染完毕，截图更加全面
             Laya.timer.once(delaye, caller, () => {
-                var htmlCanvas1: Laya.HTMLCanvas = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
-                let base641 = htmlCanvas1.toBase64("image/png", 1);
+                const htmlCanvas: Laya.HTMLCanvas = Scene.drawToCanvas(Laya.stage.width, Laya.stage.height, 0, 0);
+                _base64 = htmlCanvas.toBase64("image/png", 1);
                 Scene.scale(1, 0);
                 for (let index = 0; index < num; index++) {
-                    let Sp = new Laya.Image;
-                    Laya.stage.addChild(Sp);
-                    Sp.width = Laya.stage.width;
-                    Sp.height = Laya.stage.height;
-                    Sp.pos(0, 0);
-                    Sp.zOrder = 100;
-                    Sp.name = 'shutters';
-                    Sp.skin = base641;
+                    let img = new Laya.Image;
+                    Laya.stage.addChild(img);
+                    img.width = Laya.stage.width;
+                    img.height = Laya.stage.height;
+                    img.pos(0, 0);
+                    img.zOrder = 100;
+                    img.name = 'shutters';
+                    img.skin = _base64;
                     let Mask = new Laya.Image;
                     Mask.skin = `Lwg/UI/ui_orthogon_cycn.png`;
-                    Sp.mask = Mask;
+                    img.mask = Mask;
 
                     var func1 = () => {
                         Mask.width = Laya.stage.width;
                         Mask.height = Laya.stage.height / num;
                         Mask.pos(0, Laya.stage.height / num * index);
-                        Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
-                        Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Tools._Node.changePivot(img, img.width / 2, index * img.height / num + img.height / num / 2);
+                        Animation2D.scale(img, 1, 1, 1, 0, time, 0, () => {
+                            img.destroy();
                         });
                     }
                     var func2 = () => {
                         Mask.width = Laya.stage.width / num;
                         Mask.height = Laya.stage.height;
                         Mask.pos(Laya.stage.width / num * index, 0);
-                        Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
-                        Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Tools._Node.changePivot(img, index * img.width / num + img.width / num / 2, img.height / 2);
+                        Animation2D.scale(img, 1, 1, 0, 1, time, 0, () => {
+                            img.destroy();
                         });
                     }
 
@@ -1250,31 +1253,29 @@ export module lwg {
                         Mask.width = Laya.stage.width;
                         Mask.height = Laya.stage.height / num;
                         Mask.pos(0, Laya.stage.height / num * index);
-                        Tools._Node.changePivot(Sp, Sp.width / 2, index * Sp.height / num + Sp.height / num / 2);
-                        Animation2D.scale(Sp, 1, 1, 1, 0, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Tools._Node.changePivot(img, img.width / 2, index * img.height / num + img.height / num / 2);
+                        Animation2D.scale(img, 1, 1, 1, 0, time, 0, () => {
+                            img.destroy();
                         });
 
                         if (index % 2 == 0) {
-                            let Sp1 = new Laya.Image;
-                            Laya.stage.addChild(Sp1);
-                            Sp1.width = Laya.stage.width;
-                            Sp1.height = Laya.stage.height;
-                            Sp1.pos(0, 0);
-                            Sp1.zOrder = 100;
-                            Sp1.name = 'shutters';
-                            Sp1.skin = base641;
+                            let img1 = new Laya.Image;
+                            Laya.stage.addChild(img1);
+                            img1.width = Laya.stage.width;
+                            img1.height = Laya.stage.height;
+                            img1.pos(0, 0);
+                            img1.zOrder = 100;
+                            img1.name = 'shutters';
+                            img1.skin = _base64;
                             let Mask1 = new Laya.Image;
                             Mask1.skin = `Lwg/UI/ui_orthogon_cycn.png`;
-                            Sp1.mask = Mask1;
+                            img1.mask = Mask1;
                             Mask1.width = Laya.stage.width / num;
                             Mask1.height = Laya.stage.height;
                             Mask1.pos(Laya.stage.width / num * index, 0);
-                            Tools._Node.changePivot(Sp1, index * Sp1.width / num + Sp1.width / num / 2, Sp1.height / 2);
-                            Animation2D.scale(Sp1, 1, 1, 0, 1, time, 0, () => {
-                                htmlCanvas1.destroy();
-                                Sp1.destroy();
+                            Tools._Node.changePivot(img1, index * img1.width / num + img1.width / num / 2, img1.height / 2);
+                            Animation2D.scale(img1, 1, 1, 0, 1, time, 0, () => {
+                                img1.destroy();
                             });
                         }
                     }
@@ -1284,11 +1285,11 @@ export module lwg {
                         Mask.height = Laya.stage.height + 1000;
                         Mask.pos(Laya.stage.width / num * index, -1000 / 2);
                         Tools._Node.changePivot(Mask, Mask.width / 2, Mask.height / 2);
-                        Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
+                        Tools._Node.changePivot(img, index * img.width / num + img.width / num / 2, img.height / 2);
                         Mask.rotation = 10;
-                        Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Animation2D.scale(img, 1, 1, 0, 1, time, 0, () => {
+                            img.destroy();
+
                         });
                     }
                     let addLen = 1000;
@@ -1297,11 +1298,10 @@ export module lwg {
                         Mask.height = Laya.stage.height + addLen;
                         Mask.pos(Laya.stage.width / num * index, -addLen / 2);
                         Tools._Node.changePivot(Mask, Mask.width / 2, Mask.height / 2);
-                        Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
+                        Tools._Node.changePivot(img, index * img.width / num + img.width / num / 2, img.height / 2);
                         Mask.rotation = -10;
-                        Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Animation2D.scale(img, 1, 1, 0, 1, time, 0, () => {
+                            img.destroy();
                         });
                     }
                     var func5 = () => {
@@ -1309,33 +1309,31 @@ export module lwg {
                         Mask.height = Laya.stage.height + addLen;
                         Mask.pos(Laya.stage.width / num * index, -addLen / 2);
                         Tools._Node.changePivot(Mask, Mask.width / 2, Mask.height / 2);
-                        Tools._Node.changePivot(Sp, index * Sp.width / num + Sp.width / num / 2, Sp.height / 2);
+                        Tools._Node.changePivot(img, index * img.width / num + img.width / num / 2, img.height / 2);
                         Mask.rotation = -15;
-                        Animation2D.scale(Sp, 1, 1, 0, 1, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp.destroy();
+                        Animation2D.scale(img, 1, 1, 0, 1, time, 0, () => {
+                            img.destroy();
                         });
 
-                        let Sp2 = new Laya.Image;
-                        Laya.stage.addChild(Sp2);
-                        Sp2.width = Laya.stage.width;
-                        Sp2.height = Laya.stage.height;
-                        Sp2.pos(0, 0);
-                        Sp2.zOrder = 100;
-                        Sp2.name = 'shutters';
-                        Sp2.skin = base641;
+                        let img2 = new Laya.Image;
+                        Laya.stage.addChild(img2);
+                        img2.width = Laya.stage.width;
+                        img2.height = Laya.stage.height;
+                        img2.pos(0, 0);
+                        img2.zOrder = 100;
+                        img2.name = 'shutters';
+                        img2.skin = _base64;
                         let Mask1 = new Laya.Image;
                         Mask1.skin = `Lwg/UI/ui_orthogon_cycn.png`;
-                        Sp2.mask = Mask1;
+                        img2.mask = Mask1;
                         Mask1.width = Laya.stage.width / num;
                         Mask1.height = Laya.stage.height + addLen;
                         Mask1.pos(Laya.stage.width / num * index, -addLen / 2);
                         Tools._Node.changePivot(Mask1, Mask1.width / 2, Mask1.height / 2);
-                        Tools._Node.changePivot(Sp2, index * Sp2.width / num + Sp2.width / num / 2, Sp2.height / 2);
+                        Tools._Node.changePivot(img2, index * img2.width / num + img2.width / num / 2, img2.height / 2);
                         Mask1.rotation = 15;
-                        Animation2D.scale(Sp2, 1, 1, 0, 1, time, 0, () => {
-                            htmlCanvas1.destroy();
-                            Sp2.destroy();
+                        Animation2D.scale(img2, 1, 1, 0, 1, time, 0, () => {
+                            img2.destroy();
                         });
                     }
                     let arr = [func1, func2, func3, func4, func5, func6];
@@ -7042,6 +7040,7 @@ export module lwg {
         }
         /**绘制类*/
         export module _Draw {
+
             /**
               * 为一个节点绘制一个扇形遮罩
               * 想要遮罩的形状发生变化，必须先将父节点的cacheAs改回“none”，接着改变其角度，再次将cacheAs改为“bitmap”，必须在同一帧内进行，因为是同一帧，所以在当前帧最后或者下一帧前表现出来，帧内时间不会表现任何状态，这是个思路，帧内做任何变化都不会显示，只要帧结尾改回来就行。
@@ -7076,6 +7075,8 @@ export module lwg {
                 return base64;
             }
 
+            /**绘制类绘制出的贴图和canvas的存储，每次只保存3个，自动销毁*/
+            export let _texArr = [];
             /**
              * 将当前摄像机的图像渲染到一个sprite中
              * @export
@@ -7097,9 +7098,13 @@ export module lwg {
                 _camera.clearFlag = Laya.CameraClearFlags.Sky;
                 const ptex = new Laya.Texture(((<Laya.Texture2D>(_camera.renderTarget as any))), Laya.Texture.DEF_UV);
                 sprite.graphics.drawTexture(ptex, sprite.x, sprite.y, sprite.width, sprite.height);
+                _texArr.push(ptex);
+                if (_texArr.length > 2) {
+                    _texArr[0].destroy();
+                    _texArr.shift();
+                }
                 // 延迟销毁，因为渲染需要时间
-                TimerAdmin._frameOnce(20, this, () => {
-                    ptex.destroy();
+                TimerAdmin._frameOnce(5, this, () => {
                     _camera.destroy();
                 })
             }

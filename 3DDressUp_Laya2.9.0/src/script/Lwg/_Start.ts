@@ -16,9 +16,9 @@ export module _Start {
     export class Start extends Admin._SceneBase {
         lwgOnAwake(): void {
 
-            TimerAdmin._frameLoop(20, this, () => {
-                lwg.Effects3D._Particle._spiral(_3D._Scene._ins()._Owner, new Laya.Vector3(5, 5, -15));
-            })
+            // TimerAdmin._frameLoop(20, this, () => {
+            //     lwg.Effects3D._Particle._spiral(_3D._Scene._ins()._Owner, new Laya.Vector3(5, 5, -15));
+            // })
 
             Tools._Node.childrenVisible2D(this._ImgVar('BtnParent'), false);
             _3D._Scene._ins().openStartAni(() => {

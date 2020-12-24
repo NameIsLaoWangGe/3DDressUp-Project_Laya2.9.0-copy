@@ -47,6 +47,8 @@ export module record {
         '每次赋值新贴图Texture/Texture2D的时候，旧的贴图要删掉' = 'destroy()掉，否则内存增加很快，尤其是用drawToTexture()和drawToCanvas()绘制的行的贴图',
 
         'texture/texture2D的引用属性' = '贴图如果不new出一个的话，多个sprite用同一个贴图的时候，销毁其中一个贴图必然会引发其他贴图消失，因为是引用关系',
+        
+        '非必要截图保存的图片用tex临时保存'='只有需要存储的用base64，否则可能导致内存泄漏'
 
     }
     /**
